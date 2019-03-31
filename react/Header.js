@@ -13,7 +13,7 @@ import AppBar from '@material-ui/core/AppBar';
 const styles = theme => ({
   header: {
     backgroundColor: '#ffffff',
-    minHeight: 74,
+    minHeight: 50,
     paddingLeft: theme.spacing.unit * 20,
     paddingRight: theme.spacing.unit * 20,
     [theme.breakpoints.down('sm')]: {
@@ -22,14 +22,18 @@ const styles = theme => ({
     },
     flexGrow:1
   },
+  appBar:{
+    boxShadow: '0 1px 2px rgba(0, 0, 0, 0.1)',
+  },
   widthAuto: {
     width: 'auto',
   },
   dasfinance: {
     color: '#1d1537',
     fontFamily: "Ramaraja",
-    fontSize: 36,
+    fontSize: 30,
     fontWeight: 300,
+    marginTop: theme.spacing.unit*0.5
   },
   link: {
     color: '#1d1537',
@@ -37,9 +41,7 @@ const styles = theme => ({
     fontSize: 14,
     marginLeft: theme.spacing.unit *3
   },
-  paddingTop: {
-    paddingTop: theme.spacing.unit * 1,
-  },
+
   paddingBottom: {
     [theme.breakpoints.down('sm')]: {
       paddingBottom: theme.spacing.unit * 1,
@@ -107,8 +109,8 @@ class Header extends React.Component {
 
     return (
       
-        <AppBar position={"static"}>
-          <Grid className={classNames(classes.header, classes.paddingTop)} >
+        <AppBar className={classes.appBar}>
+          <Grid className={classNames(classes.header)} >
           <Toolbar disableGutters>
           <a href="/home" className={classes.blueLink}><Typography className={classes.dasfinance}>DAS.Finance</Typography></a>
         
@@ -116,10 +118,10 @@ class Header extends React.Component {
        
           <Grid container justify="flex-end">           
             <Button id="header-research">
-              <Typography className={classes.link} align='center'>Research</Typography>
+              <Typography className={classes.link} align='center'>About</Typography>
             </Button>          
             <Button id="header-storadar">
-              <Typography className={classes.link} align='center'>STO Radar</Typography>
+              <Typography className={classes.link} align='center'>Team</Typography>
             </Button>       
             <Button id="header-news">
               <Typography className={classes.link} align='center'>DAS News</Typography>

@@ -195,7 +195,8 @@ const styles = theme => ({
     },
     [theme.breakpoints.down('sm')]: {
       maxWidth: '500px'
-    }
+    },
+    marginTop: theme.spacing.unit *5, 
   },
   serviceTitle: {
     height: '160px',
@@ -268,7 +269,7 @@ class Home extends React.Component {
                 <Grid item xs={12} container direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
                   <img src="/static/core/home/dasresearch.svg"/>
                   
-                  <Typography style={{color: '#373737', fontSize: 18,}} className={classNames(classes.nunitoSansSemiBold,)}>DAS Research</Typography>
+                  <Typography style={{color: '#373737', fontSize: 18,}} className={classNames(classes.nunitoSansSemiBold,)}>Market Data</Typography>
                   
                 
                 </Grid>
@@ -287,7 +288,7 @@ class Home extends React.Component {
                 <Grid item xs={12} container direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
                   <img src="/static/core/home/storadar.svg"/>
                   
-                  <Typography style={{ color: '#373737', fontSize: 18,}} className={classNames(classes.nunitoSansSemiBold,)}>STO Radar</Typography>
+                  <Typography style={{ color: '#373737', fontSize: 18,}} className={classNames(classes.nunitoSansSemiBold,)}>On-chain Data</Typography>
                   
                 </Grid>
                 <Grid item xs={12} className={classes.serviceDetail}>
@@ -305,7 +306,7 @@ class Home extends React.Component {
                 <Grid item xs={12} container direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
                   <img src="/static/core/home/endtoend.svg"/>
                   
-                  <Typography style={{ color: '#373737', fontSize: 18,}} className={classNames(classes.nunitoSansSemiBold,)}>End-to-End<br/>Digital Asset Management</Typography>
+                  <Typography style={{ color: '#373737', fontSize: 18,}} className={classNames(classes.nunitoSansSemiBold,)}>Sentiment Data</Typography>
                
                   
                 </Grid>
