@@ -8,6 +8,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
+import KeyboardArrowUp from '@material-ui/icons/KeyboardArrowUp'
 
 const styles = theme => ({
   header: {
@@ -60,6 +62,15 @@ const styles = theme => ({
   blueLink: {
     color: "#1d1537",
     textDecorationLine: "none",
+  },
+  top: {
+    position: 'fixed',
+    bottom: '10px',
+    right: '10px',
+    zIndex: 200,
+  },
+  maxWidth: {
+    maxWidth: '1200px',
   }
 });
 
@@ -78,32 +89,49 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.scrollToTop = this.scrollToTop.bind(this);
   }
 
   handleChange = (e) => {
-    this.props.handleLanguageChange(e.target.value);
+    document.cookie= ("lang=" + e.target.value + "; path=/");
+    location.reload();
+  }
+
+  scrollToTop() {
+    $("body").animate({scrollTop: 0}, 400);
   }
 
   render() {
-    const { classes, handleLanguageChange } = this.props;
+    const { classes } = this.props;
 
     return (
       <Grid container direction='row' alignItems='center' justify='center' className={classNames(classes.header)}>
-        <Grid item xs={12} md={7} container direction='column' justify='center' alignItems='flex-start' className={classNames(classes.widthAuto, classes.paddingTop)}>
+        <Grid container justify="center" className={classes.maxWidth}>
+        <Grid item xs={12} md={6} container direction='column' justify='center' alignItems='flex-start' className={classNames(classes.widthAuto, classes.paddingTop)}>
         <a href="/home" className={classes.blueLink}><Typography className={classes.dasfinance}>DAS.Finance</Typography></a>
         </Grid>
-        <Grid item xs={12} md={5} container direction='row' justify='space-between' alignItems='center' className={classNames(classes.widthAuto)}>
-          <Grid item md={4} className={classes.widthAuto} container justify="center">
-            <Button href='https://t.me/STOresearch'>
-              <Typography className={classes.link} align='center'>STO News</Typography>
+        <Grid item xs={12} md={6} container direction='row' justify='space-between' alignItems='center' className={classNames(classes.widthAuto)}>
+          {/* <Grid item md={3} className={classes.widthAuto} container justify="center">
+            <Button href='/tech'>
+              <Typography className={classes.link} align='center'>Tech</Typography>
+            </Button>
+          </Grid> */}
+          <Grid item md={3} className={classes.widthAuto} container justify="center">
+            <Button id="header-research" href='/research'>
+              <Typography className={classes.link} align='center'>Research</Typography>
             </Button>
           </Grid>
-          <Grid item md={4} className={classes.widthAuto} container justify="center">
-            <Button href='https://dasfinance.typeform.com/to/OXx9UJ'>
-              <Typography className={classes.link} align='center'>Get Listed</Typography>
+          <Grid item md={3} className={classes.widthAuto} container justify="center">
+            <Button id="header-storadar" href='/sto_radar'>
+              <Typography className={classes.link} align='center'>STO Radar</Typography>
             </Button>
           </Grid>
-          <Grid item md={4} className={classes.widthAuto} container justify='center'>
+          <Grid item md={3} className={classes.widthAuto} container justify="center">
+            <Button id="header-news" href='https://t.me/STOresearch'>
+              <Typography className={classes.link} align='center'>DAS News</Typography>
+            </Button>
+          </Grid>
+          <Grid item md={3} className={classes.widthAuto} container justify='center'>
             <FormControl className={classes.formControl} style={{disableUnderline: true}}>
               <Select
                 value={this.props.language}
@@ -121,6 +149,11 @@ class Header extends React.Component {
               </Select>
             </FormControl>
           </Grid>
+        </Grid>
+
+        <Fab style={{color: '#e7e7e7'}} aria-label="Top" className={classes.top} onClick={this.scrollToTop} size='small'>
+          <KeyboardArrowUp style={{color: '#6A6189'}}/>
+        </Fab>
         </Grid>
       </Grid>
     );

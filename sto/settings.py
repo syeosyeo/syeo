@@ -18,14 +18,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '7wj5@w-#9z1n)o6m)c$_a4xv21q5wa^qyal+)lbirq0vl#e=fq'
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+
+if os.environ.get('SECRET_KEY', False):
+    SECRET_KEY = os.environ['SECRET_KEY']
+    DEBUG = False
+    ALLOWED_HOSTS = ['www.das.finance', 'das.finance']
+else:
+    SECRET_KEY = '7wj5@w-#9z1n)o6m)c$_a4xv21q5wa^qyal+)lbirq0vl#e=fq'
+    DEBUG = True
+    ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,6 +44,7 @@ INSTALLED_APPS = [
     'core',
     'webpack_loader',
     'rest_framework',
+    'django.contrib.sitemaps'
 ]
 
 MIDDLEWARE = [

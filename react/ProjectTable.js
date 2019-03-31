@@ -28,7 +28,12 @@ const styles = theme => ({
     flexGrow: 1,
   },
   gutterLeftHalf: {
-    marginLeft: theme.spacing.unit / 2,
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing.unit / 2,
+    }
+  },
+  gutterTop: {
+    marginTop: theme.spacing.unit,
   },
   gutterBottom: {
     marginBottom: theme.spacing.unit,
@@ -53,19 +58,19 @@ const styles = theme => ({
     fontFamily: "'Spoqa Han Sans', 'spoqa Han Sans JP', 'Sans-serif'",
   },
   projectTitle: {
-    fontSize: "16px",
+    fontSize: 16,
     color: "#373737",
   },
   projectDescription: {
-    fontSize: "12px",
+    fontSize: 12,
     color: "#373737",
   },
   projectText: {
-    fontSize: "14px",
+    fontSize: 14,
     color: "#373737",
   },
   tableColumn: {
-    fontSize: "14px",
+    fontSize: 14,
     color: "#6a6a6a",
   },
   tableContent: {
@@ -77,42 +82,57 @@ const styles = theme => ({
     paddingBottom: "29px",
   },
   progressButton: {
-    width: "113px",
+    width: "103px",
     height: "42px",
+    [theme.breakpoints.down('xs')]: {
+      width: "90px",
+      padding: "4px 0px",
+    },
   },
   filterButton: {
     width: "100px",
     height: "36px",
+    [theme.breakpoints.down('xs')]: {
+      width: '36px',
+      paddingLeft: theme.spacing.unit * 0,
+      paddingRight: theme.spacing.unit * 0,
+    }
   },
   filterListIcon: {
     width: "18px",
     height: "18px",
   },
   loadMoreButton: {
-    fontSize: "16px",
+    fontSize: 16,
     backgroundColor: "#ededed",
     height: "62px",
     marginTop: "15px",
   },
   paper: {
     width: "100%",
+    overflowX: 'auto',
   },
   circularProgress: {
     marginTop: "30px",
     marginBottom: "30px",
   },
   noResults: {
-    fontSize: "50px",
+    fontSize: 50,
     color: "#6a6a6a",
     marginTop: "30px",
     marginBottom: "30px",
     [theme.breakpoints.down('sm')]: {
       marginTop: "15px",
       marginBottom: "15px",
-      fontSize: "30px",
+      fontSize: 30,
     }
   },
-
+  filter: {
+    color: '#6a6a6a',
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+    }
+  }
 });
 
 class ProjectTable extends React.Component{
@@ -156,6 +176,27 @@ class ProjectTable extends React.Component{
     });
   }
 
+  filterReset = () => {
+    this.setState({
+      secEquity: false,
+      secRev: false,
+      secEstate: false,
+      secFund: false,
+      secBond: false,
+      secOthers: false,
+      regD506b: false,
+      regD506c: false,
+      regS: false,
+      regCF: false,
+      regA: false,
+      regOthers: false,
+      count: 0,
+      page: 1,
+    }, () => {
+      this.fetchProjects();
+    });
+  };
+
   filterClickOpen = event => {
     this.setState({anchorEl: event.currentTarget});
   }
@@ -175,12 +216,14 @@ class ProjectTable extends React.Component{
   };
 
   fetchProjects = () => {
+    const { pageSize } = this.props;
     const { progress, secEquity, secRev, secEstate, secFund, secBond, secOthers, regD506b, regD506c, regS, regCF, regA, regOthers, protocol, page, projects } = this.state;
     const url_query = "?q=" +
     "&progress=" + progress +
     (secEquity ? "&secEquity=true" : "") + (secRev ? "&secRev=true" : "") + (secEstate ? "&secEstate=true" : "") + (secFund ? "&secFund=true" : "") + (secBond ? "&secBond=true" : "") + (secOthers ? "&secOthers=true" : "") +
     (regD506b ? "&regD506b=true" : "") + (regD506c ? "&regD506c=true" : "") + (regS ? "&regS=true" : "") + (regCF ? "&regCF=true" : "") + (regA ? "&regA=true" : "") + (regOthers ? "&regOthers=true": "") + 
-    "&protocol=" + protocol + 
+    "&protocol=" + protocol +
+    "&page_size=" + pageSize + 
     "&page=" + page;
 
     this.setState({isFetched: false}, () => {
@@ -192,7 +235,6 @@ class ProjectTable extends React.Component{
           isLoaded: true,
           isFetched: true,
           count: data.count,
-          pageSize: data.page_size,
           page: data.page + 1,
           projects: data.page == 1 ? data.results : projects.concat(data.results),
         });
@@ -207,32 +249,39 @@ class ProjectTable extends React.Component{
   };
 
   render() {
-    const { classes, language } = this.props;
+    const { classes, language, pageSize } = this.props;
     const { isLoaded, isFetched, progress, count, page, projects, anchorEl } = this.state;
     let id = 0;
 
     return (
       <Grid container>
-        <Grid container justify="space-between" alignItems="center" className={classes.gutterBottom}>
+        <Grid container justify="space-between" alignItems="flex-end" className={classes.gutterBottom}>
           <ToggleButtonGroup value={progress} exclusive onChange={this.handleProgressClicked}>
-            <ToggleButton value="Ongoing" className={classes.progressButton}>
+            <ToggleButton id="table-ongoing" value="Ongoing" className={classes.progressButton}>
               Ongoing
             </ToggleButton>
-            <ToggleButton value="Finished" className={classes.progressButton}>
+            <ToggleButton id="table-finished" value="Finished" className={classes.progressButton}>
               Finished
             </ToggleButton>
-            <ToggleButton value="Announced" className={classes.progressButton}>
+            <ToggleButton id="table-announced" value="Announced" className={classes.progressButton}>
               Announced
             </ToggleButton>
           </ToggleButtonGroup>
           <Grid>
-            <Button 
+            {/* <Button
+              onClick = {this.filterReset}
+              variant="outlined"
+              className={classes.filterButton}
+            >
+              Reset
+            </Button> */}
+            <Button id="table-filter"
               onClick={this.filterClickOpen}
               variant="outlined"
               className={classes.filterButton}
             >
               <Grid container alignItems="center" justify="center">
-                Filter
+                <Typography className={classes.filter}>Filter</Typography>
                 <FilterListIcon className={classNames(classes.filterListIcon, classes.gutterLeftHalf)}/>
               </Grid>
             </Button>
@@ -253,42 +302,42 @@ class ProjectTable extends React.Component{
               <MenuItem>
                 <FormControl component="fieldset" fullWidth={true} margin="none">
                   <FormGroup>
-                    <FormControlLabel control={<Checkbox color="primary" checked={this.state.regD506b} onChange={this.handleFilterChange('regD506b')} />} label="Regulation D(506b)" />
+                    <FormControlLabel id="filter-regulation-regD506b" control={<Checkbox color="primary" checked={this.state.regD506b} onChange={this.handleFilterChange('regD506b')} />} label="Regulation D(506b)" />
                   </FormGroup>
                 </FormControl>
               </MenuItem>
               <MenuItem>
                 <FormControl component="fieldset" fullWidth={true} margin="none">
                   <FormGroup>
-                    <FormControlLabel control={<Checkbox color="primary" checked={this.state.regD506c} onChange={this.handleFilterChange('regD506c')} />} label="Regulation D(506c)" />
+                    <FormControlLabel id="filter-regulation-regD506c" control={<Checkbox color="primary" checked={this.state.regD506c} onChange={this.handleFilterChange('regD506c')} />} label="Regulation D(506c)" />
                   </FormGroup>
                 </FormControl>
               </MenuItem>
               <MenuItem>
                 <FormControl component="fieldset" fullWidth={true} margin="none">
                   <FormGroup>
-                    <FormControlLabel control={<Checkbox color="primary" checked={this.state.regA} onChange={this.handleFilterChange('regA')} />} label="Regulation A+" />
+                    <FormControlLabel id="filter-regulation-regA" control={<Checkbox color="primary" checked={this.state.regA} onChange={this.handleFilterChange('regA')} />} label="Regulation A+" />
                   </FormGroup>
                 </FormControl>
               </MenuItem>
               <MenuItem>
                 <FormControl component="fieldset" fullWidth={true} margin="none">
                   <FormGroup>
-                    <FormControlLabel control={<Checkbox color="primary" checked={this.state.regCF} onChange={this.handleFilterChange('regCF')} />} label="Regulation CF" />
+                    <FormControlLabel id="filter-regulation-regCF" control={<Checkbox color="primary" checked={this.state.regCF} onChange={this.handleFilterChange('regCF')} />} label="Regulation CF" />
                   </FormGroup>
                 </FormControl>
               </MenuItem>
               <MenuItem>
                 <FormControl component="fieldset" fullWidth={true} margin="none">
                   <FormGroup>
-                    <FormControlLabel control={<Checkbox color="primary" checked={this.state.regS} onChange={this.handleFilterChange('regS')} />} label="Regulation S" />
+                    <FormControlLabel id="filter-regulation-regS" control={<Checkbox color="primary" checked={this.state.regS} onChange={this.handleFilterChange('regS')} />} label="Regulation S" />
                   </FormGroup>
                 </FormControl>
               </MenuItem>
               <MenuItem>
                 <FormControl component="fieldset" fullWidth={true} margin="none">
                   <FormGroup>
-                    <FormControlLabel control={<Checkbox color="primary" checked={this.state.regOthers} onChange={this.handleFilterChange('regOthers')} />} label="Others" />
+                    <FormControlLabel id="filter-regulation-regOthers" control={<Checkbox color="primary" checked={this.state.regOthers} onChange={this.handleFilterChange('regOthers')} />} label="Others" />
                   </FormGroup>
                 </FormControl>
               </MenuItem>
@@ -299,42 +348,42 @@ class ProjectTable extends React.Component{
               <MenuItem>
                 <FormControl component="fieldset" fullWidth={true} margin="none">
                   <FormGroup>
-                    <FormControlLabel control={<Checkbox color="primary" checked={this.state.secEquity} onChange={this.handleFilterChange('secEquity')} />} label="Equity" />
+                    <FormControlLabel id="filter-securityType-secEquity" control={<Checkbox color="primary" checked={this.state.secEquity} onChange={this.handleFilterChange('secEquity')} />} label="Equity" />
                   </FormGroup>
                 </FormControl>
               </MenuItem>
               <MenuItem>
                 <FormControl component="fieldset" fullWidth={true} margin="none">
                   <FormGroup>
-                    <FormControlLabel control={<Checkbox color="primary" checked={this.state.secRev} onChange={this.handleFilterChange('secRev')} />} label="Revenue sharing" />
+                    <FormControlLabel id="filter-securityType-secRev" control={<Checkbox color="primary" checked={this.state.secRev} onChange={this.handleFilterChange('secRev')} />} label="Revenue sharing" />
                   </FormGroup>
                 </FormControl>
               </MenuItem>
               <MenuItem>
                 <FormControl component="fieldset" fullWidth={true} margin="none">
                   <FormGroup>
-                    <FormControlLabel control={<Checkbox color="primary" checked={this.state.secEstate} onChange={this.handleFilterChange('secEstate')} />} label="Real estate" />
+                    <FormControlLabel id="filter-securityType-secEstate" control={<Checkbox color="primary" checked={this.state.secEstate} onChange={this.handleFilterChange('secEstate')} />} label="Real estate" />
                   </FormGroup>
                 </FormControl>
               </MenuItem>
               <MenuItem>
                 <FormControl component="fieldset" fullWidth={true} margin="none">
                   <FormGroup>
-                    <FormControlLabel control={<Checkbox color="primary" checked={this.state.secFund} onChange={this.handleFilterChange('secFund')} />} label="Fund" />
+                    <FormControlLabel id="filter-securityType-secFund" control={<Checkbox color="primary" checked={this.state.secFund} onChange={this.handleFilterChange('secFund')} />} label="Fund" />
                   </FormGroup>
                 </FormControl>
               </MenuItem>
               <MenuItem>
                 <FormControl component="fieldset" fullWidth={true} margin="none">
                   <FormGroup>
-                    <FormControlLabel control={<Checkbox color="primary" checked={this.state.secBond} onChange={this.handleFilterChange('secBond')} />} label="Bond" />
+                    <FormControlLabel id="filter-securityType-secBond" control={<Checkbox color="primary" checked={this.state.secBond} onChange={this.handleFilterChange('secBond')} />} label="Bond" />
                   </FormGroup>
                 </FormControl>
               </MenuItem>
               <MenuItem>
                 <FormControl component="fieldset" fullWidth={true} margin="none">
                   <FormGroup>
-                    <FormControlLabel control={<Checkbox color="primary" checked={this.state.secOthers} onChange={this.handleFilterChange('secOthers')} />} label="Others" />
+                    <FormControlLabel id="filter-securityType-secOthers" control={<Checkbox color="primary" checked={this.state.secOthers} onChange={this.handleFilterChange('secOthers')} />} label="Others" />
                   </FormGroup>
                 </FormControl>
               </MenuItem>
@@ -410,8 +459,13 @@ class ProjectTable extends React.Component{
             <CircularProgress className={classes.circularProgress}/>
           </Grid>
         )}
-        {count > (page-1)*5 && isFetched && (
-          <Button
+        {count==0 && isFetched && (
+          <Grid container justify="center">
+            <Typography className={classNames(classes.nunitoSansBold, classes.noResults)}>No results :(</Typography>
+          </Grid>
+        )}
+        {count > (page-1)*pageSize && isFetched && !(window.location.pathname === "/home/") && (
+          <Button id="table-loadmore"
             onClick={this.fetchProjects}
             className={classNames(classes.nunitoSansSemiBold, classes.loadMoreButton)}
             fullWidth={true}
@@ -419,10 +473,14 @@ class ProjectTable extends React.Component{
             Load More
           </Button>
         )}
-        {count==0 && isFetched && (
-          <Grid container justify="center">
-            <Typography className={classNames(classes.nunitoSansBold, classes.noResults)}>No results :(</Typography>
-          </Grid>
+        {isFetched && (window.location.pathname === "/home/") && (
+          <Button id="table-seeall"
+            href="/sto_radar/"
+            className={classNames(classes.nunitoSansSemiBold, classes.loadMoreButton)}
+            fullWidth={true}
+          >
+            See All
+          </Button>
         )}
       </Grid>
     );

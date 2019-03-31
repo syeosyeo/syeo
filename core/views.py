@@ -4,7 +4,7 @@ from rest_framework import generics, permissions, viewsets, mixins
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
+from django.http import HttpResponse
 from .models import *
 from .serializers import *
 
@@ -18,12 +18,23 @@ def privacypolicy(request):
 def termsofservice(request):
 	return render(request, 'core/termsofservice.html')
 
+def stoRadar(request):
+	return render(request, 'core/stoRadar.html')
+
+def research(request):
+	return render(request, 'core/research.html')
+
+def tech(request):
+	return render(request, 'core/tech.html')
+
+def sitemap(request):
+	return HttpResponse(open('core/sitemap.xml').read(), content_type='text/xml')
+
 class ProjectViewSet(mixins.ListModelMixin,
                     mixins.CreateModelMixin,
                     viewsets.GenericViewSet):
   queryset = Project.objects.all()
   serializer_class = ProjectSerializer
-  page_size = 5
 
   def list(self, request):
     q = request.query_params["q"]
@@ -66,8 +77,7 @@ class ProjectViewSet(mixins.ListModelMixin,
       for other in in_others:
         included_types.append(other.name)
     if len(included_types) > 0:
-      temp = SecurityType.objects.filter(name__in=included_types)
-      queryset = queryset.filter(security_type__in=temp).exclude(security_type=None).distinct()
+      queryset = queryset.filter(security_type__name__in=included_types).exclude(security_type=None).distinct()
 
     # if secEquity:
     #   queryset = queryset.filter(security_type__name="Equity")
@@ -102,8 +112,7 @@ class ProjectViewSet(mixins.ListModelMixin,
       for other in in_others:
         included_regulations.append(other.name)
     if len(included_regulations) > 0:
-      temp = Regulation.objects.filter(name__in=included_regulations)
-      queryset = queryset.filter(regulation__in=temp).exclude(regulation=None).distinct()
+      queryset = queryset.filter(regulation__name__in=included_regulations).exclude(regulation=None).distinct()
 
     # if regD506b:
     #   queryset = queryset.filter(regulation__name="Regulation D(506b)")
@@ -124,14 +133,16 @@ class ProjectViewSet(mixins.ListModelMixin,
     if protocol:
       queryset = queryset.filter(protocol__name=protocol)
     
-    page = int(request.query_params.get('page', '1'))
+    page_size = int(request.query_params.get('page_size', 1))
+    page = int(request.query_params.get('page', 1))
+
     if page < 1:
       page = 1
-    start = (page - 1) * self.page_size
-    end = start + self.page_size
+    start = (page - 1) * page_size
+    end = start + page_size
 
     data = ProjectSerializer(queryset.order_by('name')[start:end], many=True).data
-    return Response({'count': queryset.count(), 'page_size': self.page_size, 'page': page, 'results': data})
+    return Response({'count': queryset.count(), 'page_size': page_size, 'page': page, 'results': data})
 
   def perform_create(self, serializer):
     if self.request.user.is_superuser:
@@ -158,3 +169,4 @@ class SubscribeViewSet(viewsets.ModelViewSet):
       raise serializers.ValidationError('""Already exist!')
     else:
       serializer.save()
+

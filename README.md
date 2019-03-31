@@ -2,6 +2,7 @@
 ## Developer
 * Beomsu Lim (lbs1163)
 * Minjae Mun (mmj4594, seagull4594)
+* Soomin Choi (choisium, crowtit)
 
 ## Development Environment
 ### Basic

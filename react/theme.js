@@ -1,13 +1,7 @@
 import { createMuiTheme } from '@material-ui/core/styles';
+import { fade } from '@material-ui/core/styles/colorManipulator';
 
 const STO_theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#1d1537',
-      dark: '#322956',
-    }
-  },
-  
   overrides: {
     MuiFormControlLabel: {
       label: {
@@ -20,16 +14,27 @@ const STO_theme = createMuiTheme({
       root: {
         fontFamily: "'Nunito Sans', sans-serif",
         fontWeight: 600,
-        textTransform: "capitalize",
+        textTransform: "none",
         color: "#6a6a6a",
-      }
+        minWidth: '30px',
+        lineHeight: '1.25',
+      },
     },
     MuiToggleButton: {
+      root: {
+        color: '#6a6a6a',
+        '&$selected': {
+          backgroundColor: '#322956',
+          color: '#ffffff',
+          '&:hover': {
+            backgroundColor: '#5b5377'
+          },
+        }
+      },
       label: {
         fontFamily: "'Nunito Sans', sans-serif",
         fontWeight: 600,
         textTransform: "capitalize",
-        color: "#6a6a6a",
       },
     },
   }

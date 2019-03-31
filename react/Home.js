@@ -11,13 +11,16 @@ import ArrowRightAlt from '@material-ui/icons/ArrowRightAlt'
 
 import { withStyles } from '@material-ui/core/styles';
 import ProjectTable from './ProjectTable';
+import Subscribe from './Subscribe';
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
   },
-  helloWorld: {
-    marginTop: "80px",
+  marginTopXSOnly: {
+    [theme.breakpoints.down('xs')]: {
+      marginTop: theme.spacing.unit * 3,
+    }
   },
   gutterBottom: {
     marginBottom: theme.spacing.unit * 3,
@@ -25,11 +28,11 @@ const styles = theme => ({
   nunitoSans: {
     fontFamily: "'Nunito Sans', sans-serif",
     fontWeight: "900",
-    fontSize: "40pt",
+    fontSize: 40,
   },
   spoqaHanSans: {
     fontFamily: "'Spoqa Han Sans', 'spoqa Han Sans JP', 'Sans-serif'",
-    fontSize: 16,
+    fontSize: 18,
   },
   nunitoSansRegular: {
     fontFamily: "'Nunito Sans', sans-serif",
@@ -61,14 +64,6 @@ const styles = theme => ({
       paddingBottom: theme.spacing.unit * 6,
     }
   },
-  paddingSubscribe: {
-    paddingLeft: theme.spacing.unit * 20,
-    paddingRight: theme.spacing.unit * 20,
-    [theme.breakpoints.down('sm')]:{
-      paddingLeft: 0,
-      paddingRight: 0,
-    }
-  },
   widthAuto: {
     width: 'auto',
   },
@@ -80,24 +75,15 @@ const styles = theme => ({
     color: '#20133b',
     textDecoration: 'underline',
   },
-  Input: {
-    fontSize: '14px',
-    color: '#6a6a6a',
-  },
-  input: {
-    height: '42px',
-    paddingTop: 0,
-    paddingBottom: 0,
-  },
   buttonSubscribe: {
     backgroundColor: '#322956',
     boxShadow: 'none',
     borderRadius: 0,
     height: '53px',
     color: '#ffffff',
-    fontSize: '14px',
+    fontSize: 14,
     [theme.breakpoints.down('sm')]: {
-      fontSize: '12px',
+      fontSize: 12,
     }
   },
   buttonHelp: {
@@ -112,11 +98,11 @@ const styles = theme => ({
     }
   },
   projectTable: {
-    paddingTop: theme.spacing.unit * 10,
-    paddingBottom: theme.spacing.unit * 10,
+    marginTop: theme.spacing.unit * 8,
+    marginBottom: theme.spacing.unit * 8,
     [theme.breakpoints.down('sm')]: {
-      paddingTop: theme.spacing.unit * 5,
-      paddingBottom: theme.spacing.unit * 5,
+      marginTop: theme.spacing.unit * 5,
+      marginBottom: theme.spacing.unit * 5,
     }
   },
   banner: {
@@ -130,9 +116,9 @@ const styles = theme => ({
     paddingTop: theme.spacing.unit * 10,
     paddingBottom: theme.spacing.unit * 10,
     [theme.breakpoints.down('sm')]: {
-      paddingTop: theme.spacing.unit * 0,
-      paddingBottom: theme.spacing.unit * 0,
-    }
+      paddingTop: theme.spacing.unit * 5,
+      paddingBottom: theme.spacing.unit * 5,
+    },
   },
   investmentGuide: {
     backgroundImage: "url('/static/core/home/investment_guide.png')",
@@ -159,35 +145,42 @@ const styles = theme => ({
   },
   marginLeftUpMd: {
     [theme.breakpoints.up('lg')]: {
-      marginLeft: theme.spacing.unit * 1,
+      marginLeft: theme.spacing.unit * 2,
     }
   },
   banner1: {
     color: '#ffffff',
-    fontSize: '45px',
+    fontSize: 45,
     [theme.breakpoints.down('sm')]: {
-      fontSize: '33px',
+      fontSize: 30,
+    }
+  },
+  banner15: {
+    color: '#ffffff',
+    fontSize: 45,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 33,
     }
   },
   banner2: {
     color: '#ffffff',
-    fontSize: '22px',
+    fontSize: 22,
     [theme.breakpoints.down('sm')]: {
-      fontSize: '18px',
+      fontSize: 18,
     }
   },
   investmentGuide1: {
     color: '#d8d8d8',
-    fontSize: '24px',
+    fontSize: 24,
     [theme.breakpoints.down('sm')]: {
-      fontSize: '16px'
+      fontSize: 16
     }
   },
   investmentGuide2: {
     color: '#feffff',
-    fontSize: '28px',
+    fontSize: 28,
     [theme.breakpoints.down('sm')]: {
-      fontSize: '20px'
+      fontSize: 20
     }
   },
   visibleXSOnly: {
@@ -195,85 +188,150 @@ const styles = theme => ({
       display: 'none',
     },
   },
+  serviceGrid: {
+    maxWidth: '360px',
+    [theme.breakpoints.up('xl')]: {
+      maxWidth: '600px'
+    },
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: '500px'
+    }
+  },
+  serviceTitle: {
+    height: '160px',
+    marginBottom: theme.spacing.unit * 2,
+  },
+  serviceButton: {
+    width: '140px',
+    height: '40px',
+    borderRadius: 25,
+    marginTop: theme.spacing.unit * 5,
+    marginBottom: theme.spacing.unit * 5,
+    color: '#322956',
+    [theme.breakpoints.up('xl')]: {
+      width: '180px',
+    }
+  },
+  maxWidth: {
+    maxWidth: '1200px',
+  }
 });
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      language: this.props.language ? this.props.language : "English",
-      email: '',
-      loading_submit: false,
-
-      emailError: false,
-      emailErrorMessage: '',
     };
-    this.handleLanguageChange = this.handleLanguageChange.bind(this);
-    this.onChange = this.onChange.bind(this);
-    this.handleSubscribe = this.handleSubscribe.bind(this);
-  }
-
-  handleLanguageChange(newLanguage) {
-    this.setState({language: newLanguage})
-  }
-
-  onChange(){
-    this.setState({
-      email: event.target.value,
-      loading_submit: false,
-    });
-  }
-
-  handleSubscribe(){
-    this.setState({
-      loading_submit: true,
-    });
-
-    $.ajax({
-      method: "POST",
-      url: "/api/subscribe/",
-      data: {
-        email: this.state.email,
-      },
-    }).done((data) => {
-      this.setState({
-        emailError: false,
-        emailErrorMessage: '',
-      });
-      alert('Subscribe is Successfully Done!');
-    }).fail((error) => {
-      const errorMessage= error.responseText.split('"')[3];
-      this.setState({
-          emailError: true,
-          emailErrorMessage: errorMessage
-      });
-    });
   }
 
   render() {
-    const { classes } = this.props;
-    const { language, email, emailError, emailErrorMessage } = this.state;
+    const { classes, language } = this.props;
     return (
       <div>
-        <Header language={language} handleLanguageChange={this.handleLanguageChange} />
+        <Header language={language} />
         <main>
-          <Grid container justify="center">
+          <Grid container justify="center" style={{backgroundColor: '#fbfbfb'}}>
 
             <div className={classNames(classes.banner, classes.commonPadding)}>
-              <Grid className={classes.paddingBanner}>
-                <div className={classes.flexDisplay}>
-                  <Typography className={classNames(classes.nunitoSansBold, classes.banner1)}>Shaping The Future of</Typography>
-                  <Typography className={classNames(classes.nunitoSansBlack, classes.marginLeftUpMd, classes.banner1)}>Digital Asset Securities</Typography>
-                </div>
-                <div>
-                  <Typography className={classNames(classes.nunitoSansRegular, classes.banner2)}>We go deep to unlock insight and have the courage to act on security tokens. We bring the right technologies and people together to tokenize digital assets.</Typography>
-                </div>
+              <Grid container justify="center">
+                <Grid className={classNames(classes.paddingBanner, classes.maxWidth)}>
+                  <div className={classes.flexDisplay}>
+                    <Typography className={classNames(classes.nunitoSansBold, classes.banner1)}>Shaping The Future of</Typography>
+                    <Typography className={classNames(classes.nunitoSansBlack, classes.marginLeftUpMd, classes.banner15)}>Digital Asset Securities</Typography>
+                  </div>
+                  <div>
+                    <Typography className={classNames(classes.nunitoSansRegular, classes.banner2)}>We go deep to unlock insight and have the courage to act on security tokens. We bring the right technologies and people together to tokenize digital assets.</Typography>
+                  </div>
+                </Grid>
               </Grid>
             </div>
 
-            <Grid item xs={12} container direction="column" justify="flex-start" className={classNames(classes.commonPadding, classes.heightFitContent)}>
+            <Grid container justify="center" style={{backgroundColor: '#f6f6f6'}} className={classNames(classes.commonPadding)}>
+            <Grid item xs={12} container direction="row" justify="space-between" className={classNames(classes.heightFitContent, classes.maxWidth)}>
+              <Grid item xs={12}>
+                <Typography style={{color: '#1d1537', fontSize: 24,}} className={classNames(classes.nunitoSansBold,)}>Our Services</Typography>
+              </Grid>
+
+              <Grid item xs={12} sm={3} container direction="column" justify="space-between" className={classNames(classes.serviceGrid, classes.serviceMarginRight)}>
+                <Grid item xs={12} container direction="column" justify="flex-start">
+                <Grid item xs={12} container direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
+                  <img src="/static/core/home/dasresearch.svg"/>
+                  { language=="English" &&
+                  <Typography style={{color: '#373737', fontSize: 18,}} className={classNames(classes.nunitoSansBold,)}>DAS Research</Typography>
+                  }{ language=="Korean" &&
+                  <Typography style={{color: '#373737', fontSize: 18, fontWeight: 700}} className={classNames(classes.spoqaHanSans,)}>DAS 리서치</Typography>
+                  }
+                </Grid>
+                <Grid item xs={12} className={classes.serviceDetail}>
+                { language=="English" &&
+                <Typography align="justify" style={{color: '#484848', fontSize: 16,}} className={classNames(classes.nunitoSansRegular)}>A research team of experts publishes reports on Digital Asset Securities markets and technologies. Insights and new opportunities are discovered through in-depth analysis.</Typography>
+                }{ language=="Korean" &&
+                <Typography align="justify" style={{color: '#484848', fontSize: 16,}} className={classNames(classes.spoqaHanSans)}>전문가들로 구성된 리서치팀이 디지털 자산 증권 시장과 기술에 대한 보고서를 발간합니다. 깊이 있는 분석을 통해 인사이트와 새로운 기회를 찾아냅니다.</Typography>
+
+                }
+                </Grid>
+                </Grid>
+                { language=="English" &&
+                <Button id="home-research" href="/research" variant="outlined" style={{border: '2px solid #322956',}} className={classNames(classes.serviceButton)}>See in Details</Button>
+                }{ language=="Korean" &&
+                <Button id="home-research" href="/research" variant="outlined" style={{border: '2px solid #322956',}} className={classNames(classes.serviceButton)}>자세히 보기</Button>
+                }
+              </Grid>
+              <Grid item xs={12} sm={3} container direction="column" justify="space-between" className={classNames(classes.serviceGrid, classes.serviceMarginRight)}>
+                <Grid item xs={12} container direction="column" justify="flex-start">
+                <Grid item xs={12} container direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
+                  <img src="/static/core/home/storadar.svg"/>
+                  { language=="English" &&
+                  <Typography style={{ color: '#373737', fontSize: 18,}} className={classNames(classes.nunitoSansBold,)}>STO Radar</Typography>
+                  }{ language=="Korean" &&
+                  <Typography style={{ color: '#373737', fontSize: 18, fontWeight: 700,}} className={classNames(classes.spoqaHanSans,)}>STO Radar</Typography>
+                  }
+                </Grid>
+                <Grid item xs={12} className={classes.serviceDetail}>
+                  { language=="English" &&
+                  <Typography align="justify" style={{color: '#484848', fontSize: 16,}} className={classNames(classes.nunitoSansRegular)}>Check out the latest STO list organized by regulation and security type. Investment guide and sales notification for accredited investors is provided.</Typography>
+                  }{ language=="Korean" &&
+                  <Typography align="justify" style={{color: '#484848', fontSize: 16,}} className={classNames(classes.spoqaHanSans)}>규제와 자산 종류에 따라 정리된 최신 STO 리스트를 확인하세요. 적격 투자자를 위한 투자 가이드와 큐레이션이 제공됩니다.</Typography>
+                  }
+                </Grid>
+                </Grid>
+                { language=="English" &&
+                <Button id="home-storadar" href="/sto_radar" variant='outlined' style={{border: '2px solid #322956',}} className={classNames(classes.serviceButton)}>View STO List</Button>
+                }{ language=="Korean" &&
+                <Button id="home-storadar" href="/sto_radar" variant='outlined' style={{border: '2px solid #322956',}} className={classNames(classes.serviceButton)}>STO 리스트 보기</Button>
+                }
+              </Grid>
+              <Grid item xs={12} sm={3} container direction="column" justify="space-between" className={classes.serviceGrid}>
+                <Grid item xs={12} container direction="column" justify="flex-start">
+                <Grid item xs={12} container direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
+                  <img src="/static/core/home/endtoend.svg"/>
+                  { language=="English" &&
+                  <Typography style={{ color: '#373737', fontSize: 18,}} className={classNames(classes.nunitoSansBold,)}>End-to-End<br/>Digital Asset Management</Typography>
+                  }{ language=="Korean" &&
+                  <Typography style={{ color: '#373737', fontSize: 18, fontWeight: 700,}} className={classNames(classes.spoqaHanSans,)}>End-to-End<br/>디지털 자산 관리</Typography>
+                  }
+                </Grid>
+                <Grid item xs={12} className={classes.serviceDetail}>
+                  { language=="English" &&
+                  <Typography align="justify" style={{color: '#484848', fontSize: 16,}} className={classNames(classes.nunitoSansRegular)}>From KYC and whitelisting of wallets using ZKProof technology to community creation for shareholders, we support compliance and enhanced privacy in every step.</Typography>
+                  }{ language=="Korean" &&
+                  <Typography align="justify" style={{color: '#484848', fontSize: 16,}} className={classNames(classes.nunitoSansRegular)}>ZKProof 기술을 사용한 KYC 및 지갑 화이트리스팅부터 투자자를 위한 커뮤니티 생성까지, 디지털 자산 관리의 모든 단계에서 규제를 준수하고 개인 정보를 보호할 수 있습니다.</Typography>
+                  }
+                </Grid>
+                </Grid>
+                { language=="English" &&
+                <Button id="home-management" variant='contained' style={{color: '#6a6a6a', backgroundColor: '#ededed',}} className={classNames(classes.serviceButton)} disabled>Coming Soon</Button>
+                }{ language=="Korean" &&
+                <Button id="home-management" variant='contained' style={{color: '#6a6a6a', backgroundColor: '#ededed',}} className={classNames(classes.serviceButton)} disabled>준비중</Button>
+                }
+              </Grid>
+            </Grid>
+            </Grid>
+
+            <Grid container justify="center" className={classNames(classes.commonPadding)}>
+            <Grid item xs={12} container direction="column" justify="flex-start" className={classNames(classes.heightFitContent, classes.maxWidth)}>
               <Grid item xs={12} container direction="column">
-                <Typography style={{marginBottom: '12px', color: '1d1537', fontSize: 24,}} className={classNames(classes.nunitoSansBold,)}>Security Tokens List</Typography>
+                <Typography style={{marginBottom: '12px', color: '#1d1537', fontSize: 24,}} className={classNames(classes.nunitoSansBold,)}>Security Tokens List</Typography>
                 {language == 'English' &&
                 <Typography style={{fontSize: 16, color: '#373737'}} className={classes.nunitoSansRegular}>Check out the latest STO list organized by regulation type.</Typography>
                 }{language == 'Korean' &&
@@ -282,18 +340,20 @@ class Home extends React.Component {
               </Grid>
 
               <Grid className={classes.projectTable}>
-                  <ProjectTable language={language} />
+                  <ProjectTable language={language} pageSize={5} />
               </Grid>
 
-              <Grid item xs={12} container justify="center">
-                <Typography style={{color: '#373737', fontSize: 16,}} className={classNames(classes.nunitoSansSemiBold)}>Cannot find your project? <a href="https://dasfinance.typeform.com/to/OXx9UJ" className={classes.link}>Get listed</a></Typography>
+              <Grid item xs={12} container justify="center" className={classes.marginTopXSOnly}>
+                <Typography style={{color: '#373737', fontSize: 16,}} className={classNames(classes.nunitoSansSemiBold)}>Cannot find your project? <a id="home-getlisted" href="https://dasfinance.typeform.com/to/OXx9UJ" className={classes.link}>Get listed</a></Typography>
               </Grid>
+            </Grid>
             </Grid>
 
 
             <div className={classNames(classes.investmentGuide, classes.commonPadding)}>
-              <Grid>
-                <Typography className={classNames(classes.nunitoSansBold, classes.investmentGuide1)}>GET STARTED</Typography>
+              <Grid container justify="center">
+              <Grid item xs={12} className={classes.maxWidth}>
+                <Typography className={classNames(classes.nunitoSansBold, classes.investmentGuide1)}>Get Started</Typography>
                 {language == 'English' &&
                 <div>
                 <Typography className={classNames(classes.nunitoSansSemiBold, classes.investmentGuide2)}><br/>Got stuck with issuing or investing security tokens?</Typography>
@@ -306,73 +366,23 @@ class Home extends React.Component {
                 </div>
                 }
                 <Grid style={{marginTop: '37px'}} container justify="flex-start">
-                  <Button className={classNames(classes.buttonHelp, classes.marginRight)} variant="outlined"
+                  <Button id="home-forinvestors" className={classNames(classes.buttonHelp, classes.marginRight)} variant="outlined"
                   href={language=="Korean"? "https://dasfinance.typeform.com/to/v4HNG4": "https://dasfinance.typeform.com/to/Xk7xui"}
                   >For Investors <ArrowRightAlt className={classes.marginLeft}/></Button>
-                  <Button className={classes.buttonHelp} variant="outlined"
+                  <Button id="home-forissuers" className={classes.buttonHelp} variant="outlined"
                   href="https://dasfinance.typeform.com/to/JHADCZ"
                   >For Issuers <ArrowRightAlt className={classes.marginLeft}/></Button>
                 </Grid>
               </Grid>
+              </Grid>
             </div>
-
-            <Grid item xs={12} container direction="column" alignItems="center" className={classNames(classes.commonPadding, classes.widthAuto, classes.heightFitContent)}>
-              <Grid style={{marginBottom: '50px'}} item xs={12} container direction="column" alignItems="center">
-                <Typography style={{marginBottom: '12px', color: '#373737', fontSize: 16,}} align='center' className={classes.nunitoSansSemiBold}>NEWSLETTER</Typography>
-                {language == 'English' &&
-                <Typography style={{color: '#1d1537', fontSize: 24,}} align='center' className={classes.nunitoSansBold}>Don't miss the our latest qualified reports and news</Typography>
-                }{language == 'Korean' &&
-                <Typography style={{color: '#1d1537', fontSize: 24,}} align='center' className={classes.nunitoSansBold}>DAS.Finance에서 제공하는 최신 뉴스와 보고서를 무료로 받아보세요.</Typography>
-                }
-              </Grid>
-
-              <Grid item xs={12} container direction="row" alignItems="flex-start" className={classes.paddingSubscribe}>
-                {/*<iframe src="https://upscri.be/fcccf5-2?as_embed" width="100%" height="300" frameBorder="0" ></iframe>*/}
-                <Grid item xs={10} className={classNames(classes.paddingLeft)}>
-                  {emailError && (
-                    <TextField
-                      error
-                      id="subscribe-email-error"
-                      placeholder="Your Email Address"
-                      defaultValue={email}
-                      helperText={emailErrorMessage}
-                      margin="none"
-                      variant="outlined"
-                      InputProps={{
-                        className: classNames(classes.Input, classes.nunitoSansRegular)
-                      }}
-                      onChange={this.onChange}
-                      fullWidth
-                      label="Your Email Address"
-                    />
-                  )}
-                  {!emailError && (
-                  <TextField
-                    id="subscribe-email"
-                    placeholder="Your Email Address"
-                    margin="none"
-                    variant="outlined"
-                    InputProps={{
-                      className: classNames(classes.Input, classes.nunitoSansRegular)
-                    }}
-                    onChange={this.onChange}
-                    fullWidth
-                    label="Your Email Address"
-                  />
-                  )}
-                </Grid>
-                <Grid item xs={2}>
-                  <Button variant="contained"
-                  className={classNames(classes.nunitoSansBold, classes.buttonSubscribe)} fullWidth
-                  onClick={this.handleSubscribe}>
-                    Subscribe
-                  </Button>
-                </Grid>
-              </Grid>
-              <Grid item xs={12} style={{width: '100%'}} container direction="row" justify="center">
-
-              </Grid>
+            
+            <Grid container justify="center" className={classes.commonPadding}>
+            <Grid item xs={12} className={classes.maxWidth}>
+            <Subscribe language={language}/>
             </Grid>
+            </Grid>
+
           </Grid>
         </main>
 

@@ -8,6 +8,9 @@ import Footer from './Footer';
 import Header from './Header';
 import PrivacyPolicy from './PrivacyPolicy';
 import TermsOfService from './TermsOfService';
+import StoRadar from './StoRadar';
+import Research from './Research';
+import Tech from './Tech';
 
 var home = document.getElementById("home");
 var css_baseline = document.getElementById("css_baseline");
@@ -15,8 +18,12 @@ var footer = document.getElementById("footer");
 var header = document.getElementById("header");
 var privacy_policy = document.getElementById("privacy_policy");
 var terms_of_service = document.getElementById("terms_of_service");
+var stoRadar = document.getElementById("stoRadar");
+var research = document.getElementById("research");
+var tech = document.getElementById("tech");
 
 const csrftoken = getCookie('csrftoken');
+var lang = getCookie('lang') || getLang() || 'English';
 
 function getCookie(name) {
 	var cookieValue = null;
@@ -46,6 +53,18 @@ $.ajaxSetup({
   }
 });
 
+function getLang() {
+  var language = window.navigator.userLanguage || window.navigator.language;
+  if (language.startsWith('ko')) {
+    document.cookie= ("lang=" + "Korean" + "; path=/");
+    return 'Korean';
+  }
+  else{
+    document.cookie= ("lang=" + "English" + "; path=/");
+    return 'English';
+  }
+}
+
 if(css_baseline) {
   ReactDOM.render(
     <MuiThemeProvider theme={STO_theme}>
@@ -54,34 +73,34 @@ if(css_baseline) {
   , css_baseline);
 }
 
-if(home) {
+if(header) {
   ReactDOM.render(
     <MuiThemeProvider theme={STO_theme}>
-      <Home />
+      <Header language={lang} />
     </MuiThemeProvider>
-  , home);
+  , header);
 }
 
 if(footer) {
   ReactDOM.render(
     <MuiThemeProvider theme={STO_theme}>
-      <Footer />
+      <Footer language={lang} />
     </MuiThemeProvider>
   , footer);
 }
 
-if(header) {
+if(home) {
   ReactDOM.render(
     <MuiThemeProvider theme={STO_theme}>
-      <Header />
+      <Home language={lang}/>
     </MuiThemeProvider>
-  , header);
+  , home);
 }
 
 if(privacy_policy) {
   ReactDOM.render(
     <MuiThemeProvider theme={STO_theme}>
-      <PrivacyPolicy />
+      <PrivacyPolicy  language={lang}/>
     </MuiThemeProvider>
   , privacy_policy);
 }
@@ -89,7 +108,31 @@ if(privacy_policy) {
 if(terms_of_service) {
   ReactDOM.render(
     <MuiThemeProvider theme={STO_theme}>
-      <TermsOfService />
+      <TermsOfService language={lang}/>
     </MuiThemeProvider>
   , terms_of_service);
+}
+
+if(stoRadar){
+  ReactDOM.render(
+    <MuiThemeProvider theme={STO_theme}>
+      <StoRadar language={lang}/>
+    </MuiThemeProvider>
+  , stoRadar);
+}
+
+if(research){
+  ReactDOM.render(
+    <MuiThemeProvider theme={STO_theme}>
+      <Research language={lang}/>
+    </MuiThemeProvider>
+  , research);
+}
+
+if(tech) {
+  ReactDOM.render(
+    <MuiThemeProvider theme={STO_theme}>
+      <Tech language={lang}/>
+    </MuiThemeProvider>
+  , tech);
 }

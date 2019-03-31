@@ -31,4 +31,4 @@ class ProjectSerializer(serializers.ModelSerializer):
 class SubscribeSerializer(serializers.HyperlinkedModelSerializer):
   class Meta:
     model = SubscribeMail
-    fields = ('id', 'email')
+    fields = ('id', 'email', 'language')

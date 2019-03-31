@@ -40,31 +40,27 @@ const styles = theme => ({
   },
   marginBottom: {
     marginBottom : theme.spacing.unit * 2,
+  },
+  maxWidth: {
+    maxWidth: '1200px',
   }
 });
 
 class PrivacyPolicy extends React.Component {
   constructor(props){
     super(props);
-    this.state={
-      language: this.props.language ? this.props.language : "English",
-    };
-    this.handleLanguageChange = this.handleLanguageChange.bind(this);
-  }
-  handleLanguageChange(newLanguage) {
-    this.setState({language: newLanguage})
   }
 
   render() {
-    const { classes } = this.props;
-    const { language } = this.state;
+    const { classes, language } = this.props;
 
     return(
       <div>
-        <Header language={language} handleLanguageChange={this.handleLanguageChange} />
+        <Header language={language} />
         
         <main>
           <Grid container justify='center' className={classes.commonPadding}>
+            <Grid item xs={12} container justify="center" className={classes.maxWidth}>
             <Grid item xs={12} className={classes.marginBottom}>
               <Typography className={classes.nunitoSansBold}>
                 Privacy Policy
@@ -271,6 +267,7 @@ class PrivacyPolicy extends React.Component {
                 </small>
               </Paper>
             </Grid>
+          </Grid>
           </Grid>
       </main>
 
