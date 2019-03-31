@@ -149,7 +149,7 @@ class Research extends React.Component {
               <Grid container justify="center">
               <Grid item xs={12} className={classNames(classes.paddingBanner, classes.maxWidth)}>
                 <div>
-                  <Typography className={classNames(classes.nunitoSansBold, classes.banner1)}>DAS.Finance Research Team</Typography>
+                  <Typography className={classNames(classes.nunitoSansBold, classes.banner1)}>CryptoQuant Research Team</Typography>
                 </div>
                 { language=="English" &&
                 <div>
@@ -170,11 +170,11 @@ class Research extends React.Component {
             <Grid item xs={12} className={classes.maxWidth}>
               <Grid item xs={12} container direction="row" className={classNames(classes.heightFitContent, classes.gutterBottom)}>
                 <div>
-                <Typography style={{marginBottom: '12px', color: '#1d1537', fontSize: 24,}} className={classNames(classes.nunitoSansBold,)}>DAS.Finance Report</Typography>
+                <Typography style={{marginBottom: '12px', color: '#1d1537', fontSize: 24,}} className={classNames(classes.nunitoSansBold,)}>CryptoQuant Report</Typography>
                 { language=="English" &&
                 <Typography style={{fontSize: 16, color: '#484848'}} className={classes.nunitoSansRegular}>Check out our latest report on Digital Asset Security markets and technologies.</Typography>
                 }{ language=="Korean" &&
-                <Typography style={{fontSize: 16, color: '#484848'}} className={classes.spoqaHanSans}>DAS.Finance 리서치 팀의 디지털 자산 증권 시장과 기술에 대한 최신 보고서를 확인하세요.</Typography>
+                <Typography style={{fontSize: 16, color: '#484848'}} className={classes.spoqaHanSans}>CryptoQuant 리서치 팀의 디지털 자산 증권 시장과 기술에 대한 최신 보고서를 확인하세요.</Typography>
                 }
                 </div>
               </Grid>
@@ -183,7 +183,7 @@ class Research extends React.Component {
                 <img src="/static/core/report/report1.svg"/>
                 </Grid>
                 <Grid item xs={12} sm={9} container direction="column" alignItems="center" justify="center" className={classes.paddingLeft}>
-                  <Typography align="center" className={classNames(classes.nunitoSansBold, classes.reportTitle)}>[DAS.Finance Report 01]<br/>Digital Asset Security Market Overview</Typography>
+                  <Typography align="center" className={classNames(classes.nunitoSansBold, classes.reportTitle)}>[CryptoQuant Report 01]<br/>Digital Asset Security Market Overview</Typography>
                   { language=="English" &&
                   <Grid container justify="center">
                   <Grid item xs={12} sm={5} lg={3} container justify="center" className={classes.buttonMargin1}>

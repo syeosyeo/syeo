@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if os.environ.get('SECRET_KEY', False):
     SECRET_KEY = os.environ['SECRET_KEY']
     DEBUG = False
-    ALLOWED_HOSTS = ['www.das.finance', 'das.finance']
+    ALLOWED_HOSTS = ['www.CryptoQuant', 'CryptoQuant']
 else:
     SECRET_KEY = '7wj5@w-#9z1n)o6m)c$_a4xv21q5wa^qyal+)lbirq0vl#e=fq'
     DEBUG = True

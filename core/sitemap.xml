@@ -2,19 +2,19 @@
 <!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://das.finance/home/</loc>
+    <loc>https://cryptoquant.com/home/</loc>
   </url>
   <url>
-    <loc>https://das.finance/research/</loc>
+    <loc>https://cryptoquant.com/research/</loc>
   </url>
   <url>
-    <loc>https://das.finance/sto_radar/</loc>
+    <loc>https://cryptoquant.com/sto_radar/</loc>
   </url>
   <url>
-    <loc>https://das.finance/terms_of_service/</loc>
+    <loc>https://cryptoquant.com/terms_of_service/</loc>
   </url>
   <url>
-    <loc>https://das.finance/privacy_policy/</loc>
+    <loc>https://cryptoquant.com/privacy_policy/</loc>
   </url>
 </urlset>
 <!--<guid value="72632f70-8b27-4998-9dde-ff37207eda61" />-->

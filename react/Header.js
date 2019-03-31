@@ -112,7 +112,7 @@ class Header extends React.Component {
         <AppBar className={classes.appBar}>
           <Grid className={classNames(classes.header)} >
           <Toolbar disableGutters>
-          <a href="/home" className={classes.blueLink}><Typography className={classes.dasfinance}>DAS.Finance</Typography></a>
+          <a href="/home" className={classes.blueLink}><Typography className={classes.dasfinance}>CryptoQuant</Typography></a>
         
         
        
