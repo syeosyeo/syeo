@@ -4,23 +4,23 @@ import { withStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUp from '@material-ui/icons/KeyboardArrowUp'
+import Toolbar from '@material-ui/core/Toolbar';
+import AppBar from '@material-ui/core/AppBar';
 
 const styles = theme => ({
   header: {
     backgroundColor: '#ffffff',
-    minHeight: 92,
+    minHeight: 74,
     paddingLeft: theme.spacing.unit * 20,
     paddingRight: theme.spacing.unit * 20,
     [theme.breakpoints.down('sm')]: {
       paddingLeft: theme.spacing.unit * 3,
       paddingRight: theme.spacing.unit * 3,
-    }
+    },
+    flexGrow:1
   },
   widthAuto: {
     width: 'auto',
@@ -35,6 +35,7 @@ const styles = theme => ({
     color: '#1d1537',
     fontFamily: "Helvetica",
     fontSize: 14,
+    marginLeft: theme.spacing.unit *3
   },
   paddingTop: {
     paddingTop: theme.spacing.unit * 1,
@@ -105,36 +106,33 @@ class Header extends React.Component {
     const { classes } = this.props;
 
     return (
-      <Grid container alignItems='center' className={classNames(classes.header)} >
-        
-        
+      
+        <AppBar position={"static"}>
+          <Grid className={classNames(classes.header, classes.paddingTop)} >
+          <Toolbar disableGutters>
           <a href="/home" className={classes.blueLink}><Typography className={classes.dasfinance}>DAS.Finance</Typography></a>
         
         
        
-        <Grid container item >
-            <Grid item className={classes.widthAuto} container justify="center">
-              <Button id="header-research" href='/research'>
-                <Typography className={classes.link} align='center'>Research</Typography>
-              </Button>
-            </Grid>
-            <Grid item className={classes.widthAuto} container justify="center">
-              <Button id="header-storadar" href='/sto_radar'>
-                <Typography className={classes.link} align='center'>STO Radar</Typography>
-              </Button>
-            </Grid>
-            <Grid item className={classes.widthAuto} container justify="center">
-              <Button id="header-news" href='https://t.me/STOresearch'>
-                <Typography className={classes.link} align='center'>DAS News</Typography>
-              </Button>
-            </Grid>  
-        </Grid>
+          <Grid container justify="flex-end">           
+            <Button id="header-research">
+              <Typography className={classes.link} align='center'>Research</Typography>
+            </Button>          
+            <Button id="header-storadar">
+              <Typography className={classes.link} align='center'>STO Radar</Typography>
+            </Button>       
+            <Button id="header-news">
+              <Typography className={classes.link} align='center'>DAS News</Typography>
+            </Button>
+          </Grid>
 
         <Fab style={{color: '#e7e7e7'}} aria-label="Top" className={classes.top} onClick={this.scrollToTop} size='small'>
           <KeyboardArrowUp style={{color: '#6A6189'}}/>
         </Fab>
-        
-      </Grid>
+        </Toolbar>
+        </Grid>
+        </AppBar>
+      
     );
   }
 }
