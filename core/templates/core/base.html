@@ -1,0 +1,14 @@
+{% load static %}
+{% load render_bundle from webpack_loader %}
+
+<!DOCTYPE html>
+<html>
+    {% include 'core/head.html' %}
+    <body style='display: flex; min-height: 100vh; flex-direction: column;'>
+        <div id="css_baseline"></div>
+        {% block content %}
+        {% endblock %}
+        {% render_bundle 'vendors~main' %}
+        {% render_bundle 'main' %}
+    </body>
+</html>

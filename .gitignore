@@ -1,0 +1,16 @@
+sto/__pycache__/
+*.pyc
+*~
+__pycache__
+myvenv
+env
+db.sqlite3
+.DS_Store
+*.swp
+/static
+/media
+nohup.out
+/webpack-stats.json
+/core/static/core/js/bundle/
+node_modules/
+.vscode/
