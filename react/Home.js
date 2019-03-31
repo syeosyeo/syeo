@@ -246,84 +246,78 @@ class Home extends React.Component {
               </Grid>
             </div>
 
+            <Grid container justify="center"  className={classNames(classes.commonPadding)}>
+            <Grid item xs={12} container direction="row" justify="space-between" className={classNames(classes.heightFitContent, classes.maxWidth)}>
+              <Grid item xs={12}>
+                <Typography style={{color: '#1d1537', fontSize: 24,}} className={classNames(classes.nunitoSansSemiBold,)}>About Us</Typography>
+              </Grid>
+
+              
+            </Grid>
+            </Grid>
+
+
             <Grid container justify="center" style={{backgroundColor: '#f6f6f6'}} className={classNames(classes.commonPadding)}>
             <Grid item xs={12} container direction="row" justify="space-between" className={classNames(classes.heightFitContent, classes.maxWidth)}>
               <Grid item xs={12}>
-                <Typography style={{color: '#1d1537', fontSize: 24,}} className={classNames(classes.nunitoSansBold,)}>Our Services</Typography>
+                <Typography style={{color: '#1d1537', fontSize: 24,}} className={classNames(classes.nunitoSansSemiBold,)}>What We Analyze</Typography>
               </Grid>
 
               <Grid item xs={12} sm={3} container direction="column" justify="space-between" className={classNames(classes.serviceGrid, classes.serviceMarginRight)}>
                 <Grid item xs={12} container direction="column" justify="flex-start">
                 <Grid item xs={12} container direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
                   <img src="/static/core/home/dasresearch.svg"/>
-                  { language=="English" &&
-                  <Typography style={{color: '#373737', fontSize: 18,}} className={classNames(classes.nunitoSansBold,)}>DAS Research</Typography>
-                  }{ language=="Korean" &&
-                  <Typography style={{color: '#373737', fontSize: 18, fontWeight: 700}} className={classNames(classes.spoqaHanSans,)}>DAS 리서치</Typography>
-                  }
+                  
+                  <Typography style={{color: '#373737', fontSize: 18,}} className={classNames(classes.nunitoSansSemiBold,)}>DAS Research</Typography>
+                  
+                
                 </Grid>
                 <Grid item xs={12} className={classes.serviceDetail}>
-                { language=="English" &&
+                
                 <Typography align="justify" style={{color: '#484848', fontSize: 16,}} className={classNames(classes.nunitoSansRegular)}>A research team of experts publishes reports on Digital Asset Securities markets and technologies. Insights and new opportunities are discovered through in-depth analysis.</Typography>
-                }{ language=="Korean" &&
-                <Typography align="justify" style={{color: '#484848', fontSize: 16,}} className={classNames(classes.spoqaHanSans)}>전문가들로 구성된 리서치팀이 디지털 자산 증권 시장과 기술에 대한 보고서를 발간합니다. 깊이 있는 분석을 통해 인사이트와 새로운 기회를 찾아냅니다.</Typography>
-
-                }
+                
                 </Grid>
                 </Grid>
-                { language=="English" &&
+            
                 <Button id="home-research" href="/research" variant="outlined" style={{border: '2px solid #322956',}} className={classNames(classes.serviceButton)}>See in Details</Button>
-                }{ language=="Korean" &&
-                <Button id="home-research" href="/research" variant="outlined" style={{border: '2px solid #322956',}} className={classNames(classes.serviceButton)}>자세히 보기</Button>
-                }
+                
               </Grid>
               <Grid item xs={12} sm={3} container direction="column" justify="space-between" className={classNames(classes.serviceGrid, classes.serviceMarginRight)}>
                 <Grid item xs={12} container direction="column" justify="flex-start">
                 <Grid item xs={12} container direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
                   <img src="/static/core/home/storadar.svg"/>
-                  { language=="English" &&
-                  <Typography style={{ color: '#373737', fontSize: 18,}} className={classNames(classes.nunitoSansBold,)}>STO Radar</Typography>
-                  }{ language=="Korean" &&
-                  <Typography style={{ color: '#373737', fontSize: 18, fontWeight: 700,}} className={classNames(classes.spoqaHanSans,)}>STO Radar</Typography>
-                  }
+                  
+                  <Typography style={{ color: '#373737', fontSize: 18,}} className={classNames(classes.nunitoSansSemiBold,)}>STO Radar</Typography>
+                  
                 </Grid>
                 <Grid item xs={12} className={classes.serviceDetail}>
-                  { language=="English" &&
+                  
                   <Typography align="justify" style={{color: '#484848', fontSize: 16,}} className={classNames(classes.nunitoSansRegular)}>Check out the latest STO list organized by regulation and security type. Investment guide and sales notification for accredited investors is provided.</Typography>
-                  }{ language=="Korean" &&
-                  <Typography align="justify" style={{color: '#484848', fontSize: 16,}} className={classNames(classes.spoqaHanSans)}>규제와 자산 종류에 따라 정리된 최신 STO 리스트를 확인하세요. 적격 투자자를 위한 투자 가이드와 큐레이션이 제공됩니다.</Typography>
-                  }
+                  
                 </Grid>
                 </Grid>
-                { language=="English" &&
+                
                 <Button id="home-storadar" href="/sto_radar" variant='outlined' style={{border: '2px solid #322956',}} className={classNames(classes.serviceButton)}>View STO List</Button>
-                }{ language=="Korean" &&
-                <Button id="home-storadar" href="/sto_radar" variant='outlined' style={{border: '2px solid #322956',}} className={classNames(classes.serviceButton)}>STO 리스트 보기</Button>
-                }
+                
               </Grid>
               <Grid item xs={12} sm={3} container direction="column" justify="space-between" className={classes.serviceGrid}>
                 <Grid item xs={12} container direction="column" justify="flex-start">
                 <Grid item xs={12} container direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
                   <img src="/static/core/home/endtoend.svg"/>
-                  { language=="English" &&
-                  <Typography style={{ color: '#373737', fontSize: 18,}} className={classNames(classes.nunitoSansBold,)}>End-to-End<br/>Digital Asset Management</Typography>
-                  }{ language=="Korean" &&
-                  <Typography style={{ color: '#373737', fontSize: 18, fontWeight: 700,}} className={classNames(classes.spoqaHanSans,)}>End-to-End<br/>디지털 자산 관리</Typography>
-                  }
+                  
+                  <Typography style={{ color: '#373737', fontSize: 18,}} className={classNames(classes.nunitoSansSemiBold,)}>End-to-End<br/>Digital Asset Management</Typography>
+               
+                  
                 </Grid>
                 <Grid item xs={12} className={classes.serviceDetail}>
-                  { language=="English" &&
+                
                   <Typography align="justify" style={{color: '#484848', fontSize: 16,}} className={classNames(classes.nunitoSansRegular)}>From KYC and whitelisting of wallets using ZKProof technology to community creation for shareholders, we support compliance and enhanced privacy in every step.</Typography>
-                  }{ language=="Korean" &&
-                  <Typography align="justify" style={{color: '#484848', fontSize: 16,}} className={classNames(classes.nunitoSansRegular)}>ZKProof 기술을 사용한 KYC 및 지갑 화이트리스팅부터 투자자를 위한 커뮤니티 생성까지, 디지털 자산 관리의 모든 단계에서 규제를 준수하고 개인 정보를 보호할 수 있습니다.</Typography>
-                  }
+                  
                 </Grid>
                 </Grid>
-                { language=="English" &&
+                
                 <Button id="home-management" variant='contained' style={{color: '#6a6a6a', backgroundColor: '#ededed',}} className={classNames(classes.serviceButton)} disabled>Coming Soon</Button>
-                }{ language=="Korean" &&
-                <Button id="home-management" variant='contained' style={{color: '#6a6a6a', backgroundColor: '#ededed',}} className={classNames(classes.serviceButton)} disabled>준비중</Button>
-                }
+                
               </Grid>
             </Grid>
             </Grid>
@@ -331,21 +325,24 @@ class Home extends React.Component {
             <Grid container justify="center" className={classNames(classes.commonPadding)}>
             <Grid item xs={12} container direction="column" justify="flex-start" className={classNames(classes.heightFitContent, classes.maxWidth)}>
               <Grid item xs={12} container direction="column">
-                <Typography style={{marginBottom: '12px', color: '#1d1537', fontSize: 24,}} className={classNames(classes.nunitoSansBold,)}>Security Tokens List</Typography>
-                {language == 'English' &&
+                <Typography style={{marginBottom: '12px', color: '#1d1537', fontSize: 24,}} className={classNames(classes.nunitoSansSemiBold,)}>Our Technology</Typography>
+         
                 <Typography style={{fontSize: 16, color: '#373737'}} className={classes.nunitoSansRegular}>Check out the latest STO list organized by regulation type.</Typography>
-                }{language == 'Korean' &&
-                <Typography style={{fontSize: 16, color: '#373737'}} className={classes.spoqaHanSans}>규제별로 정리된 최신 STO 리스트를 한눈에 확인하세요.</Typography>
-                }
+                
               </Grid>
 
-              <Grid className={classes.projectTable}>
-                  <ProjectTable language={language} pageSize={5} />
+             
+
+              
+            </Grid>
+            </Grid>
+            <Grid container justify="center"  style={{backgroundColor: '#f6f6f6'}}  className={classNames(classes.commonPadding)}>
+            <Grid item xs={12} container direction="row" justify="space-between" className={classNames(classes.heightFitContent, classes.maxWidth)}>
+              <Grid item xs={12}>
+                <Typography style={{color: '#1d1537', fontSize: 24,}} className={classNames(classes.nunitoSansSemiBold,)}>Meet Our Team</Typography>
               </Grid>
 
-              <Grid item xs={12} container justify="center" className={classes.marginTopXSOnly}>
-                <Typography style={{color: '#373737', fontSize: 16,}} className={classNames(classes.nunitoSansSemiBold)}>Cannot find your project? <a id="home-getlisted" href="https://dasfinance.typeform.com/to/OXx9UJ" className={classes.link}>Get listed</a></Typography>
-              </Grid>
+              
             </Grid>
             </Grid>
 
@@ -353,25 +350,18 @@ class Home extends React.Component {
             <div className={classNames(classes.investmentGuide, classes.commonPadding)}>
               <Grid container justify="center">
               <Grid item xs={12} className={classes.maxWidth}>
-                <Typography className={classNames(classes.nunitoSansBold, classes.investmentGuide1)}>Get Started</Typography>
-                {language == 'English' &&
+                <Typography className={classNames(classes.nunitoSansSemiBold, classes.investmentGuide1)}>Contact Us</Typography>
+                
                 <div>
-                <Typography className={classNames(classes.nunitoSansSemiBold, classes.investmentGuide2)}><br/>Got stuck with issuing or investing security tokens?</Typography>
-                <Typography className={classNames(classes.nunitoSansSemiBold, classes.investmentGuide2)}>We're here for you.</Typography>
+                
+                <Typography className={classNames(classes.nunitoSansSemiBold, classes.investmentGuide2)}>contact us contact us contact us</Typography>
                 </div>
-                }{language == 'Korean' &&
-                <div>
-                <Typography className={classNames(classes.spoqaHanSans, classes.investmentGuide2)}><br/>복잡한 STO 절차와 규제, <br className={classes.visibleXSOnly}/>어떻게 시작해야할지 고민 되시나요?</Typography>
-                <Typography className={classNames(classes.spoqaHanSans, classes.investmentGuide2)}>DAS.Finance가 도와드리겠습니다.</Typography>
-                </div>
-                }
+                
                 <Grid style={{marginTop: '37px'}} container justify="flex-start">
                   <Button id="home-forinvestors" className={classNames(classes.buttonHelp, classes.marginRight)} variant="outlined"
-                  href={language=="Korean"? "https://dasfinance.typeform.com/to/v4HNG4": "https://dasfinance.typeform.com/to/Xk7xui"}
+                  href={""}
                   >For Investors <ArrowRightAlt className={classes.marginLeft}/></Button>
-                  <Button id="home-forissuers" className={classes.buttonHelp} variant="outlined"
-                  href="https://dasfinance.typeform.com/to/JHADCZ"
-                  >For Issuers <ArrowRightAlt className={classes.marginLeft}/></Button>
+                  
                 </Grid>
               </Grid>
               </Grid>
@@ -379,14 +369,14 @@ class Home extends React.Component {
             
             <Grid container justify="center" className={classes.commonPadding}>
             <Grid item xs={12} className={classes.maxWidth}>
-            <Subscribe language={language}/>
+            <Subscribe language={'English'}/>
             </Grid>
             </Grid>
 
           </Grid>
         </main>
 
-        <Footer language={language} />
+        <Footer language={'English'} />
       </div>
     );
   }

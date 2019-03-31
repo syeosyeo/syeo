@@ -147,11 +147,9 @@ class Subscribe extends React.Component {
         <Grid item xs={12} container direction="column" alignItems="center" className={classNames(classes.widthAuto, classes.heightFitContent)}>
           <Grid style={{marginBottom: '50px'}} item xs={12} container direction="column" alignItems="center">
             <Typography style={{marginBottom: '12px', color: '#373737', fontSize: 16,}} align='center' className={classes.nunitoSansSemiBold}>Newsletter</Typography>
-            {language == 'English' &&
-            <Typography style={{color: '#1d1537', fontSize: 24,}} align='center' className={classes.nunitoSansBold}>Stay current with latest DAS news and reports</Typography>
-            }{language == 'Korean' &&
-            <Typography style={{color: '#1d1537', fontSize: 24,}} align='center' className={classes.nunitoSansBold}>DAS.Finance에서 제공하는 최신 뉴스와 보고서를 무료로 받아보세요.</Typography>
-            }
+           
+            <Typography style={{color: '#1d1537', fontSize: 24,}} align='center' className={classes.nunitoSansSemiBold}>Stay current with latest crypto news and reports</Typography>
+            
           </Grid>
 
           <Grid item xs={12} container direction="row" alignItems="flex-start">

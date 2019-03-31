@@ -105,56 +105,35 @@ class Header extends React.Component {
     const { classes } = this.props;
 
     return (
-      <Grid container direction='row' alignItems='center' justify='center' className={classNames(classes.header)}>
-        <Grid container justify="center" className={classes.maxWidth}>
-        <Grid item xs={12} md={6} container direction='column' justify='center' alignItems='flex-start' className={classNames(classes.widthAuto, classes.paddingTop)}>
-        <a href="/home" className={classes.blueLink}><Typography className={classes.dasfinance}>DAS.Finance</Typography></a>
-        </Grid>
-        <Grid item xs={12} md={6} container direction='row' justify='space-between' alignItems='center' className={classNames(classes.widthAuto)}>
-          {/* <Grid item md={3} className={classes.widthAuto} container justify="center">
-            <Button href='/tech'>
-              <Typography className={classes.link} align='center'>Tech</Typography>
-            </Button>
-          </Grid> */}
-          <Grid item md={3} className={classes.widthAuto} container justify="center">
-            <Button id="header-research" href='/research'>
-              <Typography className={classes.link} align='center'>Research</Typography>
-            </Button>
-          </Grid>
-          <Grid item md={3} className={classes.widthAuto} container justify="center">
-            <Button id="header-storadar" href='/sto_radar'>
-              <Typography className={classes.link} align='center'>STO Radar</Typography>
-            </Button>
-          </Grid>
-          <Grid item md={3} className={classes.widthAuto} container justify="center">
-            <Button id="header-news" href='https://t.me/STOresearch'>
-              <Typography className={classes.link} align='center'>DAS News</Typography>
-            </Button>
-          </Grid>
-          <Grid item md={3} className={classes.widthAuto} container justify='center'>
-            <FormControl className={classes.formControl} style={{disableUnderline: true}}>
-              <Select
-                value={this.props.language}
-                onChange={this.handleChange}
-                displayEmpty
-                name="language"
-                className={classNames(classes.language)}
-                disableUnderline
-              >
-                {languages.map(option => (
-                  <MenuItem key={option.value} value={option.value} className={classNames(classes.language, classes.menuItem)}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </Grid>
+      <Grid container alignItems='center' className={classNames(classes.header)} >
+        
+        
+          <a href="/home" className={classes.blueLink}><Typography className={classes.dasfinance}>DAS.Finance</Typography></a>
+        
+        
+       
+        <Grid container item >
+            <Grid item className={classes.widthAuto} container justify="center">
+              <Button id="header-research" href='/research'>
+                <Typography className={classes.link} align='center'>Research</Typography>
+              </Button>
+            </Grid>
+            <Grid item className={classes.widthAuto} container justify="center">
+              <Button id="header-storadar" href='/sto_radar'>
+                <Typography className={classes.link} align='center'>STO Radar</Typography>
+              </Button>
+            </Grid>
+            <Grid item className={classes.widthAuto} container justify="center">
+              <Button id="header-news" href='https://t.me/STOresearch'>
+                <Typography className={classes.link} align='center'>DAS News</Typography>
+              </Button>
+            </Grid>  
         </Grid>
 
         <Fab style={{color: '#e7e7e7'}} aria-label="Top" className={classes.top} onClick={this.scrollToTop} size='small'>
           <KeyboardArrowUp style={{color: '#6A6189'}}/>
         </Fab>
-        </Grid>
+        
       </Grid>
     );
   }
