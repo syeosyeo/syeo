@@ -82,10 +82,10 @@ class Footer extends React.Component {
         <Grid container direction='row' alignItems='center' justify='center' item xs={12} className={classNames(classes.maxWidth)}>
           <Grid item xs={12} sm={5} container direction='row' justify='flex-start' className={classNames(classes.widthAuto)}>
             <Grid item xs={12} sm={12} container justify='flex-start' alignItems='flex-end' className={classes.widthAuto}>
-              <Typography className={classes.dasfinance}>DAS.Finance</Typography>
+              <Typography className={classes.dasfinance}>CryptoQuant</Typography>
             </Grid>
             <Grid style={{marginTop: '-5px'}} item xs={12} sm={12} container justify='flex-start' alignItems='flex-start' className={classes.widthAuto}>
-              <Typography className={classes.copyright}>&copy; 2019 DAS.Finance. All rights reserved</Typography>
+              <Typography className={classes.copyright}>&copy; 2019 CryptoQuant. All rights reserved</Typography>
             </Grid>
           </Grid>
 
@@ -101,7 +101,7 @@ class Footer extends React.Component {
               </Button>
             </Grid>
             <Grid item xs={3} className={classes.widthAuto} container justify='center'>
-              <Button href="mailto:contact@das.finance">
+              <Button href="mailto:contact@CryptoQuant">
                 <Typography className={classes.link} align='center'>Contact Us</Typography>
               </Button>
             </Grid>
@@ -120,13 +120,13 @@ class Footer extends React.Component {
         </Grid>
 
         <Grid container alignItems='flex-start' item xs={12} className={classNames(classes.widthAuto)}>
-          {language=='English' && 
+          {language=='English' &&
           <Typography className={classNames(classes.caption)} align='justify'>
-          DAS.Finance does not verify any information that is provided by suppliers or publishers. We do not guarantee timeliness, correctness, or completeness. Das.Finance is not either a registered broker-dealer or investment consultant under any jurisdiction. Any information that is provided is not registered at financial authorities. We do not provide any investment services such as financial investing or purchasing tokens. All information from our company is originally from the suppliers and publishers. The purpose of the information that is provided is not for supporting any specific financial account or security. We do not want you to consider the information as an investment recommendation. We suggest you not to rely on the information. The information that is found on the website is only for educational and informative purposes. Terms and conditions apply to any action on the website.
+          CryptoQuant does not verify any information that is provided by suppliers or publishers. We do not guarantee timeliness, correctness, or completeness. CryptoQuant is not either a registered broker-dealer or investment consultant under any jurisdiction. Any information that is provided is not registered at financial authorities. We do not provide any investment services such as financial investing or purchasing tokens. All information from our company is originally from the suppliers and publishers. The purpose of the information that is provided is not for supporting any specific financial account or security. We do not want you to consider the information as an investment recommendation. We suggest you not to rely on the information. The information that is found on the website is only for educational and informative purposes. Terms and conditions apply to any action on the website.
           </Typography>
-          }{language=='Korean' && 
+          }{language=='Korean' &&
           <Typography className={classes.caption} align='justify'>
-          DAS.Finance (https://das.finance)는 본 사이트의 Security Token Offering 제공 업체 및 발행 업체가 제공한 정보를 검증하지 않으며, 해당 정보의 정확성, 적시성 및 완전성에 대해 어떠한 보증도 하지 않습니다. 또한, DAS.Finance는 관할권에 등록된 브로커 - 딜러 또는 투자 자문가가 아니며 이 사이트에서 발견 된 어떠한 정보도 금융 당국에 등록되지 않았습니다. 자사에서 제공되는 정보는 STO의 제공 업체 및 발급 기관이 DAS.Finance에게 제공한 정보에 기초합니다. 금융 상품 또는 유가 증권의 매매에 대한 제안이나 권유를 목적으로 하지 않으며, 투자 추천이나 조언으로 보거나 의존해서는 안됩니다. 이 사이트에서 제공되는 모든 정보와 내용은 정보 제공 및 교육 목적으로만 제공됩니다.  사이트의 모든 활동은 이용 약관의 적용을 받습니다.
+          CryptoQuant (https://cryptoquant.com)는 본 사이트의 Security Token Offering 제공 업체 및 발행 업체가 제공한 정보를 검증하지 않으며, 해당 정보의 정확성, 적시성 및 완전성에 대해 어떠한 보증도 하지 않습니다. 또한, CryptoQuant는 관할권에 등록된 브로커 - 딜러 또는 투자 자문가가 아니며 이 사이트에서 발견 된 어떠한 정보도 금융 당국에 등록되지 않았습니다. 자사에서 제공되는 정보는 STO의 제공 업체 및 발급 기관이 CryptoQuant에게 제공한 정보에 기초합니다. 금융 상품 또는 유가 증권의 매매에 대한 제안이나 권유를 목적으로 하지 않으며, 투자 추천이나 조언으로 보거나 의존해서는 안됩니다. 이 사이트에서 제공되는 모든 정보와 내용은 정보 제공 및 교육 목적으로만 제공됩니다.  사이트의 모든 활동은 이용 약관의 적용을 받습니다.
           </Typography>
           }
         </Grid>

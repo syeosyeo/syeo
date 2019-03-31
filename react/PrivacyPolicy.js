@@ -70,13 +70,13 @@ class PrivacyPolicy extends React.Component {
               <Paper className={classNames(classes.nunitoSansRegular, classes.paddingPaper)}>
               <small>
                   <h1>We Care About Your Privacy</h1>
-                        <p>It is DAS.Finance’s policy to respect your privacy regarding any personal data we may collect while operating our services on DAS.Finance, available at <a href="http://das.finance/">das.finance</a>. Accordingly, we have developed this privacy policy (hereinafter, referred to as the “Privacy Policy”) in order for you to understand how we collect and process (i.e., use, store, share, disclose and otherwise make use of) your personal data. This Privacy Policy will also cover your rights in relation to your personal data.</p>
+                        <p>It is CryptoQuant’s policy to respect your privacy regarding any personal data we may collect while operating our services on CryptoQuant, available at <a href="https://cryptoquant.com/">CryptoQuant</a>. Accordingly, we have developed this privacy policy (hereinafter, referred to as the “Privacy Policy”) in order for you to understand how we collect and process (i.e., use, store, share, disclose and otherwise make use of) your personal data. This Privacy Policy will also cover your rights in relation to your personal data.</p>
 
-                        <p>This Privacy Policy does not cover any personal data that we may receive about you through sources other than DAS.Finance.</p>
+                        <p>This Privacy Policy does not cover any personal data that we may receive about you through sources other than CryptoQuant.</p>
 
-                        <p>By continuing to use DAS.Finance, you acknowledge that you have had the chance to review and consider this Privacy Policy, and you acknowledge that you agree to it. This means that you also consent to the use of your personal data and the methods of disclosure as described in this Privacy Policy. If you do not understand the Privacy Policy or do not agree to one or more provisions of this Privacy Policy, please immediately cease your use of DAS.Finance.</p>
+                        <p>By continuing to use CryptoQuant, you acknowledge that you have had the chance to review and consider this Privacy Policy, and you acknowledge that you agree to it. This means that you also consent to the use of your personal data and the methods of disclosure as described in this Privacy Policy. If you do not understand the Privacy Policy or do not agree to one or more provisions of this Privacy Policy, please immediately cease your use of CryptoQuant.</p>
 
-                        <p>This Agreement specifically incorporates by reference the entirety of our <a href="http://das.finance/terms_of_service">Terms of Service</a>.</p>
+                        <p>This Agreement specifically incorporates by reference the entirety of our <a href="https://cryptoquant.com/terms_of_service">Terms of Service</a>.</p>
 
                         <h2>Definitions</h2>
 
@@ -84,47 +84,47 @@ class PrivacyPolicy extends React.Component {
                         <ol type="a">
                             <li>“EFFECTIVE DATE” means the date this Privacy Policy comes into force and effect.</li>
                             <li>“PERSONAL DATA” means any information relating to a natural person who can be identified, directly or indirectly, by using such information. </li>
-                            <li>“SERVICES” means any services that are made available by the Company for use or sale through DAS.Finance.</li>
-                            <li>“USER”, “YOU”, and “YOUR” means the user of DAS.Finance that agrees to this Privacy Policy and continues using DAS.Finance. You may also be referred to with pronouns such as “your” and “yours”, when second-person pronouns are required.</li>
+                            <li>“SERVICES” means any services that are made available by the Company for use or sale through CryptoQuant.</li>
+                            <li>“USER”, “YOU”, and “YOUR” means the user of CryptoQuant that agrees to this Privacy Policy and continues using CryptoQuant. You may also be referred to with pronouns such as “your” and “yours”, when second-person pronouns are required.</li>
                             <li>“PARTIES” means the parties to this Privacy Policy, i.e., you and the Company. Hereinafter, the parties will individually be referred to as “Party” and collectively as “Parties.”</li>
                         </ol>
 
                         <h2>How We Collect Information and What Information We Collect</h2>
 
-                        <p>Through your use of DAS.Finance, you will be subject to different types of personal data collected and different manners of collection. We will collect and process your personal data in a lawful, fair, and transparent manner and, where appropriate, with your knowledge or prior explicit consent. Personal data will be relevant to the purposes for which they are to be used, and, to the extent necessary for those purposes, should be accurate, complete, and up-to-date.</p>
+                        <p>Through your use of CryptoQuant, you will be subject to different types of personal data collected and different manners of collection. We will collect and process your personal data in a lawful, fair, and transparent manner and, where appropriate, with your knowledge or prior explicit consent. Personal data will be relevant to the purposes for which they are to be used, and, to the extent necessary for those purposes, should be accurate, complete, and up-to-date.</p>
 
                         <h2>Types of Personal Data</h2>
 
-                        <p>We comply with data minimization principles. We collect and process only the minimal amount of personal data that is necessary for performing the operations requested by you. We do not attempt to collect any personal data from you that are not strictly necessary for performing the requested operations. The following types of personal data will be collected by the Company through DAS.Finance:</p>
+                        <p>We comply with data minimization principles. We collect and process only the minimal amount of personal data that is necessary for performing the operations requested by you. We do not attempt to collect any personal data from you that are not strictly necessary for performing the requested operations. The following types of personal data will be collected by the Company through CryptoQuant:</p>
 
                         <ol>
-                            <li>REGISTRATION: You, as a user of DAS.Finance, may be asked to register an account to use DAS.Finance or access any of the services thereon. During the process of your registration, you will be asked to provide your email address, a password, country, net worth, name, etc that you would like to disclose. We use these personal data to provide the services to you and ensure the security of DAS.Finance.</li>
+                            <li>REGISTRATION: You, as a user of CryptoQuant, may be asked to register an account to use CryptoQuant or access any of the services thereon. During the process of your registration, you will be asked to provide your email address, a password, country, net worth, name, etc that you would like to disclose. We use these personal data to provide the services to you and ensure the security of CryptoQuant.</li>
 
                             <li>BILLING: If you elect to use any of our paid services, you will be asked to provide billing information, such as, but not limited to Your credit card number and billing address. This personal data will be used specifically for providing you with the services you have purchased. The payment and billing information may be stored for the time period as required by applicable law for lawful purposes (e.g., accountancy records).</li>
 
-                            <li>CRYPTO AND FINANCIAL INFORMATION: Depending on how you choose to interact with the DAS.Finance services, you may be asked to provide your general portfolio information, wallet address, Investment propensity data, and other information that will assist us in providing the services to you.</li>
+                            <li>CRYPTO AND FINANCIAL INFORMATION: Depending on how you choose to interact with the CryptoQuant services, you may be asked to provide your general portfolio information, wallet address, Investment propensity data, and other information that will assist us in providing the services to you.</li>
 
-                            <li>USE: Through your use of DAS.Finance, you may be asked questions about how to improve DAS.Finance or you may, at some point, communicate with representatives of DAS.Finance. We will receive your email address, as well as the contents of your communications, answers to questions and any other form of contact between you and DAS.Finance. We will use personal data contained in such communications only for the purposes of providing you with the requested information and for improving the services.</li>
+                            <li>USE: Through your use of CryptoQuant, you may be asked questions about how to improve CryptoQuant or you may, at some point, communicate with representatives of CryptoQuant. We will receive your email address, as well as the contents of your communications, answers to questions and any other form of contact between you and CryptoQuant. We will use personal data contained in such communications only for the purposes of providing you with the requested information and for improving the services.</li>
 
-                            <li>AUTOMATIC COLLECTION: We may collect information from you through automatic tracking systems on your device or through the DAS.Finance application programming interface, or API, or other web and mobile analysis software. We may also receive certain usage data, such as your IP address and referral source. We use this information for Our legitimate business interests, including analyzing usage of DAS.Finance.</li>
+                            <li>AUTOMATIC COLLECTION: We may collect information from you through automatic tracking systems on your device or through the CryptoQuant application programming interface, or API, or other web and mobile analysis software. We may also receive certain usage data, such as your IP address and referral source. We use this information for Our legitimate business interests, including analyzing usage of CryptoQuant.</li>
 
-                            <li>COMBINED OR AGGREGATED INFORMATION: We may combine or aggregate some of your personal data in order to better serve you and to better enhance and update DAS.Finance for your and other consumers’ use.</li>
+                            <li>COMBINED OR AGGREGATED INFORMATION: We may combine or aggregate some of your personal data in order to better serve you and to better enhance and update CryptoQuant for your and other consumers’ use.</li>
                         </ol>
 
                         <h2>Non-Personal Data</h2>
 
-                        <p>We may collect non-personal data, such as browser types, operating systems, and the URL addresses of websites clicked to and from DAS.Finance, <a href="http://das.finance/terms_of_service">including referral links</a> we may post on DAS.Finance in order to analyze what kind of users visit DAS.Finance, how they find it, how long they stay, from which other websites they come to DAS.Finance, what pages they look at, and to which other websites they go from DAS.Finance. In case your non-personal data are aggregated with certain elements of your personal data in the way that we may become able to identify you, such non-personal data will be treated as personal data.</p>
+                        <p>We may collect non-personal data, such as browser types, operating systems, and the URL addresses of websites clicked to and from CryptoQuant, <a href="https://cryptoquant.com/terms_of_service">including referral links</a> we may post on CryptoQuant in order to analyze what kind of users visit CryptoQuant, how they find it, how long they stay, from which other websites they come to CryptoQuant, what pages they look at, and to which other websites they go from CryptoQuant. In case your non-personal data are aggregated with certain elements of your personal data in the way that we may become able to identify you, such non-personal data will be treated as personal data.</p>
 
                         <h2>How Information Is Used</h2>
 
-                        <p>We respect data protection principles and process personal data only for specified, explicit and legitimate purposes for which such personal data were provided. We primarily use your personal data to enable your use of DAS.Finance and supply the services requested by you. We may also use your personal data for the following purposes:</p>
+                        <p>We respect data protection principles and process personal data only for specified, explicit and legitimate purposes for which such personal data were provided. We primarily use your personal data to enable your use of CryptoQuant and supply the services requested by you. We may also use your personal data for the following purposes:</p>
                         <ol>
                             <li>Asking you about your experience with us;</li>
                             <li>Communicating with you about your user account with us;</li>
                             <li>Analyzing our aggregate user data;</li>
                             <li>Enforcing our Terms of Use;</li>
                             <li>Providing customer services to you;</li>
-                            <li>Advising you about updates to DAS.Finance or related items; or</li>
+                            <li>Advising you about updates to CryptoQuant or related items; or</li>
                             <li>Providing you with information about services that are similar to the services used by you.</li>
                         </ol>
 
@@ -132,21 +132,21 @@ class PrivacyPolicy extends React.Component {
 
                         <h2>Newsletters and Marketing Communications</h2>
 
-                        <p>From time to time, we may send you informational communications related to DAS.Finance, such as announcements about updates to DAS.Finance. you may also receive information from us that is specifically about your use of DAS.Finance or about your account with us, including information about security breaches or other privacy-related matters. Please note that such communication does not fall within the scope of direct marketing communication.</p>
+                        <p>From time to time, we may send you informational communications related to CryptoQuant, such as announcements about updates to CryptoQuant. you may also receive information from us that is specifically about your use of CryptoQuant or about your account with us, including information about security breaches or other privacy-related matters. Please note that such communication does not fall within the scope of direct marketing communication.</p>
 
                         <p>After we obtain your explicit prior consent, we may use your personal data for direct marketing purposes, such as:</p>
                         <ol>
                             <li>Sending you a newsletter;</li>
                             <li>Offering you new products, services, mobile applications, and/or recommendations;</li>
                             <li>Profiling; and</li>
-                            <li>Delivering you targeted information regarding promotions related to DAS.Finance.</li>
+                            <li>Delivering you targeted information regarding promotions related to CryptoQuant.</li>
                         </ol>
 
-                        <p>If you decide at any time that you no longer wish to receive communications from us, please follow the “unsubscribe” instructions provided in the communications or contact us at <a href="mailto:contact@das.finance">contact@das.finance</a>.</p>
+                        <p>If you decide at any time that you no longer wish to receive communications from us, please follow the “unsubscribe” instructions provided in the communications or contact us at <a href="mailto:contact@CryptoQuant">contact@CryptoQuant</a>.</p>
 
                         <h2>Your Consent</h2>
 
-                        <p>By using DAS.Finance, you are consenting to Our processing of your personal data as set forth in this Privacy Policy. The term “processing” includes collecting, storing, deleting, using, and disclosing personal data.</p>
+                        <p>By using CryptoQuant, you are consenting to Our processing of your personal data as set forth in this Privacy Policy. The term “processing” includes collecting, storing, deleting, using, and disclosing personal data.</p>
 
                         <p>Please note that we do not collect any sensitive data about you (e.g., your health information, opinions about your religious and political beliefs, racial origins and memberships of a professional or trade associations). Should we intend to process any sensitive data collected from you, we will seek your explicit consent in advance.</p>
 
@@ -163,11 +163,11 @@ class PrivacyPolicy extends React.Component {
 
                         <h2>Cookies</h2>
 
-                        <p>DAS.Finance uses cookies. Cookies are small files stored on your computer or mobile device which collect information about your browsing behavior. These cookies do not access information which is stored on your computer.</p>
+                        <p>CryptoQuant uses cookies. Cookies are small files stored on your computer or mobile device which collect information about your browsing behavior. These cookies do not access information which is stored on your computer.</p>
 
                         <p>There are two types of cookies, namely, persistent cookies (i.e., cookies that remain valid until their expiration date, unless deleted by the user before that date) and session cookies (i.e., cookies that are stored on a web browser and remain valid until the moment when the browser is closed). We use both persistent cookies and session cookies.</p>
 
-                        <p>We use cookies to help us remember information about your account. For example, cookies are used to help us understand your preferences based on previous or current activity on DAS.Finance, which enables us to provide you with improved services. We also use cookies to help us compile aggregate data about DAS.Finance traffic and interaction so that we can offer better experiences and tools in the future. Other reasons we use cookies include (but are not limited to):</p>
+                        <p>We use cookies to help us remember information about your account. For example, cookies are used to help us understand your preferences based on previous or current activity on CryptoQuant, which enables us to provide you with improved services. We also use cookies to help us compile aggregate data about CryptoQuant traffic and interaction so that we can offer better experiences and tools in the future. Other reasons we use cookies include (but are not limited to):</p>
                         <ol>
                             <li>Understanding and saving user’s preferences for future visits;</li>
                             <li>Keeping track of advertisements; and</li>
@@ -178,7 +178,7 @@ class PrivacyPolicy extends React.Component {
 
                         <p>If you would like to set your browser to refuse cookies, check your browser’s help information or visit <a href="http://www.whatarecookies.com" target="_blank">http://www.whatarecookies.com</a> for further information.</p>
 
-                        <p>We honor Do Not Track signals and do not track, plant cookies, or use advertising when a Do Not Track (DNT) browser mechanism is in place. Users can also choose to visit DAS.Finance anonymously, but you may not be permitted to access any of the services.</p>
+                        <p>We honor Do Not Track signals and do not track, plant cookies, or use advertising when a Do Not Track (DNT) browser mechanism is in place. Users can also choose to visit CryptoQuant anonymously, but you may not be permitted to access any of the services.</p>
 
                         <h2>How Information May Be Shared Or Disclosed</h2>
 
@@ -189,20 +189,20 @@ class PrivacyPolicy extends React.Component {
                             <li>Satisfying any local, state, or Federal laws or regulations;</li>
                             <li>Responding to requests, such as discovery, criminal, civil, or administrative process, subpoenas, court orders, or writs from law enforcement or other governmental or legal bodies;</li>
                             <li>Bringing legal action against a user who has violated the law or violated our Terms of Services;</li>
-                            <li>As may be necessary for the operation of DAS.Finance;</li>
+                            <li>As may be necessary for the operation of CryptoQuant;</li>
                             <li>Generally cooperating with any lawful investigation about our users; or</li>
-                            <li>If we suspect any fraudulent activity on DAS.Finance or if we have noticed any activity which may violate our Terms or other applicable rules.</li>
+                            <li>If we suspect any fraudulent activity on CryptoQuant or if we have noticed any activity which may violate our Terms or other applicable rules.</li>
                         </ul>
 
                         <h2>Third-Parties</h2>
 
-                        <p>We may utilize third party service providers, from time to time or all the time, to help us with DAS.Finance and to help to serve you. Such third-party service providers may include:</p>
+                        <p>We may utilize third party service providers, from time to time or all the time, to help us with CryptoQuant and to help to serve you. Such third-party service providers may include:</p>
                         <ol>
                             <li>Data storage companies (e.g., Amazon Web Services and other cloud storage providers);</li>
                             <li>User information logistics providers (e.g., Google Analytics or other analytics companies which help us track general user information and usage);</li>
                             <li>Web hosting companies;</li>
                             <li>Newsletter providers; and</li>
-                            <li>Other parties who assist us in operating DAS.Finance and conducting our business.</li>
+                            <li>Other parties who assist us in operating CryptoQuant and conducting our business.</li>
                         </ol>
 
                         <p>The third party service providers indicated above may have access to your personal data as part of their partnerships with us only if they agree to assure an adequate level of protection of personal data that is consistent with this Privacy Policy.</p>
@@ -215,31 +215,31 @@ class PrivacyPolicy extends React.Component {
 
                         <h2>Transmittals From Us</h2>
 
-                        <p>From time to time, we may send you informational communications related to DAS.Finance, such as announcements or other information. You may also receive information from us that is specifically about your use of DAS.Finance or about your account with us, including information about security breaches or other privacy-related matters.</p>
+                        <p>From time to time, we may send you informational communications related to CryptoQuant, such as announcements or other information. You may also receive information from us that is specifically about your use of CryptoQuant or about your account with us, including information about security breaches or other privacy-related matters.</p>
 
-                        <p>By providing any personal information to us, or by using DAS.Finance in any manner, you have created a commercial relationship with us. As such, you agree that any email sent from us or third-party affiliates, even unsolicited email, shall specifically not be considered SPAM, as that term is legally defined.</p>
+                        <p>By providing any personal information to us, or by using CryptoQuant in any manner, you have created a commercial relationship with us. As such, you agree that any email sent from us or third-party affiliates, even unsolicited email, shall specifically not be considered SPAM, as that term is legally defined.</p>
 
                         <h2>Third Party Links</h2>
 
-                        <p>Through your use of DAS.Finance, you may find links out to other websites or mobile applications. This Privacy Policy does not and will not apply to any of those linked websites or applications. We are not responsible in any manner for the content or privacy and security practices and policies of any third parties, including other websites, services or applications that may be linked to or from DAS.Finance.</p>
+                        <p>Through your use of CryptoQuant, you may find links out to other websites or mobile applications. This Privacy Policy does not and will not apply to any of those linked websites or applications. We are not responsible in any manner for the content or privacy and security practices and policies of any third parties, including other websites, services or applications that may be linked to or from CryptoQuant.</p>
 
                         <p>Before visiting and providing any information to any such third-party websites and applications, you should familiarize yourself with the applicable privacy practices and take reasonable steps necessary to protect your personal data.</p>
 
                         <h2>Your Rights</h2>
 
-                        <p>You may choose to forego the provision of certain personal data to us, but you may then be prohibited from using DAS.Finance or any of the services thereon. We collect the information we do to maintain the integrity of DAS.Finance and to help to ensure the information security of the Parties. If you do not agree to any of the sections or subsections within this Privacy Policy, you must cease your use of DAS.Finance entirely.</p>
+                        <p>You may choose to forego the provision of certain personal data to us, but you may then be prohibited from using CryptoQuant or any of the services thereon. We collect the information we do to maintain the integrity of CryptoQuant and to help to ensure the information security of the Parties. If you do not agree to any of the sections or subsections within this Privacy Policy, you must cease your use of CryptoQuant entirely.</p>
 
                         <h2>Accessing, Correcting, and Erasing Personal Data</h2>
 
-                        <p>We take reasonable steps to ensure that the personal data collected and processed by us is accurate, complete, and up-to-date. Thus, we ask you to keep your personal data as current as possible and update your personal data through DAS.Finance if necessary.</p>
+                        <p>We take reasonable steps to ensure that the personal data collected and processed by us is accurate, complete, and up-to-date. Thus, we ask you to keep your personal data as current as possible and update your personal data through CryptoQuant if necessary.</p>
 
-                        <p>You may at any time review or change the personal data in your user account or terminate your user account by logging into it through DAS.Finance and updating your personal data. Upon your request to terminate your user account, we will deactivate or delete your account and information from our active databases.</p>
+                        <p>You may at any time review or change the personal data in your user account or terminate your user account by logging into it through CryptoQuant and updating your personal data. Upon your request to terminate your user account, we will deactivate or delete your account and information from our active databases.</p>
 
-                        <p>If you would like to access, modify, or delete your personal data that are processed through DAS.Finance, please send us an email to <a href="mailto:contact@das.finance">contact@das.finance</a>. We will answer your request within a reasonable timeframe.</p>
+                        <p>If you would like to access, modify, or delete your personal data that are processed through CryptoQuant, please send us an email to <a href="mailto:contact@CryptoQuant">contact@CryptoQuant</a>. We will answer your request within a reasonable timeframe.</p>
 
                         <h2>Children</h2>
 
-                        <p>We do not market to any individual under the age of 18 years old. Individuals under 18 years of age may <i>not</i> create an account on DAS.Finance. However, we cannot distinguish the age of people accessing DAS.Finance. If a person under 18 has provided us with personal data without obtaining parental or guardian consent in advance, the parent or guardian may contact us requesting us to destroy or de-identify the personal data. Our contact details are specified in the “Contact Us” section of this Privacy Policy.</p>
+                        <p>We do not market to any individual under the age of 18 years old. Individuals under 18 years of age may <i>not</i> create an account on CryptoQuant. However, we cannot distinguish the age of people accessing CryptoQuant. If a person under 18 has provided us with personal data without obtaining parental or guardian consent in advance, the parent or guardian may contact us requesting us to destroy or de-identify the personal data. Our contact details are specified in the “Contact Us” section of this Privacy Policy.</p>
 
                         <h2>Updates, Modifications, or Revisions</h2>
 
@@ -247,7 +247,7 @@ class PrivacyPolicy extends React.Component {
 
                         <p>Unless we specifically obtain your consent, any changes to the Privacy Policy will apply to the personal data collected on or after the date of the last amendment that is indicated at the end of the Privacy Policy.</p>
 
-                        <p>It is your responsibility to periodically check this Privacy Policy for any such modification, revision or amendment. Any changes made are assumed to have been accepted by your continued use of DAS.Finance.</p>
+                        <p>It is your responsibility to periodically check this Privacy Policy for any such modification, revision or amendment. Any changes made are assumed to have been accepted by your continued use of CryptoQuant.</p>
 
                         <p>For significant changes in the Privacy Policy, or where required by the applicable law, we may seek your explicit consent to the changes stated in the Privacy Policy.</p>
 
@@ -263,7 +263,7 @@ class PrivacyPolicy extends React.Component {
 
                         <h2>Contact Us</h2>
 
-                        <p>If you have questions or comments about this Privacy Policy, please contact us by email at <a href="mailto:contact@das.finance">contact@das.finance</a>.</p>
+                        <p>If you have questions or comments about this Privacy Policy, please contact us by email at <a href="mailto:contact@CryptoQuant">contact@CryptoQuant</a>.</p>
                 </small>
               </Paper>
             </Grid>
