@@ -12,6 +12,7 @@ import ArrowRightAlt from '@material-ui/icons/ArrowRightAlt'
 import {withStyles} from '@material-ui/core/styles';
 import ProjectTable from './ProjectTable';
 import Subscribe from './Subscribe';
+import IconButton from '@material-ui/core/IconButton';
 
 const styles = theme => ({
   root: {
@@ -106,7 +107,7 @@ const styles = theme => ({
     }
   },
   banner: {
-    backgroundImage: "url('/static/core/home/banner.png')",
+    backgroundImage: "linear-gradient(235deg, #382969 0%, #140f25 50%)",
     width: "100%",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
@@ -119,6 +120,53 @@ const styles = theme => ({
       paddingTop: theme.spacing.unit * 5,
       paddingBottom: theme.spacing.unit * 5
     }
+  },
+  gyjoo: {
+    backgroundImage: "url('/static/core/home/team/gyjoo.png')"
+  },
+  sjlim: {
+    backgroundImage: "url('/static/core/home/team/sjlim.jpg')"
+  },
+  smchoi: {
+    backgroundImage: "url('/static/core/home/team/smchoi.png')"
+  },
+  bkjang: {
+    backgroundImage: "url('/static/core/home/team/bkjang.png')"
+  },
+  whitetext: {
+    paddingTop: 10,
+    paddingLeft: 10,
+    color: "white",
+    fontFamily: "'Nunito Sans'",
+    fontWeight: 900
+  },
+  oneByOne: {
+    position: "relative",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center center",
+    overflow: "hidden",
+    '&::after': {
+      display: "block",
+      content: "",
+      paddingTop: "100%"
+    }
+  },
+  memberAvatar: {
+    backgroundColor: "transparent",
+    marginBottom: "5px",
+    position: "relative",
+    margin: 0,
+    padding: 7,
+    boxSizing: "border-box"
+  },
+  memberInfo: {
+    marginTop: 100,
+    fontWeight: 300,
+    width: "100%",
+    textAlign: "left",
+    padding: 15,
+    background: "linear-gradient(to bottom,transparent 0,#1d1537 100%)"
   },
   investmentGuide: {
     backgroundImage: "url('/static/core/home/investment_guide.png')",
@@ -196,7 +244,7 @@ const styles = theme => ({
     [theme.breakpoints.down('sm')]: {
       maxWidth: '500px'
     },
-    marginTop: theme.spacing.unit *5, 
+    marginTop: theme.spacing.unit * 5
   },
   serviceTitle: {
     height: '160px',
@@ -215,6 +263,11 @@ const styles = theme => ({
   },
   maxWidth: {
     maxWidth: '1200px'
+  },
+  iconButton: {
+    paddingLeft:"85%",
+    marginBottom:"-30px",
+    marginTop:"-30px",
   }
 });
 
@@ -246,17 +299,28 @@ class Home extends React.Component {
             </Grid>
           </div>
 
+          {/*
           <Grid container="container" justify="center" className={classNames(classes.commonPadding)}>
             <Grid item="item" xs={12} container="container" direction="row" justify="space-between" className={classNames(classes.heightFitContent, classes.maxWidth)}>
               <Grid item="item" xs={12}>
                 <Typography style={{
                     color: '#1d1537',
-                    fontSize: 24
-                  }} className={classNames(classes.nunitoSansSemiBold,)}>About Us</Typography>
+                    fontSize: 24,
+                    textAlign:"center"
+                  }} className={classNames(classes.nunitoSansSemiBold,)}>Characterizing Cryptocurrencies</Typography>
+                <Typography style={{
+                    color: '#484848',
+                    fontSize: 16,
+                    textAlign:"center",
+                    paddingTop: 10,
+                  }} className={classNames(classes.nunitoSansRegular)}>
+                Flipside Crypto is the most reliable market intelligence firm
+                providing fundamental data on all major cryptocurrencies.
+              </Typography>
               </Grid>
-
             </Grid>
           </Grid>
+          */}
 
           <Grid container="container" justify="center" style={{
               backgroundColor: '#f6f6f6'
@@ -266,7 +330,7 @@ class Home extends React.Component {
                 <Typography style={{
                     color: '#1d1537',
                     fontSize: 24
-                  }} className={classNames(classes.nunitoSansSemiBold,classes.gutterBottom)}>Harvesting data with a strategic approach</Typography>
+                  }} className={classNames(classes.nunitoSansSemiBold, classes.gutterBottom)}>Harvesting data with a strategic approach</Typography>
               </Grid>
 
               <Grid item="item" xs={12} sm={3} container="container" direction="column" justify="space-between" className={classNames(classes.serviceGrid, classes.serviceMarginRight)}>
@@ -289,11 +353,11 @@ class Home extends React.Component {
 
                   </Grid>
                 </Grid>
-
+                {/*
                 <Button id="home-research" href="/research" variant="outlined" style={{
                     border: '2px solid #322956'
                   }} className={classNames(classes.serviceButton)}>Request Access</Button>
-
+                */}
               </Grid>
               <Grid item="item" xs={12} sm={3} container="container" direction="column" justify="space-between" className={classNames(classes.serviceGrid, classes.serviceMarginRight)}>
                 <Grid item="item" xs={12} container="container" direction="column" justify="flex-start">
@@ -315,11 +379,12 @@ class Home extends React.Component {
 
                   </Grid>
                 </Grid>
+                {/*
 
                 <Button id="home-storadar" href="/sto_radar" variant='outlined' style={{
                     border: '2px solid #322956'
                   }} className={classNames(classes.serviceButton)}>Request Access</Button>
-
+                */}
               </Grid>
               <Grid item="item" xs={12} sm={3} container="container" direction="column" justify="space-between" className={classes.serviceGrid}>
                 <Grid item="item" xs={12} container="container" direction="column" justify="flex-start">
@@ -341,17 +406,18 @@ class Home extends React.Component {
 
                   </Grid>
                 </Grid>
+                {/*
 
                 <Button id="home-management" variant='contained' style={{
                     color: '#6a6a6a',
                     backgroundColor: '#ededed'
                   }} className={classNames(classes.serviceButton)} disabled="disabled">Coming Soon</Button>
-
+                  */}
               </Grid>
             </Grid>
           </Grid>
 
-          <Grid container="container" justify="center" className={classNames(classes.commonPadding)}>
+          <Grid id="about" container="container" justify="center" className={classNames(classes.commonPadding)}><a name="about"></a>
             <Grid item="item" xs={12} container="container" className={classNames(classes.heightFitContent, classes.maxWidth)}>
 
               <Grid item="item" xs={12} sm={6} container="container" direction="column" className={classNames(classes.gutterBottom)}>
@@ -410,25 +476,108 @@ class Home extends React.Component {
                     color: '#1d1537',
                     fontSize: 24
                   }} className={classNames(classes.nunitoSansSemiBold,)}>Meet Our Team</Typography>
-              </Grid>
 
+                {/* TEAM: HARD CODING... */}
+                <Grid container="container" id="team"> <a name="team"></a>
+                {/* Ki Young Ju */}
+                <Grid xs={6} sm={4} lg={3}  item="item" direction="column">
+                  <div className={classNames(classes.memberAvatar)}>
+                    <div className={classNames(classes.oneByOne, classes.gyjoo)}>
+                      <div className={classNames(classes.memberInfo)}>
+                          <Typography className={classNames(classes.whitetext)}>
+                            <h2>Ki Young Ju</h2>
+                            <h4>
+                              CEO / Data Scientist
+                              <IconButton href={"https://www.linkedin.com/in/ki-young-ju/"} className={classes.iconButton}>
+                                <i style={{
+                                    color: '#ffffff'
+                                  }} className={classNames("fab", "fa-linkedin")}/>
+                              </IconButton>
+                            </h4>
+                          </Typography>
+                      </div>
+                    </div>
+                  </div>
+                </Grid>
+
+                {/* Soojin Lim */}
+                <Grid xs={6} sm={4} lg={3} item="item" direction="column">
+                  <div className={classNames(classes.memberAvatar)}>
+                    <div className={classNames(classes.oneByOne, classes.sjlim)}>
+                      <div className={classNames(classes.memberInfo)}>
+                          <Typography className={classNames(classes.whitetext)}>
+                            <h2>Soojin Lim</h2>
+                            <h4>
+                              CPO / Data Scientist
+                              <IconButton href={"https://www.linkedin.com/in/soojin-lim-a54221165/"} className={classes.iconButton}>
+                                <i style={{
+                                    color: '#ffffff'
+                                  }} className={classNames("fab", "fa-linkedin")}/>
+                              </IconButton>
+                            </h4>
+                          </Typography>
+                      </div>
+                    </div>
+                  </div>
+                </Grid>
+
+                {/* Byung Kook Jang */}
+                <Grid xs={6} sm={4} lg={3}>
+                  <div className={classNames(classes.memberAvatar)}>
+                    <div className={classNames(classes.oneByOne, classes.bkjang)}>
+                      <div className={classNames(classes.memberInfo)}>
+                          <Typography className={classNames(classes.whitetext)}>
+                            <h2>Mason Jang</h2>
+                            <h4>
+                              CSO / Professional Trader
+                              <IconButton href={"https://www.linkedin.com/in/mason-byeongkook-jang-a33ba7157/"} className={classes.iconButton}>
+                                <i style={{
+                                    color: '#ffffff'
+                                  }} className={classNames("fab", "fa-linkedin")}/>
+                              </IconButton>
+                            </h4>
+                          </Typography>
+                      </div>
+                    </div>
+                  </div>
+                </Grid>
+
+                {/* Soomin Choi */}
+                <Grid xs={6} sm={4} lg={3}>
+                  <div className={classNames(classes.memberAvatar)}>
+                    <div className={classNames(classes.oneByOne, classes.smchoi)}>
+                      <div className={classNames(classes.memberInfo)}>
+                          <Typography className={classNames(classes.whitetext)}>
+                            <h2>Soomin Choi</h2>
+                            <h4>
+                              Core Developer
+                            </h4>
+                          </Typography>
+                      </div>
+                    </div>
+                  </div>
+                </Grid>
+
+                </Grid>
+
+              </Grid>
             </Grid>
           </Grid>
 
           <div className={classNames(classes.investmentGuide, classes.commonPadding)}>
             <Grid container="container" justify="center">
               <Grid item="item" xs={12} className={classes.maxWidth}>
-                <Typography className={classNames(classes.nunitoSansSemiBold, classes.investmentGuide1)}>Contact Us</Typography>
+                <Typography className={classNames(classes.nunitoSansSemiBold, classes.investmentGuide1)}>Partner with CryptoQuant</Typography>
 
                 <div>
 
-                  <Typography className={classNames(classes.nunitoSansSemiBold, classes.investmentGuide2)}>contact us contact us contact us</Typography>
+                  <Typography className={classNames(classes.nunitoSansSemiBold, classes.investmentGuide2)}>See how we can give you insights into the data that drives your business.</Typography>
                 </div>
 
                 <Grid style={{
                     marginTop: '37px'
                   }} container="container" justify="flex-start">
-                  <Button id="home-forinvestors" className={classNames(classes.buttonHelp, classes.marginRight)} variant="outlined" href={""}>For Investors
+                  <Button id="home-forinvestors" className={classNames(classes.buttonHelp, classes.marginRight)} variant="outlined" href={"mailto:contact@cryptoquant.com"}>Become a Partner
                     <ArrowRightAlt className={classes.marginLeft}/></Button>
 
                 </Grid>

@@ -68,6 +68,7 @@ const styles = theme => ({
   },
   input: {
     height: '16px',
+
   },
   buttonSubscribe: {
     backgroundColor: '#322956',
@@ -147,14 +148,14 @@ class Subscribe extends React.Component {
         <Grid item xs={12} container direction="column" alignItems="center" className={classNames(classes.widthAuto, classes.heightFitContent)}>
           <Grid style={{marginBottom: '50px'}} item xs={12} container direction="column" alignItems="center">
             <Typography style={{marginBottom: '12px', color: '#373737', fontSize: 16,}} align='center' className={classes.nunitoSansSemiBold}>Newsletter</Typography>
-           
-            <Typography style={{color: '#1d1537', fontSize: 24,}} align='center' className={classes.nunitoSansSemiBold}>Stay current with latest crypto news and reports</Typography>
-            
+
+            <Typography style={{color: '#1d1537', fontSize: 24,}} align='center' className={classes.nunitoSansSemiBold}>Stay current with unique insights on crypto</Typography>
+
           </Grid>
 
-          <Grid item xs={12} container direction="row" alignItems="flex-start">
+          <Grid item xs={12} justify="center" container direction="row" alignItems="flex-start">
             {/*<iframe src="https://upscri.be/fcccf5-2?as_embed" width="100%" height="300" frameBorder="0" ></iframe>*/}
-            <Grid item xs={10} className={classes.paddingLeft}>
+            <Grid item xs={10} sm={6} className={classes.paddingLeft}>
               <TextField
                 error = {emailError}
                 id="subscribe-email"

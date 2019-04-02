@@ -105,6 +105,8 @@ class Footer extends React.Component {
                 <Typography className={classes.link} align='center'>Contact Us</Typography>
               </Button>
             </Grid>
+            {/* Social Links */}
+            {/*
             <Grid item xs={3} container justify="space-evenly">
               <IconButton href={"https://medium.com/dasfinance"} className={classes.iconButton}>
                 <i style={{color: '#ffffff'}} className={classNames("fab", "fa-medium")}/>
@@ -116,6 +118,7 @@ class Footer extends React.Component {
                 <i className={classNames("fab","fa-telegram-plane", classes.telegram)}/>
               </IconButton>
             </Grid>
+            */}
           </Grid>
         </Grid>
 

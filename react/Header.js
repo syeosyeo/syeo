@@ -117,14 +117,14 @@ class Header extends React.Component {
 
 
           <Grid container justify="flex-end">
-            <Button id="header-research">
+            <Button href={"/home#about"}>
               <Typography className={classes.link} align='center'>About</Typography>
             </Button>
-            <Button id="header-storadar">
+            <Button href={"/home#team"}>
               <Typography className={classes.link} align='center'>Team</Typography>
             </Button>
-            <Button id="header-news">
-              <Typography className={classes.link} align='center'>Blog</Typography>
+            <Button href={"mailto:contact@cryptoquant.com"}>
+              <Typography className={classes.link} align='center'>Contact</Typography>
             </Button>
           </Grid>
 
