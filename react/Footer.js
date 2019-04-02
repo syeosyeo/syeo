@@ -101,7 +101,7 @@ class Footer extends React.Component {
               </Button>
             </Grid>
             <Grid item xs={3} className={classes.widthAuto} container justify='center'>
-              <Button href="mailto:contact@CryptoQuant">
+              <Button href="mailto:contact@cryptoquant.com">
                 <Typography className={classes.link} align='center'>Contact Us</Typography>
               </Button>
             </Grid>

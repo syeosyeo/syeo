@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import Header from './Header';
@@ -11,264 +11,265 @@ import Typography from '@material-ui/core/Typography';
 const styles = theme => ({
   spoqaHanSans: {
     fontFamily: "'Spoqa Han Sans', 'spoqa Han Sans JP', 'Sans-serif'",
-    fontSize: "18pt",
+    fontSize: "18pt"
   },
   nunitoSansRegular: {
     fontFamily: "'Nunito Sans', sans-serif",
-    fontWeight: 400,
+    fontWeight: 400
   },
   nunitoSansBold: {
     fontFamily: "'Nunito Sans', sans-serif",
     fontWeight: 700,
-    fontSize: 24,
+    fontSize: 24
   },
   commonPadding: {
     paddingLeft: theme.spacing.unit * 20,
     paddingRight: theme.spacing.unit * 20,
     paddingTop: theme.spacing.unit * 5,
     paddingBottom: theme.spacing.unit * 5,
-    [theme.breakpoints.down('sm')]:{
+    [theme.breakpoints.down('sm')]: {
       paddingLeft: theme.spacing.unit * 3,
-      paddingRight: theme.spacing.unit * 2,
+      paddingRight: theme.spacing.unit * 2
     }
   },
   paddingPaper: {
     paddingLeft: theme.spacing.unit * 3,
     paddingRight: theme.spacing.unit * 3,
     paddingTop: theme.spacing.unit * 0.5,
-    paddingBottom: theme.spacing.unit * 1,
+    paddingBottom: theme.spacing.unit * 1
   },
   marginBottom: {
-    marginBottom : theme.spacing.unit * 2,
+    marginBottom: theme.spacing.unit * 6
   },
   maxWidth: {
-    maxWidth: '1200px',
+    maxWidth: '1200px'
   }
 });
 
 class TermsOfService extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
   render() {
-    const { classes, language } = this.props;
+    const {classes, language} = this.props;
 
-    return(
-      <div>
-        <Header language={language} />
-        
-        <main>
-          <Grid container justify='center' className={classes.commonPadding}>
-          <Grid item xs={12} container justify="center" className={classes.maxWidth}>
-            <Grid item xs={12} className={classes.marginBottom}>
-              <Typography className={classes.nunitoSansBold}>
-                Terms of Service
-            </Typography>
+    return (<div>
+      <Header language={language}/>
+
+      <main>
+        <Grid container="container" justify='center' className={classes.commonPadding}>
+          <Grid item="item" xs={12} container="container" justify="center" className={classes.maxWidth}>
+            <Grid item="item" xs={12} className={classes.marginBottom}>
             </Grid>
-            <Grid item xs={12} sm={10} >
+            <Grid item="item" xs={12} sm={10}>
               <Paper className={classNames(classes.nunitoSansRegular, classes.paddingPaper)}>
                 <small>
-                <h2>Terms</h2>
-                This Terms of Service Agreement (the “Agreement”) is a legally binding contract that shall govern our relationship with our Users and others who may interact or interface with CryptoQuant, website which includes www.CryptoQuant, (collectively “CryptoQuant”), and its Services, which shall be defined below.
-                <br/><br/><h2>Assent & Acceptance</h2>
-                By using CryptoQuant, your warrant that you have read and reviewed this Agreement and agree to be bound by it. If you do not agree to be bound by this Agreement, please exit CryptoQuant. We only agree to provide use of CryptoQuant and the Services to you if your assent to this Agreement.
-                <br/><br/><h2>Definitions</h2>
-                A.	“EFFECTIVE DATE”: "Effective Date" means the date this Agreement comes into force and effect.
-                <br/>B.	“PARTIES”: The parties to this Agreement are the owner and operator of CryptoQuant and you, as the User or Member of CryptoQuant. Hereinafter, the parties will individually be referred to as "Party" and collectively as "Parties."
-                <br/>C.	“YOU”: Should you agree to this Agreement and continue your use of CryptoQuant, you will be referred to as either you, the User, the Member (if you have registered for any Services on CryptoQuant), or if any second-person pronouns are required and applicable, such pronouns as 'your", "yours", etc.
-                <br/>D.	SERVICES: "Services" means any Services that we make available for use or sale on CryptoQuant.
-                <br/><br/><h2>CryptoQuant Services</h2>
-                CryptoQuant is a Digital Asset Security(DAS) platform which provide information about Digital Asset Security Lists, News and Reports. CryptoQuant also offers additional paid Services which may include, but are not limited to, customizing consulting Services, tax-related services, and an automated tool for assisting with your cryptocurrency investments. CryptoQuant also offers referrals to regulated services.
-                <br/><br/>Any and all visitors to CryptoQuant, despite whether they are registered or not, shall be deemed “Users” of the CryptoQuant Services, as described in this Agreement. Once individual registers for the Services, through the process of creating an account, the User shall then be considered a “Member”. All Members are also Users.
-                <br/><br/>The User and/or Member acknowledges and agrees that the Services provided and made available on and through CryptoQuant are the sole property of the Company. We may offer the Services or other access on additional mobile applications, which may be made available on various social media networking sites and numerous other platforms and downloadable programs.
-                <br/><br/>At our sole and exclusive discretion, we may offer additional Services and/or products, or we may update, modify or revise any current content and Services. If we do so, this Agreement shall apply to any and all additional Services and/or products and any and all updated, modified or revised Services unless otherwise stipulated. We hereby reserve the right to cancel and cease offering any of the aforementioned Services and/or products at our discretion. You, as the end User and/or Member, acknowledge, accept and agree that we shall not be held liable for any such updates, modifications, revisions, suspensions or discontinuance of any of our Services and/or products. Your continued use of the Services provided, after such posting of any updates, changes, and/or modifications, shall constitute your acceptance of such updates, changes and/or modifications, and as such, frequent review of this Agreement and any and all applicable terms and policies should be made by you to ensure you are aware of all terms and policies currently in effect. Should you not agree to the updated, revised or modified terms, you must stop using the provided Services immediately.
-                <br/><br/><h2>Age restriction</h2>
-                No minors under 18 years of age are permitted to use CryptoQuant. By using CryptoQuant as an individual, you represent and warrant that you are at least 18 years of age and may legally enter into a binding contract with the Company. We disclaim any liability for any misrepresentation of your or any other user’s age. You further represent and warrant that you are not prohibited from using CryptoQuant under the laws of the United States or any applicable jurisdiction. We assume no responsibility or liability for any misrepresentation of your age.
-                <br/><br/><h2>Registration & Privacy</h2>
-                When you register, the Company may collect information such as your email address and depending on the Services you choose, other information, such as verification data. We store the data that CryptoQuant needs to function as a secure and feature-rich services for CryptoQuant users.
-                <br/><br/><h2>Account and Security</h2>
-                When you set up an account, you are the sole authorized user of your account. You shall be responsible for maintaining the secrecy and confidentiality of your password and for all activities that transpire on or within your account.
-                <br/><br/>You are also responsible for ensuring the continued accuracy of any information such as email address and country info you may provide to Us. Your registration information will allow you to use CryptoQuant and the Services. You must not share such information with any third party, and if you discover that your identifying information has been compromised, you agree to notify us immediately in writing. Email notification will suffice to <a href="mailto:contact@CryptoQuant">contact@CryptoQuant</a>. You are exclusively responsible for your account, including for any act or omission of any user(s) that may access your account, if such act or omission, when undertaken by you, would be deemed a violation of this Agreement.
-                <br/><br/>We will notify you through e-mail when our clause changes. If you fail to receive a notification by writing the wrong email, you are responsible for it. Make sure you enter the correct email.
-                <br/><br/>Providing false or inaccurate information, or using CryptoQuant or the Services to further fraud or unlawful activity is grounds for immediate termination of this Agreement.
-                <br/><br/>You hereby acknowledge and agree that the Company shall not be held liable for any loss and/or damage arising from any failure to comply with this Agreement.
-                <br/><br/><h2>Duplicate Wallet Registration</h2>
-                If you register the same wallet or API maliciously, authentication may be cancelled. Also, if multiple attempts are found to manipulate the asset by duplicating the API, warnings and blockings will be taken. We also have the right to terminate all services provided to users who repeat this malicious behavior.
-                <br/><br/><h2>Conduct</h2>
-                As a User or Member of CryptoQuant, you herein acknowledge, understand and agree that all information, text, software, data, photographs, music, video, messages, tags or any other content, whether it is publicly or privately posted and/or transmitted, is the express sole responsibility of the individual from whom the content originated. In short, this means that you are solely responsible for any and all content posted, uploaded, emailed, transmitted or otherwise made available by you by way of the CryptoQuant Services. We do not guarantee the accuracy, integrity or quality of such content. It is expressly understood that by use of our Services, you may be exposed to errors or omissions in content posted and/or any loss or damage as a result of the use of any content posted, emailed, transmitted or otherwise made available on CryptoQuant.
-                <br/><br/>Furthermore, you agree not to make use of CryptoQuant’s Services for the purpose of:
-                <br/><br/>A.	Uploading, posting, emailing, transmitting, or otherwise making available any content that may be deemed unlawful, harmful, threatening, abusive, harassing, tortious, defamatory, vulgar, obscene, libelous, invasive of another's privacy or which is hateful, and/or racially, ethnically, or otherwise objectionable;
-                <br/>B.	Engaging in or creating any unlawful gambling, sweepstakes, or pyramid scheme;
-                <br/>C.	Implying any endorsement by the Company;
-                <br/>D.	Causing harm to minors in any manner whatsoever;
-                <br/>E.	Impersonating any individual or entity, including, but not limited to, any Company officials, forum leaders, guides or hosts or falsely stating or otherwise misrepresenting any affiliation with an individual or entity;
-                <br/>F.	Forging captions, headings or titles or otherwise offering any content that you personally have no right to pursuant to any law or in accordance with any contractual or fiduciary relationship;
-                <br/>G.	Uploading, posting, emailing, transmitting or otherwise offering any such content that may infringe upon any patent, copyright, trademark, or any other proprietary or intellectual rights of any other party;
-                <br/>H.	Uploading, posting, emailing, transmitting or otherwise offering any content that you do not personally have any right to offer pursuant to any law or in accordance with any contractual or fiduciary relationship;
-                <br/>I.	Uploading, posting, emailing, transmitting, or otherwise offering any unsolicited or unauthorized advertising, promotional flyers, “junk mail,” “spam,” or any other form of solicitation, except in any such areas that may have been designated for such purpose;
-                <br/>J.	Uploading, posting, emailing, transmitting, or otherwise offering any source that may contain a software virus or other computer code, any files and/or programs which have been designed to interfere, destroy and/or limit the operation of any computer software, hardware, or telecommunication equipment;
-                <br/>K.	Disrupting the normal flow of communication, or otherwise acting in any manner that would negatively affect other users' ability to participate in any real-time interactions;
-                <br/>L.	Interfering with or disrupting any CryptoQuant Services, servers and/or networks that may be connected or related to our website, including, but not limited to, the use of any device software and/or routine to bypass the robot exclusion headers;
-                <br/>M.	Intentionally or unintentionally violating any local, state, federal, national or international law, including, but not limited to, rules, guidelines, and/or regulations decreed by the U.S. Securities and Exchange Commission, in addition to any rules of any nation or other securities exchange, that would include without limitation, the New York Stock Exchange, the American Stock Exchange, or the NASDAQ, and any regulations having the force of law;
-                <br/>N.	Providing informational support or resources, concealing and/or disguising the character, location, and/or source to any organization delegated by the United States government as a "foreign terrorist organization" in accordance to Section 219 of the Immigration Nationality Act;
-                <br/>O.	“Stalking” or with the intent to otherwise harass another individual; and/or
-                <br/>P.	Collecting or storing of any personal data relating to any other Member or User in connection with the prohibited conduct and/or activities which have been set forth in the aforementioned paragraphs.
-                <br/><br/>The Company reserves the right to pre-screen, refuse and/or delete any content currently available through our Services. In addition, we reserve the right to remove and/or delete any such content that would violate this Agreement or which would otherwise be considered offensive to other Users and/or Members.
-                <br/><br/>The Company reserves the right to access, preserve and/or disclose Member account information and/or content if it is requested to do so by law or in good faith belief that any such action is deemed reasonably necessary for:
-                <br/><br/>A. Compliance with any legal process;
-                <br/>B.	Enforcement of this Agreement;
-                <br/>C.	Responding to any intellectual property claim by any other User, Member or third party;
-                <br/>D.	Responding to requests for customer service; or
-                <br/>E.	Protecting the rights, property or the personal safety of the Company, its Users and Members, including the general public.
-                <br/><br/>The Company reserves the right to include the use of security components that may permit digital information or material to be protected. Such use of information and/or material is subject to usage guidelines and regulations established by the Company or any other content providers supplying content services to the Company. You are hereby prohibited from making any attempt to override or circumvent any of the embedded usage rules in our Services. Furthermore, unauthorized reproduction, publication, distribution, or exhibition of any information or materials supplied by our Services, despite whether done so in whole or in part, is expressly prohibited.
-                <br/><br/><h2>Global Use & Import/Export Compliance</h2>
-                You hereby agree to comply with all local rules relating to online conduct and that which is considered acceptable content. Uploading, posting and/or transferring of software, technology and other technical data may be subject to the export and import laws of the United States and possibly other countries. Through the use of our network, you agree to comply with all applicable export and import laws, statutes and regulations, including, but not limited to, the Export Administration Regulations, as well as the sanctions control program of the United States. Furthermore, you state and pledge that you:
-                <br/><br/>A.	Are not on the list of prohibited individuals which may be identified on any government export exclusion report nor a Member of any other government which may be part of an export-prohibited country identified in applicable export and import laws and regulations;
-                <br/>B.	Agree not to transfer any software, technology or any other technical data through the use of our network Services to any export-prohibited country;
-                <br/>C.	Agree not to use CryptoQuant Services for any military, nuclear, missile, chemical or biological weaponry end uses that would be a violation of the U.S. export laws; and
-                <br/>D.	Agree not to post, transfer nor upload any software, technology or any other technical data which would be in violation of the U.S. or other applicable export and/or import laws.
-                <br/><br/><h2>Content</h2>
-                The Company does not lay claim to ownership of any content submitted by any Member or User. You hereby grant the Company the following worldwide, royalty-free and non-exclusive licenses, as applicable:
-                <br/><br/>A.	The license to use, distribute, reproduce, modify, adapt, publicly perform and/or publicly display content submitted or made available for inclusion on the publicly accessible areas of CryptoQuant. This license is for the sole purpose of providing and promoting the specific area to which this content was placed and/or made available for viewing. This license shall be available so long as you are a Member of CryptoQuant, and shall terminate at the termination of this Agreement or at such time as when you elect to discontinue your membership.
-                <br/>B.	The license to use, distribute, reproduce, modify, adapt, publicly perform and/or publicly display photos, audio, video and/or graphics submitted or made available for inclusion on the publicly accessible areas of CryptoQuant. This license is for the sole purpose of providing and promoting the specific area in which this content was placed and/or made available for viewing. This license shall be available so long as you are a Member of CryptoQuant and shall terminate at such time when you elect to discontinue your membership.
-                <br/>C.	The license to use, distribute, reproduce, modify, adapt, publish, translate, publicly perform and/or publicly display any other content submitted or made available for inclusion on the publicly accessible areas of CryptoQuant, whether in whole or in part, and the incorporation of any such content into other works in any arrangement or medium current used or later developed.
-                <br/>D.	The license to use, for the sole purposes of providing the Services to you, any financial or cryptocurrency information you may provide to Us, including but not limited to prior history of cryptocurrency investing, personal cryptocurrency portfolio data, and prior tax information. This license is nonexclusive and revocable at any time. You hereby expressly consent to allow us to use any personal information for the sole and express purpose of providing the Services to you. If you purchase any paid Services through which CryptoQuant agrees to rebalance, through its automated investment tool, your cryptocurrency portfolio or portfolios, you hereby consent to and authorize the Company to manage your portfolio or portfolios in such capacity.
-                <br/><br/>Those areas which may be deemed “publicly accessible” areas of CryptoQuant are those such areas of our network which are meant to be available to the general public and include message boards and groups that are openly available to both Users and Members.
-                <br/><br/><h2>Contributions</h2>
-                We provide an area for our Users and members to contribute feedback to our website and apps. When you submit ideas, documents, suggestions and/or proposals (“Contributions”) to our site and apps, you acknowledge and agree that:
-                <br/><br/>A.	Your contributions do not contain any type of confidential or proprietary information;
-                <br/>B.	The Company shall not be liable or under any obligation to ensure or maintain confidentiality, expressed or implied, related to any Contributions;
-                <br/>C.	The Company shall be entitled to make use of and/or disclose any such Contributions in any such manner as we may see fit;
-                <br/>D.	The contributor's Contributions shall automatically be assigned to the Company and become the sole intellectual property of the Company; and
-                <br/>E.	We are under no obligation to compensate or provide any form of reimbursement in any manner or nature, nor are we under any obligation to credit you for your Contributions.
-                <br/><br/><h2>Indemnity</h2>
-                You hereby agree to indemnify and hold the Company, our subsidiaries, affiliates, agents, employees, officers, partners and/or licensors harmless against any and all claims or demands, including reasonable attorney’s fees, which may arise from or relate to your use or misuse of CryptoQuant or the Services, your breach of this Agreement, or your conduct or actions or the conduct or actions of any other CryptoQuant user. You agree that the Company shall be able to select its own legal counsel and may participate in its own defense, if the Company wishes.
-                <br/><br/><h2>Commercial Reuse</h2>
-                You hereby agree not to replicate, duplicate, copy, trade, sell, resell nor exploit for any commercial reason any part, use of, or access to CryptoQuant’s sites or apps.
-                <br/><br/><h2>Use and Storage</h2>
-                You hereby acknowledge that the Company may set up any such practices and/or limits regarding the use of our Services, including, without limitation, on the maximum number of days that any email, message posting or any other uploaded content shall be retained by the Company, and/or the maximum number of email messages that may be sent and/or received by any member, the maximum volume or size of any email message that may be sent from or may be received by an account on our Service, the maximum disk space allowable that shall be allocated on CryptoQuant's servers on the Member's behalf, and/or the maximum number of times and/or duration that any Member may access our Services in a given period of time. In addition, you also agree that the Company has absolutely no responsibility or liability for the removal or failure to maintain storage of any messages and/or other communications or content maintained or transmitted by our Services. You also hereby acknowledge that we reserve the right to delete or remove any account that is no longer active for an extended period of time. Furthermore, the Company shall reserve the right to modify, alter and/or update these general practices and limits at our sole and exclusive discretion.
-                <br/><br/><h2>License</h2>
-                We may provide you with certain information as a result of your use of CryptoQuant or the Services. Such information may include, but is not limited to, documentation, data, or information developed by the Us, and other materials which may assist in your use of CryptoQuant or the Services (the “Materials"). Subject to this Agreement, we grant your a personal, non-exclusive, limited, non-transferable and revocable worldwide and royalty-free license to use the Materials solely in connection with your use of CryptoQuant and the Services (“License”). Through this License, you may temporarily download one copy of the relevant, downloadable Materials (information or software) on CryptoQuant's website or apps for personal, non-commercial transitory viewing only.
-                <br/><br/>You may not:
-                <br/>1.	Modify or copy the Materials;
-                <br/>2.	Use the Materials for any commercial purpose, or for any public display (commercial or non-commercial);
-                <br/>3.	Attempt to decompile or reverse engineer any software contained on CryptoQuant's website or apps;
-                <br/>4.	Remove any copyright or other proprietary notations from the Materials; or
-                <br/>5.	Transfer the Materials to another person or "mirror" the Materials on any other server.
-                <br/>6.	Scan or probe the underlying structure of CryptoQuant;
-                <br/>7.	Violate the security of CryptoQuant or Services through any unauthorized access, circumvention of encryption, or any other security tools, data mining or interference to any host, User or network;
-                <br/>8.	Use bots, web crawlers, or any similar devices or online tools to access or index data from CryptoQuant;
-                <br/>9.	Attempt to disrupt the experience of other users on CryptoQuant in any way; or
-                <br/>10.	Disseminate any virus or other bad code which could harm CryptoQuant or the Services or any device of any user.
-                <br/><br/>This License shall automatically terminate if you violate any of these restrictions and may be terminated by the Company at any time. This License also terminates upon your cessation of use of CryptoQuant or the Services or otherwise at the termination of this Agreement.
-                <br/><br/>Upon terminating your viewing of these materials or upon the termination of this License, you must destroy any downloaded materials in your possession whether in electronic or printed format.
-                <br/><br/><h2>Disclaimer</h2>
-                Through your use of CryptoQuant, you acknowledge and agree that information provided by the Company is simply that, information, and should not be considered a substitute for legal advice, tax advice, investing advice, audit advice, accounting advice, or brokerage advice under the guidance of a licensed professional. Further, the information provided herein should not be taken as financial planning or investment solicitation. No fiduciary relationship has been created between your and the Company.
-                <br/><br/>You hereby understand and acknowledge that through your use of CryptoQuant, you are not being represented by an attorney, certified financial planner, broker, or other regulated advisor. Certain aspects of the CryptoQuant Services may provide access to such a professional or provide tax-related information, but if you are in need of legal or financial advice, including a review of any financial or tax decisions, we advise you to consult the appropriate advisor, such as your own attorney, accountant, or other professional.
-                <br/><br/>You agree that your use of CryptoQuant and Services is at your sole and exclusive risk and that any Services provided by the Company are on an "As Is" basis. The Company hereby expressly disclaims any and all express or implied warranties of any kind, including, but not limited to the implied warranty of fitness for a particular purpose and the implied warranty of merchantability.
-                <br/><br/>The maximum liability of the Company arising from or relating to your use of CryptoQuant or Services is limited to the greater of one hundred ($100) US Dollars or the amount you paid to the Company in the last three (3) months. This applies to any and all claims by you, including, but not limited to, lost profits or revenues, consequential or punitive damages, negligence, strict liability, fraud, or torts of any kind.
-                <br/><br/><h2>Limitations</h2>
-                Fully permissible by law, the Company, including any employees, affiliates, service providers, contractors or agents, shall not liable for any damages that may occur to you as a result of your use of CryptoQuant or Services, even if a Company or a representative has been notified in any manner of the possibility of any such damage. This section applies to any and all claims by you, including, but not limited to, loss of data, loss of goodwill, lost profits or revenues, consequential, indirect, special exemplary or punitive damages, negligence, strict liability, fraud, or torts of any kind, whether such claims are direct or indirect and whether such claims are alleged to be from your use of CryptoQuant, your interaction with another User, or your interaction with any third-party.
-                <br/><br/>The maximum liability of the Company arising from or relating to your use of CryptoQuant or Services is limited to the greater of one hundred ($100) US Dollars or the amount you paid to the Company in the last three (3) months.
-                <br/><br/>Some or all of the limitations provided in this subsection may not be applicable to you, depending upon your jurisdiction.
-                <br/><br/><h2>Accuracy of Materials</h2>
-                The materials appearing on CryptoQuant could include technical, typographical, or photographic errors. The Company does not warrant that any of the materials on its website or apps are accurate, complete or current. The Company may make changes to the materials contained on its website or apps at any time without notice. However, the Company does not make any commitment to update the materials.
-                <br/><br/><h2>Links</h2>
-                Either the Company or any third parties may provide links to other websites and/or resources on CryptoQuant or through any of the Services. Thus, you acknowledge and agree that we are not responsible for the availability of any such external sites or resources, and as such, we do not endorse nor are we responsible or liable for any content, products, advertising or any other materials, on or available from such external links, third party sites, or other resources. Furthermore, you acknowledge and agree that the Company shall not be responsible or liable, directly or indirectly, for any such damage or loss which may be a result of, caused or allegedly caused by or in connection with the use of, or the reliance on, any such content, goods or Services made available on or through any such external link, third party site, or other resource.
-                <br/><br/><h2>Advertisers</h2>
-                Any correspondence or business dealings with, or the participation in any promotions of, advertisers located on or through our Services, which may include the payment and/or delivery of such related goods and/or Services, and any such other term, condition, warranty and/or representation associated with such dealings, are and shall be solely between you and any such advertiser. Moreover, you agree that the Company shall not be held responsible or liable for any loss or damage of any nature or manner incurred as a direct result of any such dealings or as a result of the presence of such advertisers on CryptoQuant.
-                <br/><br/><h2>Affiliate Marketing</h2>
-                CryptoQuant receives affiliation fees from third-party businesses through referral links on the CryptoQuant website or app. We recommend products and services based on the anticipated needs of our users and will always make clear when we receive a commission, referral, or other fee based on those recommendations.
-                <br/><br/><h2>Modifications</h2>
-                The Company may revise this Agreement at any time without notice. It is your responsibility to periodically check this page for any such modification, revision or amendment. Any changes made are assumed to have been accepted by your continued use of CryptoQuant.
-                <br/><br/><h2>Downtime</h2>
-                The Company may need to interrupt your access to CryptoQuant to perform maintenance or emergency services on a scheduled or unscheduled basis. you agree that your access to CryptoQuant or the Services may be affected by unanticipated or unscheduled downtime, for any reason, but that the Company shall have no liability for any damage or loss caused as a result of such downtime.
-                <br/><br/><h2>Proprietary Rights</h2>
-                You hereby acknowledge and agree that CryptoQuant's Services and any essential software that may be used in connection with our Services (“Software”) contains proprietary and confidential material that is protected federal intellectual property rights and other applicable laws. Such material may be copyrighted or patented. Furthermore, you herein acknowledge and agree that any content which may be contained in any advertisements or information presented by and through our Services or by advertisers is protected by copyrights, trademarks, patents and/or other proprietary rights and laws. Therefore, except for that which is expressly permitted by applicable law or as authorized by the Company or such applicable licensor, you agree not to alter, modify, lease, rent, loan, sell, distribute, transmit, broadcast, publicly perform and/or create any plagiaristic works which are based on or derived from CryptoQuant Services (e.g. any content or Software), in whole or part.
-                <br/><br/>The Company has granted your personal, non-transferable and non-exclusive rights and/or a license to make use of the object code or our Software on a single computer, as long as you do not, and shall not, allow any third party to duplicate, alter, modify, create or plagiarize work from, reverse engineer, reverse assemble or otherwise make an attempt to locate or discern any source code, sell, assign, sublicense, grant a security interest in and/or otherwise transfer any such right in the Software. Furthermore, you agree not to alter or change the Software in any manner, nature or form, and as such, not to use any modified versions of the Software, including and without limitation, for the purpose of obtaining unauthorized access to our Services. Lastly, you also agree not to access or attempt to access our Services through any means other than through the interface which is provided by the Company for use in accessing our Services.
-                <br/><br/><h2>Termination</h2>
-                As a Member of CryptoQuant, you may cancel or terminate your account, associated email address and/or access to our Services via the settings page at any time.
-                <br/><br/>As a member, you agree that the Company may, without any prior notice, immediately suspend, terminate, discontinue and/or limit your account, any email associated with your account, and access to any of our Services. The cause for such termination, discontinuance, suspension and/or limitation of access shall include, but is not limited to:
-                <br/><br/>A.	Any breach or violation of this Agreement or any other incorporated agreement, regulation and/or guideline;
-                <br/>B.	By way of requests from law enforcement or any other governmental agencies;
-                <br/>C.	The discontinuance, alteration and/or material modification to our Services, or any part thereof;
-                <br/>D.	Unexpected technical or security issues and/or problems;
-                <br/>E.	Any extended periods of inactivity;
-                <br/>F.	Any engagement by you in any fraudulent or illegal activities; and/or
-                <br/>G.	The nonpayment of any associated fees that may be owed by you in connection with your CryptoQuant account Services.
-                <br/><br/>Furthermore, you herein agree that any and all terminations, suspensions, discontinuances, and or limitations of access for cause shall be made at our sole discretion and that we shall not be liable to you or any other third party with regards to the termination of your account, associated email address and/or access to any of our Services.
-                <br/><br/>The termination of your account with the Company shall include any and/or all of the following:
-                <br/>A.	the removal of any access to all or part of the Services offered within CryptoQuant;
-                <br/>B.	the deletion of your password and any and all related information, files, and any such content that may be associated with or inside your account, or any part thereof; and
-                <br/>C.	the barring of any further use of all or part of our Services.
-                <br/><br/>If your account is terminated by Us, you will not be entitled to any refund of any monies spent on CryptoQuant. At the termination of this Agreement, any provisions that would be expected to survive termination by their nature shall remain in full force and effect.
-                <br/><br/><h2>Warranty Disclaimers</h2>
-                YOU HEREIN EXPRESSLY ACKNOWLEDGE AND AGREE THAT:
-                <br/><br/>A.	THE USE OF CryptoQuant SERVICES AND SOFTWARE ARE AT YOUR OWN RISK. OUR SERVICES AND SOFTWARE SHALL BE PROVIDED ON AN "AS IS" AND/OR "AS AVAILABLE" BASIS. CryptoQuant AND OUR SUBSIDIARIES, AFFILIATES, OFFICERS, EMPLOYEES, AGENTS, PARTNERS AND LICENSORS EXPRESSLY DISCLAIM ANY AND ALL WARRANTIES OF ANY KIND WHETHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO ANY IMPLIED WARRANTIES OF TITLE, MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
-                <br/>B.	CryptoQuant AND OUR SUBSIDIARIES, OFFICERS, EMPLOYEES, AGENTS, PARTNERS AND LICENSORS MAKE NO SUCH WARRANTIES THAT (i) CryptoQuant SERVICES OR SOFTWARE WILL MEET YOUR REQUIREMENTS; (ii) CryptoQuant SERVICES OR SOFTWARE SHALL BE UNINTERRUPTED, TIMELY, SECURE OR ERROR-FREE; (iii) THAT SUCH RESULTS WHICH MAY BE OBTAINED FROM THE USE OF THE CryptoQuant SERVICES OR SOFTWARE WILL BE ACCURATE OR RELIABLE; (iv) QUALITY OF ANY PRODUCTS, SERVICES, ANY INFORMATION OR OTHER MATERIAL WHICH MAY BE PURCHASED OR OBTAINED BY YOU THROUGH OUR SERVICES OR SOFTWARE WILL MEET YOUR EXPECTATIONS; AND (v) THAT ANY SUCH ERRORS CONTAINED IN THE SOFTWARE SHALL BE CORRECTED
-                <br/>C.	ANY INFORMATION OR MATERIAL DOWNLOADED OR OTHERWISE OBTAINED BY WAY OF CryptoQuant SERVICES OR SOFTWARE SHALL BE ACCESSED BY YOUR SOLE DISCRETION AND SOLE RISK, AND AS SUCH YOU SHALL BE SOLELY RESPONSIBLE FOR AND HEREBY WAIVE ANY AND ALL CLAIMS AND CAUSES OF ACTION WITH RESPECT TO ANY DAMAGE TO YOUR COMPUTER AND/OR INTERNET ACCESS, DOWNLOADING AND/OR DISPLAYING, OR FOR ANY LOSS OF DATA THAT COULD RESULT FROM THE DOWNLOAD OF ANY SUCH INFORMATION OR MATERIAL
-                <br/>D.	NO ADVICE AND/OR INFORMATION, DESPITE WHETHER WRITTEN OR ORAL, THAT MAY BE OBTAINED BY YOU FROM CryptoQuant OR BY WAY OF OR FROM OUR SERVICES OR SOFTWARE SHALL CREATE ANY WARRANTY NOT EXPRESSLY STATED IN THE TOS.
-                <br/>E.	A SMALL PERCENTAGE OF SOME USERS MAY EXPERIENCE SOME DEGREE OF EPILEPTIC SEIZURE WHEN EXPOSED TO CERTAIN LIGHT PATTERNS OR BACKGROUNDS THAT MAY BE CONTAINED ON A COMPUTER SCREEN OR WHILE USING OUR SERVICES. CERTAIN CONDITIONS MAY INDUCE A PREVIOUSLY UNKNOWN CONDITION OR UNDETECTED EPILEPTIC SYMPTOM IN USERS WHO HAVE SHOWN NO HISTORY OF ANY PRIOR SEIZURE OR EPILEPSY. SHOULD YOU, ANYONE YOU KNOW OR ANYONE IN YOUR FAMILY HAVE AN EPILEPTIC CONDITION, PLEASE CONSULT A PHYSICIAN IF YOU EXPERIENCE ANY OF THE FOLLOWING SYMPTOMS WHILE USING OUR SERVICES: DIZZINESS, ALTERED VISION, EYE OR MUSCLE TWITCHES, LOSS OF AWARENESS, DISORIENTATION, ANY INVOLUNTARY MOVEMENT, OR CONVULSIONS.
-                <br/><br/><h2>Limitation of Liability</h2>
-                YOU EXPLICITLY ACKNOWLEDGE, UNDERSTAND AND AGREE THAT CryptoQuant AND OUR SUBSIDIARIES, AFFILIATES, OFFICERS, EMPLOYEES, AGENTS, PARTNERS AND LICENSORS SHALL NOT BE LIABLE TO YOU FOR ANY PUNITIVE, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES, INCLUDING, BUT NOT LIMITED TO, DAMAGES WHICH MAY BE RELATED TO THE LOSS OF ANY PROFITS, GOODWILL, USE, DATA AND/OR OTHER INTANGIBLE LOSSES, EVEN THOUGH WE MAY HAVE BEEN ADVISED OF SUCH POSSIBILITY THAT SAID DAMAGES MAY OCCUR, AND RESULT FROM:
-                <br/><br/>A.	THE USE OR INABILITY TO USE OUR SERVICE;
-                <br/>B.	THE COST OF PROCURING SUBSTITUTE GOODS AND SERVICES;
-                <br/>C.	UNAUTHORIZED ACCESS TO OR THE ALTERATION OF YOUR TRANSMISSIONS AND/OR DATA;
-                <br/>D.	STATEMENTS OR CONDUCT OF ANY SUCH THIRD PARTY ON OUR SERVICE;
-                <br/>E.	AND ANY OTHER MATTER WHICH MAY BE RELATED TO OUR SERVICE
-                <br/><br/><h2>Release</h2>
-                In the event you have a dispute, you agree to release the Company (and its officers, directors, employees, agents, parent subsidiaries, affiliates, co-branders, partners and any other third parties) from claims, demands and damages (actual and consequential) of every kind and nature, known and unknown, suspected or unsuspected, disclosed and undisclosed, arising out of or in any way connected to such dispute.
-                <br/><br/><h2>Financial Matters</h2>
-                Should you intend to create or to join any service, receive or request any news, messages, alerts or other information from us or our Services concerning companies, stock quotes, investments or securities, please review the above Sections Warranty Disclaimers and Limitations of Liability again. In addition, for this particular type of information, the phrase "Let the investor beware" is appropriate. CryptoQuant's content is provided primarily for informational purposes. The Services shall not be a substitute for trading advice, investment advice, legal advice, or tax advice from a licensed professional. Certain of the paid Services may provide access to an advisor, but the Company and our licensors shall not be responsible or liable for the accuracy, usefulness or availability of any information transmitted and/or made available by way of our Services, and shall not be responsible or liable for any trading and/or investment decisions based on any such information.
-                <br/><br/><h2>Exclusion and Limitations</h2>
-                THERE ARE SOME JURISDICTIONS WHICH DO NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES OR THE LIMITATION OF EXCLUSION OF LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES. THEREFORE, SOME OF THE ABOVE LIMITATIONS OF SECTIONS WARRANTY DISCLAIMERS AND LIMITATION OF LIABILITY MAY NOT APPLY TO YOU.
-                <br/><br/><h2>Third parties</h2>
-                You herein acknowledge, understand and agree, that unless otherwise expressly provided in this Agreement, that there shall be no third-party beneficiaries to this Agreement.
-                <br/><br/><h2>Notice</h2>
-                The Company may furnish you with notices, including those with regards to any changes to this Agreement, through the following mediums, the list of which should be considered nonexhaustive: email, regular mail, MMS or SMS, text messaging, postings on our website or app, or other reasonable means currently known or which may be hereinafter developed. Any such notices may not be received if you violate any aspects of this Agreement by accessing our Services in an unauthorized manner. Your acceptance of this Agreement constitutes your agreement that you are deemed to have received any and all notices that would have been delivered had you accessed our Services in an authorized manner.
-                <br/><br/><h2>Trademark</h2>
-                You herein acknowledge, understand and agree that all of the CryptoQuant trademarks, copyright, trade name, service marks, and other CryptoQuant logos and any brand features, and/or product and service names are trademarks and as such, are and shall remain the property of the Company. You herein agree not to display and/or use in any manner the CryptoQuant logo or marks without obtaining the Company's prior written consent.
-                <br/><br/><h2>Copyright and Intellectual Property</h2>
-                The Company will always respect the intellectual property of others, and we ask that all of our Users do the same. With regards to appropriate circumstances and at its sole discretion, The Company may disable and/or terminate the accounts of any User who violates this Agreement and/or infringes the rights of others. If you feel that your work has been duplicated in such a way that would constitute copyright infringement, or if you believe your intellectual property rights have been otherwise violated, you should provide us the following information:
-                <br/>A.	The electronic or the physical signature of the individual that is authorized on behalf of the owner of the copyright or other intellectual property interest;
-                <br/>B.	A description of the copyrighted work or other intellectual property that you believe has been infringed upon;
-                <br/>C.	A description of the location of the site which you allege has been infringing upon your work;
-                <br/>D.	Your physical address, telephone number, and email address;
-                <br/>E.	A statement, in which you state that the alleged and disputed use of your work is not authorized by the copyright owner, its agents or the law;
-                <br/>F.	And finally, a statement, made under penalty of perjury, that the aforementioned information in your notice is truthful and accurate, and that you are the copyright or intellectual property owner, representative or agent authorized to act on the copyright or intellectual property owner's behalf.
-                <br/><br/>The Company Agent for notice of claims of copyright or other intellectual property infringement can be contacted at <a href="mailto:contact@CryptoQuant">contact@CryptoQuant</a>.
-                <br/><br/><h2>Entire Agreement</h2>
-                This Agreement constitutes the entire understanding between the Parties with respect to any and all use of CryptoQuant or any of the Services thereon. This Agreement supersedes and replaces all prior or contemporaneous agreements or understandings, written or oral, regarding the use of CryptoQuant. You may also be subject to additional terms and conditions when you use or purchase certain other CryptoQuant Services, affiliate Services, third-party content or third-party software.
-                <br/><br/><h2>Arbitration</h2>
-                In case of a dispute between the Parties relating to or arising out of this Agreement, the Parties shall first attempt to resolve the dispute personally and in good faith. If these personal resolution attempts fail, the Parties shall then submit the dispute to binding arbitration, under the Consumer Arbitration Rules of the American Arbitration Association. The arbitration shall be conducted in San Francisco, California. The arbitration shall be conducted by a single arbitrator and such arbitrator shall have no authority to add Parties, vary the provisions of this Agreement, award punitive damages, or certify a class. The arbitrator shall be bound by applicable and governing Federal law as well as the law of the state of California. Each Party shall pay their own costs and fees. Claims necessitating arbitration under this section include, but are not limited to: contract claims, tort claims, claims based on Federal and state law, and claims based on local laws, ordinances, statutes or regulations. Intellectual property claims by the Company will not be subject to arbitration and may, as an exception to this subpart, be litigated. The Parties, in agreement with this sub-part of this Agreement, waive any rights they may have to a jury trial in regard to arbitral claims - i.e. you hereby understand and agree that you are giving up your right to a jury trial or other litigation to assert any claims against the Company. Through this Agreement, you are also relinquishing any right to be engaged in a class action or other group proceeding against the Company.
-                <br/><br/><h2>Waiver and Severability of Terms</h2>
-                In the event that we fail to enforce any provision of this Agreement, this shall not constitute a waiver of any future enforcement of that provision or of any other provision. Waiver of any part or sub-part of this Agreement will not constitute a waiver of any other part or sub-part. If any part or sub-part of this Agreement is held invalid or unenforceable by a court of law or competent arbitrator, the remaining parts and sub-parts will be enforced to the maximum extent possible. In such condition, the remainder of this Agreement shall continue in full force.
-                <br/><br/><h2>No Right of Survivorship Non-Transferability</h2>
-                You acknowledge, understand and agree that your account is non-transferable and any rights to your ID and/or contents within your account shall terminate upon your death. Upon receipt of a copy of a death certificate, your account may be terminated and all contents therein permanently deleted.
-                <br/><br/><h2>Claim Limitation</h2>
-                You acknowledge, understand and agree that regardless of any statute or law to the contrary, any claim or action arising out of or related to the use of ourServices or this Agreement must be filed within one year after said claim or cause of action arose or shall be forever barred.
-                <br/><br/><h2>General Provisions</h2>
-                <br/>•	LANGUAGE: All communications made or notices given pursuant to this Agreement shall be in the English language.
-                <br/>•	HEADINGS FOR CONVENIENCE ONLY: Headings of parts and subparts under this Agreement are for convenience and organization, only. Headings shall not affect the meaning of any provisions of this Agreement.
-                <br/>•	NO AGENCY, PARTNERSHIP OR JOINT VENTURE: No agency, partnership, or joint venture has been created between the Parties as a result of this Agreement. No Party has any authority to bind the other to third parties.
-                <br/>•	ELECTRONIC COMMUNICATIONS PERMITTED: Electronic communications are permitted to both Parties under this Agreement, including e-mail or fax. For any questions or concerns, please email us at the following address: <a href="mailto:contact@CryptoQuant">contact@CryptoQuant</a>.
-                <br/><br/><h2>Violations</h2>
-                Please report any violations of these terms to the Company at <a href="mailto:contact@CryptoQuant">contact@CryptoQuant</a>.
-              </small>
+                  <p>
+                    <strong>CryptoQuant Website Terms of Use</strong>
+                  </p>
+                  <p>CryptoQuant Inc. (“<strong>CryptoQuant</strong>&#8220;), has created this website (the &#8220;<strong>Website</strong>&#8221; or the &#8220;<strong>Site</strong>&#8220;) to provide an online resource for users to obtain information and data related to crypto assets (i.e., cryptocurrencies). To assist you in using the Website and associated Services, and to ensure a clear&nbsp; understanding of the relationship arising from your use of the Website and participation in these Services, we have created (i) these Terms of Use (the &#8220;<strong>Terms</strong>&#8220;) and (ii) a Privacy Policy. Our Privacy Policy explains how we treat information you provide to us through the Site, and our Terms govern your use of our Site. Our Terms and Privacy Policy apply to (a) visitors to the Website who wish to obtain Data and Analytics, but who do not sign up for API data feeds (“<strong>Site Users</strong>”), and (b) users who have registered with CryptoQuant to receive API data feeds (&#8220;<strong>API Users</strong>&#8220;). The terms “<strong>CryptoQuant</strong>,” “<strong>we</strong>” and “<strong>us</strong>” refer to CryptoQuant Inc.
+                  </p>
+                  <p>
+                    <strong>PLEASE READ THIS DOCUMENT CAREFULLY BEFORE YOU ACCESS OR USE THE WEBSITE OR&nbsp;</strong>
+                    <strong>PARTICIPATE IN OUR SERVICES. BY ACCESSING THE WEBSITE, YOU AGREE TO BE BOUND BY THE&nbsp;</strong>
+                    <strong>TERMS AND CONDITIONS SET FORTH BELOW. IF YOU DO NOT WISH TO BE BOUND BY THESE TERMS&nbsp;</strong>
+                    <strong>AND CONDITIONS, PLEASE DO NOT ACCESS OUR WEBSITE OR PARTICIPATE IN OUR SERVICES.</strong>
+                  </p>
+                  <p>
+                    <strong>1. Your Agreement.</strong>
+                  </p>
+                  <p>These Terms govern (i) your use of the Website, (ii) your receipt of and participation in CryptoQuant’s services offered through the Website (the &#8220;<strong>Services</strong>&#8220;), and (iii) your use of information obtained through the Website, including Data and Analytics, information, data, statistics, software, artwork, text, video, audio, pictures, content, trademarks, trade dress, and other intellectual property owned by CryptoQuant or its licensors and made available to you through the Services (“<strong>Crypto&nbsp;</strong>
+                    <strong>Quant Content</strong>”). Please read these Terms carefully; they impose legal obligations on you and on CryptoQuant, and establish our legal relationship. By using the Services or accessing our Website, you are acknowledging that you have read and understood these Terms and agree to be legally bound by them. If you are agreeing to these Terms and our Privacy Policy on behalf of a company or other legal entity (your &#8220;Organization&#8221;), (i) you represent and warrant that you have authority to act on behalf of, and to bind your Organization and (ii) for all purposes in these Terms and the Privacy Policy, the term &#8220;you&#8221; means your Organization on whose behalf you are acting. IF YOU DO NOT HAVE THE LEGAL AUTHORITY TO BIND YOUR ORGANIZATION, YOU MUST NOT ACCESS THE WEBSITE.</p>
+                  <p>
+                    <strong>2. Our Services: Overview</strong>.</p>
+                  <p>The Website is designed to provide an online resource for reviewing Data and Analytics related to crypto assets. For example, you may use the Website to obtain daily crypto asset data sets of either crypto asset network or market data (“Data”). You may also obtain correlations and other derived analytics of the various Data that we or our licensors have generated (“Analytics”). You may also register with the Website to receive API data feeds of Data and Analytics for use in your applications. We may also offer paid subscriptions for products from time to time – if we do so, your use of such products will be subject to a separate license agreement between you and CryptoQuant.</p>
+                  <p>
+                    <strong>3. Obtaining a Password or Access Credential; Protecting Your Password/Credentials.
+                    </strong>
+                  </p>
+                  <p>We may make certain areas of the Website accessible only to users that have a password or other access credentials such as an API key. Please keep in mind that we will treat anyone who uses your user name and password/access credentials as “you.” We will provide this user with all of the rights and privileges that we provide to you, and we will hold you responsible for the activities of a person using your account. Therefore, we recommend that you maintain your user name and password/access credentials in confidence, and that you refrain from disclosing this information to anyone outside of your Organization who might “pretend” to be you with respect to the Website and your participation in the Services. For clarity, to the extent a single set of access credentials (user name and password or API key) is established for you / your Organization (“Access Credentials”), these Access Credentials may be used by authorized representatives within your Organization, provided that you / your Organization remains responsible for the use of the Website and any CryptoQuant Content obtained by anyone accessing the Website using your Access Credentials. For the avoidance of doubt, you shall not permit any third parties to access the Website using the your Access Credentials. We also ask that you notify us immediately if you suspect that someone is using your user name and/or password and/or API key in this or any inappropriate manner.</p>
+                  <p>
+                    <strong>4. Grant of Rights</strong>
+                  </p>
+                  <p>
+                    <strong>4.1.
+                    </strong>
+                    <strong>Grant of Rights to All Users</strong>. Subject to your compliance with the terms and conditions of this Agreement, CryptoQuant hereby grants to Site Users and API Users, under CryptoQuant’ intellectual property rights, a limited non-exclusive, non-transferable, worldwide right (i) to access and use the Website for internal business purposes, and (ii) to access, copy, display, perform, and use Data and Analytics and other CryptoQuant Content for internal, non-commercial business purposes pursuant to the terms of the Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) License (available at https://creativecommons.org/licenses/by-nc/4.0/). Site User (i) acknowledges and agrees that CryptoQuant is not responsible or liable for the accuracy or completeness of any Data or Analytics, and (ii) shall be responsible and liable for its use of the Data and Analytics.</p>
+                  <p>
+                    <strong>4.2.
+                    </strong>
+                    <strong>Grant of Rights to API Users.
+                    </strong>In addition to those rights granted to you in Section 4.1, CryptoQuant hereby grants to API Users, under CryptoQuant’ intellectual property rights, a limited nonexclusive, non-transferable, worldwide right to access and use API(s) made available by CryptoQuant to access, copy, display, and perform Data and Analytics and other CryptoQuant Content in your applications for internal, non-commercial business purposes.</p>
+                  <p>
+                    <strong>4.3.
+                    </strong>
+                    <strong>Publicity.
+                    </strong>Registered User grants to CryptoQuant the right to use Registered User’s name, logo and/or other marks for the sole purpose of identifying Registered User as a user of the Website. No compensation will be paid with respect to CryptoQuant’ use of Registered User’s name and/or trademarks under this grant.</p>
+                  <p>
+                    <strong>5. Ownership; Reservation of Rights.
+                    </strong>
+                  </p>
+                  <p>The information, data, statistics, software, artwork, text, video, audio, pictures, trademarks, trade dress, and other intellectual property embodied in the Services or the CryptoQuant Content, including but not limited to the Data and Analytics, are the proprietary property of CryptoQuant and its licensors, and are protected by U.S. and international copyright and other intellectual property laws, or are used under the principles of fair use. CryptoQuant and its licensors retain all rights with respect to the Services and the CryptoQuant Content except those expressly granted to you in these Terms.</p>
+                  <p>
+                    <strong>6. Restrictions.
+                    </strong>
+                  </p>
+                  <p>EXCEPT AS EXPRESSLY PROVIDED HEREIN OR IF OTHERWISE EXPRESSLY PERMITTED BY CryptoQuant (e.g., to the extent made available by CryptoQuant through GitHub or subject to separate license from CryptoQuant), YOU AGREE NOT TO (i) DUPLICATE, PUBLISH, DISPLAY, DISTRIBUTE, MODIFY, OR CREATE DERIVATIVE WORKS FROM THE MATERIAL PRESENTED THROUGH THE WEBSITE AND/OR THROUGH THE SERVICES UNLESS SPECIFICALLY AUTHORIZED IN WRITING BY CryptoQuant; OR (ii) REVERSE ENGINEER, DECOMPILE, DISASSEMBLE, OR OTHERWISE SEEK TO DISCOVER THE SOURCE CODE OF THE CryptoQuant WEBSITE AND UNDERLYING SOFTWARE.</p>
+                  <p>
+                    <strong>6.1.
+                    </strong>
+                    <strong>User Comments/Feedback.
+                    </strong>Our Website may allow Site Visitors to provide comments or feedback regarding our Website, the CryptoQuant Analytics System, and our Services. By providing comments/feedback, you grant us the right to use your comments and feedback for the purposes of improving the Website, the CryptoQuant Analytics System and our Services.</p>
+                  <p>
+                    <strong>7. Code of Conduct.
+                    </strong>
+                  </p>
+                  <p>As a condition to your use of the Website and the Services, you agree to follow our Code of Conduct, set out below. Under this Code, you will not:</p>
+                  <ul>
+                    <li>Provide false identification information to obtain access to the Website or Services.</li>
+                    <li>Access the Website or Services to develop or implement a product or service that will act as a substitute for or otherwise compete with the Website or Services.</li>
+                    <li>Upload, email or otherwise transmit any images or other User Content that is unlawful, obscene, harmful, hateful, invade the privacy of any third party, contain nudity or pornography, or is otherwise objectionable.</li>
+                    <li>Disseminate materials that impact or invade the privacy of others, such as photographs, video clips, sound recordings, personally identifiable information, or other materials that reveal personal, private or sensitive information about another person, without that person’s consent.</li>
+                    <li>Submit material that is intentionally false, defamatory, unlawfully threatening, or unlawfully harassing.</li>
+                    <li>Infringe any third party&#8217;s copyright, patent, trademark, trade secret, or other proprietary rights or rights of publicity or privacy. Electronic materials – such as music, videos, games, images, and text in electronic form &#8212; can easily be copied, modified and sent over networks (such as the Internet). These electronic materials are thus extremely vulnerable to unauthorized distribution and copyright infringement. These materials may not be transmitted over the Website without the copyright owner&#8217;s permission, or without a legitimate &#8220;fair use&#8221; justification for the transmittal.</li>
+                    <li>Transmit materials that contain any viruses, Trojan horses, worms, time bombs, cancelbots, or other computer-programming routines that are intended to damage, detrimentally interfere with, surreptitiously intercept, or expropriate any system, data, or personal information.</li>
+                    <li>Use the Website to artificially generate traffic or page links to a website or for any other purpose not expressly allowed under these Terms.</li>
+                    <li>Use the Website in a manner that could disable, overburden, or impair the Website or Services or interfere with any other party&#8217;s use and enjoyment of the Website and Services, such as through sending &#8220;spam&#8221; email.</li>
+                    <li>Use the Website to test or reverse engineer the Website in order to find limitations, vulnerabilities or to evade filtering capabilities.</li>
+                    <li>Seek to obtain access to any materials or information through &#8220;hacking,&#8221; &#8220;data harvesting,&#8221; “web scraping,” or through other means we have not intentionally made available to you through the Website.</li>
+                    <li>Use VPNs, proxy servers, or other means to hide the true source of traffic or to circumvent any rate limits we impose on our users.</li>
+                    <li>Use the Website for any purpose that is unlawful or prohibited by these Terms. For example, you will not use the Website to violate any law, statute, or regulation (including, without limitation, those governing export control, consumer protection, unfair competition, antidiscrimination, or false advertising).</li>
+                  </ul>
+                  <p>
+                    <strong>8. Charges; Payment Terms.</strong>
+                  </p>
+                  <p>
+                    <strong>8.1.
+                    </strong>
+                    <strong>Subscription Fees.
+                    </strong>In exchange for access to the Website and Services, Registered Users shall pay to CryptoQuant a monthly subscription fee (the “<strong>Subscription Fee</strong>”), as set forth in the registration screen at the time of registration. CryptoQuant reserves the right to increase its Subscription Fees in the event its costs for access to any third party Data and Analytics included in the CryptoQuant Content increase. CryptoQuant will use commercially reasonable efforts to provide advance notice of any fee increases.</p>
+                  <p>
+                    <strong>8.2.
+                    </strong>
+                    <strong>Automatic Debit.
+                    </strong>If you provide recurring payment information for automatic debit of the Subscription Fee, you authorize CryptoQuant to debit your credit card, checking or savings account designated by you at the time of registration (or as you may update such information thereafter) on a recurring basis for the Subscription Fees.</p>
+                  <p>
+                    <strong>8.3.
+                    </strong>
+                    <strong>Taxes.
+                    </strong>Subscription Fees are exclusive of all federal, state and local and foreign taxes, levies assessments and withholdings. You shall bear and be responsible for all such taxes, levies and assessments arising out of these Terms, excluding only any tax based on CryptoQuant’ net income.</p>
+                  <p>
+                    <strong>9. Monitoring; Revocation or Suspension of Use Privileges.
+                    </strong>
+                  </p>
+                  <p>We reserve the right at any time to (i) monitor your use of the Website to determine compliance with these Terms, and (ii) terminate or suspend your use of some or all of the Website or Services if you engage in activities that we conclude, in our discretion, breach our Code of Conduct or otherwise violate these Terms or our Privacy Policy. Although we have no – and assume no &#8212; obligation to monitor activities on the Website, please understand that we may employ filters designed to detect and block inappropriate content under this Code of Conduct. We reserve the right to request edits to your submission, to refuse to post, or to remove any information or materials, in whole or in part, that we believe, in our sole discretion, are incompatible with our Code of Conduct.</p>
+                  <p>Users should also understand that our Code of Conduct is based in many instances on principles of applicable law. Users who violate our Code of Conduct accordingly may be exposed under these laws to criminal charges, and civil liability to harmed parties for compensatory damages and attorney&#8217;s fees. CryptoQuant reserves the right at all times to disclose information it deems necessary to satisfy any applicable law, regulation, legal process, or governmental request, consistent with its Privacy Policy.</p>
+                  <p>
+                    <strong>10. Termination for Cause.
+                    </strong>
+                  </p>
+                  <p>In the event that you are in material breach of any obligation under these Terms, CryptoQuant may terminate this Agreement for cause upon written notice after first: (i) providing you with written notice of the breach (a “Notice of Breach”) and (ii) providing thereafter a five (5) day opportunity to cure beginning on the date of your receipt of the Notice of Breach.</p>
+                  <p>
+                    <strong>11. Links to Third-Party Sites.
+                    </strong>
+                  </p>
+                  <p>The Website may also contain links or produce search results that reference links to third party websites (collectively &#8220;<strong>Linked Sites</strong>&#8220;). CryptoQuant has no control over these Linked Sites or their content and does not assume responsibility or liability for any content, opinions, or materials available on Linked Sites. CryptoQuant does not endorse the content of any Linked Site, nor does CryptoQuant warrant that a Linked Site will be free of computer viruses or other harmful code that can impact your computer or other web-access device. By using the Website to search for or link to another site, you agree and understand that such use is at your own risk.</p>
+                  <p>
+                    <strong>12. NO FINANCIAL ADVICE.</strong>
+                  </p>
+                  <p>The Data and Analytics provided through the Website are provided for information purposes only. CryptoQuant is not a financial advisor. You should consult your financial advisor before you make financial decisions based upon the Data or Analytics. Your use of Data and Analytics is at your own risk. If you choose to use Data and/or Analytics for any purpose, you do so voluntarily and you assume all risks associated with such activities. To the maximum extent permitted by applicable law, you expressly agree that we are not providing financial advice via the Website.</p>
+                  <p>
+                    <strong>13. Warranty Disclaimer.
+                    </strong>
+                  </p>
+                  <p>THE WEBSITE, SERVICES AND CONTENT WITHIN IT ARE DELIVERED ON AN &#8220;AS IS&#8221; AND &#8220;AS AVAILABLE&#8221; BASIS. WHEN YOU ACCESS THE WEBSITE AND SERVICES, YOU DO SO AT YOUR OWN RISK. CryptoQuant AND ITS LICENSORS DO NOT WARRANT OR REPRESENT THAT (A) THE USE OF THE WEBSITE WILL BE SECURE, TIMELY, UNINTERRUPTED OR ERROR-FREE OR OPERATE IN COMBINATION WITH ANY OTHER HARDWARE, SOFTWARE, SYSTEM OR DATA, (B) THE WEBSITE OR SERVICES WILL MEET YOUR REQUIREMENTS OR EXPECTATIONS, (C) THE QUALITY OF ANY SERVICES, INFORMATION, OR OTHER MATERIAL PURCHASED OR OBTAINED BY YOU THROUGH THE WEBSITE WILL MEET YOUR REQUIREMENTS OR EXPECTATIONS, (D) ERRORS OR DEFECTS WILL BE CORRECTED, OR (E) THAT ANY DATA, ANALYTICS, OR OTHER MATERIALS OR CONTENT YOU DOWNLOAD FROM THE CryptoQuant WEBSITE WILL BE FREE OF VIRUSES OR OTHER HARMFUL FEATURES. WHILE CryptoQuant MAY MAKE DATA AND ANALYTICS AVAILABLE THROUGH THE WEBSITE, THE DATA AND ANALYTICS ARE PROVIDED BY THIRD PARTIES AND CryptoQuant IS NOT RESPONSIBLE OR LIABLE FOR, AND HEREBY DISCLAIMS LIABILITY FOR, YOUR USE OF SUCH DATA AND ANALYTICS, AND THE INFORMATION YOU OBTAIN FROM THEM. YOU EXPRESSLY AGREE THAT YOUR USE OF ANY DATA AND ANALYTICS MADE AVAILABLE THROUGH THE WEBSITE IS AT YOUR SOLE RISK. CryptoQuant DISCLAIMS (i) ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT OF THIRD PARTY RIGHTS; (ii) ANY RESPONSIBILITY OR LIABILITY FOR THE ACCURACY, CONTENT, COMPLETENESS, OR LEGALITY OF INFORMATION AVAILABLE THROUGH THE WEBSITE OR SYSTEM; AND (iii) ANY RESPONSIBILITY OR LIABILITY FOR HARM RESULTING FROM DOWNLOADING OR ACCESSING INFORMATION THROUGH THE WEBSITE, INCLUDING HARM CAUSED BY VIRUSES OR SIMILAR DESTRUCTIVE FEATURES. YOU EXPRESSLY AGREE THAT USE OF THE CryptoQuant WEBSITE, SYSTEM, AND RELATED SERVICES AND CONTENT IS AT YOUR SOLE RISK.</p>
+                  <p>
+                    <strong>14. Limitation of Liability.
+                    </strong>
+                  </p>
+                  <p>UNDER NO CIRCUMSTANCES, INCLUDING BUT NOT LIMITED TO BREACH OF CONTRACT, TORT, OR NEGLIGENCE, WILL CryptoQuant BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, PUNITIVE, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING LOST PROFITS) THAT ARISE OUT OF OR ARE RELATED TO YOUR USE OF THE CryptoQuant WEBSITE, SERVICES AND CryptoQuant CONTENT.</p>
+                  <p>
+                    <strong>15. Indemnity.
+                    </strong>
+                  </p>
+                  <p>You agree to defend, indemnify, and hold CryptoQuant and its subsidiaries, affiliates, officers, directors, agents, and employees harmless from any liability to third parties, including reasonable attorneys&#8217; fees, arising from or related to your (i) use of Data and Analytics , and (ii) breach of these Terms</p>
+                  <p>
+                    <strong>16. Contact for Alleged Copyright Infringement.
+                    </strong>
+                  </p>
+                  <p>CryptoQuant respects the intellectual property rights of others and requires that its users do the same. If you believe that Content on the Website or other activity taking place on the Website constitutes infringement of a work protected by copyright (a &#8220;<strong>Work</strong>&#8220;), please notify our agent, designated under the Digital Millennium Copyright Act (17 U.S.C. §512) (the “<strong>DMCA</strong>”) to respond to such concerns, as follows:</p>
+                    <strong>Ki Young Ju<br/>
+                    </strong>
+                    <strong>CryptoQuant Inc.<br/>
+                    </strong>
+                    <strong>83, Uisadang-daero, Yeongdeungpo-gu, Seoul, Republic of Korea<br/>
+                    </strong>
+                    <strong>20th floor<br/>
+                    </strong>
+                  <p>Your notice must comply with the DMCA. Upon receipt of a compliant notice, we will respond and proceed in accordance with the DMCA.</p>
+                  <p>
+                    <strong>17. Modifications to these Terms.
+                    </strong>
+                  </p>
+                  <p>We may modify and change these Terms over time. We will not &#8220;retroactively&#8221; change these Terms, and any modifications we make shall take effect proactively, once you next access the Website. Please feel free to print out a copy of these Terms for your records.</p>
+                  <p>
+                    <strong>18. Assignment.
+                    </strong>
+                  </p>
+                  <p>These Terms shall not be assignable by you, either in whole or in part. CryptoQuant reserves the right to assign its rights and obligations under these Terms.</p>
+                  <p>
+                    <strong>19. General.
+                    </strong>
+                  </p>
+                  <p>These Terms shall be governed in all respects by the laws of the Commonwealth of Massachusetts without giving effect to its conflicts of law provisions. Both parties submit to the personal jurisdiction of and venue in the state and federal courts in the Commonwealth of Massachusetts in the judicial district where CryptoQuant has its principal place of business. The parties further agree that any cause of action arising under these Terms or our Privacy Policy shall exclusively be brought in such courts. If any provision of these Terms is held to be invalid or unenforceable, such provision shall be struck and the remaining provisions shall be enforced. Headings are for reference purposes only and in no way define, limit, construe, or describe the scope or extent of such section. CryptoQuant’ failure to act with respect to a breach by you or others does not waive its right to act with respect to subsequent or similar breaches. This agreement and the terms and conditions contained herein set forth the entire understanding and agreement between CryptoQuant and you with respect to the subject matter hereof and supersede any prior or contemporaneous understanding, whether written or oral.</p>
+                  <p>
+                    <strong>20. Survival.
+                    </strong>
+                  </p>
+                  <p>The following provisions shall survive the termination of these Terms and shall apply indefinitely:</p>
+                  <ul>
+                    <li>Section 5 (Ownership; Reservation of Rights)</li>
+                    <li>Section 12 (Warranty Disclaimer)</li>
+                    <li>Section 14 (Limitation of Liability)</li>
+                    <li>Section 15 (Indemnity)</li>
+                    <li>Section 18 (Assignment)</li>
+                    <li>Section 19 (General)</li>
+                    <li>Section 20 (Survival)</li>
+                  </ul>
+                  <p>
+                    <strong>21. Relationship to Privacy Policy and Other Contracts.
+                    </strong>
+                  </p>
+                  <p>These Terms must be read in conjunction (i) with other agreements into which you may enter concerning the Website, CryptoQuant’ Services or CryptoQuant subscription products, and (ii) with our Privacy Policy. The provisions of our Privacy Policy are incorporated herein. To the extent these Terms conflict with the terms of our Privacy Policy, the terms of our Privacy Policy will control. Similarly to the extent these Terms conflict with the terms and conditions of any specific agreement you enter with us, the terms and conditions of such specific agreement will control.</p>
+                  <p>
+                    <strong>22. Contact Us.
+                    </strong>
+                  </p>
+                  <p>If you have any questions about these Terms, the practices of this Site, or your dealings with this Website, please contact us at: You may contact us, for any reason, by e-mail as follows:</p>
+                  <p>
+                    <strong>Effective Date:
+                    </strong>The effective date of these Terms is February 18, 2019.</p>
+                  <p>
+                    <strong>COPYRIGHT AND LEGAL NOTICE</strong>.</p>
+                  <p>Copyright © 2019 CryptoQuant Inc. All Rights Reserved.</p>
+                  <br/><br/>
+                  <h2>Violations</h2>
+                  Please report any violations of these terms to the Company at&nbsp;
+                   <a href="mailto:contact@cryptoquant.com">contact@cryptoquant.com</a>.
+                </small>
               </Paper>
             </Grid>
           </Grid>
-          </Grid>
+        </Grid>
       </main>
 
-        <Footer language={language} />
-      </div>
-    );
+      <Footer language={language}/>
+    </div>);
   }
 }
 
 TermsOfService.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles, {withTheme: true})(TermsOfService);

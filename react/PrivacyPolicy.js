@@ -39,7 +39,7 @@ const styles = theme => ({
     paddingBottom: theme.spacing.unit * 1,
   },
   marginBottom: {
-    marginBottom : theme.spacing.unit * 2,
+    marginBottom : theme.spacing.unit * 6,
   },
   maxWidth: {
     maxWidth: '1200px',
@@ -57,14 +57,11 @@ class PrivacyPolicy extends React.Component {
     return(
       <div>
         <Header language={language} />
-        
+
         <main>
           <Grid container justify='center' className={classes.commonPadding}>
             <Grid item xs={12} container justify="center" className={classes.maxWidth}>
             <Grid item xs={12} className={classes.marginBottom}>
-              <Typography className={classes.nunitoSansBold}>
-                Privacy Policy
-            </Typography>
             </Grid>
             <Grid item xs={12} sm={10} >
               <Paper className={classNames(classes.nunitoSansRegular, classes.paddingPaper)}>
@@ -142,7 +139,7 @@ class PrivacyPolicy extends React.Component {
                             <li>Delivering you targeted information regarding promotions related to CryptoQuant.</li>
                         </ol>
 
-                        <p>If you decide at any time that you no longer wish to receive communications from us, please follow the “unsubscribe” instructions provided in the communications or contact us at <a href="mailto:contact@CryptoQuant">contact@CryptoQuant</a>.</p>
+                        <p>If you decide at any time that you no longer wish to receive communications from us, please follow the “unsubscribe” instructions provided in the communications or contact us at <a href="mailto:contact@cryptoquant.com">contact@cryptoquant.com</a>.</p>
 
                         <h2>Your Consent</h2>
 
@@ -235,7 +232,7 @@ class PrivacyPolicy extends React.Component {
 
                         <p>You may at any time review or change the personal data in your user account or terminate your user account by logging into it through CryptoQuant and updating your personal data. Upon your request to terminate your user account, we will deactivate or delete your account and information from our active databases.</p>
 
-                        <p>If you would like to access, modify, or delete your personal data that are processed through CryptoQuant, please send us an email to <a href="mailto:contact@CryptoQuant">contact@CryptoQuant</a>. We will answer your request within a reasonable timeframe.</p>
+                        <p>If you would like to access, modify, or delete your personal data that are processed through CryptoQuant, please send us an email to <a href="mailto:contact@cryptoquant.com">contact@cryptoquant.com</a>. We will answer your request within a reasonable timeframe.</p>
 
                         <h2>Children</h2>
 
@@ -263,7 +260,7 @@ class PrivacyPolicy extends React.Component {
 
                         <h2>Contact Us</h2>
 
-                        <p>If you have questions or comments about this Privacy Policy, please contact us by email at <a href="mailto:contact@CryptoQuant">contact@CryptoQuant</a>.</p>
+                        <p>If you have questions or comments about this Privacy Policy, please contact us by email at <a href="mailto:contact@cryptoquant.com">contact@cryptoquant.com</a>.</p>
                 </small>
               </Paper>
             </Grid>

@@ -108,23 +108,23 @@ class Header extends React.Component {
     const { classes } = this.props;
 
     return (
-      
+
         <AppBar className={classes.appBar}>
           <Grid className={classNames(classes.header)} >
           <Toolbar disableGutters>
           <a href="/home" className={classes.blueLink}><Typography className={classes.dasfinance}>CryptoQuant</Typography></a>
-        
-        
-       
-          <Grid container justify="flex-end">           
+
+
+
+          <Grid container justify="flex-end">
             <Button id="header-research">
               <Typography className={classes.link} align='center'>About</Typography>
-            </Button>          
+            </Button>
             <Button id="header-storadar">
               <Typography className={classes.link} align='center'>Team</Typography>
-            </Button>       
+            </Button>
             <Button id="header-news">
-              <Typography className={classes.link} align='center'>DAS News</Typography>
+              <Typography className={classes.link} align='center'>Blog</Typography>
             </Button>
           </Grid>
 
@@ -134,7 +134,7 @@ class Header extends React.Component {
         </Toolbar>
         </Grid>
         </AppBar>
-      
+
     );
   }
 }
