@@ -290,10 +290,10 @@ class Home extends React.Component {
             <Grid container="container">
               <Grid className={classNames(classes.paddingBanner, classes.maxWidth)} sm={8}>
                 <div className={classes.flexDisplay}>
-                  <Typography className={classNames(classes.nunitoSansBold, classes.banner1)}>Harvest actionable insights with Quantitative Analysis</Typography>
+                  <Typography className={classNames(classes.nunitoSansBold, classes.banner1)}>Demystify the crypto ecosystem with Quantitative Analysis</Typography>
                 </div>
                 <div>
-                  <Typography className={classNames(classes.nunitoSansRegular, classes.banner2)}>CryptoQuant uncovers actionable signals hidden in extensive data with a statistical approach such as NLP and reinforcement learning.</Typography>
+                  <Typography className={classNames(classes.nunitoSansRegular, classes.banner2)}>CryptoQuant uncovers actionable signals hidden in extensive data with a statistical approach such as graph analysis and machine learning.</Typography>
                 </div>
               </Grid>
             </Grid>
