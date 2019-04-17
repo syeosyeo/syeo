@@ -8,11 +8,11 @@ import classNames from 'classnames';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import ArrowRightAlt from '@material-ui/icons/ArrowRightAlt'
-
 import {withStyles} from '@material-ui/core/styles';
 import ProjectTable from './ProjectTable';
 import Subscribe from './Subscribe';
 import IconButton from '@material-ui/core/IconButton';
+import './BannerAni.scss';
 
 const styles = theme => ({
   root: {
@@ -138,6 +138,7 @@ const styles = theme => ({
     paddingLeft: 10,
     color: "white",
     fontFamily: "'Nunito Sans'",
+    height:100,
     fontWeight: 900
   },
   oneByOne: {
@@ -268,13 +269,22 @@ const styles = theme => ({
     paddingLeft:"85%",
     marginBottom:"-30px",
     marginTop:"-30px",
-  }
+  },
 });
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  componentDidMount () {
+      const script = document.createElement("script");
+
+      script.src = "/static/core/js/banner_ani.js";
+      script.async = true;
+
+      document.body.appendChild(script);
   }
 
   render() {
@@ -295,7 +305,22 @@ class Home extends React.Component {
                 <div>
                   <Typography className={classNames(classes.nunitoSansRegular, classes.banner2)}>CryptoQuant uncovers actionable signals hidden in extensive data with a statistical approach such as graph analysis and machine learning.</Typography>
                 </div>
+                {/* Banner icon changes */}
               </Grid>
+              <Grid className={classNames(classes.paddingBanner, classes.maxWidth)} sm={4}>
+                <canvas id="c" />
+                  <span id="main-ani">
+                    <div>
+                      <div class="ani-wrapper">
+                        <div id="ani-container">
+                          <div id="box_top"><a href="" id="box_top_text" target='_blank'></a></div>
+                          <div id="box_front"><a href="" id="box_front_text" target='_blank'></a></div>
+                          <div id="box_bottom"><a href="" id="box_bottom_text" target='_blank'></a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </span>
+                </Grid>
             </Grid>
           </div>
 
@@ -550,7 +575,12 @@ class Home extends React.Component {
                           <Typography className={classNames(classes.whitetext)}>
                             <h2>Soomin Choi</h2>
                             <h4>
-                              Core Developer
+                              Core Developer<br/>
+                              <IconButton href={"https://www.linkedin.com/in/soomin-choi-10423517b/"} className={classes.iconButton}>
+                                <i style={{
+                                    color: '#ffffff'
+                                  }} className={classNames("fab", "fa-linkedin")}/>
+                              </IconButton>
                             </h4>
                           </Typography>
                       </div>

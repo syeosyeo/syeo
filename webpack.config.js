@@ -30,7 +30,15 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
-    ],
+      {
+          test: /\.scss$/,
+          use: [
+              'style-loader', // or MiniCssExtractPlugin.loader
+              { loader: 'css-loader', options: { sourceMap: true, importLoaders: 1 } },
+              { loader: 'sass-loader', options: { sourceMap: true } },
+          ],
+      },
+     ],
   },
   resolve: {
     extensions: ['*', '.js', '.jsx']
