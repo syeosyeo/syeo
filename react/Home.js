@@ -16,7 +16,7 @@ import './BannerAni.scss';
 
 const styles = theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   marginTopXSOnly: {
     [theme.breakpoints.down('xs')]: {

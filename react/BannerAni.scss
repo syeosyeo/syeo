@@ -5,6 +5,7 @@
 .clearfix:before, .clearfix:after {display: table;  content: ''; }
 .clearfix:after { clear: both; }
 
+body{overflow-x: hidden; overflow-y: auto}
 
 canvas{
 	width: 70%;
