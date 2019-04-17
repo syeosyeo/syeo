@@ -5,16 +5,50 @@
 .clearfix:before, .clearfix:after {display: table;  content: ''; }
 .clearfix:after { clear: both; }
 
-body{overflow-x: hidden; overflow-y: auto}
+body{overflow-x: hidden !important; overflow-y: auto;}
 
-canvas{
-	width: 70%;
-  top: 15px;
-  right:-200px;
-  position:absolute;
-  display:block;
-	z-index: 3;
+@media only screen and (max-width: 768px) {
+	canvas{
+		display:none;
+	}
 }
+@media (min-width: 768px){
+	canvas{
+		display:none;
+	}
+} // >= 768px (small tablet)
+@media (min-width: 992px){
+	canvas{
+		width: 70%;
+	  top: 15px;
+	  right:-120px;
+	  position:absolute;
+	  display:block;
+		z-index: 3;
+	}
+} // >= 992px (medium laptop)
+@media (min-width: 1200px){
+	canvas{
+		width: 70%;
+	  top: 15px;
+	  right:-180px;
+	  position:absolute;
+	  display:block;
+		z-index: 3;
+	}
+} // >= 1200px (large desktop)
+
+@media (min-width: 1400px){
+	canvas{
+		width: 70%;
+	  top: 15px;
+	  right:-220px;
+	  position:absolute;
+	  display:block;
+		z-index: 3;
+	}
+} // >= 1200px (large desktop)
+
 
 #box_front, #box_top, #box_bottom {
   display:none !important;

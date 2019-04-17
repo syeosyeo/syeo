@@ -12,6 +12,7 @@ import {withStyles} from '@material-ui/core/styles';
 import ProjectTable from './ProjectTable';
 import Subscribe from './Subscribe';
 import IconButton from '@material-ui/core/IconButton';
+import Hidden from '@material-ui/core/Hidden';
 import './BannerAni.scss';
 
 const styles = theme => ({
@@ -25,6 +26,9 @@ const styles = theme => ({
   },
   gutterBottom: {
     marginBottom: theme.spacing.unit * 3
+  },
+  gutterBottomDouble: {
+    marginBottom: theme.spacing.unit * 6
   },
   nunitoSans: {
     fontFamily: "'Nunito Sans', sans-serif",
@@ -117,8 +121,8 @@ const styles = theme => ({
     paddingTop: theme.spacing.unit * 10,
     paddingBottom: theme.spacing.unit * 10,
     [theme.breakpoints.down('sm')]: {
-      paddingTop: theme.spacing.unit * 5,
-      paddingBottom: theme.spacing.unit * 5
+      paddingTop: theme.spacing.unit * 10,
+      paddingBottom: theme.spacing.unit * 2
     }
   },
   gyjoo: {
@@ -270,6 +274,9 @@ const styles = theme => ({
     marginBottom:"-30px",
     marginTop:"-30px",
   },
+  networkimg: {
+    width: "93%"
+  }
 });
 
 class Home extends React.Component {
@@ -298,7 +305,7 @@ class Home extends React.Component {
 
           <div className={classNames(classes.banner, classes.commonPadding)}>
             <Grid container="container">
-              <Grid className={classNames(classes.paddingBanner, classes.maxWidth)} sm={8}>
+              <Grid className={classNames(classes.paddingBanner, classes.maxWidth)} md={8}>
                 <div className={classes.flexDisplay}>
                   <Typography className={classNames(classes.nunitoSansBold, classes.banner1)}>Demystify the crypto ecosystem with Quantitative Analysis</Typography>
                 </div>
@@ -307,7 +314,7 @@ class Home extends React.Component {
                 </div>
                 {/* Banner icon changes */}
               </Grid>
-              <Grid className={classNames(classes.paddingBanner, classes.maxWidth)} sm={4}>
+              <Grid className={classNames(classes.paddingBanner, classes.maxWidth)} md={4}>
                 <canvas id="c" />
                   <span id="main-ani">
                     <div>
@@ -444,8 +451,12 @@ class Home extends React.Component {
 
           <Grid id="about" container="container" justify="center" className={classNames(classes.commonPadding)}><a name="about"></a>
             <Grid item="item" xs={12} container="container" className={classNames(classes.heightFitContent, classes.maxWidth)}>
-
-              <Grid item="item" xs={12} sm={6} container="container" direction="column" className={classNames(classes.gutterBottom)}>
+              <Hidden mdDown>
+                <Grid item="item" lg={6} hidden-md container="container" direction="column">
+                  <img src="/static/core/home/network_data.png" className={classNames(classes.networkimg)}/>
+                </Grid>
+              </Hidden>
+              <Grid item="item" xs={12} lg={6}  container="container" direction="column" className={classNames(classes.gutterBottom)}>
                 <Typography style={{
                     marginBottom: '12px',
                     color: '#1d1537',
@@ -454,16 +465,7 @@ class Home extends React.Component {
                 <Typography style={{
                     fontSize: 16,
                     color: '#373737'
-                  }} className={classes.nunitoSansRegular}>CryptoQuant reads market data, on-chain network data, sentiment data regardless of content, format, or structure and consolidate them for quantitative analysts.</Typography>
-              </Grid>
-              <Grid item="item" xs={12} sm={6} container="container" direction="column">
-                {/* Image */}
-              </Grid>
-
-              <Grid item="item" xs={12} sm={6} container="container" direction="column" className={classNames(classes.gutterBottom)}>
-                {/* Image */}
-              </Grid>
-              <Grid item="item" xs={12} sm={6} container="container" direction="column">
+                  }} className={classNames(classes.nunitoSansRegular,classes.gutterBottomDouble)}>CryptoQuant reads market data, on-chain network data, sentiment data regardless of content, format, or structure and consolidate them for quantitative analysts.</Typography>
                 <Typography style={{
                     marginBottom: '12px',
                     color: '#1d1537',
@@ -472,10 +474,7 @@ class Home extends React.Component {
                 <Typography style={{
                     fontSize: 16,
                     color: '#373737'
-                  }} className={classes.nunitoSansRegular}>CryptoQuant clarifies crypto crowd behavior through Reddit, Twitter, Facebook, Github, and over 100 news sources.</Typography>
-              </Grid>
-
-              <Grid item="item" xs={12} sm={6} container="container" direction="column" className={classNames(classes.gutterBottom)}>
+                  }} className={classNames(classes.nunitoSansRegular,classes.gutterBottomDouble)}>CryptoQuant clarifies crypto crowd behavior through Reddit, Twitter, Facebook, Github, and over 100 news sources.</Typography>
                 <Typography style={{
                     marginBottom: '12px',
                     color: '#1d1537',
@@ -484,10 +483,7 @@ class Home extends React.Component {
                 <Typography style={{
                     fontSize: 16,
                     color: '#373737'
-                  }} className={classes.nunitoSansRegular}>CryptoQuant aggregates and curates trading data, detecting actionable, hidden signals with quantitative analysis such as NLP and reinforcement learning.</Typography>
-              </Grid>
-              <Grid item="item" xs={12} sm={6} container="container" direction="column">
-                {/* Image */}
+                  }} className={classNames(classes.nunitoSansRegular,classes.gutterBottomDouble)}>CryptoQuant aggregates and curates trading data, detecting actionable, hidden signals with quantitative analysis such as NLP and reinforcement learning.</Typography>
               </Grid>
 
             </Grid>
