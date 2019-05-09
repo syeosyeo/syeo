@@ -41,7 +41,7 @@ const styles = theme => ({
   },
   nunitoSansRegular: {
     fontFamily: "'Nunito Sans', sans-serif",
-    fontWeight: 400,
+    fontWeight: 400
   },
   nunitoSansSemiBold: {
     fontFamily: "'Nunito Sans', sans-serif",
@@ -113,7 +113,6 @@ const styles = theme => ({
   banner: {
     backgroundImage: "linear-gradient(235deg, #382969 0%, #140f25 50%)",
     width: "100%",
-    height: 580,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center"
@@ -125,6 +124,18 @@ const styles = theme => ({
       paddingTop: theme.spacing.unit * 10,
       paddingBottom: theme.spacing.unit * 2
     }
+  },
+  gyjoo: {
+    backgroundImage: "url('/static/core/home/team/gyjoo.png')"
+  },
+  sjlim: {
+    backgroundImage: "url('/static/core/home/team/sjlim.jpg')"
+  },
+  smchoi: {
+    backgroundImage: "url('/static/core/home/team/smchoi.png')"
+  },
+  bkjang: {
+    backgroundImage: "url('/static/core/home/team/bkjang.png')"
   },
   whitetext: {
     paddingTop: 10,
@@ -194,26 +205,21 @@ const styles = theme => ({
     color: '#ffffff',
     fontSize: 45,
     [theme.breakpoints.down('sm')]: {
-      fontSize: 40
-    },
-    [theme.breakpoints.up('lg')]: {
-      marginLeft: "10%"
+      fontSize: 30
+    }
+  },
+  banner15: {
+    color: '#ffffff',
+    fontSize: 45,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 33
     }
   },
   banner2: {
     color: '#ffffff',
-    maxWidth:650,
-    fontSize: 18,
+    fontSize: 22,
     [theme.breakpoints.down('sm')]: {
-      fontSize: 16
-    },
-    [theme.breakpoints.up('lg')]: {
-      marginLeft: "10%"
-    }
-  },
-  bannerBtn: {
-    [theme.breakpoints.up('lg')]: {
-      marginLeft: "10%"
+      fontSize: 18
     }
   },
   investmentGuide1: {
@@ -301,17 +307,10 @@ class Home extends React.Component {
             <Grid container="container">
               <Grid className={classNames(classes.paddingBanner, classes.maxWidth)} md={8}>
                 <div className={classes.flexDisplay}>
-                  <Typography className={classNames(classes.nunitoSansBold, classes.banner1)}>On-chain Data. Personalized.</Typography>
+                  <Typography className={classNames(classes.nunitoSansBold, classes.banner1)}>Demystify the crypto ecosystem with Quantitative Analysis</Typography>
                 </div>
                 <div>
-                  <Typography className={classNames(classes.nunitoSansRegular, classes.banner2)}>CryptoQuant provides personalized on-chain and market data, empowering them to value cryptocurrencies and uncover actionable signals. </Typography>
-                  <Grid style={{
-                      marginTop: '37px'
-                    }} container="container" justify="flex-start">
-                    <Button id="home-forinvestors" className={classNames(classes.buttonHelp, classes.marginRight, classes.bannerBtn)} variant="outlined" href={"https://cryptoquant.typeform.com/to/gvafWJ"}>Get 30-Day Free Trial
-                      <ArrowRightAlt className={classes.marginLeft}/></Button>
-
-                  </Grid>
+                  <Typography className={classNames(classes.nunitoSansRegular, classes.banner2)}>CryptoQuant uncovers actionable signals hidden in extensive data with a statistical approach such as graph analysis and machine learning.</Typography>
                 </div>
                 {/* Banner icon changes */}
               </Grid>
@@ -332,6 +331,29 @@ class Home extends React.Component {
             </Grid>
           </div>
 
+          {/*
+          <Grid container="container" justify="center" className={classNames(classes.commonPadding)}>
+            <Grid item="item" xs={12} container="container" direction="row" justify="space-between" className={classNames(classes.heightFitContent, classes.maxWidth)}>
+              <Grid item="item" xs={12}>
+                <Typography style={{
+                    color: '#1d1537',
+                    fontSize: 24,
+                    textAlign:"center"
+                  }} className={classNames(classes.nunitoSansSemiBold,)}>Characterizing Cryptocurrencies</Typography>
+                <Typography style={{
+                    color: '#484848',
+                    fontSize: 16,
+                    textAlign:"center",
+                    paddingTop: 10,
+                  }} className={classNames(classes.nunitoSansRegular)}>
+                Flipside Crypto is the most reliable market intelligence firm
+                providing fundamental data on all major cryptocurrencies.
+              </Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+          */}
+
           <Grid container="container" justify="center" style={{
               backgroundColor: '#f6f6f6'
             }} className={classNames(classes.commonPadding)}>
@@ -339,8 +361,8 @@ class Home extends React.Component {
               <Grid item="item" xs={12}>
                 <Typography style={{
                     color: '#1d1537',
-                    fontSize: 20,
-                  }} className={classNames(classes.nunitoSansSemiBold, classes.gutterBottom)}>WHAT WE DO</Typography>
+                    fontSize: 24
+                  }} className={classNames(classes.nunitoSansSemiBold, classes.gutterBottom)}>Harvesting data with a strategic approach</Typography>
               </Grid>
 
               <Grid item="item" xs={12} sm={3} container="container" direction="column" justify="space-between" className={classNames(classes.serviceGrid, classes.serviceMarginRight)}>
@@ -350,22 +372,24 @@ class Home extends React.Component {
 
                     <Typography style={{
                         color: '#373737',
-                        fontSize: 20
-                      }} className={classNames(classes.nunitoSansSemiBold,)}>Providing Custom Data</Typography>
+                        fontSize: 18
+                      }} className={classNames(classes.nunitoSansSemiBold,)}>Market Data</Typography>
 
                   </Grid>
                   <Grid item="item" xs={12} className={classes.serviceDetail}>
 
                     <Typography style={{
                         color: '#484848',
-                        fontSize: 14
-                      }} className={classNames(classes.nunitoSansRegular)}>We delivers market data and on-chain data via API, or directly into Python, R, Excel and many other tools. Save time and money by getting the data you need in the format you want. </Typography>
+                        fontSize: 16
+                      }} className={classNames(classes.nunitoSansRegular)}>Offers Trade, Order Books, OHLCV, VWAP data standardized to a common schema across all major crypto exchanges. Data will be offered on an exchange-specific or aggregated basis.</Typography>
 
                   </Grid>
                 </Grid>
-                <Button id="home-research" href="https://cryptoquant.typeform.com/to/gvafWJ" variant="outlined" style={{
+                {/*
+                <Button id="home-research" href="/research" variant="outlined" style={{
                     border: '2px solid #322956'
-                  }} className={classNames(classes.serviceButton)}>Start Free Trial</Button>
+                  }} className={classNames(classes.serviceButton)}>Request Access</Button>
+                */}
               </Grid>
               <Grid item="item" xs={12} sm={3} container="container" direction="column" justify="space-between" className={classNames(classes.serviceGrid, classes.serviceMarginRight)}>
                 <Grid item="item" xs={12} container="container" direction="column" justify="flex-start">
@@ -374,23 +398,25 @@ class Home extends React.Component {
 
                     <Typography style={{
                         color: '#373737',
-                        fontSize: 20
-                      }} className={classNames(classes.nunitoSansSemiBold,)}>Deanonymization</Typography>
+                        fontSize: 18
+                      }} className={classNames(classes.nunitoSansSemiBold,)}>On-chain Data</Typography>
 
                   </Grid>
                   <Grid item="item" xs={12} className={classes.serviceDetail}>
 
                     <Typography style={{
                         color: '#484848',
-                        fontSize: 14
-                      }} className={classNames(classes.nunitoSansRegular)}>We bring undiscovered data by deanonymizing addresses and analyzing cryptocurrency flows, providing actionable insight on the whole cryptocurrency ecosystem. </Typography>
+                        fontSize: 16
+                      }} className={classNames(classes.nunitoSansRegular)}>Analyzes cryptocurrency flows across multiple blockchains, providing actionable insight on the whole cryptocurrency ecosystem. Full historical data aggregated daily for all the top assets.</Typography>
 
                   </Grid>
                 </Grid>
+                {/*
 
-                <Button id="home-storadar" href="mailto:contact@cryptoquant.com" variant='outlined' style={{
+                <Button id="home-storadar" href="/sto_radar" variant='outlined' style={{
                     border: '2px solid #322956'
-                  }} className={classNames(classes.serviceButton)}>Request Demo</Button>
+                  }} className={classNames(classes.serviceButton)}>Request Access</Button>
+                */}
               </Grid>
               <Grid item="item" xs={12} sm={3} container="container" direction="column" justify="space-between" className={classes.serviceGrid}>
                 <Grid item="item" xs={12} container="container" direction="column" justify="flex-start">
@@ -399,29 +425,30 @@ class Home extends React.Component {
 
                     <Typography style={{
                         color: '#373737',
-                        fontSize: 20
-                      }} className={classNames(classes.nunitoSansSemiBold,)}>Collaboration</Typography>
+                        fontSize: 18
+                      }} className={classNames(classes.nunitoSansSemiBold,)}>Sentiment Data</Typography>
 
                   </Grid>
                   <Grid item="item" xs={12} className={classes.serviceDetail}>
 
                     <Typography style={{
                         color: '#484848',
-                        fontSize: 14
-                      }} className={classNames(classes.nunitoSansRegular)}>Our primary goal is to find out the next unicorns on the crypto asset market. We closely work with quantitative hedge funds, exchanges, research firms, corporates, and academic.</Typography>
+                        fontSize: 16
+                      }} className={classNames(classes.nunitoSansRegular)}>Tracks latest trends of the market and calculates AI-driven sentiment score by processing news, social, github and fundamental data sets. You can also access our curated cryptocurrency contents.</Typography>
 
                   </Grid>
                 </Grid>
+                {/*
 
-                <Button id="home-research" href="mailto:contact@cryptoquant.com" variant="outlined" style={{
-                    border: '2px solid #322956'
-                  }} className={classNames(classes.serviceButton)}>Get in Touch</Button>
-
+                <Button id="home-management" variant='contained' style={{
+                    color: '#6a6a6a',
+                    backgroundColor: '#ededed'
+                  }} className={classNames(classes.serviceButton)} disabled="disabled">Coming Soon</Button>
+                  */}
               </Grid>
             </Grid>
           </Grid>
 
-{/*
           <Grid id="about" container="container" justify="center" className={classNames(classes.commonPadding)}><a name="about"></a>
             <Grid item="item" xs={12} container="container" className={classNames(classes.heightFitContent, classes.maxWidth)}>
               <Hidden mdDown>
@@ -471,12 +498,98 @@ class Home extends React.Component {
                     fontSize: 24
                   }} className={classNames(classes.nunitoSansSemiBold,)}>Meet Our Team</Typography>
 
+                {/* TEAM: HARD CODING... */}
+                <Grid container="container" id="team"> <a name="team"></a>
+                {/* Ki Young Ju */}
+                <Grid xs={6} sm={4} lg={3}  item="item" direction="column">
+                  <div className={classNames(classes.memberAvatar)}>
+                    <div className={classNames(classes.oneByOne, classes.gyjoo)}>
+                      <div className={classNames(classes.memberInfo)}>
+                          <Typography className={classNames(classes.whitetext)}>
+                            <h2>Ki Young Ju</h2>
+                            <h4>
+                              CEO / Data Scientist
+                              <IconButton href={"https://www.linkedin.com/in/ki-young-ju/"} className={classes.iconButton}>
+                                <i style={{
+                                    color: '#ffffff'
+                                  }} className={classNames("fab", "fa-linkedin")}/>
+                              </IconButton>
+                            </h4>
+                          </Typography>
+                      </div>
+                    </div>
+                  </div>
+                </Grid>
 
+                {/* Soojin Lim */}
+                <Grid xs={6} sm={4} lg={3} item="item" direction="column">
+                  <div className={classNames(classes.memberAvatar)}>
+                    <div className={classNames(classes.oneByOne, classes.sjlim)}>
+                      <div className={classNames(classes.memberInfo)}>
+                          <Typography className={classNames(classes.whitetext)}>
+                            <h2>Soojin Lim</h2>
+                            <h4>
+                              CPO / Data Scientist
+                              <IconButton href={"https://www.linkedin.com/in/soojin-lim-a54221165/"} className={classes.iconButton}>
+                                <i style={{
+                                    color: '#ffffff'
+                                  }} className={classNames("fab", "fa-linkedin")}/>
+                              </IconButton>
+                            </h4>
+                          </Typography>
+                      </div>
+                    </div>
+                  </div>
+                </Grid>
+
+                {/* Byung Kook Jang */}
+                <Grid xs={6} sm={4} lg={3}>
+                  <div className={classNames(classes.memberAvatar)}>
+                    <div className={classNames(classes.oneByOne, classes.bkjang)}>
+                      <div className={classNames(classes.memberInfo)}>
+                          <Typography className={classNames(classes.whitetext)}>
+                            <h2>Mason Jang</h2>
+                            <h4>
+                              CSO / Professional Trader
+                              <IconButton href={"https://www.linkedin.com/in/mason-byeongkook-jang-a33ba7157/"} className={classes.iconButton}>
+                                <i style={{
+                                    color: '#ffffff'
+                                  }} className={classNames("fab", "fa-linkedin")}/>
+                              </IconButton>
+                            </h4>
+                          </Typography>
+                      </div>
+                    </div>
+                  </div>
+                </Grid>
+
+                {/* Soomin Choi */}
+                <Grid xs={6} sm={4} lg={3}>
+                  <div className={classNames(classes.memberAvatar)}>
+                    <div className={classNames(classes.oneByOne, classes.smchoi)}>
+                      <div className={classNames(classes.memberInfo)}>
+                          <Typography className={classNames(classes.whitetext)}>
+                            <h2>Soomin Choi</h2>
+                            <h4>
+                              Core Developer<br/>
+                              <IconButton href={"https://www.linkedin.com/in/soomin-choi-10423517b/"} className={classes.iconButton}>
+                                <i style={{
+                                    color: '#ffffff'
+                                  }} className={classNames("fab", "fa-linkedin")}/>
+                              </IconButton>
+                            </h4>
+                          </Typography>
+                      </div>
+                    </div>
+                  </div>
+                </Grid>
+
+                </Grid>
 
               </Grid>
             </Grid>
           </Grid>
-          */}
+
           <div className={classNames(classes.investmentGuide, classes.commonPadding)}>
             <Grid container="container" justify="center">
               <Grid item="item" xs={12} className={classes.maxWidth}>

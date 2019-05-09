@@ -117,8 +117,8 @@ class Header extends React.Component {
 
 
           <Grid container justify="flex-end">
-            <Button href={"/home#team"}>
-              <Typography className={classes.link} align='center'>Team</Typography>
+            <Button href={"https://cryptoquant.typeform.com/to/gvafWJ"}>
+              <Typography className={classes.link} align='center'>Start Free Trial</Typography>
             </Button>
             <Button href={"mailto:contact@cryptoquant.com"}>
               <Typography className={classes.link} align='center'>Contact</Typography>
