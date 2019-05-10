@@ -243,7 +243,8 @@ const styles = theme => ({
     [theme.breakpoints.down('sm')]: {
       maxWidth: '500px'
     },
-    marginTop: theme.spacing.unit * 5
+    marginTop: theme.spacing.unit * 5,
+    display: 'block'
   },
   serviceTitle: {
     height: '160px',
@@ -293,12 +294,12 @@ class Home extends React.Component {
     return (<div>
       <Header language={language}/>
       <main>
-        <Grid container="container" justify="center" style={{
+        <Grid container justify="center" style={{
             backgroundColor: '#fbfbfb'
           }}>
 
           <div className={classNames(classes.banner, classes.commonPadding)}>
-            <Grid container="container">
+            <Grid container>
               <Grid className={classNames(classes.paddingBanner, classes.maxWidth)} md={8}>
                 <div className={classes.flexDisplay}>
                   <Typography className={classNames(classes.nunitoSansBold, classes.banner1)}>On-chain Data. Personalized.</Typography>
@@ -307,7 +308,7 @@ class Home extends React.Component {
                   <Typography className={classNames(classes.nunitoSansRegular, classes.banner2)}>CryptoQuant provides personalized on-chain and market data, empowering them to value cryptocurrencies and uncover actionable signals. </Typography>
                   <Grid style={{
                       marginTop: '37px'
-                    }} container="container" justify="flex-start">
+                    }} container justify="flex-start">
                     <Button id="home-forinvestors" className={classNames(classes.buttonHelp, classes.marginRight, classes.bannerBtn)} variant="outlined" href={"https://cryptoquant.typeform.com/to/gvafWJ"}>Get 30-Day Free Trial
                       <ArrowRightAlt className={classes.marginLeft}/></Button>
 
@@ -332,10 +333,10 @@ class Home extends React.Component {
             </Grid>
           </div>
 
-          <Grid container="container" justify="center" style={{
+          <Grid container justify="center" style={{
               backgroundColor: '#f6f6f6'
             }} className={classNames(classes.commonPadding)}>
-            <Grid item="item" xs={12} container="container" direction="row" justify="space-between" className={classNames(classes.heightFitContent, classes.maxWidth)}>
+            <Grid item="item" xs={12} container direction="row" justify="space-between" className={classNames(classes.heightFitContent, classes.maxWidth)}>
               <Grid item="item" xs={12}>
                 <Typography style={{
                     color: '#1d1537',
@@ -343,9 +344,10 @@ class Home extends React.Component {
                   }} className={classNames(classes.nunitoSansSemiBold, classes.gutterBottom)}>WHAT WE DO</Typography>
               </Grid>
 
-              <Grid item="item" xs={12} sm={3} container="container" direction="column" justify="space-between" className={classNames(classes.serviceGrid, classes.serviceMarginRight)}>
-                <Grid item="item" xs={12} container="container" direction="column" justify="flex-start">
-                  <Grid item="item" xs={12} container="container" direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
+              <Grid container style={{width: '100%'}} justify='space-between'>
+              <Grid item="item" xs={12} sm={4} container direction="column" justify="space-between" className={classNames(classes.serviceGrid)}>
+                <Grid item="item" xs={12} container direction="column" justify="flex-start">
+                  <Grid item="item" xs={12} container direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
                     <img src="/static/core/home/dasresearch.svg"/>
 
                     <Typography style={{
@@ -367,9 +369,9 @@ class Home extends React.Component {
                     border: '2px solid #322956'
                   }} className={classNames(classes.serviceButton)}>Start Free Trial</Button>
               </Grid>
-              <Grid item="item" xs={12} sm={3} container="container" direction="column" justify="space-between" className={classNames(classes.serviceGrid, classes.serviceMarginRight)}>
-                <Grid item="item" xs={12} container="container" direction="column" justify="flex-start">
-                  <Grid item="item" xs={12} container="container" direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
+              <Grid item="item" xs={12} sm={4} container direction="column" justify="space-between" className={classNames(classes.serviceGrid)}>
+                <Grid item="item" xs={12} container direction="column" justify="flex-start">
+                  <Grid item="item" xs={12} container direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
                     <img src="/static/core/home/storadar.svg"/>
 
                     <Typography style={{
@@ -392,9 +394,9 @@ class Home extends React.Component {
                     border: '2px solid #322956'
                   }} className={classNames(classes.serviceButton)}>Request Demo</Button>
               </Grid>
-              <Grid item="item" xs={12} sm={3} container="container" direction="column" justify="space-between" className={classes.serviceGrid}>
-                <Grid item="item" xs={12} container="container" direction="column" justify="flex-start">
-                  <Grid item="item" xs={12} container="container" direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
+              <Grid item="item" xs={12} sm={4} container direction="column" justify="space-between" className={classes.serviceGrid}>
+                <Grid item="item" xs={12} container direction="column" justify="flex-start">
+                  <Grid item="item" xs={12} container direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
                     <img src="/static/core/home/endtoend.svg"/>
 
                     <Typography style={{
@@ -416,20 +418,20 @@ class Home extends React.Component {
                 <Button id="home-research" href="mailto:contact@cryptoquant.com" variant="outlined" style={{
                     border: '2px solid #322956'
                   }} className={classNames(classes.serviceButton)}>Get in Touch</Button>
-
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
 
 {/*
-          <Grid id="about" container="container" justify="center" className={classNames(classes.commonPadding)}><a name="about"></a>
-            <Grid item="item" xs={12} container="container" className={classNames(classes.heightFitContent, classes.maxWidth)}>
+          <Grid id="about" container justify="center" className={classNames(classes.commonPadding)}><a name="about"></a>
+            <Grid item="item" xs={12} container className={classNames(classes.heightFitContent, classes.maxWidth)}>
               <Hidden mdDown>
-                <Grid item="item" lg={6} hidden-md container="container" direction="column">
+                <Grid item="item" lg={6} hidden-md container direction="column">
                   <img src="/static/core/home/network_data.png" className={classNames(classes.networkimg)}/>
                 </Grid>
               </Hidden>
-              <Grid item="item" xs={12} lg={6}  container="container" direction="column" className={classNames(classes.gutterBottom)}>
+              <Grid item="item" xs={12} lg={6}  container direction="column" className={classNames(classes.gutterBottom)}>
                 <Typography style={{
                     marginBottom: '12px',
                     color: '#1d1537',
@@ -461,10 +463,10 @@ class Home extends React.Component {
 
             </Grid>
           </Grid>
-          <Grid container="container" justify="center" style={{
+          <Grid container justify="center" style={{
               backgroundColor: '#f6f6f6'
             }} className={classNames(classes.commonPadding)}>
-            <Grid item="item" xs={12} container="container" direction="row" justify="space-between" className={classNames(classes.heightFitContent, classes.maxWidth)}>
+            <Grid item="item" xs={12} container direction="row" justify="space-between" className={classNames(classes.heightFitContent, classes.maxWidth)}>
               <Grid item="item" xs={12}>
                 <Typography style={{
                     color: '#1d1537',
@@ -478,7 +480,7 @@ class Home extends React.Component {
           </Grid>
           */}
           <div className={classNames(classes.investmentGuide, classes.commonPadding)}>
-            <Grid container="container" justify="center">
+            <Grid container justify="center">
               <Grid item="item" xs={12} className={classes.maxWidth}>
                 <Typography className={classNames(classes.nunitoSansSemiBold, classes.investmentGuide1)}>Partner with CryptoQuant</Typography>
 
@@ -489,7 +491,7 @@ class Home extends React.Component {
 
                 <Grid style={{
                     marginTop: '37px'
-                  }} container="container" justify="flex-start">
+                  }} container justify="flex-start">
                   <Button id="home-forinvestors" className={classNames(classes.buttonHelp, classes.marginRight)} variant="outlined" href={"mailto:contact@cryptoquant.com"}>Become a Partner
                     <ArrowRightAlt className={classes.marginLeft}/></Button>
 
@@ -498,7 +500,7 @@ class Home extends React.Component {
             </Grid>
           </div>
 
-          <Grid container="container" justify="center" className={classes.commonPadding}>
+          <Grid container justify="center" className={classes.commonPadding}>
             <Grid item="item" xs={12} className={classes.maxWidth}>
               <Subscribe language={'English'}/>
             </Grid>
