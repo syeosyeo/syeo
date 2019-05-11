@@ -81,7 +81,7 @@ const styles = theme => ({
     textDecoration: 'underline'
   },
   buttonSubscribe: {
-    backgroundColor: '#262b3b',
+    backgroundColor: '#322956',
     boxShadow: 'none',
     borderRadius: 0,
     height: '53px',
@@ -107,17 +107,16 @@ const styles = theme => ({
     marginBottom: theme.spacing.unit * 8,
     [theme.breakpoints.down('sm')]: {
       marginTop: theme.spacing.unit * 5,
-      marginBottom: theme.spacing.uwnit * 5
+      marginBottom: theme.spacing.unit * 5
     }
   },
   banner: {
-    // backgroundImage: "linear-gradient(235deg, #382969 0%, #140f25 50%)",
-        backgroundImage: "url('/static/core/home/banner2.png')",
-        width: "100%",
-        height: 580,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "bottom right"
+    backgroundImage: "linear-gradient(235deg, #382969 0%, #140f25 50%)",
+    width: "100%",
+    height: 580,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center"
   },
   paddingBanner: {
     paddingTop: theme.spacing.unit * 10,
@@ -257,7 +256,7 @@ const styles = theme => ({
     borderRadius: 25,
     marginTop: theme.spacing.unit * 5,
     marginBottom: theme.spacing.unit * 5,
-    color: '#262b3b',
+    color: '#322956',
     [theme.breakpoints.up('xl')]: {
       width: '180px'
     }
@@ -295,12 +294,12 @@ class Home extends React.Component {
     return (<div>
       <Header language={language}/>
       <main>
-        <Grid container="container" justify="center" style={{
+        <Grid container justify="center" style={{
             backgroundColor: '#fbfbfb'
           }}>
 
           <div className={classNames(classes.banner, classes.commonPadding)}>
-            <Grid container="container">
+            <Grid container>
               <Grid className={classNames(classes.paddingBanner, classes.maxWidth)} md={8}>
                 <div className={classes.flexDisplay}>
                   <Typography className={classNames(classes.nunitoSansBold, classes.banner1)}>On-chain Data. Personalized.</Typography>
@@ -309,7 +308,7 @@ class Home extends React.Component {
                   <Typography className={classNames(classes.nunitoSansRegular, classes.banner2)}>CryptoQuant provides personalized on-chain and market data, empowering them to value cryptocurrencies and uncover actionable signals. </Typography>
                   <Grid style={{
                       marginTop: '37px'
-                    }} container="container" justify="flex-start">
+                    }} container justify="flex-start">
                     <Button id="home-forinvestors" className={classNames(classes.buttonHelp, classes.marginRight, classes.bannerBtn)} variant="outlined" href={"https://cryptoquant.typeform.com/to/gvafWJ"}>Get 30-Day Free Trial
                       <ArrowRightAlt className={classes.marginLeft}/></Button>
 
@@ -334,26 +333,26 @@ class Home extends React.Component {
             </Grid>
           </div>
 
-          <Grid container="container" justify="center" style={{
+          <Grid container justify="center" style={{
               backgroundColor: '#f6f6f6'
             }} className={classNames(classes.commonPadding)}>
-            <Grid item="item" xs={12} container="container" direction="row" justify="space-between" className={classNames(classes.heightFitContent, classes.maxWidth)}>
+            <Grid item="item" xs={12} container direction="row" justify="space-between" className={classNames(classes.heightFitContent, classes.maxWidth)}>
               <Grid item="item" xs={12}>
                 <Typography style={{
-                    color: '#262b3b',
+                    color: '#1d1537',
                     fontSize: 20,
                   }} className={classNames(classes.nunitoSansSemiBold, classes.gutterBottom)}>WHAT WE DO</Typography>
               </Grid>
 
-              <Grid item="item" xs={12} sm={3} container="container" direction="column" justify="space-between" className={classNames(classes.serviceGrid, classes.serviceMarginRight)}>
-                <Grid item="item" xs={12} container="container" direction="column" justify="flex-start">
-                  <Grid item="item" xs={12} container="container" direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
+              <Grid container style={{width: '100%'}} justify='space-between'>
+              <Grid item="item" xs={12} sm={4} container direction="column" justify="space-between" className={classNames(classes.serviceGrid)}>
+                <Grid item="item" xs={12} container direction="column" justify="flex-start">
+                  <Grid item="item" xs={12} container direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
                     <img src="/static/core/home/dasresearch.svg"/>
 
                     <Typography style={{
                         color: '#373737',
-                        fontSize: 20,
-                        paddingTop:20,
+                        fontSize: 20
                       }} className={classNames(classes.nunitoSansSemiBold,)}>Providing Custom Data</Typography>
 
                   </Grid>
@@ -367,18 +366,17 @@ class Home extends React.Component {
                   </Grid>
                 </Grid>
                 <Button id="home-research" href="https://cryptoquant.typeform.com/to/gvafWJ" variant="outlined" style={{
-                    border: '2px solid #262b3b'
+                    border: '2px solid #322956'
                   }} className={classNames(classes.serviceButton)}>Start Free Trial</Button>
               </Grid>
-              <Grid item="item" xs={12} sm={3} container="container" direction="column" justify="space-between" className={classNames(classes.serviceGrid, classes.serviceMarginRight)}>
-                <Grid item="item" xs={12} container="container" direction="column" justify="flex-start">
-                  <Grid item="item" xs={12} container="container" direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
+              <Grid item="item" xs={12} sm={4} container direction="column" justify="space-between" className={classNames(classes.serviceGrid)}>
+                <Grid item="item" xs={12} container direction="column" justify="flex-start">
+                  <Grid item="item" xs={12} container direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
                     <img src="/static/core/home/storadar.svg"/>
 
                     <Typography style={{
                         color: '#373737',
-                        fontSize: 20,
-                        paddingTop:20,
+                        fontSize: 20
                       }} className={classNames(classes.nunitoSansSemiBold,)}>Deanonymization</Typography>
 
                   </Grid>
@@ -386,25 +384,24 @@ class Home extends React.Component {
 
                     <Typography style={{
                         color: '#484848',
-                        fontSize: 14,
+                        fontSize: 14
                       }} className={classNames(classes.nunitoSansRegular)}>We bring undiscovered data by deanonymizing addresses and analyzing cryptocurrency flows, providing actionable insight on the whole cryptocurrency ecosystem. </Typography>
 
                   </Grid>
                 </Grid>
 
                 <Button id="home-storadar" href="mailto:contact@cryptoquant.com" variant='outlined' style={{
-                    border: '2px solid #262b3b'
+                    border: '2px solid #322956'
                   }} className={classNames(classes.serviceButton)}>Request Demo</Button>
               </Grid>
-              <Grid item="item" xs={12} sm={3} container="container" direction="column" justify="space-between" className={classes.serviceGrid}>
-                <Grid item="item" xs={12} container="container" direction="column" justify="flex-start">
-                  <Grid item="item" xs={12} container="container" direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
+              <Grid item="item" xs={12} sm={4} container direction="column" justify="space-between" className={classes.serviceGrid}>
+                <Grid item="item" xs={12} container direction="column" justify="flex-start">
+                  <Grid item="item" xs={12} container direction="column" alignItems="flex-start" justify="space-evenly" className={classes.serviceTitle}>
                     <img src="/static/core/home/endtoend.svg"/>
 
                     <Typography style={{
                         color: '#373737',
-                        fontSize: 20,
-                        paddingTop:20,
+                        fontSize: 20
                       }} className={classNames(classes.nunitoSansSemiBold,)}>Collaboration</Typography>
 
                   </Grid>
@@ -419,72 +416,71 @@ class Home extends React.Component {
                 </Grid>
 
                 <Button id="home-research" href="mailto:contact@cryptoquant.com" variant="outlined" style={{
-                    border: '2px solid #262b3b'
+                    border: '2px solid #322956'
                   }} className={classNames(classes.serviceButton)}>Get in Touch</Button>
-
-              </Grid>
-            </Grid>
-          </Grid>
-
-          <Grid id="about" container="container" justify="center" className={classNames(classes.commonPadding)}><a name="about"></a>
-            <Grid item="item" xs={12} container="container" className={classNames(classes.heightFitContent, classes.maxWidth, classes.gutterBottomDouble)}>
-              <Hidden mdDown>
-              <Grid item="item" md={7} hidden-md container="container" direction="column">
-                <img src="/static/core/home/dashboard.png" className={classNames(classes.networkimg)}/>
-              </Grid>
-            </Hidden>
-              <Grid item="item" xs={12} lg={5}  container="container" direction="column" className={classNames(classes.gutterBottom)}>
-                <Typography style={{
-                    marginTop: '100px',
-                    marginBottom: '15px',
-                    color: '#262b3b',
-                    fontSize: 24
-                  }} className={classNames(classes.nunitoSansSemiBold,)}>Unique Data Only for You</Typography>
-                <Typography style={{
-                    fontSize: 16,
-                    color: '#373737'
-                  }} className={classNames(classes.nunitoSansRegular,classes.gutterBottomDouble)}>Different companies need different data. Just name the data you're interested in. We will bring it and make it visualised only for you.</Typography>
-              </Grid>
-              <Hidden mdUp>
-                <Grid item="item" md={7} hidden-md container="container" direction="column">
-                  <img src="/static/core/home/dashboard.png" className={classNames(classes.networkimg)}/>
                 </Grid>
-              </Hidden>
-            </Grid>
-            <Grid item="item" xs={12} container="container" className={classNames(classes.heightFitContent, classes.maxWidth)}>
-              <Grid item="item" xs={12} lg={5}  container="container" direction="column" className={classNames(classes.gutterBottom)}>
-                <Typography style={{
-                  marginTop: '100px',
-                  marginBottom: '15px',
-                  color: '#262b3b',
-                    fontSize: 24
-                  }} className={classNames(classes.nunitoSansSemiBold,)}>Demystify Value of Blockchains</Typography>
-                <Typography style={{
-                    fontSize: 16,
-                    color: '#373737'
-                  }} className={classNames(classes.nunitoSansRegular,classes.gutterBottomDouble)}>Every transaction must have a purpose. CryptoQuant focuses on deanonymization to demystify network value. Machine Learning technology enables us to identify who holds the wallet and why they evoke transactions. </Typography>
-              </Grid>
-              <Grid item="item" lg={7} hidden-md container="container" direction="column">
-                <img src="/static/core/home/cards.png" className={classNames(classes.networkimg)}/>
-              </Grid>
-
-            </Grid>
-
-          </Grid>
-          <Grid container="container" justify="center" style={{
-              backgroundColor: '#f6f6f6'
-            }} className={classNames(classes.commonPadding)}>
-            <Grid item="item" xs={12} container="container" direction="row" justify="space-between" className={classNames(classes.heightFitContent, classes.maxWidth)}>
-              <Grid item="item" xs={12}>
-                      <Subscribe language={'English'}/>
-
               </Grid>
             </Grid>
           </Grid>
 
 {/*
+          <Grid id="about" container justify="center" className={classNames(classes.commonPadding)}><a name="about"></a>
+            <Grid item="item" xs={12} container className={classNames(classes.heightFitContent, classes.maxWidth)}>
+              <Hidden mdDown>
+                <Grid item="item" lg={6} hidden-md container direction="column">
+                  <img src="/static/core/home/network_data.png" className={classNames(classes.networkimg)}/>
+                </Grid>
+              </Hidden>
+              <Grid item="item" xs={12} lg={6}  container direction="column" className={classNames(classes.gutterBottom)}>
+                <Typography style={{
+                    marginBottom: '12px',
+                    color: '#1d1537',
+                    fontSize: 24
+                  }} className={classNames(classes.nunitoSansSemiBold,)}>Consolidating Data in Real-time</Typography>
+                <Typography style={{
+                    fontSize: 16,
+                    color: '#373737'
+                  }} className={classNames(classes.nunitoSansRegular,classes.gutterBottomDouble)}>CryptoQuant reads market data, on-chain network data, sentiment data regardless of content, format, or structure and consolidate them for quantitative analysts.</Typography>
+                <Typography style={{
+                    marginBottom: '12px',
+                    color: '#1d1537',
+                    fontSize: 24
+                  }} className={classNames(classes.nunitoSansSemiBold,)}>Clarifying Crowd Psychology</Typography>
+                <Typography style={{
+                    fontSize: 16,
+                    color: '#373737'
+                  }} className={classNames(classes.nunitoSansRegular,classes.gutterBottomDouble)}>CryptoQuant clarifies crypto crowd behavior through Reddit, Twitter, Facebook, Github, and over 100 news sources.</Typography>
+                <Typography style={{
+                    marginBottom: '12px',
+                    color: '#1d1537',
+                    fontSize: 24
+                  }} className={classNames(classes.nunitoSansSemiBold,)}>Signal Detection</Typography>
+                <Typography style={{
+                    fontSize: 16,
+                    color: '#373737'
+                  }} className={classNames(classes.nunitoSansRegular,classes.gutterBottomDouble)}>CryptoQuant aggregates and curates trading data, detecting actionable, hidden signals with quantitative analysis such as NLP and reinforcement learning.</Typography>
+              </Grid>
+
+            </Grid>
+          </Grid>
+          <Grid container justify="center" style={{
+              backgroundColor: '#f6f6f6'
+            }} className={classNames(classes.commonPadding)}>
+            <Grid item="item" xs={12} container direction="row" justify="space-between" className={classNames(classes.heightFitContent, classes.maxWidth)}>
+              <Grid item="item" xs={12}>
+                <Typography style={{
+                    color: '#1d1537',
+                    fontSize: 24
+                  }} className={classNames(classes.nunitoSansSemiBold,)}>Meet Our Team</Typography>
+
+
+
+              </Grid>
+            </Grid>
+          </Grid>
+          */}
           <div className={classNames(classes.investmentGuide, classes.commonPadding)}>
-            <Grid container="container" justify="center">
+            <Grid container justify="center">
               <Grid item="item" xs={12} className={classes.maxWidth}>
                 <Typography className={classNames(classes.nunitoSansSemiBold, classes.investmentGuide1)}>Partner with CryptoQuant</Typography>
 
@@ -495,7 +491,7 @@ class Home extends React.Component {
 
                 <Grid style={{
                     marginTop: '37px'
-                  }} container="container" justify="flex-start">
+                  }} container justify="flex-start">
                   <Button id="home-forinvestors" className={classNames(classes.buttonHelp, classes.marginRight)} variant="outlined" href={"mailto:contact@cryptoquant.com"}>Become a Partner
                     <ArrowRightAlt className={classes.marginLeft}/></Button>
 
@@ -504,12 +500,11 @@ class Home extends React.Component {
             </Grid>
           </div>
 
-          <Grid container="container" justify="center" className={classes.commonPadding}>
+          <Grid container justify="center" className={classes.commonPadding}>
             <Grid item="item" xs={12} className={classes.maxWidth}>
               <Subscribe language={'English'}/>
             </Grid>
           </Grid>
-          */}
 
         </Grid>
       </main>

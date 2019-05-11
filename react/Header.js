@@ -39,7 +39,6 @@ const styles = theme => ({
     color: '#1d1537',
     fontFamily: "Helvetica",
     fontSize: 14,
-    marginLeft: theme.spacing.unit *3
   },
 
   paddingBottom: {
@@ -74,6 +73,19 @@ const styles = theme => ({
   },
   maxWidth: {
     maxWidth: '1200px',
+  },
+
+  serviceButton: {
+    width: '140px',
+    height: '35px',
+    borderRadius: 8,
+    color: '#322956',
+  },
+  textButton: {
+    marginLeft:20,
+  [theme.breakpoints.down('xs')]: {
+    display:"none"
+  }
   }
 });
 
@@ -117,11 +129,11 @@ class Header extends React.Component {
 
 
           <Grid container justify="flex-end">
-            <Button href={"https://cryptoquant.typeform.com/to/gvafWJ"}>
-              <Typography className={classes.link} align='center'>Start Free Trial</Typography>
-            </Button>
-            <Button href={"mailto:contact@cryptoquant.com"}>
-              <Typography className={classes.link} align='center'>Contact</Typography>
+            <Button id="home-storadar" href="https://cryptoquant.typeform.com/to/gvafWJ" variant='outlined' style={{
+                border: '2px solid #322956'
+              }} className={classNames(classes.serviceButton)}>Start Free Trial</Button>
+            <Button href={"mailto:contact@cryptoquant.com"} className={classes.textButton}>
+              <Typography align='center'  className={classes.link} >Contact</Typography>
             </Button>
           </Grid>
 

@@ -71,7 +71,7 @@ const styles = theme => ({
 
   },
   buttonSubscribe: {
-    backgroundColor: '#322956',
+    backgroundColor: '#262b3b',
     boxShadow: 'none',
     borderRadius: 0,
     height: '53px',

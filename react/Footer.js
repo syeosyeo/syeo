@@ -45,7 +45,10 @@ const styles = theme => ({
   link: {
     color: '#ffffff',
     fontFamily: "Helvetica-Bold",
-    fontSize: 14,
+    fontSize: 12,
+    marginTop:5,
+    marginBottom:5,
+    fontWeight:300,
   },
   caption: {
     color: '#d8d8d8',
@@ -89,20 +92,15 @@ class Footer extends React.Component {
             </Grid>
           </Grid>
 
-          <Grid item xs={12} sm={7} container direction='row' justify='space-between' alignItems='center' className={classNames(classes.widthAuto)}>
-            <Grid item xs={3} className={classes.widthAuto} container justify='center'>
+          <Grid item xs={12} sm={7} container direction='row' alignItems='center' className={classNames(classes.widthAuto)}>
+            <Grid item xs={4} className={classes.widthAuto} container justify='center'>
               <Button href="/terms_of_service">
                 <Typography className={classes.link} align='center'>Terms of service</Typography>
               </Button>
             </Grid>
-            <Grid item xs={3} className={classes.widthAuto} container justify='center'>
+            <Grid item xs={5} className={classes.widthAuto} container justify='center'>
               <Button href="/privacy_policy">
                 <Typography className={classes.link} align='center'>Privacy Policy</Typography>
-              </Button>
-            </Grid>
-            <Grid item xs={3} className={classes.widthAuto} container justify='center'>
-              <Button href="mailto:contact@cryptoquant.com">
-                <Typography className={classes.link} align='center'>Contact Us</Typography>
               </Button>
             </Grid>
             {/* Social Links */}
