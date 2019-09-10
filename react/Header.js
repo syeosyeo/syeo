@@ -13,7 +13,7 @@ import AppBar from '@material-ui/core/AppBar';
 const styles = theme => ({
   header: {
     backgroundColor: '#ffffff',
-    minHeight: 50,
+    minHeight: 60,
     paddingLeft: theme.spacing.unit * 20,
     paddingRight: theme.spacing.unit * 20,
     [theme.breakpoints.down('sm')]: {
@@ -74,7 +74,13 @@ const styles = theme => ({
   },
   maxWidth: {
     maxWidth: '1200px',
-  }
+  },
+  upbutton_none: {
+    display: "none"
+  },
+  upbutton_exist: {
+    display: "inline-flex"
+  },
 });
 
 const languages = [
@@ -108,8 +114,7 @@ class Header extends React.Component {
     const { classes } = this.props;
 
     return (
-
-        <AppBar className={classes.appBar}>
+        <AppBar id="appbar" className={classes.appBar}>
           <Grid className={classNames(classes.header)} >
           <Toolbar disableGutters>
           <a href="/home" className={classes.blueLink}><Typography className={classes.dasfinance}>CryptoQuant</Typography></a>
@@ -124,14 +129,14 @@ class Header extends React.Component {
               <Typography className={classes.link} align='center'>Contact</Typography>
             </Button>
           </Grid>
-
+        <div className={this.props.indocs ? classes.upbutton_none : classes.upbutton_exist}>
         <Fab style={{color: '#e7e7e7'}} aria-label="Top" className={classes.top} onClick={this.scrollToTop} size='small'>
           <KeyboardArrowUp style={{color: '#6A6189'}}/>
         </Fab>
+        </div>
         </Toolbar>
         </Grid>
         </AppBar>
-
     );
   }
 }

@@ -11,7 +11,6 @@ const styles = theme => ({
   footer: {
     backgroundColor: '#35333b',
     minHeight: 215,
-    marginTop: theme.spacing.unit * 3,
     paddingLeft: theme.spacing.unit * 20,
     paddingRight: theme.spacing.unit * 20,
     paddingTop: theme.spacing.unit * 3,

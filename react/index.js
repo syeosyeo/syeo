@@ -11,6 +11,7 @@ import TermsOfService from './TermsOfService';
 import StoRadar from './StoRadar';
 import Research from './Research';
 import Tech from './Tech';
+import APIDocs from './APIDocs';
 
 var home = document.getElementById("home");
 var css_baseline = document.getElementById("css_baseline");
@@ -135,4 +136,12 @@ if(tech) {
       <Tech language={lang}/>
     </MuiThemeProvider>
   , tech);
+}
+
+if(docs) {
+  ReactDOM.render(
+    <MuiThemeProvider theme={STO_theme}>
+      <APIDocs language={lang}/>
+    </MuiThemeProvider>
+  , docs);
 }

@@ -27,6 +27,9 @@ def research(request):
 def tech(request):
 	return render(request, 'core/tech.html')
 
+def docs(request):
+	return render(request, 'core/docs.html')
+
 def sitemap(request):
 	return HttpResponse(open('core/sitemap.xml').read(), content_type='text/xml')
 

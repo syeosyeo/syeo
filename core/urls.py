@@ -19,5 +19,6 @@ urlpatterns = [
 	path('sto_radar/', views.stoRadar, name='stoRadar/'),
 	path('research/', views.research, name='research/'),
 	path('tech/', views.tech, name='tech/'),
+	path('docs/', views.docs, name='docs/'),
 	path('sitemap.xml/',views.sitemap, name='sitemap.xml/')
 ]
