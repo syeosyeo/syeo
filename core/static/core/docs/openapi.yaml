@@ -7,9 +7,9 @@ openapi: 3.0.0
 # api 서버 주소 - 각 api 엔드포인트에 대한 full url 제공시 보여짐
 # https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#server-object
 servers:
-  - url: https://api.cryptoquant.com/v1/
+  - url: https://cryptoquant.com/v1/
     description: Default server
-  - url: https://api.cryptoquant.com/sandbox
+  - url: https://cryptoquant.com/sandbox/
     description: Sandbox server
 
 # api 문서에 대한 설명

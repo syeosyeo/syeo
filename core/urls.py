@@ -20,5 +20,6 @@ urlpatterns = [
 	path('research/', views.research, name='research/'),
 	path('tech/', views.tech, name='tech/'),
 	path('docs/', views.docs, name='docs/'),
-	path('sitemap.xml/',views.sitemap, name='sitemap.xml/')
+	path('sitemap.xml/',views.sitemap, name='sitemap.xml/'),
+	path('v1/', views.api, name='v1/'),
 ]

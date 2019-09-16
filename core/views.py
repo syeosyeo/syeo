@@ -4,9 +4,10 @@ from rest_framework import generics, permissions, viewsets, mixins
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .models import *
 from .serializers import *
+from time import sleep
 
 # Create your views here.
 def home(request):
@@ -29,6 +30,10 @@ def tech(request):
 
 def docs(request):
 	return render(request, 'core/docs.html')
+
+def api(request):
+	sleep(1)
+	return JsonResponse({"error": "Authorization failed. Please check your API key."})
 
 def sitemap(request):
 	return HttpResponse(open('core/sitemap.xml').read(), content_type='text/xml')
