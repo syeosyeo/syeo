@@ -44,10 +44,15 @@ class APIDocs extends React.Component {
         <Header indocs={true} language={language}/> 
         <div style={{paddingTop: yoffset}}>
         <RedocStandalone
-          specUrl="/static/core/docs/swagger.yaml"
+          specUrl="/static/core/docs/openapi.yaml"
           options={{
             scrollYOffset: yoffset,
             hideDownloadButton: true,
+            theme: { 
+              typography: { fontFamily: "'Nunito Sans', sans-serif", headings: { fontFamily: "'Nunito Sans', sans-serif" }},
+              menu: { backgroundColor: '#f3f3f3' },
+              rightPanel: { backgroundColor: '#363238' },
+            },
         }}/>
         </div>
         <Footer language={"English"}/>

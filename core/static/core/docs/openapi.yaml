@@ -1,14 +1,31 @@
 # 참고 - https://github.com/Redocly/redoc
+# 테마설정 - https://github.com/Redocly/redoc/blob/63ae2e8e943b1cf2838db20c6c567156a2bfac45/src/theme.ts
+# yaml 파일 문법 - https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#oasDocument
 
-openapi: 3.0.2
+openapi: 3.0.0
 
+# api 서버 주소 - 각 api 엔드포인트에 대한 full url 제공시 보여짐
+# https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#server-object
 servers:
-  - url: //petstore.swagger.io/v2
+  - url: https://api.cryptoquant.com/v1/
     description: Default server
-  - url: //petstore.swagger.io/sandbox
+  - url: https://api.cryptoquant.com/sandbox
     description: Sandbox server
 
+# api 문서에 대한 설명
+# https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#info-object
 info:
+  version: 1.0.0
+  title: Cryptoquant Pro
+  termsOfService: 'https://cryptoquant.com/terms_of_service/'
+  contact:
+    name: API Support
+    email: contact@cryptoquant.com
+    url: https://cryptoquant.com/
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+
   description: |
     This is a sample server Petstore server.
     You can find out more about Swagger at
@@ -41,21 +58,11 @@ info:
     OAuth2 - an open protocol to allow secure authorization in a simple
     and standard method from web, mobile and desktop applications.
 
-  version: 1.0.0
-  title: Swagger Petstore
-  termsOfService: 'http://swagger.io/terms/'
-  contact:
-    name: API Support
-    email: apiteam@swagger.io
-    url: https://github.com/Redocly/redoc
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-
 externalDocs:
   description: Find out how to create Github repo for your OpenAPI spec.
   url: 'https://github.com/Rebilly/generator-openapi-repo'
 
+# 좌측 메뉴에 나타나는 주요 항목들
 tags:
   - name: pet
     description: Everything about your Pets
@@ -73,18 +80,20 @@ tags:
       <SchemaDefinition schemaRef="#/components/schemas/Order" exampleRef="#/components/examples/Order" showReadOnly={true} showWriteOnly={true} />
 
 x-tagGroups:
-  - name: General
+  - name: Entity Data
     tags:
       - pet
       - store
-  - name: User Management
+  - name: Network Stat
     tags:
       - user
-  - name: Models
+  - name: Market Data
     tags:
       - pet_model
       - store_model
 
+# 사용 가능한 api 목록과 파라미터 등
+# https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#info-object
 paths:
   /pet:
     parameters:
@@ -95,7 +104,6 @@ paths:
         schema:
           type: integer
           format: int64
-
     post:
       tags:
         - pet
@@ -140,7 +148,6 @@ paths:
             }
       requestBody:
         $ref: '#/components/requestBodies/Pet'
-
     put:
       tags:
         - pet
@@ -173,7 +180,6 @@ paths:
             }
       requestBody:
         $ref: '#/components/requestBodies/Pet'
-
   '/pet/{petId}':
     get:
       tags:
@@ -661,6 +667,9 @@ paths:
       responses:
         default:
           description: successful operation
+
+# 사용되는 컴포넌트의 스키마
+# https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#components-object
 components:
   schemas:
     ApiResponse:
