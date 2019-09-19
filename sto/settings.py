@@ -42,12 +42,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'docs',
     'webpack_loader',
     'rest_framework',
-    'django.contrib.sitemaps'
+    'django.contrib.sitemaps',
+    'django_hosts',
 ]
 
 MIDDLEWARE = [
+    'django_hosts.middleware.HostsRequestMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,9 +58,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_hosts.middleware.HostsResponseMiddleware',
 ]
 
+ROOT_HOSTCONF = 'sto.hosts'
 ROOT_URLCONF = 'sto.urls'
+DEFAULT_HOST = 'www'
+SITE_ID = 1
 
 TEMPLATES = [
     {
