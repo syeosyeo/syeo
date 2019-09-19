@@ -11,7 +11,7 @@ import TermsOfService from './TermsOfService';
 import StoRadar from './StoRadar';
 import Research from './Research';
 import Tech from './Tech';
-import APIDocs from './APIDocs';
+import APIDocs from './APIdocs';
 
 var home = document.getElementById("home");
 var css_baseline = document.getElementById("css_baseline");
@@ -22,6 +22,8 @@ var terms_of_service = document.getElementById("terms_of_service");
 var stoRadar = document.getElementById("stoRadar");
 var research = document.getElementById("research");
 var tech = document.getElementById("tech");
+var docs = document.getElementById("docs");
+
 
 const csrftoken = getCookie('csrftoken');
 var lang = getCookie('lang') || getLang() || 'English';
