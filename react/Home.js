@@ -303,14 +303,16 @@ class Home extends React.Component {
             <Grid container="container">
               <Grid className={classNames(classes.paddingBanner, classes.maxWidth)} md={8}>
                 <div className={classes.flexDisplay}>
-                  <Typography className={classNames(classes.nunitoSansBold, classes.banner1)}>On-chain Data. Personalized.</Typography>
+                  <Typography className={classNames(classes.nunitoSansBold, classes.banner1)}>On-chain Data Done Right.</Typography>
                 </div>
                 <div>
-                  <Typography className={classNames(classes.nunitoSansRegular, classes.banner2)}>CryptoQuant provides personalized on-chain and market data, empowering them to value cryptocurrencies and uncover actionable signals. </Typography>
+                  <Typography className={classNames(classes.nunitoSansRegular, classes.banner2)}>We utilize machine learning to provide comprehensive on-chain data and analytics to institutional investors.</Typography>
                   <Grid style={{
                       marginTop: '37px'
                     }} container="container" justify="flex-start">
-                    <Button id="home-forinvestors" className={classNames(classes.buttonHelp, classes.marginRight, classes.bannerBtn)} variant="outlined" href={"https://cryptoquant.typeform.com/to/gvafWJ"}>Get 30-Day Free Trial
+                    <Button id="home-forinvestors" className={classNames(classes.buttonHelp, classes.bannerBtn)} variant="outlined" href={"https://cryptoquant.typeform.com/to/gvafWJ"}>Product Demo
+                      <ArrowRightAlt className={classes.marginLeft}/></Button>
+                    <Button id="home-forinvestors" className={classNames(classes.buttonHelp, classes.bannerBtn)} variant="outlined" href={"https://calendly.com/ki--5/30min"}>Schedule a Call
                       <ArrowRightAlt className={classes.marginLeft}/></Button>
 
                   </Grid>
@@ -354,7 +356,7 @@ class Home extends React.Component {
                         color: '#373737',
                         fontSize: 20,
                         paddingTop:20,
-                      }} className={classNames(classes.nunitoSansSemiBold,)}>Providing Custom Data</Typography>
+                      }} className={classNames(classes.nunitoSansSemiBold,)}>Entity Metrics</Typography>
 
                   </Grid>
                   <Grid item="item" xs={12} className={classes.serviceDetail}>
@@ -362,13 +364,13 @@ class Home extends React.Component {
                     <Typography style={{
                         color: '#484848',
                         fontSize: 14
-                      }} className={classNames(classes.nunitoSansRegular)}>We delivers market data and on-chain data via API, or directly into Python, R, Excel and many other tools. Save time and money by getting the data you need in the format you want. </Typography>
+                      }} className={classNames(classes.nunitoSansRegular)}>We deliver on-chain data metrics that focuses on unique categories of addresses via API, or directly into Python, R, Excel and many other tools. </Typography>
 
                   </Grid>
                 </Grid>
-                <Button id="home-research" href="https://cryptoquant.typeform.com/to/gvafWJ" variant="outlined" style={{
+                <Button id="home-research" href="https://calendly.com/ki--5/30min" variant="outlined" style={{
                     border: '2px solid #262b3b'
-                  }} className={classNames(classes.serviceButton)}>Start Free Trial</Button>
+                  }} className={classNames(classes.serviceButton)}>Schedule a Call</Button>
               </Grid>
               <Grid item="item" xs={12} sm={3} container="container" direction="column" justify="space-between" className={classNames(classes.serviceGrid, classes.serviceMarginRight)}>
                 <Grid item="item" xs={12} container="container" direction="column" justify="flex-start">
@@ -405,7 +407,7 @@ class Home extends React.Component {
                         color: '#373737',
                         fontSize: 20,
                         paddingTop:20,
-                      }} className={classNames(classes.nunitoSansSemiBold,)}>Collaboration</Typography>
+                      }} className={classNames(classes.nunitoSansSemiBold,)}>On-chain Reports</Typography>
 
                   </Grid>
                   <Grid item="item" xs={12} className={classes.serviceDetail}>
@@ -413,14 +415,14 @@ class Home extends React.Component {
                     <Typography style={{
                         color: '#484848',
                         fontSize: 14
-                      }} className={classNames(classes.nunitoSansRegular)}>Our primary goal is to find out the next unicorns on the crypto asset market. We closely work with quantitative hedge funds, exchanges, research firms, corporates, and academic.</Typography>
+                      }} className={classNames(classes.nunitoSansRegular)}>Based upon our data, we conduct research in order to better understand how on-chain data can be used to understand the cryptocurrency market.</Typography>
 
                   </Grid>
                 </Grid>
 
-                <Button id="home-research" href="mailto:contact@cryptoquant.com" variant="outlined" style={{
+                <Button id="home-research" href="/static/core/home/reports/[CryptoQuant]Onchain_Exclusive_Vol.25.pdf" variant="outlined" style={{
                     border: '2px solid #262b3b'
-                  }} className={classNames(classes.serviceButton)}>Get in Touch</Button>
+                  }} className={classNames(classes.serviceButton)}>Sample Report</Button>
 
               </Grid>
             </Grid>
@@ -439,11 +441,11 @@ class Home extends React.Component {
                     marginBottom: '15px',
                     color: '#262b3b',
                     fontSize: 24
-                  }} className={classNames(classes.nunitoSansSemiBold,)}>Unique Data Only for You</Typography>
+                  }} className={classNames(classes.nunitoSansSemiBold,)}>Client-oriented Data</Typography>
                 <Typography style={{
                     fontSize: 16,
                     color: '#373737'
-                  }} className={classNames(classes.nunitoSansRegular,classes.gutterBottomDouble)}>Different companies need different data. Just name the data you're interested in. We will bring it and make it visualised only for you.</Typography>
+                  }} className={classNames(classes.nunitoSansRegular,classes.gutterBottomDouble)}>Different companies need different data. Identify the data you're interested in and we will tailor it to your needs.</Typography>
               </Grid>
               <Hidden mdUp>
                 <Grid item="item" md={7} hidden-md container="container" direction="column">
@@ -458,11 +460,11 @@ class Home extends React.Component {
                   marginBottom: '15px',
                   color: '#262b3b',
                     fontSize: 24
-                  }} className={classNames(classes.nunitoSansSemiBold,)}>Demystify Value of Blockchains</Typography>
+                  }} className={classNames(classes.nunitoSansSemiBold,)}>Unlock the Value of On-chain Data</Typography>
                 <Typography style={{
                     fontSize: 16,
                     color: '#373737'
-                  }} className={classNames(classes.nunitoSansRegular,classes.gutterBottomDouble)}>Every transaction must have a purpose. CryptoQuant focuses on deanonymization to demystify network value. Machine Learning technology enables us to identify who holds the wallet and why they evoke transactions. </Typography>
+                  }} className={classNames(classes.nunitoSansRegular,classes.gutterBottomDouble)}>Every transaction must have a purpose. CryptoQuant focuses on deanonymization to uncover each transaction's function. Machine Learning technology enables us to identify who holds the wallet and why they evoke transactions. </Typography>
               </Grid>
               <Grid item="item" lg={7} hidden-md container="container" direction="column">
                 <img src="/static/core/home/cards.png" className={classNames(classes.networkimg)}/>
