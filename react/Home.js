@@ -420,7 +420,7 @@ class Home extends React.Component {
                   </Grid>
                 </Grid>
 
-                <Button id="home-research" href="/static/core/home/reports/[CryptoQuant]Onchain_Exclusive_Vol.25.pdf" variant="outlined" style={{
+                <Button id="home-research" href="/static/core/home/reports/CryptoQuant_Onchain_Exclusive_Vol.25.pdf" variant="outlined" style={{
                     border: '2px solid #262b3b'
                   }} className={classNames(classes.serviceButton)}>Sample Report</Button>
 
