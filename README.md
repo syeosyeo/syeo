@@ -1,4 +1,4 @@
-# Cryptoquant Website (Inherited from STO website)
+# STO
 ## Developer
 * Beomsu Lim (lbs1163)
 * Minjae Mun (mmj4594, seagull4594)
