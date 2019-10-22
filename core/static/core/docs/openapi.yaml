@@ -7,7 +7,7 @@ openapi: 3.0.0
 # api 서버 주소 - 각 api 엔드포인트에 대한 full url 제공시 보여짐
 # https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#server-object
 servers:
-  - url: https://cryptoquant.com/v1/
+  - url: https://datapack.cryptoquant.com/v1/
     description: Default server
   - url: https://cryptoquant.com/sandbox/
     description: Sandbox server
@@ -38,19 +38,6 @@ info:
     It was **extended** to illustrate features of [generator-openapi-repo](https://github.com/Rebilly/generator-openapi-repo)
     tool and [ReDoc](https://github.com/Redocly/redoc) documentation. In addition to standard
     OpenAPI syntax we use a few [vendor extensions](https://github.com/Redocly/redoc/blob/master/docs/redoc-vendor-extensions.md).
-
-    # OpenAPI Specification
-    This API is documented in **OpenAPI format** and is based on
-    [Petstore sample](http://petstore.swagger.io/) provided by [swagger.io](http://swagger.io) team.
-    It was **extended** to illustrate features of [generator-openapi-repo](https://github.com/Rebilly/generator-openapi-repo)
-    tool and [ReDoc](https://github.com/Redocly/redoc) documentation. In addition to standard
-    OpenAPI syntax we use a few [vendor extensions](https://github.com/Redocly/redoc/blob/master/docs/redoc-vendor-extensions.md).
-
-    # Cross-Origin Resource Sharing
-    This API features Cross-Origin Resource Sharing (CORS) implemented in compliance with  [W3C spec](https://www.w3.org/TR/cors/).
-    And that allows cross-domain communication from the browser.
-    All responses have a wildcard same-origin which makes them completely public and accessible to everyone, including any code on any site.
-
     # Authentication
     Petstore offers two forms of authentication:
       - API Key
@@ -64,12 +51,14 @@ externalDocs:
 
 # 좌측 메뉴에 나타나는 주요 항목들
 tags:
-  - name: pet
+  - name: BTC Network Data
+
     description: Everything about your Pets
-  - name: store
+  - name: BTC Market Data
     description: Access to Petstore orders
-  - name: user
+  - name: BTC Exchange Flows
     description: Operations about user
+  - name: BTC Mining Pool Flows
   - name: pet_model
     x-displayName: The Pet Model
     description: |
@@ -78,20 +67,25 @@ tags:
     x-displayName: The Order Model
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/Order" exampleRef="#/components/examples/Order" showReadOnly={true} showWriteOnly={true} />
-
+  - name: ETH Network Data
+  - name: ETH Market Data
+  - name: Stablecoin Network Data
+  - name: Stablecoin Market Data
+  - name: Stablecoin Network Data
 x-tagGroups:
-  - name: Entity Data
+  - name: Bitcoin
     tags:
-      - pet
-      - store
-  - name: Network Stat
+      - BTC Network Data
+      - BTC Market Data
+      - BTC Exchange Flows
+      - BTC Mining Pool Flows
+  - name: Stablecoin
     tags:
-      - user
-  - name: Market Data
-    tags:
-      - pet_model
+      - Stablecoin Network Data
+      - Stablecoin Market Data
       - store_model
-
+      - pet_model
+      - store
 # 사용 가능한 api 목록과 파라미터 등
 # https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#info-object
 paths:
@@ -657,16 +651,124 @@ paths:
                   value:  OK
         '400':
           description: Invalid username/password supplied
-  /user/logout:
+
+  /btc/network-data/block-bytes:
     get:
       tags:
-        - user
-      summary: Logs out current logged in user session
-      description: ''
-      operationId: logoutUser
-      responses:
-        default:
-          description: successful operation
+        - BTC Network Data
+      summary: Block Bytes
+  /btc/network-data/block-count:
+    get:
+      tags:
+        - BTC Network Data
+      summary: Block Count
+  /btc/network-data/block-interval:
+    get:
+      tags:
+        - BTC Network Data
+      summary: Block Interval
+  /btc/network-data/utxo-count:
+    get:
+      tags:
+        - BTC Network Data
+      summary: UTXO Count
+  /btc/network-data/fees:
+    get:
+      tags:
+        - BTC Network Data
+      summary: Fees
+  /btc/network-data/fees-transaction:
+    get:
+      tags:
+        - BTC Network Data
+      summary: Fees Transaction
+  /btc/network-data/blockreward:
+    get:
+      tags:
+        - BTC Network Data
+      summary: Blockreward
+  /btc/network-data/difficulty:
+    get:
+      tags:
+        - BTC Network Data
+      summary: Difficulty
+  /btc/network-data/hashrate:
+    get:
+      tags:
+        - BTC Network Data
+      summary: Hashrate
+  /btc/network-data/supply:
+    get:
+      tags:
+        - BTC Network Data
+      summary: Supply
+  /btc/network-data/transactions-count:
+    get:
+      tags:
+        - BTC Network Data
+      summary: Transactions Count
+  /btc/network-data/tokens-transferred:
+    get:
+      tags:
+        - BTC Network Data
+      summary: Tokens Transferred
+  /btc/network-data/velocity:
+    get:
+      tags:
+        - BTC Network Data
+      summary: Velocity
+  /btc/network-data/addresses-count:
+    get:
+      tags:
+        - BTC Network Data
+      summary: Addresses Count
+  /btc/network-data/inflation:
+    get:
+      tags:
+        - BTC Network Data
+      summary: Inflation
+
+  /btc/market-data/price-usd:
+    get:
+      tags:
+        - BTC Market Data
+      summary: Price USD
+  /btc/market-data/capitalization:
+    get:
+      tags:
+        - BTC Market Data
+      summary: Capitalization
+  /btc/market-data/nvt:
+    get:
+      tags:
+        - BTC Market Data
+      summary: NVT
+  /btc/exchange-flows/reserve:
+    get:
+      tags:
+        - BTC Exchange Flows
+      summary: Reserve
+  /btc/exchange-flows/transactions-count:
+    get:
+      tags:
+        - BTC Exchange Flows
+      summary: Transactions Count
+  /btc/exchange-flows/inflow:
+    get:
+      tags:
+        - BTC Exchange Flows
+      summary: Inflow
+  /btc/exchange-flows/outflow:
+    get:
+      tags:
+        - BTC Exchange Flows
+      summary: Outflow
+  /btc/exchange-flows/addresses-count:
+    get:
+      tags:
+        - BTC Exchange Flows
+      summary: Addresses Count
+ 
 
 # 사용되는 컴포넌트의 스키마
 # https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#components-object
