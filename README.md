@@ -1,8 +1,9 @@
-# STO
+# CryptoQuant
 ## Developer
+* Soomin Choi (choisium, crowtit)
+* Ki Young Ju (ki)
 * Beomsu Lim (lbs1163)
 * Minjae Mun (mmj4594, seagull4594)
-* Soomin Choi (choisium, crowtit)
 
 ## Development Environment
 ### Basic
@@ -21,7 +22,7 @@
 
 ## How to run it
 * 프로젝트 클론
-  `git clone git@bitbucket.org:lbs1163/sto.git`
+  `git clone git@github.com:CryptoQuantOfficial/company-website.git`
 
 * 가상환경 생성(프로젝트 내에서 'myvenv'라는 이름으로 만들거나 프로젝트 외부에 가상환경 생성)
   `python3 -m venv myvenv`
