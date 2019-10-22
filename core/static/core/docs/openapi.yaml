@@ -52,10 +52,9 @@ externalDocs:
 # 좌측 메뉴에 나타나는 주요 항목들
 tags:
   - name: BTC Network Data
-
-    description: Everything about your Pets
+    description: Bitcoin on-chain network data including but not limited to token movements, fees, supply, address movements, etc. 
   - name: BTC Market Data
-    description: Access to Petstore orders
+    description: This namespace contains endpoints to retrieve metrics related to the value of Bitcoin, including price, market cap, nvt ratio, realized cap, etc. On top of providing basic market data like usd price and market cap, we focus on onchain indicators in order to evaluate the true value of Bitcoin. These indicators are useful when investing, especially when finding highs or lows. For more detailed information, please refer to the description of each metric. 
   - name: BTC Exchange Flows
     description: Operations about user
   - name: BTC Mining Pool Flows
@@ -657,117 +656,141 @@ paths:
       tags:
         - BTC Network Data
       summary: Block Bytes
+      description: The mean size(in bytes) of all blocks generated at a given window.
   /btc/network-data/block-count:
     get:
       tags:
         - BTC Network Data
       summary: Block Count
+      description:  The number of blocks generated in a given window.
   /btc/network-data/block-interval:
     get:
       tags:
         - BTC Network Data
       summary: Block Interval
+      description: The average time between all the blocks generated during a given window displayed in seconds.
   /btc/network-data/utxo-count:
     get:
       tags:
         - BTC Network Data
       summary: UTXO Count
+      description: The number of total number of unspent transaction outputs existing at the specified point.
   /btc/network-data/fees:
     get:
       tags:
         - BTC Network Data
       summary: Fees
+      description: This endpoint returns the statistics related to fees that are paid to bitcoin miners. In general, fees are calculated by subtracting the newly issued bitcoin from the total block reward of each blocks. We provide three statistics, `fees_total`, the sum of all fees during a given window, `fees_mean`, the average fee per block in that window, and `fees_percent`, the percentage of fees relative to the total block reward. Additionally, these can be viewed in terms of USD.
   /btc/network-data/fees-transaction:
     get:
       tags:
         - BTC Network Data
       summary: Fees Transaction
+      description: This endpoint returns the statistics related to fees per transaction that are paid to bitcoin miners. In general, fees are calculated by subtracting the newly issued bitcoin from the total block reward of each blocks, and this is divided by the number of transactions to calculate the average fee per transaction in each block. We provide two statistics, `fees_transaction_mean`, the average fee per transaction in a given window, `fees_transaction_median,` the median fee per transaction in that window. Additionally, these values can be calculated in USD.
   /btc/network-data/blockreward:
     get:
       tags:
         - BTC Network Data
       summary: Blockreward
+      description: The sum of block reward for all blocks in a given window. We also provide this value in usd.
   /btc/network-data/difficulty:
     get:
       tags:
         - BTC Network Data
       summary: Difficulty
+      description:  The mean difficulty of mining a new BTC block in a given period.
   /btc/network-data/hashrate:
     get:
       tags:
         - BTC Network Data
       summary: Hashrate
+      description: The mean speed at which miners in the network are solving hash problems for  a given window. It is displayed as hashes per second.
   /btc/network-data/supply:
     get:
       tags:
         - BTC Network Data
       summary: Supply
+      description: This end point returns metrics related to bitcoin supply, i.e. the amount of bitcoin in existence. We currently provide two metrics, `supply_total` , the total amount of bitcoins in existence which is the sum of all bitcoins issued by coinbase reward, and `supply_new`, the amount of newly issued tokens in a given window.
   /btc/network-data/transactions-count:
     get:
       tags:
         - BTC Network Data
       summary: Transactions Count
+      description: This endpoint returns metrics related to the number of transactions in that window. We provide several metrics, `transactions_count_total`, the total number of transactions in that window `transactions_count_mean`, the mean number of transactions per block in that window.
   /btc/network-data/tokens-transferred:
     get:
       tags:
         - BTC Network Data
       summary: Tokens Transferred
+      description: This endpoint returns metrics related to number of tokens transferred, i.e transaction volume. We provide several metrics, `tokens_transferred_total`, the total number of transferred tokens in that window, `tokens_transferred_mean`, the mean number of transferred tokens per transaction in that window, and `tokens_transferred_median`, the median number of transferred tokens per transaction.
   /btc/network-data/velocity:
     get:
       tags:
         - BTC Network Data
       summary: Velocity
+      description: This endpoint returns metrics related to the velocity of bitcoin. Bitcoin's velocity is calculated by dividing the trailing 1 year estimated transaction volume(the cumulated sum of transferred tokens) by current supply. Velocity is a metric that explains how actively is money circulating in the market.
   /btc/network-data/addresses-count:
     get:
       tags:
         - BTC Network Data
       summary: Addresses Count
+      description: This endpoint returns metrics relating to the number of used bitcoin addresses. We provide several metrics, `addresses_count_active`, the total number of unique addresses that were active (either sender or receiver) on the blockchain in a given window, `addresses_count_sender`, the number of addresses that were active as a sender, `addresses_count_receiver`, the number of addresses that were active as a receiver, and `addresses_count_new`, the number of new addresses which appeared on the blockchain for the first time.
   /btc/network-data/inflation:
     get:
       tags:
         - BTC Network Data
       summary: Inflation
+      description: This end point returns metrics relating to the bitcoin inflation rate. We provide `inflation_daily`, which is daily inflation rate calculated by dividing the number of newly issued tokens on that day by the total supply.
 
   /btc/market-data/price-usd:
     get:
       tags:
         - BTC Market Data
       summary: Price USD
+      description: This endpoint returns metrics related to the US Dollar(USD) price of BTC. For this endpoint, Minute, Day, Block 단위로 제공이 됨. We provide four metrics, `price_usd_open`, USD opening price at the beginning of the window, `price_usd_close`, USD closing price at the end of the window, `price_usd_high`, the highest USD price in a given window, and `price_usd_low`, the lowest USD price in a given window.
   /btc/market-data/capitalization:
     get:
       tags:
         - BTC Market Data
       summary: Capitalization
+      description: This endpoint returns metrics related to market capitalization. First, we provide `market_cap`, which is total market capitalization of BTC, calculated by multiplying the total supply with its USD price. Moreover, we provide several adjusted capitalization metrics which are used for proper BTC valuation. `realized_cap` is the sum of each UTXO * last movement price. Since cryptocurrencies are vulnerable of being lost, unclaimed, or unreachable through various bugs, `realized_cap` is introduced to discount those coins which have unmoved for a long period. It indicates whether Bitcoin is overvalued or not. This can be described as an on-chain version of volume weighted average price(VWAP). `average_cap` is forever moving average, calculated by dividing the cumulated sum of daily market cap with the age of market. Instead of using fixed time for calculating the moving average (e.g. 50 days, 100days ...), this serves as the true mean.  Both `realized_cap` and `average_cap` are used to calculate `delta_cap` (`realized_cap`-`average_cap`). `delta_cap` is capable of spotting market bottoms. Moreover, by analyzing the movement of `delta_cap` which oscillates between `realized_cap` and `average_cap`, we could notice that market tops are reached when `delta_cap` is near `realized_cap`(in a log scaled chart). `mvrv`(Market-Value-to-Realized-Value) is a ratio, `market_cap` divided by `realized_cap`. It can be interpreted as the relationship between short-term and long-term investors (i.e. speculators vs hodlers). When this value is too high, BTC price may be overvalued, and if it is too low, there is a possibility that the price is undervalued.
   /btc/market-data/nvt:
     get:
       tags:
         - BTC Market Data
       summary: NVT
+      description: NVT(Network Value to Transaction) ratio is the network value(`supply_total`) divided by `tokens_transferred_total`. `nvt` is a metric often used to determine whether Bitcoin price is overvalued or not. The theory behind this indicator is that the value of the token depends on how actively transactions take place on the network.
   /btc/exchange-flows/reserve:
     get:
       tags:
         - BTC Exchange Flows
       summary: Reserve
+      description: This endpoint returns the full historical on-chain balance of Bitcoin exchanges.
   /btc/exchange-flows/transactions-count:
     get:
       tags:
         - BTC Exchange Flows
       summary: Transactions Count
+      description: This endpoint returns the number of transactions flowing in/out of Bitcoin exchanges.
   /btc/exchange-flows/inflow:
     get:
       tags:
         - BTC Exchange Flows
       summary: Inflow
+      description: This endpoint returns the inflow of BTC into exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day.
+
   /btc/exchange-flows/outflow:
     get:
       tags:
         - BTC Exchange Flows
       summary: Outflow
+      description: This endpoint returns the outflow of BTC into exchange wallets for as far back as we track. The average outflow is the average transaction value for transactions flowing into exchange wallets on a given day.
   /btc/exchange-flows/addresses-count:
     get:
       tags:
         - BTC Exchange Flows
       summary: Addresses Count
+      description: This endpoint returns the number of addresses involved in inflow/outflow transactions.
  
 
 # 사용되는 컴포넌트의 스키마
