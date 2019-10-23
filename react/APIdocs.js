@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
-import { RedocStandalone } from 'redoc';
+import {RedocStandalone} from 'redoc';
 import Header from './Header';
 import Footer from './Footer';
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
-  },
+    flexGrow: 1
+  }
 });
 
 class APIDocs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      yoffset: 0,
+      yoffset: 0
     };
   }
 
@@ -23,7 +23,7 @@ class APIDocs extends React.Component {
     const appbar = document.getElementById('appbar');
     const yoffset = appbar.clientHeight;
     if (this.state.yoffset !== yoffset) {
-      this.setState({ yoffset });
+      this.setState({yoffset});
     }
   }
 
@@ -31,7 +31,7 @@ class APIDocs extends React.Component {
     const appbar = document.getElementById('appbar');
     const yoffset = appbar.clientHeight;
     if (this.state.yoffset !== yoffset) {
-      this.setState({ yoffset });
+      this.setState({yoffset});
     }
   }
 
@@ -39,25 +39,42 @@ class APIDocs extends React.Component {
     const {classes, language} = this.props;
     const {yoffset} = this.state;
 
-    return (
-      <div>
-        <Header indocs={true} language={language}/> 
-        <div style={{paddingTop: yoffset}}>
-        <RedocStandalone
-          specUrl="/static/core/docs/openapi.yaml"
-          options={{
+    return (<div>
+      <Header indocs={true} language={language}/>
+      <div style={{
+          paddingTop: yoffset
+        }}>
+        <RedocStandalone specUrl="/static/core/docs/openapi.yaml" options={{
             scrollYOffset: yoffset,
             hideDownloadButton: true,
-            theme: { 
-              typography: { fontFamily: "'Nunito Sans', sans-serif", headings: { fontFamily: "'Nunito Sans', sans-serif" }},
-              menu: { backgroundColor: '#f3f3f3' },
-              rightPanel: { backgroundColor: '#363238' },
-            },
-        }}/>
-        </div>
-        <Footer language={"English"}/>
+            theme: {
+              typography: {
+                fontFamily: 'Roboto',
+                headings: {
+                  fontFamily: 'DM Serif Display',
+                  fontWeight: "800",
+                },
+                links: {
+                  color: '#EA533C'
+                }
+              },
+              menu: {
+                backgroundColor: '#1E2A35',
+                textColor: '#FAF8F7'
+              },
+              rightPanel: {
+                backgroundColor: '#1E2A35'
+              },
+              colors: {
+                primary: {
+                  main: '#EA533C',
+                }
+              }
+            }
+          }}/>
       </div>
-    );
+      <Footer language={"English"}/>
+    </div>);
 
   }
 }

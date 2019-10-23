@@ -9,35 +9,29 @@ openapi: 3.0.0
 servers:
   - url: https://datapack.cryptoquant.com/v1/
     description: Default server
-  - url: https://cryptoquant.com/sandbox/
-    description: Sandbox server
+  # - url: https://cryptoquant.com/sandbox/
+  #   description: Sandbox server
 
 # api 문서에 대한 설명
 # https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#info-object
 info:
-  version: 1.0.0
-  title: Cryptoquant Pro
+  version: 0.9.1
+  title: CQ DataPack™
   termsOfService: 'https://cryptoquant.com/terms_of_service/'
   contact:
     name: API Support
     email: contact@cryptoquant.com
-    url: https://cryptoquant.com/
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-
+    # url: support.cryptoquant.com
   description: |
-    This is a sample server Petstore server.
-    You can find out more about Swagger at
-    [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).
-    For this sample, you can use the api key `special-key` to test the authorization filters.
+    Welcome to the CQ Datapack™ API. We provide simple and powerful endpoints, which you can use to get information on basic transaction data and aggregate on-chain statistics derived directly from the blockchain. This API reference provides information on available endpoints and how to interact with them.
 
     # Introduction
-    This API is documented in **OpenAPI format** and is based on
-    [Petstore sample](http://petstore.swagger.io/) provided by [swagger.io](http://swagger.io) team.
-    It was **extended** to illustrate features of [generator-openapi-repo](https://github.com/Rebilly/generator-openapi-repo)
-    tool and [ReDoc](https://github.com/Redocly/redoc) documentation. In addition to standard
-    OpenAPI syntax we use a few [vendor extensions](https://github.com/Redocly/redoc/blob/master/docs/redoc-vendor-extensions.md).
+    Petstore offers two forms of authentication:
+      - API Key
+      - OAuth2
+    OAuth2 - an open protocol to allow secure authorization in a simple
+    and standard method from web, mobile and desktop applications.
+
     # Authentication
     Petstore offers two forms of authentication:
       - API Key
@@ -45,27 +39,20 @@ info:
     OAuth2 - an open protocol to allow secure authorization in a simple
     and standard method from web, mobile and desktop applications.
 
-externalDocs:
-  description: Find out how to create Github repo for your OpenAPI spec.
-  url: 'https://github.com/Rebilly/generator-openapi-repo'
+
+# externalDocs:
+#   description: Find out how to create Github repo for your OpenAPI spec.
+#   url: 'https://github.com/Rebilly/generator-openapi-repo'
 
 # 좌측 메뉴에 나타나는 주요 항목들
 tags:
   - name: BTC Network Data
-    description: Bitcoin on-chain network data including but not limited to token movements, fees, supply, address movements, etc. 
+    description: Bitcoin on-chain network data including but not limited to token movements, fees, supply, address movements, etc.
   - name: BTC Market Data
-    description: This namespace contains endpoints to retrieve metrics related to the value of Bitcoin, including price, market cap, nvt ratio, realized cap, etc. On top of providing basic market data like usd price and market cap, we focus on onchain indicators in order to evaluate the true value of Bitcoin. These indicators are useful when investing, especially when finding highs or lows. For more detailed information, please refer to the description of each metric. 
+    description: This namespace contains endpoints to retrieve metrics related to the value of Bitcoin, including price, market cap, nvt ratio, realized cap, etc. On top of providing basic market data like usd price and market cap, we focus on onchain indicators in order to evaluate the true value of Bitcoin. These indicators are useful when investing, especially when finding highs or lows. For more detailed information, please refer to the description of each metric.
   - name: BTC Exchange Flows
-    description: Operations about user
+    description: This endpoint returns the flows of BTC into exchange wallets for as far back as we track.
   - name: BTC Mining Pool Flows
-  - name: pet_model
-    x-displayName: The Pet Model
-    description: |
-      <SchemaDefinition schemaRef="#/components/schemas/Pet" />
-  - name: store_model
-    x-displayName: The Order Model
-    description: |
-      <SchemaDefinition schemaRef="#/components/schemas/Order" exampleRef="#/components/examples/Order" showReadOnly={true} showWriteOnly={true} />
   - name: ETH Network Data
   - name: ETH Market Data
   - name: Stablecoin Network Data
@@ -82,9 +69,6 @@ x-tagGroups:
     tags:
       - Stablecoin Network Data
       - Stablecoin Market Data
-      - store_model
-      - pet_model
-      - store
 # 사용 가능한 api 목록과 파라미터 등
 # https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#info-object
 paths:
@@ -791,7 +775,7 @@ paths:
         - BTC Exchange Flows
       summary: Addresses Count
       description: This endpoint returns the number of addresses involved in inflow/outflow transactions.
- 
+
 
 # 사용되는 컴포넌트의 스키마
 # https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#components-object
