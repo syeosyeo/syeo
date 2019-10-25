@@ -33,11 +33,9 @@ info:
     and standard method from web, mobile and desktop applications.
 
     # Authentication
-    Petstore offers two forms of authentication:
-      - API Key
-      - OAuth2
-    OAuth2 - an open protocol to allow secure authorization in a simple
-    and standard method from web, mobile and desktop applications.
+    Each API request requires authentication to identify the member. Authentication is provided through an access token.
+    For each API request, include this HTTP header:
+    `Authorization` with the `Bearer {access_token}`.
 
 
 # externalDocs:

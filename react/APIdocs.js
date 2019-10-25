@@ -51,7 +51,7 @@ class APIDocs extends React.Component {
               typography: {
                 fontFamily: 'Roboto',
                 headings: {
-                  fontFamily: 'DM Serif Display',
+                  fontFamily: 'DM Sans',
                   fontWeight: "800",
                 },
                 links: {
