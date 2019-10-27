@@ -25,7 +25,7 @@ const styles = theme => ({
   headerDocs: {
     backgroundColor: '#ffffff',
     minHeight: 60,
-    paddingLeft: theme.spacing.unit * 8,
+    paddingLeft: theme.spacing.unit * 4,
     paddingRight: theme.spacing.unit * 20,
     [theme.breakpoints.down('sm')]: {
       paddingLeft: theme.spacing.unit * 3,
