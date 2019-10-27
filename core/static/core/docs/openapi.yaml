@@ -105,7 +105,7 @@ info:
     ```
 
     ## Errors
-    The Nomics API uses standard HTTP status codes to indicate success or failure. 200 represents success, 4xx represents a user error (such as a problem with your key), and 5xx represents a problem with our API.
+    The CryptoQuant API uses standard HTTP status codes to indicate success or failure. 200 represents success, 4xx represents a user error (such as a problem with your key), and 5xx represents a problem with our API.
 
     # Time Convention
     Windows are provided in min, hour, day and block. Each metric supports different windows, so confirm the window and metric usage. Due to the fact that onchain data is constantly updated, the smallest period available is block. Daily and hourly units are provided for added versatility. Daily and hourly windows are an aggregate of all the blocks produced during that period or are based upon the most recent block produced from that point. Days begin at 00:00:00 UTC and end at 23:59:59 UTC. Hours begin with HH:00:00 and end with HH:59:59.
