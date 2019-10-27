@@ -50,6 +50,65 @@ info:
     For each API request, include this HTTP header:
     `Authorization` with the `Bearer {access_token}`.
 
+    ## Access Token
+    The api key is unique, issued for each client, and regularly changed. Get your CQ Datapack API key [here](mailto:contact@cryptoquant.com).
+
+    ## Examples
+    ### HTTP Request
+    ```
+    GET v1/{PATH} HTTP/1.1
+    Host: datapack.cryptoquant.com
+    Authorization: Bearer {access_token}
+    ```
+
+    ### Python
+    ```
+    ''' for http.client '''
+    conn = http.client.HTTPConnection(BASE_URL)
+    headers = { 'Authorization': 'Bearer ' + access_token }
+    conn.request("GET", "path,to,endpoint", headers=headers)
+    response = conn.getresponse()
+
+    ''' for requests '''
+    import requests
+    headers = { 'Authorization': 'Bearer ' + access_token }
+    response = requests.get(URL, headers=headers)
+    ```
+
+    ### Javascript
+    ```
+    // for jquery AJAX
+    var settings = {
+      "url": URL,
+      "method": "GET",
+      "headers": {
+        "Authorization": access_token
+      }
+    }
+
+    $.ajax(settings).done(function (response) {
+      console.log(response)
+    })
+
+    // for XHR
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+    xhr.addEventListener("readystatechange", function() {
+      if (this.readyState === 4) {
+        console.log(this.responseText);
+      }
+    });
+
+    xhr.open("GET", URL);
+    xhr.setRequestHeader("Authorization", access_token);
+    xhr.send(null);
+    ```
+
+    ## Errors
+    The Nomics API uses standard HTTP status codes to indicate success or failure. 200 represents success, 4xx represents a user error (such as a problem with your key), and 5xx represents a problem with our API.
+
+    # Time Convention
+    Windows are provided in min, hour, day and block. Each metric supports different windows, so confirm the window and metric usage. Due to the fact that onchain data is constantly updated, the smallest period available is block. Daily and hourly units are provided for added versatility. Daily and hourly windows are an aggregate of all the blocks produced during that period or are based upon the most recent block produced from that point. Days begin at 00:00:00 UTC and end at 23:59:59 UTC. Hours begin with HH:00:00 and end with HH:59:59.
 
 # externalDocs:
 #   description: Find out how to create Github repo for your OpenAPI spec.
@@ -1056,57 +1115,7 @@ components:
   securitySchemes:
     api_key:
       description: |-
-        You must include your API Key in HTTP header in every request you make. Here's an example.
-        ### HTTP Request
-        ```
-        GET v1/{PATH} HTTP/1.1
-        Host: datapack.cryptoquant.com
-        Authorization: Bearer {access_token}
-        ```
-        ### Python
-        ```
-        # for http.client
-        conn = http.client.HTTPConnection(BASE_URL)
-        headers = { 'Authorization': 'Bearer ' + access_token }
-        conn.request("GET", "path,to,endpoint", headers=headers)
-        response = conn.getresponse()
-
-
-        # for requests
-        import requests
-        headers = { 'Authorization': 'Bearer ' + access_token }
-        response = requests.get(URL, headers=headers)
-        ```
-
-        ### Javascript
-        ```
-        // for jquery AJAX
-        var settings = {
-          "url": URL,
-          "method": "GET",
-          "headers": {
-            "Authorization": access_token
-          }
-        }
-
-        $.ajax(settings).done(function (response) {
-          console.log(response)
-        })
-
-        // for XHR
-        var xhr = new XMLHttpRequest();
-        xhr.withCredentials = true;
-        xhr.addEventListener("readystatechange", function() {
-          if (this.readyState === 4) {
-            console.log(this.responseText);
-          }
-        });
-
-        xhr.open("GET", URL);
-        xhr.setRequestHeader("Authorization", access_token);
-        xhr.send(null);
-        ```
-
+        You must include your API Key in HTTP header in every request you make.
       type: apiKey
       name: Authorization
       in: header
