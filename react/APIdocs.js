@@ -1,3 +1,8 @@
+{/*
+  Redocs styling document:
+  https://github.com/Redocly/redoc/blob/5dd5d6d704ec6e6f739c6f0c4ac868c73fbca0a0/src/theme.ts
+*/}
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';

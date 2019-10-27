@@ -32,6 +32,7 @@ info:
     OAuth2 - an open protocol to allow secure authorization in a simple
     and standard method from web, mobile and desktop applications.
 
+
     # Authentication
     Each API request requires authentication to identify the member. Authentication is provided through an access token.
     For each API request, include this HTTP header:
@@ -49,7 +50,28 @@ tags:
   - name: BTC Market Data
     description: This namespace contains endpoints to retrieve metrics related to the value of Bitcoin, including price, market cap, nvt ratio, realized cap, etc. On top of providing basic market data like usd price and market cap, we focus on onchain indicators in order to evaluate the true value of Bitcoin. These indicators are useful when investing, especially when finding highs or lows. For more detailed information, please refer to the description of each metric.
   - name: BTC Exchange Flows
-    description: This endpoint returns the flows of BTC into exchange wallets for as far back as we track.
+    description: |
+      This endpoint returns the flows of BTC into exchange wallets for as far back as we track.
+
+      For example, take the following pricing data:
+
+      | Name           |   Symbol   |   Status    |
+      |----------------|------------|-------------|
+      | All Exchanges  |   all      |             |
+      | Binance        |   binance  | Validated   |
+      | Bitfinex       |   bitfinex | Validated   |
+      | Bitmex         |   bitmex   | Validated   |
+      | Bitflyer       |   bitflyer | In Progress |
+      | Bitstamp       |   bitstamp | In Progress |
+      | Bittrex        |   Bittrex  | Validated   |
+      | Coinone        |   coinone  | Validated   |
+      | GOPAX          |   gopax    | Validated   |
+      | Huobi Global   |   hubg     | In Progress |
+      | Korbit         |   korbit   | In Progress |
+      | Kraken         |   kraken   | Validated   |
+      | OKex           |   okex     | In Progress |
+      | Poloniex       |   poloniex | Validated   |
+
   - name: BTC Mining Pool Flows
   - name: ETH Network Data
   - name: ETH Market Data

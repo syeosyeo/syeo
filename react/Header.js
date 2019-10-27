@@ -22,6 +22,25 @@ const styles = theme => ({
     },
     flexGrow:1
   },
+  headerDocs: {
+    backgroundColor: '#ffffff',
+    minHeight: 60,
+    paddingLeft: theme.spacing.unit * 8,
+    paddingRight: theme.spacing.unit * 20,
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: theme.spacing.unit * 3,
+      paddingRight: theme.spacing.unit * 3,
+    },
+    flexGrow:1
+  },
+  subLogo: {
+    width: '70px',
+    height: '20px',
+    borderRadius: 4,
+    [theme.breakpoints.down('sm')]: {
+      display: "none"
+    },
+  },
   appBar:{
     boxShadow: '0 1px 2px rgba(0, 0, 0, 0.1)',
   },
@@ -30,10 +49,10 @@ const styles = theme => ({
   },
   dasfinance: {
     color: '#1d1537',
-    fontFamily: "Ramaraja",
+    fontFamily: "DM Serif Display",
     fontSize: 30,
-    fontWeight: 300,
-    marginTop: theme.spacing.unit*0.5
+    fontWeight: 400,
+    marginBottom: theme.spacing.unit*0.5
   },
   link: {
     color: '#1d1537',
@@ -62,6 +81,7 @@ const styles = theme => ({
     paddingLeft: theme.spacing.unit * 1,
   },
   blueLink: {
+    width: 400,
     color: "#1d1537",
     textDecorationLine: "none",
   },
@@ -126,12 +146,11 @@ class Header extends React.Component {
 
     return (
         <AppBar id="appbar" className={classes.appBar}>
-          <Grid className={classNames(classes.header)} >
+          <Grid className={this.props.indocs ? classes.headerDocs : classes.header} >
           <Toolbar disableGutters>
-          <a href="/home" className={classes.blueLink}><Typography className={classes.dasfinance}>CryptoQuant</Typography></a>
-
-
-
+          <a href="/home" className={classes.blueLink}><Typography className={classes.dasfinance}>CryptoQuant <button style={{
+              border: '1px solid #322956',
+            }} className={this.props.indocs ? classes.subLogo : classes.upbutton_none}>DataPack</button></Typography></a>
           <Grid container justify="flex-end">
             <Button id="home-storadar" href="https://calendly.com/ki--5/30min" variant='outlined' style={{
                 border: '2px solid #322956'

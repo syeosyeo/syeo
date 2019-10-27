@@ -26,12 +26,10 @@ const styles = theme => ({
   },
   dasfinance: {
     color: '#ffffff',
-    fontFamily: "Ramaraja",
+    fontFamily: "DM Serif Display",
     fontSize: 36,
-    fontWeight: 300,
-    [theme.breakpoints.down('xs')]: {
-      fontSize: 30,
-    },
+    fontWeight: 400,
+    marginBottom: 20,
   },
   copyright: {
     color: '#ffffff',
