@@ -26,10 +26,10 @@ info:
     Welcome to the CQ Datapack™ API. We provide simple and powerful endpoints, which you can use to get information on basic transaction data and aggregate on-chain statistics derived directly from the blockchain. This API reference provides information on available endpoints and how to interact with them.
 
     # Introduction
-    CQ Datapack offers a set of metrics to understand the entire ecosystem.
+    CQ Datapack offers a set of metrics to understand the entire blockchain ecosystem.
 
     ```
-    api.cryptoquant.com/
+    https://datapack.cryptoquant.com/v1/
 
     ├── BTC/
     │   ├── Network/            // general statistics of Bitcoin network
@@ -49,7 +49,6 @@ info:
     Each API request requires authentication to identify the member. Authentication is provided through an access token.
     For each API request, include this HTTP header:
     `Authorization` with the `Bearer {access_token}`.
-
 
 
 # externalDocs:
@@ -123,10 +122,6 @@ paths:
       responses:
         '405':
           description: Invalid input
-      security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
       x-code-samples:
         - lang: 'C#'
           source: |
@@ -171,10 +166,6 @@ paths:
           description: Pet not found
         '405':
           description: Validation exception
-      security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
       x-code-samples:
         - lang: PHP
           source: |
@@ -239,10 +230,6 @@ paths:
       responses:
         '405':
           description: Invalid input
-      security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -262,7 +249,7 @@ paths:
       description: ''
       operationId: deletePet
       parameters:
-        - name: api_key
+        - name: Authorization
           in: header
           required: false
           schema:
@@ -278,10 +265,6 @@ paths:
       responses:
         '400':
           description: Invalid pet value
-      security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
   '/pet/{petId}/uploadImage':
     post:
       tags:
@@ -304,10 +287,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApiResponse'
-      security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
       requestBody:
         content:
           application/octet-stream:
@@ -354,10 +333,6 @@ paths:
                   $ref: '#/components/schemas/Pet'
         '400':
           description: Invalid status value
-      security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
   /pet/findByTags:
     get:
       tags:
@@ -394,10 +369,6 @@ paths:
                   $ref: '#/components/schemas/Pet'
         '400':
           description: Invalid tag value
-      security:
-        - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
   /store/inventory:
     get:
       tags:
@@ -1083,23 +1054,61 @@ components:
       required: true
 
   securitySchemes:
-    petstore_auth:
-      description: |
-        Get access to data while protecting your account credentials.
-        OAuth2 is also a safer and more secure way to give you access.
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: 'http://petstore.swagger.io/api/oauth/dialog'
-          scopes:
-            'write:pets': modify pets in your account
-            'read:pets': read your pets
     api_key:
-      description: >
-        For this sample, you can use the api key `special-key` to test the
-        authorization filters.
+      description: |-
+        You must include your API Key in HTTP header in every request you make. Here's an example.
+        ### HTTP Request
+        ```
+        GET v1/{PATH} HTTP/1.1
+        Host: datapack.cryptoquant.com
+        Authorization: Bearer {access_token}
+        ```
+        ### Python
+        ```
+        # for http.client
+        conn = http.client.HTTPConnection(BASE_URL)
+        headers = { 'Authorization': 'Bearer ' + access_token }
+        conn.request("GET", "path,to,endpoint", headers=headers)
+        response = conn.getresponse()
+
+
+        # for requests
+        import requests
+        headers = { 'Authorization': 'Bearer ' + access_token }
+        response = requests.get(URL, headers=headers)
+        ```
+
+        ### Javascript
+        ```
+        // for jquery AJAX
+        var settings = {
+          "url": URL,
+          "method": "GET",
+          "headers": {
+            "Authorization": access_token
+          }
+        }
+
+        $.ajax(settings).done(function (response) {
+          console.log(response)
+        })
+
+        // for XHR
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+        xhr.addEventListener("readystatechange", function() {
+          if (this.readyState === 4) {
+            console.log(this.responseText);
+          }
+        });
+
+        xhr.open("GET", URL);
+        xhr.setRequestHeader("Authorization", access_token);
+        xhr.send(null);
+        ```
+
       type: apiKey
-      name: api_key
+      name: Authorization
       in: header
 
   examples:
