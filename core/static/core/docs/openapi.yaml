@@ -168,6 +168,37 @@ paths:
         - BTC Network Data
       summary: Block Bytes
       operationId: getBlockBytes
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/network-data/block-bytes?window=day&isrange=true&period=190901-190903"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/network-data/block-bytes?window=day&isrange=true&period=190901-190903")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/network-data/block-bytes?window=day&isrange=true&period=190901-190903")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/network-data/block-bytes?window=day&isrange=true&period=190901-190903")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/network-data/block-bytes?window=day&isrange=true&period=190901-190903"
+
+            print(urllib.request.urlopen(url).read())
       description: The mean size(in bytes) of all blocks generated at a given window.
       parameters:
         - $ref: '#/components/parameters/window'
@@ -185,6 +216,11 @@ paths:
       tags:
         - BTC Network Data
       summary: Block Count
+      operationId: getBlockCount
+      parameters:
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/isrange'
+        - $ref: '#/components/parameters/period'
       description:  The number of blocks generated in a given window.
   /btc/network-data/block-interval:
     get:
@@ -355,11 +391,14 @@ components:
           type: array
       style: form
       example: 190123-190601
+
   responses:
     BlockBytes:
       description: The mean size(in bytes) of all blocks generated at a given window.
       content:
         application/json:
+          schema:
+            $ref: '#/components/schemas/BlockBytesResponse'
           example:
             status:
               code: 200
@@ -401,274 +440,73 @@ components:
             type: string
 
   schemas:
-    ApiResponse:
+    Status:
       type: object
       properties:
         code:
           type: integer
           format: int32
-        type:
-          type: string
         message:
           type: string
-    Cat:
-      description: A representation of a cat
-      allOf:
-        - $ref: '#/components/schemas/Pet'
-        - type: object
-          properties:
-            huntingSkill:
-              type: string
-              description: The measured skill for hunting
-              default: lazy
-              enum:
-                - clueless
-                - lazy
-                - adventurous
-                - aggressive
-          required:
-            - huntingSkill
-    Category:
+
+    Window:
+      type: string
+      description: The size of window. It can be day or block, and it depends on the user request.
+
+    Period:
+      type: string
+      description: The time period covered by this data. If your window size is block, it will be the range of block heights. Otherwise, it will be the range of dates with the format YYDDMM.
+
+    Data:
+      type: string
+      description: The array containing all responses. The number of elements depends on your request.
+
+    Date:
+      type: string
+      description: The date in YYDDMM. This optional field only appears when window=day is used.
+
+    Blockheight:
+      type: string
+      description: The height of the block. This optional field only appears when window=block is used.
+
+    Datetime:
+      type: string
+      description: The date and time formatted as YYYY-MM-DDTHH:MM:SS (UTC time).
+
+    From:
+      type: string
+      description: This defines the starting time for which data will be gathered. If window=day is used, it can be formatted as YYYY-MM-DDTHH:MM:SS (UTC time). If window=block is used, you can either specify the block height (e.g. 510000), or the datetime formatted as YYYY-MM-DDTHH:MM:SS (UTC time). If not specified, response will include data from the earliest time.
+
+    To:
+      type: string
+      description: This defines the ending time for which data will be gathered. If window=day is used, it can be formatted as YYYY-MM-DDTHH:MM:SS (UTC time). If window=block is used, you can either specify the block height (e.g. 510000), or the datetime formatted as YYYY-MM-DDTHH:MM:SS (UTC time). If not specified, response will include data from the latest time.
+
+    Limit:
+      type: string
+      description: The maximum number of entries to return before the latest data point. If not specified, up to 100,000 entries will be returned.
+
+    BlockBytesResponse:
       type: object
       properties:
-        id:
-          description: Category ID
-          allOf:
-            - $ref: '#/components/schemas/Id'
-        name:
-          description: Category name
-          type: string
-          minLength: 1
-        sub:
-          description: Test Sub Category
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
           type: object
           properties:
-            prop1:
-              type: string
-              description: Dumb Property
-      xml:
-        name: Category
-    Dog:
-      description: A representation of a dog
-      allOf:
-        - $ref: '#/components/schemas/Pet'
-        - type: object
-          properties:
-            packSize:
-              type: integer
-              format: int32
-              description: The size of the pack the dog is from
-              default: 1
-              minimum: 1
-          required:
-            - packSize
-    HoneyBee:
-      description: A representation of a honey bee
-      allOf:
-        - $ref: '#/components/schemas/Pet'
-        - type: object
-          properties:
-            honeyPerDay:
-              type: number
-              description: Average amount of honey produced per day in ounces
-              example: 3.14
-          required:
-            - honeyPerDay
-    Id:
-      type: integer
-      format: int64
-      readOnly: true
-    Order:
-      type: object
-      properties:
-        id:
-          description: Order ID
-          allOf:
-            - $ref: '#/components/schemas/Id'
-        petId:
-          description: Pet ID
-          allOf:
-            - $ref: '#/components/schemas/Id'
-        quantity:
-          type: integer
-          format: int32
-          minimum: 1
-          default: 1
-        shipDate:
-          description: Estimated ship date
-          type: string
-          format: date-time
-        status:
-          type: string
-          description: Order Status
-          enum:
-            - placed
-            - approved
-            - delivered
-        complete:
-          description: Indicates whenever order was completed or not
-          type: boolean
-          default: false
-          readOnly: true
-        rqeuestId:
-          description: Unique Request Id
-          type: string
-          writeOnly: true
-      xml:
-        name: Order
-    Pet:
-      type: object
-      required:
-        - name
-        - photoUrls
-      discriminator:
-        propertyName: petType
-        mapping:
-          cat: '#/components/schemas/Cat'
-          dog: '#/components/schemas/Dog'
-          bee: '#/components/schemas/HoneyBee'
-      properties:
-        id:
-          externalDocs:
-            description: "Find more info here"
-            url: "https://example.com"
-          description: Pet ID
-          allOf:
-            - $ref: '#/components/schemas/Id'
-        category:
-          description: Categories this pet belongs to
-          allOf:
-            - $ref: '#/components/schemas/Category'
-        name:
-          description: The name given to a pet
-          type: string
-          example: Guru
-        photoUrls:
-          description: The list of URL to a cute photos featuring pet
-          type: array
-          maxItems: 20
-          xml:
-            name: photoUrl
-            wrapped: true
-          items:
-            type: string
-            format: url
-        friend:
-          allOf:
-            - $ref: '#/components/schemas/Pet'
-        tags:
-          description: Tags attached to the pet
-          type: array
-          minItems: 1
-          xml:
-            name: tag
-            wrapped: true
-          items:
-            $ref: '#/components/schemas/Tag'
-        status:
-          type: string
-          description: Pet status in the store
-          enum:
-            - available
-            - pending
-            - sold
-        petType:
-          description: Type of a pet
-          type: string
-      xml:
-        name: Pet
-    Tag:
-      type: object
-      properties:
-        id:
-          description: Tag ID
-          allOf:
-            - $ref: '#/components/schemas/Id'
-        name:
-          description: Tag name
-          type: string
-          minLength: 1
-      xml:
-        name: Tag
-    User:
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/Id'
-        pet:
-          oneOf:
-            - $ref: '#/components/schemas/Pet'
-            - $ref: '#/components/schemas/Tag'
-        username:
-          description: User supplied username
-          type: string
-          minLength: 4
-          example: John78
-        firstName:
-          description: User first name
-          type: string
-          minLength: 1
-          example: John
-        lastName:
-          description: User last name
-          type: string
-          minLength: 1
-          example: Smith
-        email:
-          description: User email address
-          type: string
-          format: email
-          example: john.smith@example.com
-        password:
-          type: string
-          description: >-
-            User password, MUST contain a mix of upper and lower case letters,
-            as well as digits
-          format: password
-          minLength: 8
-          pattern: '/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/'
-          example: drowssaP123
-        phone:
-          description: User phone number in international format
-          type: string
-          pattern: '/^\+(?:[0-9]-?){6,14}[0-9]$/'
-          example: +1-202-555-0192
-          nullable: true
-        userStatus:
-          description: User status
-          type: integer
-          format: int32
-      xml:
-        name: User
-
-  requestBodies:
-    Pet:
-      content:
-        application/json:
-          schema:
-            allOf:
-              - description: My Pet
-                title: Pettie
-              - $ref: '#/components/schemas/Pet'
-        application/xml:
-          schema:
-            type: 'object'
-            properties:
-              name:
-                type: string
-                description: hooray
-      description: Pet object that needs to be added to the store
-      required: true
-    UserArray:
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/User'
-      description: List of user object
-      required: true
-
+            window:
+              $ref: '#/components/schemas/Window'
+            period:
+              $ref: '#/components/schemas/Period'
+            data:
+              type: array
+              items:
+                type: object
+                properties:
+                  date:
+                    $ref: '#/components/schemas/Date'
+                  block_bytes:
+                    type: integer
+                    description: The mean size(in bytes) of all blocks generated in a given period.
   securitySchemes:
     api_key:
       description: |-
