@@ -25,6 +25,8 @@ info:
   description: |-
     Welcome to the CQ Datapack™ API. We provide simple and powerful endpoints, which you can use to get information on basic transaction data and aggregate on-chain statistics derived directly from the blockchain. This API reference provides information on available endpoints and how to interact with them.
 
+    The API root endpoint URL is `https://datapack.cryptoquant.com/v1/`.
+
     # Introduction
     CQ Datapack offers a set of metrics to understand the entire blockchain ecosystem.
 
@@ -46,12 +48,9 @@ info:
      <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRj44BjZianQb0uG7CzFs5Uivn2dnyDQVZJPC0EzOqR40lBtawh-V9q6o2KV7TFJocf10mo4GWYQHfr/pubhtml?widget=true&amp;headers=false" style="width: 100%; height: 420px;"></iframe>
 
     # Authentication
-    The API root endpoint URL is `https://datapack.cryptoquant.com/v1/`. Each API request requires authentication to identify the member. Authentication is provided through an access token.
+    Each API request requires authentication to identify the member. Authentication is provided through an access token.
     For each API request, include this HTTP header:
     `Authorization` with the `Bearer {access_token}`.
-
-    ## Access Token
-    The api key is unique, issued for each client, and regularly changed. Get your CQ Datapack API key [here](mailto:contact@cryptoquant.com).
 
     ## Examples
     ### HTTP Request
@@ -104,8 +103,22 @@ info:
     xhr.send(null);
     ```
 
-    ## Errors
+    ## Status and Error Codes
     The CryptoQuant API uses standard HTTP status codes to indicate success or failure. 200 represents success, 4xx represents a user error (such as a problem with your key), and 5xx represents a problem with our API.
+
+    The following table describes status and error codes returned by Datapack.
+    In the status object, the `code` field contains the status code and the `message` field contains the type of response.
+
+    | Code |   Type                  |   Description                                            |
+    |------|-------------------------|----------------------------------------------------------|
+    | 200  |   success               | Request was successful.                                  |
+    | 200  |   deprecated            | A resource is deprecated and will removed in the future. |
+    | 400  |   bad_request           | Some required parameter is missing or has the wrong value.   |
+    | 401  |   unauthorized          | Internal authorization failed. It might mean missing or wrong credentials.   |
+    | 404  |   not_found             | URI is not valid or the resource ID does not correspond to an existing resource. |
+    | 405  |   not_allowed           | HTTP method not allowed, such as attempting to use a POST request with an endpoint that only accepts GET requests, or vice versa. |
+    | 500  |   internal_server_error | Unexpected error occurred. Please report this when you see it. |
+
 
     # Time Convention
     Windows are provided in min, hour, day and block. Each metric supports different windows, so confirm the window and metric usage. Due to the fact that onchain data is constantly updated, the smallest period available is block. Daily and hourly units are provided for added versatility. Daily and hourly windows are an aggregate of all the blocks produced during that period or are based upon the most recent block produced from that point. Days begin at 00:00:00 UTC and end at 23:59:59 UTC. Hours begin with HH:00:00 and end with HH:59:59.
@@ -210,96 +223,707 @@ paths:
         401:
           $ref: '#/components/responses/Unauthorized'
       security:
-        - api_key: []
+        - Bearer Access Token: []
   /btc/network-data/block-count:
     get:
       tags:
         - BTC Network Data
       summary: Block Count
+      description:  The number of blocks generated in a given window.
       operationId: getBlockCount
       parameters:
         - $ref: '#/components/parameters/window'
         - $ref: '#/components/parameters/isrange'
         - $ref: '#/components/parameters/period'
-      description:  The number of blocks generated in a given window.
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/network-data/block-count?window=day&isrange=true&period=190901-190903"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/network-data/block-count?window=day&isrange=true&period=190901-190903")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/network-data/block-count?window=day&isrange=true&period=190901-190903")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/network-data/block-count?window=day&isrange=true&period=190901-190903")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/network-data/block-count?window=day&isrange=true&period=190901-190903"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/BlockCount'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
+
   /btc/network-data/block-interval:
     get:
       tags:
         - BTC Network Data
       summary: Block Interval
       description: The average time between all the blocks generated during a given window displayed in seconds.
+      operationId: getBlockInterval
+      parameters:
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/isrange'
+        - $ref: '#/components/parameters/period'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/network-data/block-interval?window=day&isrange=true&period=190901-190903"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/network-data/block-interval?window=day&isrange=true&period=190901-190903")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/network-data/block-interval?window=day&isrange=true&period=190901-190903")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/network-data/block-interval?window=day&isrange=true&period=190901-190903")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/network-data/block-interval?window=day&isrange=true&period=190901-190903"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/BlockInterval'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
+
+
   /btc/network-data/utxo-count:
     get:
       tags:
         - BTC Network Data
       summary: UTXO Count
       description: The number of total number of unspent transaction outputs existing at the specified point.
+      operationId: getUTXOCount
+      parameters:
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/isrange'
+        - $ref: '#/components/parameters/period'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/network-data/utxo-count?window=day&isrange=true&period=190901-190903"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/network-data/utxo-count?window=day&isrange=true&period=190901-190903")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/network-data/utxo-count?window=day&isrange=true&period=190901-190903")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/network-data/utxo-count?window=day&isrange=true&period=190901-190903")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/network-data/utxo-count?window=day&isrange=true&period=190901-190903"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/UTXOCount'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
+
   /btc/network-data/fees:
     get:
       tags:
         - BTC Network Data
       summary: Fees
       description: This endpoint returns the statistics related to fees that are paid to bitcoin miners. In general, fees are calculated by subtracting the newly issued bitcoin from the total block reward of each blocks. We provide three statistics, `fees_total`, the sum of all fees during a given window, `fees_mean`, the average fee per block in that window, and `fees_percent`, the percentage of fees relative to the total block reward. Additionally, these can be viewed in terms of USD.
+      operationId: getFees
+      parameters:
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/isrange'
+        - $ref: '#/components/parameters/period'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/network-data/fees?window=day&isrange=true&period=190901-190903"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/network-data/fees?window=day&isrange=true&period=190901-190903")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/network-data/fees?window=day&isrange=true&period=190901-190903")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/network-data/fees?window=day&isrange=true&period=190901-190903")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/network-data/fees?window=day&isrange=true&period=190901-190903"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/Fees'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
+
   /btc/network-data/fees-transaction:
     get:
       tags:
         - BTC Network Data
       summary: Fees Transaction
       description: This endpoint returns the statistics related to fees per transaction that are paid to bitcoin miners. In general, fees are calculated by subtracting the newly issued bitcoin from the total block reward of each blocks, and this is divided by the number of transactions to calculate the average fee per transaction in each block. We provide two statistics, `fees_transaction_mean`, the average fee per transaction in a given window, `fees_transaction_median,` the median fee per transaction in that window. Additionally, these values can be calculated in USD.
+      operationId: getFeesTransaction
+      parameters:
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/isrange'
+        - $ref: '#/components/parameters/period'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/network-data/fees-transaction?window=day&isrange=true&period=190901-190903"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/network-data/fees-transaction?window=day&isrange=true&period=190901-190903")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/network-data/fees-transaction?window=day&isrange=true&period=190901-190903")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/network-data/fees-transaction?window=day&isrange=true&period=190901-190903")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/network-data/fees-transaction?window=day&isrange=true&period=190901-190903"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/FeesTransaction'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
+
   /btc/network-data/blockreward:
     get:
       tags:
         - BTC Network Data
       summary: Blockreward
       description: The sum of block reward for all blocks in a given window. We also provide this value in usd.
+      operationId: getBlockReward
+      parameters:
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/isrange'
+        - $ref: '#/components/parameters/period'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/network-data/block-reward?window=day&isrange=true&period=190901-190903"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/network-data/block-reward?window=day&isrange=true&period=190901-190903")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/network-data/block-reward?window=day&isrange=true&period=190901-190903")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/network-data/block-reward?window=day&isrange=true&period=190901-190903")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/network-data/block-reward?window=day&isrange=true&period=190901-190903"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/BlockReward'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
+
   /btc/network-data/difficulty:
     get:
       tags:
         - BTC Network Data
       summary: Difficulty
       description:  The mean difficulty of mining a new BTC block in a given period.
+      operationId: getDifficulty
+      parameters:
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/isrange'
+        - $ref: '#/components/parameters/period'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/network-data/difficulty?window=day&isrange=true&period=190901-190903"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/network-data/difficulty?window=day&isrange=true&period=190901-190903")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/network-data/difficulty?window=day&isrange=true&period=190901-190903")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/network-data/difficulty?window=day&isrange=true&period=190901-190903")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/network-data/difficulty?window=day&isrange=true&period=190901-190903"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/Difficulty'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
+
   /btc/network-data/hashrate:
     get:
       tags:
         - BTC Network Data
       summary: Hashrate
       description: The mean speed at which miners in the network are solving hash problems for  a given window. It is displayed as hashes per second.
+      operationId: getHashrate
+      parameters:
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/isrange'
+        - $ref: '#/components/parameters/period'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/network-data/hashrate?window=day&isrange=true&period=190901-190903"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/network-data/hashrate?window=day&isrange=true&period=190901-190903")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/network-data/hashrate?window=day&isrange=true&period=190901-190903")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/network-data/hashrate?window=day&isrange=true&period=190901-190903")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/network-data/hashrate?window=day&isrange=true&period=190901-190903"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/Hashrate'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
+
   /btc/network-data/supply:
     get:
       tags:
         - BTC Network Data
       summary: Supply
       description: This end point returns metrics related to bitcoin supply, i.e. the amount of bitcoin in existence. We currently provide two metrics, `supply_total` , the total amount of bitcoins in existence which is the sum of all bitcoins issued by coinbase reward, and `supply_new`, the amount of newly issued tokens in a given window.
+      operationId: getSupply
+      parameters:
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/isrange'
+        - $ref: '#/components/parameters/period'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/network-data/supply?window=day&isrange=true&period=190901-190903"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/network-data/supply?window=day&isrange=true&period=190901-190903")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/network-data/supply?window=day&isrange=true&period=190901-190903")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/network-data/supply?window=day&isrange=true&period=190901-190903")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/network-data/supply?window=day&isrange=true&period=190901-190903"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/Supply'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
+
   /btc/network-data/transactions-count:
     get:
       tags:
         - BTC Network Data
       summary: Transactions Count
       description: This endpoint returns metrics related to the number of transactions in that window. We provide several metrics, `transactions_count_total`, the total number of transactions in that window `transactions_count_mean`, the mean number of transactions per block in that window.
+      operationId: getTransactionsCount
+      parameters:
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/isrange'
+        - $ref: '#/components/parameters/period'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/network-data/transactions-count?window=day&isrange=true&period=190901-190903"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/network-data/transactions-count?window=day&isrange=true&period=190901-190903")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/network-data/transactions-count?window=day&isrange=true&period=190901-190903")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/network-data/transactions-count?window=day&isrange=true&period=190901-190903")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/network-data/transactions-count?window=day&isrange=true&period=190901-190903"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/TransactionsCount'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
+
   /btc/network-data/tokens-transferred:
     get:
       tags:
         - BTC Network Data
       summary: Tokens Transferred
       description: This endpoint returns metrics related to number of tokens transferred, i.e transaction volume. We provide several metrics, `tokens_transferred_total`, the total number of transferred tokens in that window, `tokens_transferred_mean`, the mean number of transferred tokens per transaction in that window, and `tokens_transferred_median`, the median number of transferred tokens per transaction.
+      operationId: getTokensTransferred
+      parameters:
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/isrange'
+        - $ref: '#/components/parameters/period'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/TokensTransferred'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
+
   /btc/network-data/velocity:
     get:
       tags:
         - BTC Network Data
       summary: Velocity
       description: This endpoint returns metrics related to the velocity of bitcoin. Bitcoin's velocity is calculated by dividing the trailing 1 year estimated transaction volume(the cumulated sum of transferred tokens) by current supply. Velocity is a metric that explains how actively is money circulating in the market.
+      operationId: getVelocity
+      parameters:
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/isrange'
+        - $ref: '#/components/parameters/period'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/network-data/velocity?window=day&isrange=true&period=190901-190903"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/network-data/velocity?window=day&isrange=true&period=190901-190903")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/network-data/velocity?window=day&isrange=true&period=190901-190903")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/network-data/velocity?window=day&isrange=true&period=190901-190903")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/network-data/velocity?window=day&isrange=true&period=190901-190903"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/Velocity'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
+
   /btc/network-data/addresses-count:
     get:
       tags:
         - BTC Network Data
       summary: Addresses Count
       description: This endpoint returns metrics relating to the number of used bitcoin addresses. We provide several metrics, `addresses_count_active`, the total number of unique addresses that were active (either sender or receiver) on the blockchain in a given window, `addresses_count_sender`, the number of addresses that were active as a sender, `addresses_count_receiver`, the number of addresses that were active as a receiver, and `addresses_count_new`, the number of new addresses which appeared on the blockchain for the first time.
+      operationId: getAddressesCount
+      parameters:
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/isrange'
+        - $ref: '#/components/parameters/period'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/network-data/addresses-count?window=day&isrange=true&period=190901-190903"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/network-data/addresses-count?window=day&isrange=true&period=190901-190903")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/network-data/addresses-count?window=day&isrange=true&period=190901-190903")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/network-data/addresses-count?window=day&isrange=true&period=190901-190903")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/network-data/addresses-count?window=day&isrange=true&period=190901-190903"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/AddressesCount'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
+
   /btc/network-data/inflation:
     get:
       tags:
         - BTC Network Data
       summary: Inflation
       description: This end point returns metrics relating to the bitcoin inflation rate. We provide `inflation_daily`, which is daily inflation rate calculated by dividing the number of newly issued tokens on that day by the total supply.
+      operationId: getInflation
+      parameters:
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/isrange'
+        - $ref: '#/components/parameters/period'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/Inflation'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
 
   /btc/market-data/price-usd:
     get:
@@ -361,7 +985,7 @@ components:
       explode: false
       in: query
       name: window
-      required: false
+      required: true
       schema:
         type: string
         default: day
@@ -372,7 +996,7 @@ components:
       explode: false
       in: query
       name: isrange
-      required: false
+      required: true
       schema:
         type: boolean
         default: true
@@ -413,6 +1037,290 @@ components:
                   block_bytes: 1003264
                 - date: "190903"
                   block_bytes: 897233
+
+    BlockCount:
+      description: The number of blocks generated in a given window.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BlockCountResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "day"
+              period: "190901-190903"
+              data:
+                - date: "190901"
+                  block_count: 144
+                - date: "190902"
+                  block_count: 152
+                - date: "190903"
+                  block_count: 134
+
+    BlockInterval:
+      description: The average time between all the blocks generated during a given window in seconds.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BlockIntervalResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "day"
+              period: "190901-190903"
+              data:
+                - date: "190901"
+                  block_interval: 623
+                - date: "190902"
+                  block_interval: 712
+                - date: "190903"
+                  block_interval: 592
+
+    UTXOCount:
+      description: Number of total number of unspent transaction outputs at a given period.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UTXOCountResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "block"
+              period: "300000-300001"
+              data:
+                - blockheight: 300000,
+                  utxo_count: 2931
+                - blockheight: 300001,
+                  utxo_count: 3142
+
+    Fees:
+      description: fees_total, fees_total_usd, fees_mean, fees_mean_usd, fees_percent.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FeesResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "day"
+              period: "190901"
+              data:
+                properties:
+                  date: "190901"
+                  fees_mean: 0.00013123
+                  fees_mean_usd: 0.11
+                  fees_total: 11.21331723
+                  fees_total_usd: 3010.23
+                  fees_percent: 0.012
+
+    FeesTransaction:
+      description: fees_transaction_mean, fees_transaction_mean_usd, fees_transaction_median, fees_transaction_median_usd
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FeesTransactionResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "day"
+              period: "190901"
+              data:
+                properties:
+                  date: "190901"
+                  fees_transaction_mean: 0.00001321
+                  fees_transaction_mean_usd: 0.000312
+                  fees_transaction_median: 0.00001221
+                  fees_transaction_median_usd: 0.000289
+
+    BlockReward:
+      description: The sum of block reward for all blocks in a given window. We also provide this value in usd.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BlockRewardResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "block"
+              period: "555555-555557"
+              data:
+                properties:
+                  - blockheight: 555555
+                    blockreward: 26.62
+                    blockreward_usd: 240771.37
+                  - blockheight: 555556
+                    blockreward: 23.61
+                    blockreward_usd: 210351.12
+                  - blockheight: 555557
+                    blockreward: 29.32
+                    blockreward_usd: 278263.04
+    Difficulty:
+      description: The mean difficulty of meeting the conditions to create a new BTC block in a given period.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DifficultyResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "day"
+              period: "190901-190903"
+              data:
+                - date: "190901"
+                  difficulty: 12759819404408.99
+                - date: "190902"
+                  difficulty: 11425323412355.53
+                - date: "190903"
+                  difficulty: 17234123523452.25
+
+    Hashrate:
+      description: The mean speed at which hash problems are being solved across all miners in the network in the given window. It is the number of hashes that miners calculates per second.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HashrateResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "block"
+              period: "300000-300001"
+              data:
+                - blockheight: "300000"
+                  hashrate: 8561054
+                - blockheight: "300001"
+                  hashrate: 9242532
+
+    Supply:
+      description: supply_total, suppply_new
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SupplyResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "block"
+              period: "500000-500001"
+              data:
+                - blockheight: "500000"
+                  supply_total: 15924414.7953033
+                  suppply_new: 12.5
+                - blockheight: "500001"
+                  supply_total: 15924414.7953033
+                  suppply_new: 12.5
+
+    TransactionsCount:
+      description: transactions_count_total, transactions_count_mean
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TransactionsCountResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "day"
+              period: "190901"
+              data:
+                - date: "190901"
+                  transactions_count_total: 78912
+                  transactions_count_mean: 1248
+
+
+    TokensTransferred:
+      description: tokens_transferred_total, tokens_transferred_mean, tokens_transferred_median
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TokensTransferredResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "day"
+              period: "190901"
+              data:
+                - date: "190901"
+                  tokens_transferred_total: 78912.12373645
+                  tokens_transferred_mean: 1248.47276264
+                  tokens_transferred_median: 1321.53121331
+
+    Velocity:
+      description: Estimated transaction volume in the trailing 1 year devided by current total supply.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/VelocityResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "day"
+              period: "190901"
+              data:
+                - date: "190901"
+                  velocity_total_supply: 7.3124
+
+    AddressesCount:
+      description: addresses_count_active, addresses_count_sender, addresses_count_receiver, addresses_count_new
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AddressesCountResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "day"
+              period: "190901"
+              data:
+                - date: "190901"
+                  addresses_count_active: 102832
+                  addresses_count_sender: 60123
+                  addresses_count_receiver: 51231
+                  addresses_count_new: 1231
+
+    Inflation:
+      description: Daily inflation rate, which is calculated by dividing the newly issued token on that day by the total supply.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InflationResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "block"
+              period: "500000-500001"
+              data:
+                - blockheight: "500000"
+                  inflation_daily: 15924414.7953033
+                - blockheight: "500001"
+                  inflation_daily: 15924439.7953033
+
     Unauthorized:
       description: Requested resource requires authorization
       content:
@@ -442,12 +1350,18 @@ components:
   schemas:
     Status:
       type: object
+      description: The status object is return with most of requests and indicates if the request was successful. If it is not successful, error information is included.
       properties:
         code:
           type: integer
           format: int32
+          description: HTTP status code
         message:
           type: string
+          description: Text description of the error or success.
+      required:
+        - code
+        - message
 
     Window:
       type: string
@@ -487,11 +1401,18 @@ components:
 
     BlockBytesResponse:
       type: object
+      required:
+        - status
+        - result
       properties:
         status:
           $ref: '#/components/schemas/Status'
         result:
           type: object
+          required:
+            - window
+            - period
+            - data
           properties:
             window:
               $ref: '#/components/schemas/Window'
@@ -501,19 +1422,532 @@ components:
               type: array
               items:
                 type: object
+                required:
+                  - block_bytes
                 properties:
                   date:
+                    $ref: '#/components/schemas/Date'
+                  blockheight:
                     $ref: '#/components/schemas/Date'
                   block_bytes:
                     type: integer
                     description: The mean size(in bytes) of all blocks generated in a given period.
+
+    BlockCountResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - period
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            period:
+              $ref: '#/components/schemas/Period'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - block_count
+                properties:
+                  date:
+                    $ref: '#/components/schemas/Date'
+                  block_count:
+                    type: integer
+                    description: The number of blocks generated in a given window.
+
+    BlockIntervalResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - period
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            period:
+              $ref: '#/components/schemas/Period'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - block_interval
+                properties:
+                  date:
+                    $ref: '#/components/schemas/Date'
+                  block_interval:
+                    type: integer
+                    description: The average time between all the blocks generated during a given window in seconds.
+
+
+    UTXOCountResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - period
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            period:
+              $ref: '#/components/schemas/Period'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - utxo-count
+                properties:
+                  date:
+                    $ref: '#/components/schemas/Date'
+                  utxo-count:
+                    type: integer
+                    description: Number of unspent transaction outputs.
+
+
+    FeesResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - period
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            period:
+              $ref: '#/components/schemas/Period'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - fees_mean
+                  - fees_mean_usd
+                  - fees_total
+                  - fees_total_usd
+                  - fees_percent
+                properties:
+                  date:
+                    $ref: '#/components/schemas/Date'
+                  fees_mean:
+                    type: decimal
+                    description: The average fee per block in that window.
+                  fees_mean_usd:
+                    type: decimal
+                    description: The average fee per block in that window, in USD.
+                  fees_total:
+                    type: decimal
+                    description: The sum of all fees during a given window that are paid to bitcoin miners in the given window.
+                  fees_total_usd:
+                    type: decimal
+                    description: The sum of all fees during a given window that are paid to bitcoin miners in the given window, in USD.
+                  fees_percent:
+                    type: decimal
+                    description: The percentage of fee in total block reward. Values are between 0 and 1.
+
+
+    FeesTransactionResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - fees_transaction_mean
+            - fees_transaction_mean_usd
+            - fees_transaction_median
+            - fees_transaction_median_usd
+            - fees_percent
+          properties:
+            date:
+              $ref: '#/components/schemas/Date'
+            fees_transaction_mean:
+              type: decimal
+              description: The average fee per transaction in a given window.
+            fees_transaction_mean_usd:
+              type: decimal
+              description: The average fee per transaction in a given window, in USD.
+            fees_transaction_median:
+              type: decimal
+              description: The median fee per transaction in a given window.
+            fees_transaction_median_usd:
+              type: decimal
+              description: The median fee per transaction in a given window, in USD.
+
+
+    BlockRewardResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - period
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            period:
+              $ref: '#/components/schemas/Period'
+            data:
+              type: array
+              items:
+                type: object
+              required:
+                - blockreward
+                - blockreward_usd
+              properties:
+                date:
+                  $ref: '#/components/schemas/Date'
+                blockreward:
+                  type: decimal
+                  description: The sum of block reward for all blocks in a given window.
+                blockreward_usd:
+                  type: decimal
+                  description: The sum of block reward for all blocks in a given window, in USD.
+
+
+    DifficultyResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - period
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            period:
+              $ref: '#/components/schemas/Period'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - difficulty
+                properties:
+                  date:
+                    $ref: '#/components/schemas/Date'
+                  difficulty:
+                    type: decimal
+                    description: The mean difficulty of meeting the conditions to create a new BTC block in a given period.
+
+
+    HashrateResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - period
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            period:
+              $ref: '#/components/schemas/Period'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - hashrate
+                properties:
+                  date:
+                    $ref: '#/components/schemas/Date'
+                  block_count:
+                    type: decimal
+                    description: The mean number of hashes that miners calculates per second across all miners in the network. (GB)
+
+
+    SupplyResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - period
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            period:
+              $ref: '#/components/schemas/Period'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - supply_total
+                  - supply_new
+                properties:
+                  date:
+                    $ref: '#/components/schemas/Date'
+                  supply_total:
+                    type: decimal
+                    description: The total amount of BTC in existence.
+                  supply_new:
+                    type: decimal
+                    description: The sum of newly issued tokens in that window.
+
+
+    TransactionsCountResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - period
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            period:
+              $ref: '#/components/schemas/Period'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - transactions_count_total
+                  - transactions_count_mean
+                properties:
+                  date:
+                    $ref: '#/components/schemas/Date'
+                  transactions_count_total:
+                    type: decimal
+                    description: Total number of transactions whether they execute or not, and whether they result in the transfer of tokens or not.
+                  transactions_count_mean:
+                    type: decimal
+                    description: The mean number of transactions per block. For window=block, this value will be same as transactions_count_total.
+
+    TokensTransferredResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - period
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            period:
+              $ref: '#/components/schemas/Period'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - tokens_transferred_total
+                  - tokens_transferred_mean
+                  - tokens_transferred_median
+                properties:
+                  date:
+                    $ref: '#/components/schemas/Date'
+                  tokens_transferred_total:
+                    type: decimal
+                    description: Total number of tokens transferred in that window.
+                  tokens_transferred_mean:
+                    type: decimal
+                    description: The mean number of transferred token per transaction.
+                  tokens_transferred_median:
+                    type: decimal
+                    description: The median number of transferred token per transaction.
+
+
+    VelocityResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - period
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            period:
+              $ref: '#/components/schemas/Period'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - velocity_total_supply
+                properties:
+                  date:
+                    $ref: '#/components/schemas/Date'
+                  velocity_total_supply:
+                    type: decimal
+                    description: Estimated transaction volume in the trailing 1 year devided by current total supply.
+
+
+    AddressesCountResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - period
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            period:
+              $ref: '#/components/schemas/Period'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - addresses_count_active
+                  - addresses_count_sender
+                  - addresses_count_receiver
+                  - addresses_count_new
+                properties:
+                  date:
+                    $ref: '#/components/schemas/Date'
+                  addresses_count_active:
+                    type: decimal
+                    description: The total number of unique addresses that were active (either sender or receiver) on the blockchain in a given window.
+                  addresses_count_sender:
+                    type: decimal
+                    description: The number of addresses that were active as a sender.
+                  tokens_transferred_mean:
+                    type: decimal
+                    description: The number of addresses that were active as a receiver.
+                  addresses_count_new:
+                    type: decimal
+                    description: The number of new addresses which appeared on the blockchain for the first time.
+
+
+    InflationResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - period
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            period:
+              $ref: '#/components/schemas/Period'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - inflation_daily
+                properties:
+                  date:
+                    $ref: '#/components/schemas/Date'
+                  inflation_daily:
+                    type: decimal
+                    description: Daily inflation rate, which is calculated by dividing the newly issued token on that day by the total supply.
+
+
   securitySchemes:
-    api_key:
+    Bearer Access Token:            # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT    # optional, arbitrary value for documentation purposes
       description: |-
-        You must include your API Key in HTTP header in every request you make.
-      type: apiKey
-      name: Authorization
-      in: header
+        You must include your access token in HTTP header in every request you make. The token is unique, issued for each client, and regularly changed(once a year). Get your access token [here](mailto:contact@cryptoquant.com).
 
   examples:
     Order:
