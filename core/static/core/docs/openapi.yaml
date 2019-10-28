@@ -1087,18 +1087,157 @@ paths:
         - BTC Exchange Flows
       summary: Reserve
       description: This endpoint returns the full historical on-chain balance of Bitcoin exchanges.
+      operationId: getReserve
+      parameters:
+        - $ref: '#/components/parameters/exchange'
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/exchange-flows/reserve?window=day&start=191001&limit=2"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/exchange-flows/reserve?window=day&start=191001&limit=2")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/exchange-flows/reserve?window=day&start=191001&limit=2")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/exchange-flows/reserve?window=day&start=191001&limit=2")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/exchange-flows/reserve?window=day&start=191001&limit=2"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/Reserve'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
+
+
+
   /btc/exchange-flows/transactions-count:
     get:
       tags:
         - BTC Exchange Flows
-      summary: Transactions Count
+      summary: Transactions Count (Exchange)
       description: This endpoint returns the number of transactions flowing in/out of Bitcoin exchanges.
+      operationId: getTransactionsCountEF
+      parameters:
+        - $ref: '#/components/parameters/exchange'
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/exchange-flows/transactions-count/reserve?window=day&start=191001&limit=2"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/exchange-flows/transactions-count/reserve?window=day&start=191001&limit=2")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/exchange-flows/transactions-count?window=day&start=191001&limit=2")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/exchange-flows/transactions-count?window=day&start=191001&limit=2")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/exchange-flows/transactions-count?window=day&start=191001&limit=2"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/TransactionsCountEF'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
+
   /btc/exchange-flows/inflow:
     get:
       tags:
         - BTC Exchange Flows
       summary: Inflow
       description: This endpoint returns the inflow of BTC into exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day.
+      operationId: getInflow
+      parameters:
+        - $ref: '#/components/parameters/exchange'
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/exchange-flows/inflow?window=day&start=191001&limit=2"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/exchange-flows/inflow?window=day&start=191001&limit=2")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/exchange-flows/inflow?window=day&start=191001&limit=2")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/exchange-flows/inflow?window=day&start=191001&limit=2")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/exchange-flows/inflow?window=day&start=191001&limit=2"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/Inflow'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
 
   /btc/exchange-flows/outflow:
     get:
@@ -1106,13 +1245,103 @@ paths:
         - BTC Exchange Flows
       summary: Outflow
       description: This endpoint returns the outflow of BTC into exchange wallets for as far back as we track. The average outflow is the average transaction value for transactions flowing into exchange wallets on a given day.
+      operationId: getOutflow
+      parameters:
+        - $ref: '#/components/parameters/exchange'
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/exchange-flows/outflow?window=day&start=191001&limit=2"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/exchange-flows/outflow?window=day&start=191001&limit=2")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/exchange-flows/outflow?window=day&start=191001&limit=2")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/exchange-flows/outflow?window=day&start=191001&limit=2")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/exchange-flows/outflow?window=day&start=191001&limit=2"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/Outflow'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
+
   /btc/exchange-flows/addresses-count:
     get:
       tags:
         - BTC Exchange Flows
-      summary: Addresses Count
+      summary: Addresses Count (Exchange)
       description: This endpoint returns the number of addresses involved in inflow/outflow transactions.
+      operationId: getAddressesCountEF
+      parameters:
+        - $ref: '#/components/parameters/exchange'
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/exchange-flows/addresses-count?window=day&start=191001&limit=2"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/exchange-flows/addresses-count?window=day&start=191001&limit=2")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/exchange-flows/addresses-count?window=day&start=191001&limit=2")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
 
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/exchange-flows/addresses-count?window=day&start=191001&limit=2")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/exchange-flows/addresses-count?window=day&start=191001&limit=2"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/AddressesCountEF'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
 
 # 사용되는 컴포넌트의 스키마
 # https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#components-object
@@ -1193,6 +1422,18 @@ components:
         maximum: 100000
       style: form
       example: 100
+
+    exchange:
+      description: An exchange from the table that we support. [See here](#tag/BTC-Exchange-Flows).
+      explode: false
+      in: query
+      name: window
+      required: true
+      schema:
+        type: string
+        default: all
+      style: form
+      example: binance
 
 
   responses:
@@ -1566,6 +1807,116 @@ components:
                   nvt:
                 - datetime: "2019-10-02T00:00:00"
                   nvt:
+
+    Reserve:
+      description: The amount of BTC on a given exchange on this date.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ReserveResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "day"
+              data:
+                - datetime: "2019-10-01T00:00:00"
+                  reserve:
+                  reserve_usd:
+
+                - datetime: "2019-10-02T00:00:00"
+                  reserve:
+                  reserve_usd:
+
+    TransactionsCountEF:
+      description: transactions_count_inflow, transactions_count_outflow
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TransactionsCountEFResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "day"
+              data:
+                - datetime: "2019-10-01T00:00:00"
+                  transactions_count_inflow:
+                  transactions_count_outflow:
+
+                - datetime: "2019-10-02T00:00:00"
+                  transactions_count_inflow:
+                  transactions_count_outflow:
+
+    Inflow:
+      description: inflow_total, inflow_mean, inflow_top10
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InflowResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "day"
+              data:
+                - datetime: "2019-10-01T00:00:00"
+                  inflow_total:
+                  inflow_mean:
+                  inflow_top10:
+
+                - datetime: "2019-10-02T00:00:00"
+                  inflow_total:
+                  inflow_mean:
+                  inflow_top10:
+
+    Outflow:
+      description: outflow_total, outflow_mean, outflow_top10
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/OutflowResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "day"
+              data:
+                - datetime: "2019-10-01T00:00:00"
+                  outflow_total:
+                  outflow_mean:
+                  outflow_top10:
+
+                - datetime: "2019-10-02T00:00:00"
+                  outflow_total:
+                  outflow_mean:
+                  outflow_top10:
+
+
+    AddressesCountEF:
+      description: The number of addresses evoking inflow/outflow transactions to exchange wallets
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AddressesCountEFResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "day"
+              data:
+                - datetime: "2019-10-01T00:00:00"
+                  addresses_count_inflow:
+                  addresses_count_outflow:
+
+                - datetime: "2019-10-02T00:00:00"
+                  addresses_count_inflow:
+                  addresses_count_outflow:
 
     Unauthorized:
       description: Requested resource requires authorization
@@ -2322,6 +2673,189 @@ components:
                     type: decimal
                     description: NVT(Network Value to Transaction) ratio is the network value(supply_total) divided by tokens_transferred_total.
 
+    ReserveResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - reserve
+                  - reserve_usd
+                properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
+                  datetime:
+                    $ref: '#/components/schemas/Datetime'
+                  reserve:
+                    type: decimal
+                    description: The amount of BTC on a given exchange on this date.
+                  reserve_usd:
+                    type: decimal
+                    description: The USD value of the amount of BTC on a given exchange on this date.
+
+    TransactionsCountEFResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - transactions_count_inflow
+                  - transactions_count_outflow
+                properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
+                  datetime:
+                    $ref: '#/components/schemas/Datetime'
+                  transactions_count_inflow:
+                    type: decimal
+                    description: The number of transactions going to the exchange on this date.
+                  transactions_count_outflow:
+                    type: decimal
+                    description: The number of transactions going out of the exchange on this date.
+
+    InflowResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - inflow_total
+                  - inflow_mean
+                  - inflow_top10
+                properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
+                  datetime:
+                    $ref: '#/components/schemas/Datetime'
+                  inflow_total:
+                    type: decimal
+                    description: The total amount of BTC that flowed into the entity on this date.
+                  inflow_mean:
+                    type: decimal
+                    description: The mean amount of tokens per transactions sent to exchange wallets.
+                  inflow_top10:
+                    type: decimal
+                    description: The total BTC amount of top 10 transactions (in terms of total BTC sent) flowing out of exchange wallets for every day that the exchange wallets we track have been live on the blockchain.
+
+    OutflowResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - outflow_total
+                  - outflow_mean
+                  - outflow_top10
+                properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
+                  datetime:
+                    $ref: '#/components/schemas/Datetime'
+                  outflow_total:
+                    type: decimal
+                    description: The total amount of BTC that flowed out of the entity on this date. Denominated in BTC.
+                  outflow_mean:
+                    type: decimal
+                    description: The mean amount of tokens per transactions sent from exchange wallets
+                  outflow_top10:
+                    type: decimal
+                    description: The total BTC amount of top 10 transactions (in terms of total BTC sent) flowing out of exchange wallets for every day that the exchange wallets we track have been live on the blockchain.
+
+
+    AddressesCountEFResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - addresses_count_inflow
+                  - addresses_count_outflow
+                properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
+                  datetime:
+                    $ref: '#/components/schemas/Datetime'
+                  addresses_count_inflow:
+                    type: decimal
+                    description: The number of addresses evoking inflow transactions to exchange wallets
+                  addresses_count_outflow:
+                    type: decimal
+                    description: The number of addresses evoking outflow transactions from exchange wallets
 
   securitySchemes:
     Bearer Access Token:            # arbitrary name for the security scheme
