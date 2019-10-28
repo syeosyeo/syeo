@@ -930,19 +930,157 @@ paths:
       tags:
         - BTC Market Data
       summary: Price USD
-      description: This endpoint returns metrics related to the US Dollar(USD) price of BTC. For this endpoint, Minute, Day, Block 단위로 제공이 됨. We provide four metrics, `price_usd_open`, USD opening price at the beginning of the window, `price_usd_close`, USD closing price at the end of the window, `price_usd_high`, the highest USD price in a given window, and `price_usd_low`, the lowest USD price in a given window.
+      description: This endpoint returns metrics related to the US Dollar(USD) price of BTC. At this endpoint, metrics are calculated by Minute, Day, and Block. We provide four metrics, `price_usd_open`, USD opening price at the beginning of the window, `price_usd_close`, USD closing price at the end of the window, `price_usd_high`, the highest USD price in a given window, and `price_usd_low`, the lowest USD price in a given window.
+      operationId: getPriceUSD
+      parameters:
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/market-data/price-usd?window=day&start=191001&limit=2"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/market-data/price-usd?window=day&start=191001&limit=2")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/market-data/price-usd?window=day&start=191001&limit=2")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/market-data/price-usd?window=day&start=191001&limit=2")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/market-data/price-usd?window=day&start=191001&limit=2"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/PriceUSD'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
+
   /btc/market-data/capitalization:
     get:
       tags:
         - BTC Market Data
       summary: Capitalization
       description: This endpoint returns metrics related to market capitalization. First, we provide `market_cap`, which is total market capitalization of BTC, calculated by multiplying the total supply with its USD price. Moreover, we provide several adjusted capitalization metrics which are used for proper BTC valuation. `realized_cap` is the sum of each UTXO * last movement price. Since cryptocurrencies are vulnerable of being lost, unclaimed, or unreachable through various bugs, `realized_cap` is introduced to discount those coins which have unmoved for a long period. It indicates whether Bitcoin is overvalued or not. This can be described as an on-chain version of volume weighted average price(VWAP). `average_cap` is forever moving average, calculated by dividing the cumulated sum of daily market cap with the age of market. Instead of using fixed time for calculating the moving average (e.g. 50 days, 100days ...), this serves as the true mean.  Both `realized_cap` and `average_cap` are used to calculate `delta_cap` (`realized_cap`-`average_cap`). `delta_cap` is capable of spotting market bottoms. Moreover, by analyzing the movement of `delta_cap` which oscillates between `realized_cap` and `average_cap`, we could notice that market tops are reached when `delta_cap` is near `realized_cap`(in a log scaled chart). `mvrv`(Market-Value-to-Realized-Value) is a ratio, `market_cap` divided by `realized_cap`. It can be interpreted as the relationship between short-term and long-term investors (i.e. speculators vs hodlers). When this value is too high, BTC price may be overvalued, and if it is too low, there is a possibility that the price is undervalued.
+      operationId: getCapitalization
+      parameters:
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/market-data/capitalization?window=day&start=191001&limit=2"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/market-data/capitalization?window=day&start=191001&limit=2")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/market-data/capitalization?window=day&start=191001&limit=2")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/market-data/capitalization?window=day&start=191001&limit=2")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/market-data/capitalization?window=day&start=191001&limit=2"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/Capitalization'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
+
+
   /btc/market-data/nvt:
     get:
       tags:
         - BTC Market Data
       summary: NVT
       description: NVT(Network Value to Transaction) ratio is the network value(`supply_total`) divided by `tokens_transferred_total`. `nvt` is a metric often used to determine whether Bitcoin price is overvalued or not. The theory behind this indicator is that the value of the token depends on how actively transactions take place on the network.
+      operationId: getNVT
+      parameters:
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
+      x-code-samples:
+        - lang: Shell
+          source: >-
+            curl
+            "https://datapack.cryptoquant.com/v1/btc/market-data/nvt?window=day&start=191001&limit=2"
+        - lang: JavaScript
+          source: >-
+            fetch("https://datapack.cryptoquant.com/v1/btc/market-data/nvt?window=day&start=191001&limit=2")
+              .then(response => response.json())
+              .then(data => console.log(data))
+        - lang: NodeJS
+          source: |-
+            require('axios')
+              .get("https://datapack.cryptoquant.com/v1/btc/market-data/nvt?window=day&start=191001&limit=2")
+              .then(response => console.log(response))
+        - lang: Ruby
+          source: >-
+            require 'net/http'
+
+            uri =
+            URI("https://datapack.cryptoquant.com/v1/btc/market-data/nvt?window=day&start=191001&limit=2")
+
+            puts Net::HTTP.get(uri)
+        - lang: Python
+          source: >-
+            import urllib.request
+
+            url =
+            "https://datapack.cryptoquant.com/v1/btc/market-data/nvt?window=day&start=191001&limit=2"
+
+            print(urllib.request.urlopen(url).read())
+      responses:
+        200:
+          $ref: '#/components/responses/NVT'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - Bearer Access Token: []
+
+
+
   /btc/exchange-flows/reserve:
     get:
       tags:
@@ -991,6 +1129,7 @@ components:
         default: day
       style: form
       example: day
+
     isrange:
       description: true or false.
       explode: false
@@ -1002,6 +1141,7 @@ components:
         default: true
       style: form
       example: true
+
     period:
       description: The specific period of your interest. It can be YYMMDD or YYMMDD-YYMMDD if window=day is used. if window=block is used, specify the block height or the range of block heights. You should check if isrange=true is used when you want to specify the range.
       explode: false
@@ -1014,7 +1154,46 @@ components:
         YYMMDD-YYMMDD:
           type: array
       style: form
-      example: 190123-190601
+      example: "190123-190601"
+
+    from:
+      description: This defines the starting time for which data will be gathered. If window=day is used, it can be formatted as YYYY-MM-DDTHH:MM:SS (UTC time). If window=block is used, you can either specify the block height (e.g. 510000), or the datetime formatted as YYYY-MM-DDTHH:MM:SS (UTC time). If not specified, response will include data from the earliest time.
+      explode: false
+      in: query
+      name: from
+      required: false
+      schema:
+        YYYY-MM-DDTHH:MM:SS:
+          type: string
+      style: form
+      example: "2019-10-01T00:00:00"
+
+    to:
+      description: This defines the ending time for which data will be gathered. If window=day is used, it can be formatted as YYYY-MM-DDTHH:MM:SS (UTC time). If window=block is used, you can either specify the block height (e.g. 510000), or the datetime formatted as YYYY-MM-DDTHH:MM:SS (UTC time). If not specified, response will include data from the earliest time.
+      explode: false
+      in: query
+      name: to
+      required: false
+      schema:
+        YYYY-MM-DDTHH:MM:SS:
+          type: string
+      style: form
+      example: "2019-10-01T00:00:00"
+
+    limit:
+      description: The maximum number of entries to return before the latest data point. If not specified, up to 100,000 entries will be returned.
+      explode: false
+      in: query
+      name: limit
+      required: false
+      schema:
+        type: integer
+        default: 10
+        minimum: 1
+        maximum: 100000
+      style: form
+      example: 100
+
 
   responses:
     BlockBytes:
@@ -1321,6 +1500,73 @@ components:
                 - blockheight: "500001"
                   inflation_daily: 15924439.7953033
 
+    PriceUSD:
+      description: Price OHLC Data in USD
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PriceUSDResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "day"
+              data:
+                - datetime: "2019-10-01T00:00:00"
+                  price_usd_open:
+                  price_usd_high:
+                  price_usd_low:
+                  price_usd_close:
+                - datetime: "2019-10-02T00:00:00"
+                  price_usd_open:
+                  price_usd_high:
+                  price_usd_low:
+                  price_usd_close:
+
+    Capitalization:
+      description: market_cap, realized_cap, averge_cap, delta_cap, mvrv
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CapitalizationResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "day"
+              data:
+                - datetime: "2019-10-01T00:00:00"
+                  market_cap:
+                  realized_cap:
+                  averge_cap:
+                  delta_cap:
+                  mvrv:
+                - datetime: "2019-10-02T00:00:00"
+                  market_cap:
+                  realized_cap:
+                  averge_cap:
+                  delta_cap:
+                  mvrv:
+    NVT:
+      description: NVT(Network Value to Transaction) ratio
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NVTResponse'
+          example:
+            status:
+              code: 200
+              message: "success"
+            result:
+              window: "day"
+              data:
+                - datetime: "2019-10-01T00:00:00"
+                  nvt:
+                - datetime: "2019-10-02T00:00:00"
+                  nvt:
+
     Unauthorized:
       description: Requested resource requires authorization
       content:
@@ -1387,18 +1633,6 @@ components:
       type: string
       description: The date and time formatted as YYYY-MM-DDTHH:MM:SS (UTC time).
 
-    From:
-      type: string
-      description: This defines the starting time for which data will be gathered. If window=day is used, it can be formatted as YYYY-MM-DDTHH:MM:SS (UTC time). If window=block is used, you can either specify the block height (e.g. 510000), or the datetime formatted as YYYY-MM-DDTHH:MM:SS (UTC time). If not specified, response will include data from the earliest time.
-
-    To:
-      type: string
-      description: This defines the ending time for which data will be gathered. If window=day is used, it can be formatted as YYYY-MM-DDTHH:MM:SS (UTC time). If window=block is used, you can either specify the block height (e.g. 510000), or the datetime formatted as YYYY-MM-DDTHH:MM:SS (UTC time). If not specified, response will include data from the latest time.
-
-    Limit:
-      type: string
-      description: The maximum number of entries to return before the latest data point. If not specified, up to 100,000 entries will be returned.
-
     BlockBytesResponse:
       type: object
       required:
@@ -1459,6 +1693,8 @@ components:
                 required:
                   - block_count
                 properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
                   date:
                     $ref: '#/components/schemas/Date'
                   block_count:
@@ -1491,6 +1727,8 @@ components:
                 required:
                   - block_interval
                 properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
                   date:
                     $ref: '#/components/schemas/Date'
                   block_interval:
@@ -1524,6 +1762,8 @@ components:
                 required:
                   - utxo-count
                 properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
                   date:
                     $ref: '#/components/schemas/Date'
                   utxo-count:
@@ -1561,6 +1801,8 @@ components:
                   - fees_total_usd
                   - fees_percent
                 properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
                   date:
                     $ref: '#/components/schemas/Date'
                   fees_mean:
@@ -1597,6 +1839,8 @@ components:
             - fees_transaction_median_usd
             - fees_percent
           properties:
+            blockheight:
+              $ref: '#/components/schemas/Blockheight'
             date:
               $ref: '#/components/schemas/Date'
             fees_transaction_mean:
@@ -1640,6 +1884,8 @@ components:
                 - blockreward
                 - blockreward_usd
               properties:
+                blockheight:
+                  $ref: '#/components/schemas/Blockheight'
                 date:
                   $ref: '#/components/schemas/Date'
                 blockreward:
@@ -1676,6 +1922,8 @@ components:
                 required:
                   - difficulty
                 properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
                   date:
                     $ref: '#/components/schemas/Date'
                   difficulty:
@@ -1709,6 +1957,8 @@ components:
                 required:
                   - hashrate
                 properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
                   date:
                     $ref: '#/components/schemas/Date'
                   block_count:
@@ -1743,6 +1993,8 @@ components:
                   - supply_total
                   - supply_new
                 properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
                   date:
                     $ref: '#/components/schemas/Date'
                   supply_total:
@@ -1780,6 +2032,8 @@ components:
                   - transactions_count_total
                   - transactions_count_mean
                 properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
                   date:
                     $ref: '#/components/schemas/Date'
                   transactions_count_total:
@@ -1817,6 +2071,8 @@ components:
                   - tokens_transferred_mean
                   - tokens_transferred_median
                 properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
                   date:
                     $ref: '#/components/schemas/Date'
                   tokens_transferred_total:
@@ -1856,6 +2112,8 @@ components:
                 required:
                   - velocity_total_supply
                 properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
                   date:
                     $ref: '#/components/schemas/Date'
                   velocity_total_supply:
@@ -1892,6 +2150,8 @@ components:
                   - addresses_count_receiver
                   - addresses_count_new
                 properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
                   date:
                     $ref: '#/components/schemas/Date'
                   addresses_count_active:
@@ -1906,7 +2166,6 @@ components:
                   addresses_count_new:
                     type: decimal
                     description: The number of new addresses which appeared on the blockchain for the first time.
-
 
     InflationResponse:
       type: object
@@ -1934,11 +2193,134 @@ components:
                 required:
                   - inflation_daily
                 properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
                   date:
                     $ref: '#/components/schemas/Date'
                   inflation_daily:
                     type: decimal
                     description: Daily inflation rate, which is calculated by dividing the newly issued token on that day by the total supply.
+
+    PriceUSDResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - price_usd_open
+                  - price_usd_high
+                  - price_usd_low
+                  - price_usd_close
+                properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
+                  datetime:
+                    $ref: '#/components/schemas/Datetime'
+                  price_usd_open:
+                    type: decimal
+                    description: USD opening price at the beginning of the window.
+                  price_usd_high:
+                    type: decimal
+                    description: USD opening price at the end of the window.
+                  price_usd_low:
+                    type: decimal
+                    description: The highest USD price in a given window.
+                  price_usd_close:
+                    type: decimal
+                    description: The lowest USD price in a given window.
+
+    CapitalizationResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - market_cap
+                  - realized_cap
+                  - averge_cap
+                  - delta_cap
+                  - mvrv
+                properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
+                  datetime:
+                    $ref: '#/components/schemas/Datetime'
+                  market_cap:
+                    type: decimal
+                    description: Market capitalization of BTC, calculated by total_supply * price_usd_close.
+                  realized_cap:
+                    type: decimal
+                    description: The sum of all UTXOs multiplied at the price they last moved.
+                  averge_cap:
+                    type: decimal
+                    description: Forever moving average, calculated by dividing the cumulated sum of daily market cap with the age of market.
+                  delta_cap:
+                    type: decimal
+                    description: realized_cap minus average_cap.
+                  mvrv:
+                    type: decimal
+                    description: market_cap/realized_cap
+
+    NVTResponse:
+      type: object
+      required:
+        - status
+        - result
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        result:
+          type: object
+          required:
+            - window
+            - data
+          properties:
+            window:
+              $ref: '#/components/schemas/Window'
+            data:
+              type: array
+              items:
+                type: object
+                required:
+                  - nvt
+                properties:
+                  blockheight:
+                    $ref: '#/components/schemas/Blockheight'
+                  datetime:
+                    $ref: '#/components/schemas/Datetime'
+                  nvt:
+                    type: decimal
+                    description: NVT(Network Value to Transaction) ratio is the network value(supply_total) divided by tokens_transferred_total.
 
 
   securitySchemes:
