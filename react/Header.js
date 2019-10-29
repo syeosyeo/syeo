@@ -34,9 +34,14 @@ const styles = theme => ({
     flexGrow:1
   },
   subLogo: {
-    width: '70px',
+    width: '110px',
     height: '20px',
-    borderRadius: 4,
+    paddingLeft: 16,
+    paddingTop: 3,
+    position: "absolute",
+    fontSize: 14.5,
+    fontFamily: "DM Sans",
+    fontWeight: 400,
     [theme.breakpoints.down('sm')]: {
       display: "none"
     },
@@ -148,9 +153,8 @@ class Header extends React.Component {
         <AppBar id="appbar" className={classes.appBar}>
           <Grid className={this.props.indocs ? classes.headerDocs : classes.header} >
           <Toolbar disableGutters>
-          <a href="/home" className={classes.blueLink}><Typography className={classes.dasfinance}>CryptoQuant <button style={{
-              border: '1px solid #322956',
-            }} className={this.props.indocs ? classes.subLogo : classes.upbutton_none}>DataPack</button></Typography></a>
+          <a href="/home" className={classes.blueLink}><Typography className={classes.dasfinance}>CryptoQuant <span style={{
+          }} className={this.props.indocs ? classes.subLogo : classes.upbutton_none}>DataPack ™</span></Typography></a>
           <Grid container justify="flex-end">
             <Button id="home-storadar" href="https://calendly.com/ki--5/30min" variant='outlined' style={{
                 border: '2px solid #322956'

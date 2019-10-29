@@ -47,6 +47,35 @@ info:
     ```
      <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRj44BjZianQb0uG7CzFs5Uivn2dnyDQVZJPC0EzOqR40lBtawh-V9q6o2KV7TFJocf10mo4GWYQHfr/pubhtml?widget=true&amp;headers=false" style="width: 100%; height: 420px;"></iframe>
 
+    ## Status Object
+    Every response includes the status object which indicates if the request was successful. If it is not successful, 'message' specifies the cause of the error.
+    ```
+    {
+      "status": {
+          "code": 200,
+          "message": "success"
+      }
+    }
+    ```
+
+    ## Status and Error Codes
+    The CryptoQuant API uses standard HTTP status codes to indicate success or failure. 200 represents success, 4xx represents a user error (such as a problem with your key), and 5xx represents a problem with our API.
+
+    The following table describes status and error codes returned by Datapack.
+    In the status object, the `code` field contains the status code and the `message` field contains the type of response.
+
+    | Code |   Type                  |   Description                                            |
+    |------|-------------------------|----------------------------------------------------------|
+    | 200  |   success               | Request was successful.                                  |
+    | 200  |   deprecated            | A resource is deprecated and will removed in the future. |
+    | 400  |   bad_request           | Some required parameter is missing or has the wrong value.   |
+    | 401  |   unauthorized          | Internal authorization failed. It might mean missing or wrong credentials.   |
+    | 404  |   not_found             | URI is not valid or the resource ID does not correspond to an existing resource. |
+    | 405  |   not_allowed           | HTTP method not allowed, such as attempting to use a POST request with an endpoint that only accepts GET requests, or vice versa. |
+    | 500  |   internal_server_error | Unexpected error occurred. Please report this when you see it. |
+
+
+
     # Authentication
     Each API request requires authentication to identify the member. Authentication is provided through an access token.
     For each API request, include this HTTP header:
@@ -102,22 +131,6 @@ info:
     xhr.setRequestHeader("Authorization", access_token);
     xhr.send(null);
     ```
-
-    ## Status and Error Codes
-    The CryptoQuant API uses standard HTTP status codes to indicate success or failure. 200 represents success, 4xx represents a user error (such as a problem with your key), and 5xx represents a problem with our API.
-
-    The following table describes status and error codes returned by Datapack.
-    In the status object, the `code` field contains the status code and the `message` field contains the type of response.
-
-    | Code |   Type                  |   Description                                            |
-    |------|-------------------------|----------------------------------------------------------|
-    | 200  |   success               | Request was successful.                                  |
-    | 200  |   deprecated            | A resource is deprecated and will removed in the future. |
-    | 400  |   bad_request           | Some required parameter is missing or has the wrong value.   |
-    | 401  |   unauthorized          | Internal authorization failed. It might mean missing or wrong credentials.   |
-    | 404  |   not_found             | URI is not valid or the resource ID does not correspond to an existing resource. |
-    | 405  |   not_allowed           | HTTP method not allowed, such as attempting to use a POST request with an endpoint that only accepts GET requests, or vice versa. |
-    | 500  |   internal_server_error | Unexpected error occurred. Please report this when you see it. |
 
 
     # Time Convention
@@ -1427,7 +1440,7 @@ components:
       description: An exchange from the table that we support. [See here](#tag/BTC-Exchange-Flows).
       explode: false
       in: query
-      name: window
+      name: exchange
       required: true
       schema:
         type: string
