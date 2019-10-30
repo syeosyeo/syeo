@@ -228,8 +228,9 @@ paths:
       description: The mean size(in bytes) of all blocks generated at a given window.
       parameters:
         - $ref: '#/components/parameters/window'
-        - $ref: '#/components/parameters/isrange'
-        - $ref: '#/components/parameters/period'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
       responses:
         200:
           $ref: '#/components/responses/BlockBytes'
@@ -246,8 +247,9 @@ paths:
       operationId: getBlockCount
       parameters:
         - $ref: '#/components/parameters/window'
-        - $ref: '#/components/parameters/isrange'
-        - $ref: '#/components/parameters/period'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
       x-code-samples:
         - lang: Shell
           source: >-
@@ -296,8 +298,9 @@ paths:
       operationId: getBlockInterval
       parameters:
         - $ref: '#/components/parameters/window'
-        - $ref: '#/components/parameters/isrange'
-        - $ref: '#/components/parameters/period'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
       x-code-samples:
         - lang: Shell
           source: >-
@@ -347,8 +350,9 @@ paths:
       operationId: getUTXOCount
       parameters:
         - $ref: '#/components/parameters/window'
-        - $ref: '#/components/parameters/isrange'
-        - $ref: '#/components/parameters/period'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
       x-code-samples:
         - lang: Shell
           source: >-
@@ -397,8 +401,9 @@ paths:
       operationId: getFees
       parameters:
         - $ref: '#/components/parameters/window'
-        - $ref: '#/components/parameters/isrange'
-        - $ref: '#/components/parameters/period'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
       x-code-samples:
         - lang: Shell
           source: >-
@@ -497,8 +502,9 @@ paths:
       operationId: getBlockReward
       parameters:
         - $ref: '#/components/parameters/window'
-        - $ref: '#/components/parameters/isrange'
-        - $ref: '#/components/parameters/period'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
       x-code-samples:
         - lang: Shell
           source: >-
@@ -547,8 +553,9 @@ paths:
       operationId: getDifficulty
       parameters:
         - $ref: '#/components/parameters/window'
-        - $ref: '#/components/parameters/isrange'
-        - $ref: '#/components/parameters/period'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
       x-code-samples:
         - lang: Shell
           source: >-
@@ -597,8 +604,9 @@ paths:
       operationId: getHashrate
       parameters:
         - $ref: '#/components/parameters/window'
-        - $ref: '#/components/parameters/isrange'
-        - $ref: '#/components/parameters/period'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
       x-code-samples:
         - lang: Shell
           source: >-
@@ -647,8 +655,9 @@ paths:
       operationId: getSupply
       parameters:
         - $ref: '#/components/parameters/window'
-        - $ref: '#/components/parameters/isrange'
-        - $ref: '#/components/parameters/period'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
       x-code-samples:
         - lang: Shell
           source: >-
@@ -697,8 +706,9 @@ paths:
       operationId: getTransactionsCount
       parameters:
         - $ref: '#/components/parameters/window'
-        - $ref: '#/components/parameters/isrange'
-        - $ref: '#/components/parameters/period'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
       x-code-samples:
         - lang: Shell
           source: >-
@@ -747,8 +757,9 @@ paths:
       operationId: getTokensTransferred
       parameters:
         - $ref: '#/components/parameters/window'
-        - $ref: '#/components/parameters/isrange'
-        - $ref: '#/components/parameters/period'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
       x-code-samples:
         - lang: Shell
           source: >-
@@ -796,9 +807,10 @@ paths:
       description: This endpoint returns metrics related to the velocity of bitcoin. Bitcoin's velocity is calculated by dividing the trailing 1 year estimated transaction volume(the cumulated sum of transferred tokens) by current supply. Velocity is a metric that explains how actively is money circulating in the market.
       operationId: getVelocity
       parameters:
-        - $ref: '#/components/parameters/window'
-        - $ref: '#/components/parameters/isrange'
-        - $ref: '#/components/parameters/period'
+        - $ref: '#/components/parameters/window_d'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
       x-code-samples:
         - lang: Shell
           source: >-
@@ -847,8 +859,9 @@ paths:
       operationId: getAddressesCount
       parameters:
         - $ref: '#/components/parameters/window'
-        - $ref: '#/components/parameters/isrange'
-        - $ref: '#/components/parameters/period'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
       x-code-samples:
         - lang: Shell
           source: >-
@@ -888,55 +901,55 @@ paths:
       security:
         - Bearer Access Token: []
 
-  /btc/network-data/inflation:
-    get:
-      tags:
-        - BTC Network Data
-      summary: Inflation
-      description: This end point returns metrics relating to the bitcoin inflation rate. We provide `inflation_daily`, which is daily inflation rate calculated by dividing the number of newly issued tokens on that day by the total supply.
-      operationId: getInflation
-      parameters:
-        - $ref: '#/components/parameters/window'
-        - $ref: '#/components/parameters/isrange'
-        - $ref: '#/components/parameters/period'
-      x-code-samples:
-        - lang: Shell
-          source: >-
-            curl
-            "https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903"
-        - lang: JavaScript
-          source: >-
-            fetch("https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903")
-              .then(response => response.json())
-              .then(data => console.log(data))
-        - lang: NodeJS
-          source: |-
-            require('axios')
-              .get("https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903")
-              .then(response => console.log(response))
-        - lang: Ruby
-          source: >-
-            require 'net/http'
-
-            uri =
-            URI("https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903")
-
-            puts Net::HTTP.get(uri)
-        - lang: Python
-          source: >-
-            import urllib.request
-
-            url =
-            "https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903"
-
-            print(urllib.request.urlopen(url).read())
-      responses:
-        200:
-          $ref: '#/components/responses/Inflation'
-        401:
-          $ref: '#/components/responses/Unauthorized'
-      security:
-        - Bearer Access Token: []
+  # /btc/network-data/inflation:
+  #   get:
+  #     tags:
+  #       - BTC Network Data
+  #     summary: Inflation
+  #     description: This end point returns metrics relating to the bitcoin inflation rate. We provide `inflation_daily`, which is daily inflation rate calculated by dividing the number of newly issued tokens on that day by the total supply.
+  #     operationId: getInflation
+  #     parameters:
+  #       - $ref: '#/components/parameters/window'
+  #       - $ref: '#/components/parameters/isrange'
+  #       - $ref: '#/components/parameters/period'
+  #     x-code-samples:
+  #       - lang: Shell
+  #         source: >-
+  #           curl
+  #           "https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903"
+  #       - lang: JavaScript
+  #         source: >-
+  #           fetch("https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903")
+  #             .then(response => response.json())
+  #             .then(data => console.log(data))
+  #       - lang: NodeJS
+  #         source: |-
+  #           require('axios')
+  #             .get("https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903")
+  #             .then(response => console.log(response))
+  #       - lang: Ruby
+  #         source: >-
+  #           require 'net/http'
+  #
+  #           uri =
+  #           URI("https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903")
+  #
+  #           puts Net::HTTP.get(uri)
+  #       - lang: Python
+  #         source: >-
+  #           import urllib.request
+  #
+  #           url =
+  #           "https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903"
+  #
+  #           print(urllib.request.urlopen(url).read())
+  #     responses:
+  #       200:
+  #         $ref: '#/components/responses/Inflation'
+  #       401:
+  #         $ref: '#/components/responses/Unauthorized'
+  #     security:
+  #       - Bearer Access Token: []
 
   /btc/market-data/price-usd:
     get:
@@ -946,7 +959,7 @@ paths:
       description: This endpoint returns metrics related to the US Dollar(USD) price of BTC. At this endpoint, metrics are calculated by Minute, Day, and Block. We provide four metrics, `price_usd_open`, USD opening price at the beginning of the window, `price_usd_close`, USD closing price at the end of the window, `price_usd_high`, the highest USD price in a given window, and `price_usd_low`, the lowest USD price in a given window.
       operationId: getPriceUSD
       parameters:
-        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/window_mdb'
         - $ref: '#/components/parameters/from'
         - $ref: '#/components/parameters/to'
         - $ref: '#/components/parameters/limit'
@@ -1372,6 +1385,30 @@ components:
       style: form
       example: day
 
+    window_mdb:
+      description: min, day or block. If window is block, you will receive the exact size of each blocks.
+      explode: false
+      in: query
+      name: window
+      required: true
+      schema:
+        type: string
+        default: day
+      style: form
+      example: min
+
+    window_d:
+      description: Currently, we only support 'day'.
+      explode: false
+      in: query
+      name: window
+      required: true
+      schema:
+        type: string
+        default: day
+      style: form
+      example: day
+
     isrange:
       description: true or false.
       explode: false
@@ -1399,28 +1436,28 @@ components:
       example: "190123-190601"
 
     from:
-      description: This defines the starting time for which data will be gathered. If window=day is used, it can be formatted as YYYY-MM-DDTHH:MM:SS (UTC time). If window=block is used, you can either specify the block height (e.g. 510000), or the datetime formatted as YYYY-MM-DDTHH:MM:SS (UTC time). If not specified, response will include data from the earliest time.
+      description: This defines the starting time for which data will be gathered. If window=day is used, it can be formatted as YYYYMMDDTHHMMSS (indicating YYYY-MM-DDTHH:MM:SS, UTC time). If window=block is used, you can either specify the block height (e.g. 510000), or the datetime formatted as YYYYMMDDTHHMMSS (UTC time). If not specified, response will include data from the earliest time.
       explode: false
       in: query
       name: from
       required: false
       schema:
-        YYYY-MM-DDTHH:MM:SS:
+        YYYYMMDDTHHMMSS:
           type: string
       style: form
-      example: "2019-10-01T00:00:00"
+      example: "20191001T100000"
 
     to:
-      description: This defines the ending time for which data will be gathered. If window=day is used, it can be formatted as YYYY-MM-DDTHH:MM:SS (UTC time). If window=block is used, you can either specify the block height (e.g. 510000), or the datetime formatted as YYYY-MM-DDTHH:MM:SS (UTC time). If not specified, response will include data from the earliest time.
+      description: This defines the ending time for which data will be gathered. If window=day is used, it can be formatted as YYYYMMDDTHHMMSS (indicating YYYY-MM-DDTHH:MM:SS, UTC time). If window=block is used, you can either specify the block height (e.g. 510000), or the datetime formatted as YYYYMMDDTHHMMSS (UTC time). If not specified, response will include data from the earliest time.
       explode: false
       in: query
       name: to
       required: false
       schema:
-        YYYY-MM-DDTHH:MM:SS:
+        YYYYMMDDTHHMMSS:
           type: string
       style: form
-      example: "2019-10-01T00:00:00"
+      example: "20191001T103025"
 
     limit:
       description: The maximum number of entries to return before the latest data point. If not specified, up to 100,000 entries will be returned.
@@ -1546,13 +1583,12 @@ components:
               window: "day"
               period: "190901"
               data:
-                properties:
-                  date: "190901"
-                  fees_mean: 0.00013123
-                  fees_mean_usd: 0.11
-                  fees_total: 11.21331723
-                  fees_total_usd: 3010.23
-                  fees_percent: 0.012
+                date: "190901"
+                fees_mean: 0.00013123
+                fees_mean_usd: 0.11
+                fees_total: 11.21331723
+                fees_total_usd: 3010.23
+                fees_percent: 0.012
 
     FeesTransaction:
       description: fees_transaction_mean, fees_transaction_mean_usd, fees_transaction_median, fees_transaction_median_usd
@@ -1568,12 +1604,11 @@ components:
               window: "day"
               period: "190901"
               data:
-                properties:
-                  date: "190901"
-                  fees_transaction_mean: 0.00001321
-                  fees_transaction_mean_usd: 0.000312
-                  fees_transaction_median: 0.00001221
-                  fees_transaction_median_usd: 0.000289
+                date: "190901"
+                fees_transaction_mean: 0.00001321
+                fees_transaction_mean_usd: 0.000312
+                fees_transaction_median: 0.00001221
+                fees_transaction_median_usd: 0.000289
 
     BlockReward:
       description: The sum of block reward for all blocks in a given window. We also provide this value in usd.
@@ -1589,16 +1624,15 @@ components:
               window: "block"
               period: "555555-555557"
               data:
-                properties:
-                  - blockheight: 555555
-                    blockreward: 26.62
-                    blockreward_usd: 240771.37
-                  - blockheight: 555556
-                    blockreward: 23.61
-                    blockreward_usd: 210351.12
-                  - blockheight: 555557
-                    blockreward: 29.32
-                    blockreward_usd: 278263.04
+                - blockheight: 555555
+                  blockreward: 26.62
+                  blockreward_usd: 240771.37
+                - blockheight: 555556
+                  blockreward: 23.61
+                  blockreward_usd: 210351.12
+                - blockheight: 555557
+                  blockreward: 29.32
+                  blockreward_usd: 278263.04
     Difficulty:
       description: The mean difficulty of meeting the conditions to create a new BTC block in a given period.
       content:
@@ -1822,7 +1856,7 @@ components:
                   nvt:
 
     Reserve:
-      description: The amount of BTC on a given exchange on this date.
+      description: The amount of BTC on a given exchange on this window.
       content:
         application/json:
           schema:
@@ -1979,7 +2013,7 @@ components:
 
     Period:
       type: string
-      description: The time period covered by this data. If your window size is block, it will be the range of block heights. Otherwise, it will be the range of dates with the format YYDDMM.
+      description: The time period covered by this data. If your window size is block, it will be the range of block heights. Otherwise, it will be the range of windows with the format YYDDMM.
 
     Data:
       type: string
@@ -2716,10 +2750,10 @@ components:
                     $ref: '#/components/schemas/Datetime'
                   reserve:
                     type: decimal
-                    description: The amount of BTC on a given exchange on this date.
+                    description: The amount of BTC on a given exchange on this window.
                   reserve_usd:
                     type: decimal
-                    description: The USD value of the amount of BTC on a given exchange on this date.
+                    description: The USD value of the amount of BTC on a given exchange on this window.
 
     TransactionsCountEFResponse:
       type: object
@@ -2751,10 +2785,10 @@ components:
                     $ref: '#/components/schemas/Datetime'
                   transactions_count_inflow:
                     type: decimal
-                    description: The number of transactions going to the exchange on this date.
+                    description: The number of transactions going to the exchange on this window.
                   transactions_count_outflow:
                     type: decimal
-                    description: The number of transactions going out of the exchange on this date.
+                    description: The number of transactions going out of the exchange on this window.
 
     InflowResponse:
       type: object
@@ -2787,7 +2821,7 @@ components:
                     $ref: '#/components/schemas/Datetime'
                   inflow_total:
                     type: decimal
-                    description: The total amount of BTC that flowed into the entity on this date.
+                    description: The total amount of BTC that flowed into the entity on this window.
                   inflow_mean:
                     type: decimal
                     description: The mean amount of tokens per transactions sent to exchange wallets.
@@ -2826,7 +2860,7 @@ components:
                     $ref: '#/components/schemas/Datetime'
                   outflow_total:
                     type: decimal
-                    description: The total amount of BTC that flowed out of the entity on this date. Denominated in BTC.
+                    description: The total amount of BTC that flowed out of the entity on this window. Denominated in BTC.
                   outflow_mean:
                     type: decimal
                     description: The mean amount of tokens per transactions sent from exchange wallets

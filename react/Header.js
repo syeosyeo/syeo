@@ -36,12 +36,12 @@ const styles = theme => ({
   subLogo: {
     width: '110px',
     height: '20px',
-    paddingLeft: 16,
-    paddingTop: 3,
-    position: "absolute",
-    fontSize: 14.5,
+    marginLeft: 3,
+    padding: "2 6 2 6",
+    fontSize: 11.5,
     fontFamily: "DM Sans",
     fontWeight: 400,
+    borderRadius: 4,
     [theme.breakpoints.down('sm')]: {
       display: "none"
     },
@@ -154,10 +154,11 @@ class Header extends React.Component {
           <Grid className={this.props.indocs ? classes.headerDocs : classes.header} >
           <Toolbar disableGutters>
           <a href="/home" className={classes.blueLink}><Typography className={classes.dasfinance}>CryptoQuant <span style={{
-          }} className={this.props.indocs ? classes.subLogo : classes.upbutton_none}>DataPack ™</span></Typography></a>
+            border: '1px solid #322956'
+          }} className={this.props.indocs ? classes.subLogo : classes.upbutton_none}>DataPack</span></Typography></a>
           <Grid container justify="flex-end">
             <Button id="home-storadar" href="https://calendly.com/ki--5/30min" variant='outlined' style={{
-                border: '2px solid #322956'
+                border: '1px solid #322956'
               }} className={classNames(classes.serviceButton)}>Schedule a Call</Button>
             <Button href={"mailto:contact@cryptoquant.com"} className={classes.textButton}>
               <Typography align='center'  className={classes.link} >Contact</Typography>
