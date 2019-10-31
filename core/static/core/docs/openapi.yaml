@@ -216,6 +216,7 @@ tags:
       | Redeem     | Redeem is an exchange of tokens for deposited fiat that results in a decrease in the circulating supply. The opposite of Issue.|
 
   - name: Stablecoin Market Data
+    description: This namespace contains endpoints to retrieve metrics related to the value of tokens, including price, market cap etc.
 x-tagGroups:
   - name: Bitcoin
     tags:
@@ -1597,6 +1598,20 @@ paths:
           - $ref: '#/components/parameters/from'
           - $ref: '#/components/parameters/to'
           - $ref: '#/components/parameters/limit'
+  /btc/stablecoin/market-data/price-usd:
+      get:
+        tags:
+          - Stablecoin Market Data
+        summary: Price USD (Stablecoin)
+        description: This endpoint returns metrics related to the US Dollar(USD) price of the token. We provide four metrics, price_usd_open, USD opening price at the beginning of the window, price_usd_close, USD closing price at the end of the window, price_usd_high, the highest USD price in a given window, and price_usd_low, the lowest USD price in a given window.
+        operationId: getPriceUSDSC
+        parameters:
+          - $ref: '#/components/parameters/token'
+          - $ref: '#/components/parameters/window_mdb'
+          - $ref: '#/components/parameters/from'
+          - $ref: '#/components/parameters/to'
+          - $ref: '#/components/parameters/limit'
+
 
 # 사용되는 컴포넌트의 스키마
 # https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#components-object
