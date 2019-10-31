@@ -193,7 +193,6 @@ tags:
       | True USD       |   `tusd` |
       | Dai        |   `dai`  |
   - name: Stablecoin Market Data
-  - name: Stablecoin Network Data
 x-tagGroups:
   - name: Bitcoin
     tags:
