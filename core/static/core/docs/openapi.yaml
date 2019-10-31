@@ -38,11 +38,11 @@ info:
     │   ├── Market/             // price, capitalization, market indicators
     │   └── Exchange-Flows/     // on-chain statistics of exchanges
     │   └── Miner-Flows/        // on-chain statistics of miners
+    │   └── Inter-Entity-Flows/        // on-chain statistics of flows between entities
     └── StableCoin/
         ├── Network/            // USDT, TAXOS, USDC, DAI, TUSD
         ├── Market/             // price, capitalization, market indicators
         └── Exchange-Flows/     // on-chain statistics of exchanges
-        └── Miner-Flows/        // on-chain statistics of miners
 
     ```
      <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRj44BjZianQb0uG7CzFs5Uivn2dnyDQVZJPC0EzOqR40lBtawh-V9q6o2KV7TFJocf10mo4GWYQHfr/pubhtml?widget=true&amp;headers=false" style="width: 100%; height: 420px;"></iframe>
@@ -153,6 +153,7 @@ tags:
 
       | Name           |   Symbol   |   Status    |
       |----------------|------------|-------------|
+<<<<<<< HEAD
       | All Exchanges  |   all      |             |
       | Binance        |   binance  | Validated   |
       | Bitfinex       |   bitfinex | Validated   |
@@ -171,7 +172,70 @@ tags:
   - name: BTC Mining Pool Flows
   # - name: ETH Network Data
   # - name: ETH Market Data
+=======
+      | All Exchanges  |   `all`      |             |
+      | Binance        |   `binance`  | Validated   |
+      | Bitfinex       |   `bitfinex` | Validated   |
+      | Bitmex         |   `bitmex`   | Validated   |
+      | Bitflyer       |   `bitflyer` | In Progress |
+      | Bitstamp       |   `bitstamp` | In Progress |
+      | Bittrex        |   `Bittrex`  | Validated   |
+      | Coinone        |   `coinone`  | Validated   |
+      | GOPAX          |   `gopax`    | Validated   |
+      | Huobi Global   |   `hubg`     | In Progress |
+      | Korbit         |   `korbit`   | In Progress |
+      | Kraken         |   `kraken`   | Validated   |
+      | OKex           |   `okex`     | In Progress |
+      | Poloniex       |   `poloniex` | Validated   |
+
+  - name: BTC Miner Flows
+    description: |-
+      This namespace contains endpoints to retrieve data related to Bitcoin miners(i.e. mining pools). We provide metrics related to miner reserves, inflows, outflows, hashrate, revenue, workers, etc.
+      ### Supported miners
+      | Name           |   Symbol   |   Status    |
+      |----------------|------------|-------------|
+      | All Miners     |   `all`      |             |
+      | Miner1        |   `miner1`  | Validated   |
+  - name: BTC Inter Entity Flows
+  - name: ETH Network Data
+  - name: ETH Market Data
+>>>>>>> 116dccc9bdbc464624212d19ad2280b54de177fd
   - name: Stablecoin Network Data
+    description: |-
+      This namespace contains endpoint to retrieve on-chain network data of stablecoins, including token transfers, issuance, addresses, etc.
+      ### Supported stablecoins
+      | Name           |   Symbol   |
+      |----------------|------------|
+      | All tokens     |   `all`      |
+      | Tether USD(ERC20)   |   `usdt_erc20`  |
+      | Tether USD(Omni)    |   `usdt_omni` |
+      | Paxos Standard      |   `paxos`   |
+      | USD Coin       |   `usdc` |
+      | True USD       |   `tusd` |
+      | Dai        |   `dai`  |
+
+      ### Stablecoin Issuing Mechanism
+      Each individual Stablecoin is created by an issuing company and each of these companies operates with a different issue mechanism. 
+      here are many of these but the two most common are as follows.
+
+      #### Example 1
+      `Image Should Be Here`
+      Before providing clients with the granting address, the issuing company holds a treasury address. Through the contract, the tokens are minted and held in the treasury address. Once the client sends fiat currency, the clients tokens are moved from the treasury address to the client address and the tokens are listed as being issued. 
+      Conversely, when redeeming tokens for fiat, the tokens are sent to the treasury address and redeemed. This won't be reflected in the supply unless these tokens are burned using a contract by the issuing company. The circulating supply is calculated as tokens that have been issued to clients, ignoring the supply held in the issuing company wallets.
+      #### Example 2
+      `Image Should Be Here`
+      In this method, there is no separate treasury address. After confirming the deposit of fiat, tokens are minted from the contract address and delivered directly to the client address. Minting and issuance occur simultaneously. When clients redeem tokens, the burn and redemption also are simultaneous. 
+      This means that with this method, total supply and circulating supply will be the same. There are various methods for Stablecoin issuance, and we calculated supply and locate significant transactions.  based upon these types of factors. In the future, mint/issue/burn/redeem will be added to our available metrics and will be defined as listed below.
+
+      #### Terminology
+
+      | Term          |   Definition   |
+      |----------------|------------|
+      | Mint    |  Mint is a creation of new tokens that add to the supply. When tokens are minted, the total supply will increase.      |
+      | Issue   |Issue is when tokens are delivered to clients after deposit of fiat has been confirmed. When tokens are issued, the circulating supply will increase. |
+      | Burn   |Burn is a revocation of currently existing tokens that results in a decreased supply. The opposite of Mint.|
+      | Redeem     | Redeem is an exchange of tokens for deposited fiat that results in a decrease in the circulating supply. The opposite of Issue.|
+
   - name: Stablecoin Market Data
 x-tagGroups:
   - name: Bitcoin
@@ -179,7 +243,8 @@ x-tagGroups:
       - BTC Network Data
       - BTC Market Data
       - BTC Exchange Flows
-      - BTC Mining Pool Flows
+      - BTC Miner Flows
+      - BTC Inter Entity Flows
   - name: Stablecoin
     tags:
       - Stablecoin Network Data
@@ -1074,7 +1139,7 @@ paths:
     get:
       tags:
         - BTC Exchange Flows
-      summary: Reserve
+      summary: Reserve (Exchange)
       description: This endpoint returns the full historical on-chain balance of Bitcoin exchanges.
       operationId: getReserve
       parameters:
@@ -1176,7 +1241,7 @@ paths:
     get:
       tags:
         - BTC Exchange Flows
-      summary: Inflow
+      summary: Inflow (Exchange)
       description: This endpoint returns the inflow of BTC into exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day.
       operationId: getInflow
       parameters:
@@ -1226,7 +1291,7 @@ paths:
     get:
       tags:
         - BTC Exchange Flows
-      summary: Outflow
+      summary: Outflow (Exchange)
       description: This endpoint returns the outflow of BTC into exchange wallets for as far back as we track. The average outflow is the average transaction value for transactions flowing into exchange wallets on a given day.
       operationId: getOutflow
       parameters:
@@ -1322,12 +1387,198 @@ paths:
       security:
         - Bearer Access Token: []
 
+  /btc/miner-flows/reserve:
+    get:
+      tags:
+        - BTC Miner Flows
+      summary: Reserve (Miner)
+      description: This endpoint returns the full historical on-chain balance of Bitcoin mining pools.
+      operationId: getReserveMF
+      parameters:
+        - $ref: '#/components/parameters/miner'
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit'
+  /btc/miner-flows/transactions-count:
+    get:
+      tags:
+        - BTC Miner Flows
+      summary: Transactions Count (Miner)
+      description: This endpoint returns the number of transactions flowing in/out of Bitcoin miners.
+      operationId: getTransactionsCountMF
+      parameters:
+        - $ref: '#/components/parameters/miner'
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit' 
+  /btc/miner-flows/inflow:
+    get:
+      tags:
+        - BTC Miner Flows
+      summary: Inflow (Miner)
+      description: This endpoint returns the inflow of BTC into mining pool wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into mining pool wallets on a given day.
+      operationId: getInflowMF
+      parameters:
+        - $ref: '#/components/parameters/miner'
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit' 
+  /btc/miner-flows/outflow:
+    get:
+      tags:
+        - BTC Miner Flows
+      summary: Outflow (Miner)
+      description: This endpoint returns the outflow of BTC into mining pool wallets for as far back as we track. The average outflow is the average transaction value for transactions flowing out of mining pool wallets on a given day.
+      operationId: getOutflowMF
+      parameters:
+        - $ref: '#/components/parameters/miner'
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit' 
+  /btc/miner-flows/addresses-count:
+    get:
+      tags:
+        - BTC Miner Flows
+      summary: Addresses Count (Miner)
+      description: This endpoint returns the number of addresses involved in inflow/outflow transactions.
+      operationId: getAddressesCountMF
+      parameters:
+        - $ref: '#/components/parameters/miner'
+        - $ref: '#/components/parameters/window'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit' 
+  /btc/miner-flows/hashrate:
+    get:
+      tags:
+        - BTC Miner Flows
+      summary: Hashrate (Miner)
+      description: The mean speed at which hash problems are being solved by a mining pool. It is inferred by the percent of blocks mined by a mining pool during a given period multiplied by the total hashrate.
+      operationId: getHashrate
+      parameters:
+        - $ref: '#/components/parameters/miner'
+        - $ref: '#/components/parameters/window_d'
+        - $ref: '#/components/parameters/from'
+        - $ref: '#/components/parameters/to'
+        - $ref: '#/components/parameters/limit' 
+  /btc/miner-flows/revenue:
+      get:
+        tags:
+          - BTC Miner Flows
+        summary: Revenue (Miner)
+        description: The amount of Bitcoins earned by a mining pool through blockreward(i.e. coinbase + transaction fee) during a given period.
+        operationId: getRevenue
+        parameters:
+          - $ref: '#/components/parameters/miner'
+          - $ref: '#/components/parameters/window_d'
+          - $ref: '#/components/parameters/from'
+          - $ref: '#/components/parameters/to'
+          - $ref: '#/components/parameters/limit' 
+  /btc/inter-entity-flows/exchange-to-exchange:
+      get:
+        tags:
+          - BTC Inter Entity Flows
+        summary: Exchange to Exchange
+        description: The number of tokens transferred from an exchange to another exchange.
+        operationId: getExchangeToExchange
+        parameters:
+          - $ref: '#/components/parameters/from_entity_ex'
+          - $ref: '#/components/parameters/to_entity_ex'
+          - $ref: '#/components/parameters/window_d'
+          - $ref: '#/components/parameters/from'
+          - $ref: '#/components/parameters/to'
+          - $ref: '#/components/parameters/limit'
+  /btc/inter-entity-flows/miner-to-exchange:
+      get:
+        tags:
+          - BTC Inter Entity Flows
+        summary: Miner to Exchange
+        description: The number of tokens transferred from a mining pool to an exchange.
+        operationId: getMinerToExchange
+        parameters:
+          - $ref: '#/components/parameters/from_entity_mp'
+          - $ref: '#/components/parameters/to_entity_ex'
+          - $ref: '#/components/parameters/window_d'
+          - $ref: '#/components/parameters/from'
+          - $ref: '#/components/parameters/to'
+          - $ref: '#/components/parameters/limit'
+  /btc/inter-entity-flows/exchnage-to-miner:
+      get:
+        tags:
+          - BTC Inter Entity Flows
+        summary: Exchange to Miner
+        description: The number of tokens transferred from an exchange to a mining pool.
+        operationId: getExchangeToMiner
+        parameters:
+          - $ref: '#/components/parameters/from_entity_ex'
+          - $ref: '#/components/parameters/to_entity_mp'
+          - $ref: '#/components/parameters/window_d'
+          - $ref: '#/components/parameters/from'
+          - $ref: '#/components/parameters/to'
+          - $ref: '#/components/parameters/limit'
+  /btc/stablecoin/network-data/supply:
+      get:
+        tags:
+          - Stablecoin Network Data
+        summary: Supply (Stablecoin)
+        description: This end point returns metrics related to token supply, i.e. the amount of token in existence. We currently provide six metrics. `supply_total` is the total amount of tokens in existence, and `supply_circulating` is the approximation of the amount of tokens that are circulating in the market(e.g. excluding tokens owned by issuing company's treasury address). `supply_minted` and `supply_burned` represents how much tokens were added/subtracted from `supply_total`. `supply_issued` and `supply_redeemed` represents how much tokens were added/subtracted from `supply_circulating`. For some tokens, mint and issue(or redeem and burn) occurs simultaneously, and others are not. For further information, please refer to the section Stablecoin Issuing Mechanism.
+        operationId: getSupplySC
+        parameters:
+          - $ref: '#/components/parameters/token'
+          - $ref: '#/components/parameters/window'
+          - $ref: '#/components/parameters/from'
+          - $ref: '#/components/parameters/to'
+          - $ref: '#/components/parameters/limit'
+  /btc/stablecoin/network-data/transactions-count:
+      get:
+        tags:
+          - Stablecoin Network Data
+        summary: Transactions Count (Stablecoin)
+        description: This endpoint returns metrics related to the number of transactions in that window. We provide several metrics. `transactions_count_total` is the total number of transactions in that window `transactions_count_mean`, the mean number of transactions per block in that window. `transactions_count_mint`, `transactions_count_issue`, `transactions_count_burn` and `transactions_count_redeem` are metrics that represent the number of transactions related to each actions (mint, issue, burn, redeem). For further information about the actions, please refer to the section Stablecoin Issuing Mechanism.
+        operationId: getTransactionsCountSC
+        parameters:
+          - $ref: '#/components/parameters/token'
+          - $ref: '#/components/parameters/window'
+          - $ref: '#/components/parameters/from'
+          - $ref: '#/components/parameters/to'
+          - $ref: '#/components/parameters/limit'
+  /btc/stablecoin/network-data/tokens-transferred:
+      get:
+        tags:
+          - Stablecoin Network Data
+        summary: Tokens Transferred (Stablecoin)
+        description: This endpoint returns metrics related to number of tokens transferred, i.e transaction volume. We provide several metrics, `tokens_transferred_total`, the total number of transferred tokens in that window, and `tokens_transferred_mean`, the mean number of transferred tokens per transaction in that window.
+        operationId: getTokensTransferredSC
+        parameters:
+          - $ref: '#/components/parameters/token'
+          - $ref: '#/components/parameters/window'
+          - $ref: '#/components/parameters/from'
+          - $ref: '#/components/parameters/to'
+          - $ref: '#/components/parameters/limit'
+  /btc/stablecoin/network-data/addresses-count:
+      get:
+        tags:
+          - Stablecoin Network Data
+        summary: Addresses Count (Stablecoin)
+        description: This endpoint returns metrics relating to the number of used addresses to transfer the token. We provide several metrics, `addresses_count_active`, the total number of unique addresses that were active (either sender or receiver) on the blockchain in a given window, `addresses_count_sender`, the number of addresses that were active as a sender, `addresses_count_receiver`, the number of addresses that were active as a receiver.
+        operationId: getAddressesCountSC
+        parameters:
+          - $ref: '#/components/parameters/token'
+          - $ref: '#/components/parameters/window'
+          - $ref: '#/components/parameters/from'
+          - $ref: '#/components/parameters/to'
+          - $ref: '#/components/parameters/limit'
+
 # 사용되는 컴포넌트의 스키마
 # https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#components-object
 components:
   parameters:
     window:
-      description: day or block. If window is block, you will receive the exact size of each blocks.
+      description: Currently we support `day` and `block`.
       explode: false
       in: query
       name: window
@@ -1339,7 +1590,7 @@ components:
       example: day
 
     window_mdb:
-      description: min, day or block. If window is block, you will receive the exact size of each blocks.
+      description: Currently we support `min`, `day` or `block`.
       explode: false
       in: query
       name: window
@@ -1351,7 +1602,7 @@ components:
       example: min
 
     window_d:
-      description: Currently, we only support 'day'.
+      description: Currently, we only support `day`.
       explode: false
       in: query
       name: window
@@ -1437,7 +1688,67 @@ components:
         default: all
       style: form
       example: binance
-
+    miner:
+      description: A mining pool from the table that we support. [See here](#tag/BTC-Miner-Flows).
+      explode: false
+      in: query
+      name: miner
+      required: true
+      schema:
+        type: string
+        default: all
+      style: form
+      example: antpool
+    from_entity_ex:
+      description:  An exchange from the table that we support.[See here](#tag/BTC-Inter-Entity-Flows)
+      explode: false
+      in: query
+      name: from_entity
+      required: true
+      schema:
+        type: string
+      style: form
+      example: binance
+    from_entity_mp:
+      description: A mining pool from the table that we support.[See here](#tag/BTC-Inter-Entity-Flows)
+      explode: false
+      in: query
+      name: from_entity
+      required: true
+      schema:
+        type: string
+      style: form
+      example: antpool
+    to_entity_ex:
+      description:  An exchange from the table that we support.[See here](#tag/BTC-Inter-Entity-Flows)
+      explode: false
+      in: query
+      name: to_entity
+      required: true
+      schema:
+        type: string
+      style: form
+      example: binance
+    to_entity_mp:
+      description: A mining pool from the table that we support.[See here](#tag/BTC-Inter-Entity-Flows)
+      explode: false
+      in: query
+      name: to_entity
+      required: true
+      schema:
+        type: string
+      style: form
+      example: antpool
+    token:
+      description: A token from the table that we support.[See here](#tag/Stablecoin-Network-Data)
+      explode: false
+      in: query
+      name: token
+      required: true
+      schema:
+        type: string
+      style: form
+      example: usdt_erc20
 
   responses:
     BlockBytes:
