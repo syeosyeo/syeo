@@ -169,11 +169,10 @@ tags:
       | Poloniex       |   poloniex | Validated   |
 
   - name: BTC Mining Pool Flows
-  - name: ETH Network Data
-  - name: ETH Market Data
+  # - name: ETH Network Data
+  # - name: ETH Market Data
   - name: Stablecoin Network Data
   - name: Stablecoin Market Data
-  - name: Stablecoin Network Data
 x-tagGroups:
   - name: Bitcoin
     tags:
@@ -234,8 +233,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/BlockBytes'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
   /btc/network-data/block-count:
@@ -284,8 +281,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/BlockCount'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -335,8 +330,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/BlockInterval'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -387,8 +380,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/UTXOCount'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -438,8 +429,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/Fees'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -488,8 +477,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/FeesTransaction'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -539,8 +526,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/BlockReward'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -590,8 +575,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/Difficulty'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -641,8 +624,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/Hashrate'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -692,8 +673,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/Supply'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -743,8 +722,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/TransactionsCount'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -794,8 +771,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/TokensTransferred'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -845,8 +820,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/Velocity'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -896,8 +869,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/AddressesCount'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -946,8 +917,6 @@ paths:
   #     responses:
   #       200:
   #         $ref: '#/components/responses/Inflation'
-  #       401:
-  #         $ref: '#/components/responses/Unauthorized'
   #     security:
   #       - Bearer Access Token: []
 
@@ -997,8 +966,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/PriceUSD'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -1048,8 +1015,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/Capitalization'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -1100,8 +1065,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/NVT'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -1154,8 +1117,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/Reserve'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -1208,8 +1169,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/TransactionsCountEF'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -1260,8 +1219,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/Inflow'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -1312,8 +1269,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/Outflow'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
@@ -1364,8 +1319,6 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/AddressesCountEF'
-        401:
-          $ref: '#/components/responses/Unauthorized'
       security:
         - Bearer Access Token: []
 
