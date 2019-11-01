@@ -1,0 +1,112 @@
+
+/btc/miner-flows/reserve:
+  get:
+    tags:
+      - BTC Miner Flows
+    summary: Reserve (Miner)
+    description: This endpoint returns the full historical on-chain balance of Bitcoin mining pools.
+    operationId: getReserveMF
+    parameters:
+      - $ref: './../parameters.yaml#/miner'
+      - $ref: './../parameters.yaml#/window'
+      - $ref: './../parameters.yaml#/from'
+      - $ref: './../parameters.yaml#/to'
+      - $ref: './../parameters.yaml#/limit'
+/btc/miner-flows/transactions-count:
+  get:
+    tags:
+      - BTC Miner Flows
+    summary: Transactions Count (Miner)
+    description: This endpoint returns the number of transactions flowing in/out of Bitcoin miners.
+    operationId: getTransactionsCountMF
+    parameters:
+      - $ref: './../parameters.yaml#/miner'
+      - $ref: './../parameters.yaml#/window'
+      - $ref: './../parameters.yaml#/from'
+      - $ref: './../parameters.yaml#/to'
+      - $ref: './../parameters.yaml#/limit'
+/btc/miner-flows/inflow:
+  get:
+    tags:
+      - BTC Miner Flows
+    summary: Inflow (Miner)
+    description: This endpoint returns the inflow of BTC into mining pool wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into mining pool wallets on a given day.
+    operationId: getInflowMF
+    parameters:
+      - $ref: './../parameters.yaml#/miner'
+      - $ref: './../parameters.yaml#/window'
+      - $ref: './../parameters.yaml#/from'
+      - $ref: './../parameters.yaml#/to'
+      - $ref: './../parameters.yaml#/limit'
+/btc/miner-flows/outflow:
+  get:
+    tags:
+      - BTC Miner Flows
+    summary: Outflow (Miner)
+    description: This endpoint returns the outflow of BTC into mining pool wallets for as far back as we track. The average outflow is the average transaction value for transactions flowing out of mining pool wallets on a given day.
+    operationId: getOutflowMF
+    parameters:
+      - $ref: './../parameters.yaml#/miner'
+      - $ref: './../parameters.yaml#/window'
+      - $ref: './../parameters.yaml#/from'
+      - $ref: './../parameters.yaml#/to'
+      - $ref: './../parameters.yaml#/limit'
+/btc/miner-flows/addresses-count:
+  get:
+    tags:
+      - BTC Miner Flows
+    summary: Addresses Count (Miner)
+    description: This endpoint returns the number of addresses involved in inflow/outflow transactions.
+    operationId: getAddressesCountMF
+    parameters:
+      - $ref: './../parameters.yaml#/miner'
+      - $ref: './../parameters.yaml#/window'
+      - $ref: './../parameters.yaml#/from'
+      - $ref: './../parameters.yaml#/to'
+      - $ref: './../parameters.yaml#/limit'
+/btc/miner-flows/hashrate:
+  get:
+    tags:
+      - BTC Miner Flows
+    summary: Hashrate (Miner)
+    description: The mean speed at which hash problems are being solved by a mining pool. It is inferred by the percent of blocks mined by a mining pool during a given period multiplied by the total hashrate.
+    operationId: getHashrate
+    parameters:
+      - $ref: './../parameters.yaml#/miner'
+      - $ref: './../parameters.yaml#/window_d'
+      - $ref: './../parameters.yaml#/from'
+      - $ref: './../parameters.yaml#/to'
+      - $ref: './../parameters.yaml#/limit'
+/btc/miner-flows/revenue:
+    get:
+      tags:
+        - BTC Miner Flows
+      summary: Revenue (Miner)
+      description: The amount of Bitcoins earned by a mining pool through blockreward(i.e. coinbase + transaction fee) during a given period.
+      operationId: getRevenue
+      parameters:
+        - $ref: './../parameters.yaml#/miner'
+        - $ref: './../parameters.yaml#/window_d'
+        - $ref: './../parameters.yaml#/from'
+        - $ref: './../parameters.yaml#/to'
+        - $ref: './../parameters.yaml#/limit'
+/btc/inter-entity-flows/exchange-to-exchange:
+    get:
+      tags:
+        - BTC Inter Entity Flows
+      summary: Exchange to Exchange
+      description: The number of tokens transferred from an exchange to another exchange.
+      operationId: getExchangeToExchange
+      parameters:
+        - $ref: './../parameters.yaml#/from_entity_ex'
+        - $ref: './../parameters.yaml#/to_entity_ex'
+        - $ref: './../parameters.yaml#/window_d'
+        - $ref: './../parameters.yaml#/from'
+        - $ref: './../parameters.yaml#/to'
+        - $ref: './../parameters.yaml#/limit'
+
+responses:
+
+
+
+schemas:

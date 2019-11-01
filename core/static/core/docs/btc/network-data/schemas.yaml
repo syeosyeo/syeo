@@ -1,0 +1,567 @@
+BlockBytesResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - period
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        period:
+          $ref: './../../basic_schemas.yaml#/Period'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - block_bytes
+            properties:
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              block_bytes:
+                type: integer
+                description: The mean size(in bytes) of all blocks generated in a given period.
+
+BlockCountResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - period
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        period:
+          $ref: './../../basic_schemas.yaml#/Period'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - block_count
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
+              block_count:
+                type: integer
+                description: The number of blocks generated in a given window.
+
+BlockIntervalResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - period
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        period:
+          $ref: './../../basic_schemas.yaml#/Period'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - block_interval
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
+              block_interval:
+                type: integer
+                description: The average time between all the blocks generated during a given window in seconds.
+
+
+UTXOCountResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - period
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        period:
+          $ref: './../../basic_schemas.yaml#/Period'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - utxo-count
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
+              utxo-count:
+                type: integer
+                description: Number of unspent transaction outputs.
+
+
+FeesResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - period
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        period:
+          $ref: './../../basic_schemas.yaml#/Period'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - fees_mean
+              - fees_mean_usd
+              - fees_total
+              - fees_total_usd
+              - fees_percent
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
+              fees_mean:
+                type: decimal
+                description: The average fee per block in that window.
+              fees_mean_usd:
+                type: decimal
+                description: The average fee per block in that window, in USD.
+              fees_total:
+                type: decimal
+                description: The sum of all fees during a given window that are paid to bitcoin miners in the given window.
+              fees_total_usd:
+                type: decimal
+                description: The sum of all fees during a given window that are paid to bitcoin miners in the given window, in USD.
+              fees_percent:
+                type: decimal
+                description: The percentage of fee in total block reward. Values are between 0 and 1.
+
+
+FeesTransactionResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - fees_transaction_mean
+        - fees_transaction_mean_usd
+        - fees_transaction_median
+        - fees_transaction_median_usd
+        - fees_percent
+      properties:
+        blockheight:
+          $ref: './../../basic_schemas.yaml#/Blockheight'
+        date:
+          $ref: './../../basic_schemas.yaml#/Date'
+        fees_transaction_mean:
+          type: decimal
+          description: The average fee per transaction in a given window.
+        fees_transaction_mean_usd:
+          type: decimal
+          description: The average fee per transaction in a given window, in USD.
+        fees_transaction_median:
+          type: decimal
+          description: The median fee per transaction in a given window.
+        fees_transaction_median_usd:
+          type: decimal
+          description: The median fee per transaction in a given window, in USD.
+
+
+BlockRewardResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - period
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        period:
+          $ref: './../../basic_schemas.yaml#/Period'
+        data:
+          type: array
+          items:
+            type: object
+          required:
+            - blockreward
+            - blockreward_usd
+          properties:
+            blockheight:
+              $ref: './../../basic_schemas.yaml#/Blockheight'
+            date:
+              $ref: './../../basic_schemas.yaml#/Date'
+            blockreward:
+              type: decimal
+              description: The sum of block reward for all blocks in a given window.
+            blockreward_usd:
+              type: decimal
+              description: The sum of block reward for all blocks in a given window, in USD.
+
+
+DifficultyResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - period
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        period:
+          $ref: './../../basic_schemas.yaml#/Period'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - difficulty
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
+              difficulty:
+                type: decimal
+                description: The mean difficulty of meeting the conditions to create a new BTC block in a given period.
+
+
+HashrateResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - period
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        period:
+          $ref: './../../basic_schemas.yaml#/Period'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - hashrate
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
+              block_count:
+                type: decimal
+                description: The mean number of hashes that miners calculates per second across all miners in the network. (GB)
+
+
+SupplyResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - period
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        period:
+          $ref: './../../basic_schemas.yaml#/Period'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - supply_total
+              - supply_new
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
+              supply_total:
+                type: decimal
+                description: The total amount of BTC in existence.
+              supply_new:
+                type: decimal
+                description: The sum of newly issued tokens in that window.
+
+
+TransactionsCountResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - period
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        period:
+          $ref: './../../basic_schemas.yaml#/Period'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - transactions_count_total
+              - transactions_count_mean
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
+              transactions_count_total:
+                type: decimal
+                description: Total number of transactions whether they execute or not, and whether they result in the transfer of tokens or not.
+              transactions_count_mean:
+                type: decimal
+                description: The mean number of transactions per block. For window=block, this value will be same as transactions_count_total.
+
+TokensTransferredResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - period
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        period:
+          $ref: './../../basic_schemas.yaml#/Period'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - tokens_transferred_total
+              - tokens_transferred_mean
+              - tokens_transferred_median
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
+              tokens_transferred_total:
+                type: decimal
+                description: Total number of tokens transferred in that window.
+              tokens_transferred_mean:
+                type: decimal
+                description: The mean number of transferred token per transaction.
+              tokens_transferred_median:
+                type: decimal
+                description: The median number of transferred token per transaction.
+
+
+VelocityResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - period
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        period:
+          $ref: './../../basic_schemas.yaml#/Period'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - velocity_total_supply
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
+              velocity_total_supply:
+                type: decimal
+                description: Estimated transaction volume in the trailing 1 year devided by current total supply.
+
+
+AddressesCountResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - period
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        period:
+          $ref: './../../basic_schemas.yaml#/Period'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - addresses_count_active
+              - addresses_count_sender
+              - addresses_count_receiver
+              - addresses_count_new
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
+              addresses_count_active:
+                type: decimal
+                description: The total number of unique addresses that were active (either sender or receiver) on the blockchain in a given window.
+              addresses_count_sender:
+                type: decimal
+                description: The number of addresses that were active as a sender.
+              tokens_transferred_mean:
+                type: decimal
+                description: The number of addresses that were active as a receiver.
+              addresses_count_new:
+                type: decimal
+                description: The number of new addresses which appeared on the blockchain for the first time.
+
+InflationResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - period
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        period:
+          $ref: './../../basic_schemas.yaml#/Period'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - inflation_daily
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
+              inflation_daily:
+                type: decimal
+                description: Daily inflation rate, which is calculated by dividing the newly issued token on that day by the total supply.

@@ -1,0 +1,732 @@
+/btc/network-data/block-bytes:
+  get:
+    tags:
+      - BTC Network Data
+    summary: Block Bytes
+    operationId: getBlockBytes
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/network-data/block-bytes?window=day&isrange=true&period=190901-190903"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/network-data/block-bytes?window=day&isrange=true&period=190901-190903")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/network-data/block-bytes?window=day&isrange=true&period=190901-190903")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/network-data/block-bytes?window=day&isrange=true&period=190901-190903")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/network-data/block-bytes?window=day&isrange=true&period=190901-190903"
+
+          print(urllib.request.urlopen(url).read())
+    description: The mean size(in bytes) of all blocks generated at a given window.
+    parameters:
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
+    responses:
+      200:
+        $ref: './responses.yaml#/BlockBytes'
+    security:
+      - Bearer Access Token: []
+/btc/network-data/block-count:
+  get:
+    tags:
+      - BTC Network Data
+    summary: Block Count
+    description:  The number of blocks generated in a given window.
+    operationId: getBlockCount
+    parameters:
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/network-data/block-count?window=day&isrange=true&period=190901-190903"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/network-data/block-count?window=day&isrange=true&period=190901-190903")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/network-data/block-count?window=day&isrange=true&period=190901-190903")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/network-data/block-count?window=day&isrange=true&period=190901-190903")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/network-data/block-count?window=day&isrange=true&period=190901-190903"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/BlockCount'
+    security:
+      - Bearer Access Token: []
+
+/btc/network-data/block-interval:
+  get:
+    tags:
+      - BTC Network Data
+    summary: Block Interval
+    description: The average time between all the blocks generated during a given window displayed in seconds.
+    operationId: getBlockInterval
+    parameters:
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/network-data/block-interval?window=day&isrange=true&period=190901-190903"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/network-data/block-interval?window=day&isrange=true&period=190901-190903")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/network-data/block-interval?window=day&isrange=true&period=190901-190903")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/network-data/block-interval?window=day&isrange=true&period=190901-190903")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/network-data/block-interval?window=day&isrange=true&period=190901-190903"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/BlockInterval'
+    security:
+      - Bearer Access Token: []
+
+
+/btc/network-data/utxo-count:
+  get:
+    tags:
+      - BTC Network Data
+    summary: UTXO Count
+    description: The number of total number of unspent transaction outputs existing at the specified point.
+    operationId: getUTXOCount
+    parameters:
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/network-data/utxo-count?window=day&isrange=true&period=190901-190903"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/network-data/utxo-count?window=day&isrange=true&period=190901-190903")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/network-data/utxo-count?window=day&isrange=true&period=190901-190903")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/network-data/utxo-count?window=day&isrange=true&period=190901-190903")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/network-data/utxo-count?window=day&isrange=true&period=190901-190903"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/UTXOCount'
+    security:
+      - Bearer Access Token: []
+
+/btc/network-data/fees:
+  get:
+    tags:
+      - BTC Network Data
+    summary: Fees
+    description: This endpoint returns the statistics related to fees that are paid to bitcoin miners. In general, fees are calculated by subtracting the newly issued bitcoin from the total block reward of each blocks. We provide three statistics, `fees_total`, the sum of all fees during a given window, `fees_mean`, the average fee per block in that window, and `fees_percent`, the percentage of fees relative to the total block reward. Additionally, these can be viewed in terms of USD.
+    operationId: getFees
+    parameters:
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/network-data/fees?window=day&isrange=true&period=190901-190903"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/network-data/fees?window=day&isrange=true&period=190901-190903")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/network-data/fees?window=day&isrange=true&period=190901-190903")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/network-data/fees?window=day&isrange=true&period=190901-190903")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/network-data/fees?window=day&isrange=true&period=190901-190903"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/Fees'
+    security:
+      - Bearer Access Token: []
+
+/btc/network-data/fees-transaction:
+  get:
+    tags:
+      - BTC Network Data
+    summary: Fees Transaction
+    description: This endpoint returns the statistics related to fees per transaction that are paid to bitcoin miners. In general, fees are calculated by subtracting the newly issued bitcoin from the total block reward of each blocks, and this is divided by the number of transactions to calculate the average fee per transaction in each block. We provide two statistics, `fees_transaction_mean`, the average fee per transaction in a given window, `fees_transaction_median,` the median fee per transaction in that window. Additionally, these values can be calculated in USD.
+    operationId: getFeesTransaction
+    parameters:
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/isrange'
+      - $ref: './../../parameters.yaml#/period'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/network-data/fees-transaction?window=day&isrange=true&period=190901-190903"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/network-data/fees-transaction?window=day&isrange=true&period=190901-190903")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/network-data/fees-transaction?window=day&isrange=true&period=190901-190903")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/network-data/fees-transaction?window=day&isrange=true&period=190901-190903")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/network-data/fees-transaction?window=day&isrange=true&period=190901-190903"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/FeesTransaction'
+    security:
+      - Bearer Access Token: []
+
+/btc/network-data/blockreward:
+  get:
+    tags:
+      - BTC Network Data
+    summary: Blockreward
+    description: The sum of block reward for all blocks in a given window. We also provide this value in usd.
+    operationId: getBlockReward
+    parameters:
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/network-data/block-reward?window=day&isrange=true&period=190901-190903"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/network-data/block-reward?window=day&isrange=true&period=190901-190903")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/network-data/block-reward?window=day&isrange=true&period=190901-190903")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/network-data/block-reward?window=day&isrange=true&period=190901-190903")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/network-data/block-reward?window=day&isrange=true&period=190901-190903"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/BlockReward'
+    security:
+      - Bearer Access Token: []
+
+/btc/network-data/difficulty:
+  get:
+    tags:
+      - BTC Network Data
+    summary: Difficulty
+    description:  The mean difficulty of mining a new BTC block in a given period.
+    operationId: getDifficulty
+    parameters:
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/network-data/difficulty?window=day&isrange=true&period=190901-190903"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/network-data/difficulty?window=day&isrange=true&period=190901-190903")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/network-data/difficulty?window=day&isrange=true&period=190901-190903")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/network-data/difficulty?window=day&isrange=true&period=190901-190903")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/network-data/difficulty?window=day&isrange=true&period=190901-190903"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/Difficulty'
+    security:
+      - Bearer Access Token: []
+
+/btc/network-data/hashrate:
+  get:
+    tags:
+      - BTC Network Data
+    summary: Hashrate
+    description: The mean speed at which miners in the network are solving hash problems for  a given window. It is displayed as hashes per second.
+    operationId: getHashrate
+    parameters:
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/network-data/hashrate?window=day&isrange=true&period=190901-190903"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/network-data/hashrate?window=day&isrange=true&period=190901-190903")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/network-data/hashrate?window=day&isrange=true&period=190901-190903")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/network-data/hashrate?window=day&isrange=true&period=190901-190903")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/network-data/hashrate?window=day&isrange=true&period=190901-190903"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/Hashrate'
+    security:
+      - Bearer Access Token: []
+
+/btc/network-data/supply:
+  get:
+    tags:
+      - BTC Network Data
+    summary: Supply
+    description: This end point returns metrics related to bitcoin supply, i.e. the amount of bitcoin in existence. We currently provide two metrics, `supply_total` , the total amount of bitcoins in existence which is the sum of all bitcoins issued by coinbase reward, and `supply_new`, the amount of newly issued tokens in a given window.
+    operationId: getSupply
+    parameters:
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/network-data/supply?window=day&isrange=true&period=190901-190903"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/network-data/supply?window=day&isrange=true&period=190901-190903")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/network-data/supply?window=day&isrange=true&period=190901-190903")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/network-data/supply?window=day&isrange=true&period=190901-190903")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/network-data/supply?window=day&isrange=true&period=190901-190903"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/Supply'
+    security:
+      - Bearer Access Token: []
+
+/btc/network-data/transactions-count:
+  get:
+    tags:
+      - BTC Network Data
+    summary: Transactions Count
+    description: This endpoint returns metrics related to the number of transactions in that window. We provide several metrics, `transactions_count_total`, the total number of transactions in that window `transactions_count_mean`, the mean number of transactions per block in that window.
+    operationId: getTransactionsCount
+    parameters:
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/network-data/transactions-count?window=day&isrange=true&period=190901-190903"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/network-data/transactions-count?window=day&isrange=true&period=190901-190903")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/network-data/transactions-count?window=day&isrange=true&period=190901-190903")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/network-data/transactions-count?window=day&isrange=true&period=190901-190903")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/network-data/transactions-count?window=day&isrange=true&period=190901-190903"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/TransactionsCount'
+    security:
+      - Bearer Access Token: []
+
+/btc/network-data/tokens-transferred:
+  get:
+    tags:
+      - BTC Network Data
+    summary: Tokens Transferred
+    description: This endpoint returns metrics related to number of tokens transferred, i.e transaction volume. We provide several metrics, `tokens_transferred_total`, the total number of transferred tokens in that window, `tokens_transferred_mean`, the mean number of transferred tokens per transaction in that window, and `tokens_transferred_median`, the median number of transferred tokens per transaction.
+    operationId: getTokensTransferred
+    parameters:
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/TokensTransferred'
+    security:
+      - Bearer Access Token: []
+
+/btc/network-data/velocity:
+  get:
+    tags:
+      - BTC Network Data
+    summary: Velocity
+    description: This endpoint returns metrics related to the velocity of bitcoin. Bitcoin's velocity is calculated by dividing the trailing 1 year estimated transaction volume(the cumulated sum of transferred tokens) by current supply. Velocity is a metric that explains how actively is money circulating in the market.
+    operationId: getVelocity
+    parameters:
+      - $ref: './../../parameters.yaml#/window_d'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/network-data/velocity?window=day&isrange=true&period=190901-190903"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/network-data/velocity?window=day&isrange=true&period=190901-190903")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/network-data/velocity?window=day&isrange=true&period=190901-190903")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/network-data/velocity?window=day&isrange=true&period=190901-190903")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/network-data/velocity?window=day&isrange=true&period=190901-190903"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/Velocity'
+    security:
+      - Bearer Access Token: []
+
+/btc/network-data/addresses-count:
+  get:
+    tags:
+      - BTC Network Data
+    summary: Addresses Count
+    description: This endpoint returns metrics relating to the number of used bitcoin addresses. We provide several metrics, `addresses_count_active`, the total number of unique addresses that were active (either sender or receiver) on the blockchain in a given window, `addresses_count_sender`, the number of addresses that were active as a sender, `addresses_count_receiver`, the number of addresses that were active as a receiver, and `addresses_count_new`, the number of new addresses which appeared on the blockchain for the first time.
+    operationId: getAddressesCount
+    parameters:
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/network-data/addresses-count?window=day&isrange=true&period=190901-190903"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/network-data/addresses-count?window=day&isrange=true&period=190901-190903")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/network-data/addresses-count?window=day&isrange=true&period=190901-190903")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/network-data/addresses-count?window=day&isrange=true&period=190901-190903")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/network-data/addresses-count?window=day&isrange=true&period=190901-190903"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/AddressesCount'
+    security:
+      - Bearer Access Token: []
+
+# /btc/network-data/inflation:
+#   get:
+#     tags:
+#       - BTC Network Data
+#     summary: Inflation
+#     description: This end point returns metrics relating to the bitcoin inflation rate. We provide `inflation_daily`, which is daily inflation rate calculated by dividing the number of newly issued tokens on that day by the total supply.
+#     operationId: getInflation
+#     parameters:
+#       - $ref: './../../parameters.yaml#/window'
+#       - $ref: './../../parameters.yaml#/isrange'
+#       - $ref: './../../parameters.yaml#/period'
+#     x-code-samples:
+#       - lang: Shell
+#         source: >-
+#           curl
+#           "https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903"
+#       - lang: JavaScript
+#         source: >-
+#           fetch("https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903")
+#             .then(response => response.json())
+#             .then(data => console.log(data))
+#       - lang: NodeJS
+#         source: |-
+#           require('axios')
+#             .get("https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903")
+#             .then(response => console.log(response))
+#       - lang: Ruby
+#         source: >-
+#           require 'net/http'
+#
+#           uri =
+#           URI("https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903")
+#
+#           puts Net::HTTP.get(uri)
+#       - lang: Python
+#         source: >-
+#           import urllib.request
+#
+#           url =
+#           "https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903"
+#
+#           print(urllib.request.urlopen(url).read())
+#     responses:
+#       200:
+#         $ref: './responses.yaml#/Inflation'
+#     security:
+#       - Bearer Access Token: []

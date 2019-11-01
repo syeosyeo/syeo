@@ -1,0 +1,38 @@
+Status:
+  type: object
+  description: The status object is return with most of requests and indicates if the request was successful. If it is not successful, error information is included.
+  properties:
+    code:
+      type: integer
+      format: int32
+      description: HTTP status code
+    message:
+      type: string
+      description: Text description of the error or success.
+  required:
+    - code
+    - message
+
+Window:
+  type: string
+  description: The size of window. It can be day or block, and it depends on the user request.
+
+Period:
+  type: string
+  description: The time period covered by this data. If your window size is block, it will be the range of block heights. Otherwise, it will be the range of windows with the format YYDDMM.
+
+Data:
+  type: string
+  description: The array containing all responses. The number of elements depends on your request.
+
+Date:
+  type: string
+  description: The date in YYDDMM. This optional field only appears when window=day is used.
+
+Blockheight:
+  type: string
+  description: The height of the block. This optional field only appears when window=block is used.
+
+Datetime:
+  type: string
+  description: The date and time formatted as YYYY-MM-DDTHH:MM:SS (UTC time).

@@ -1,0 +1,301 @@
+
+BlockBytes:
+  description: The mean size(in bytes) of all blocks generated at a given window.
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/BlockBytesResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          period: "190901-190903"
+          data:
+            - date: "190901"
+              block_bytes: 903661
+            - date: "190902"
+              block_bytes: 1003264
+            - date: "190903"
+              block_bytes: 897233
+
+BlockCount:
+  description: The number of blocks generated in a given window.
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/BlockCountResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          period: "190901-190903"
+          data:
+            - date: "190901"
+              block_count: 144
+            - date: "190902"
+              block_count: 152
+            - date: "190903"
+              block_count: 134
+
+BlockInterval:
+  description: The average time between all the blocks generated during a given window in seconds.
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/BlockIntervalResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          period: "190901-190903"
+          data:
+            - date: "190901"
+              block_interval: 623
+            - date: "190902"
+              block_interval: 712
+            - date: "190903"
+              block_interval: 592
+
+UTXOCount:
+  description: Number of total number of unspent transaction outputs at a given period.
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/UTXOCountResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "block"
+          period: "300000-300001"
+          data:
+            - blockheight: 300000,
+              utxo_count: 2931
+            - blockheight: 300001,
+              utxo_count: 3142
+
+Fees:
+  description: fees_total, fees_total_usd, fees_mean, fees_mean_usd, fees_percent.
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/FeesResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          period: "190901"
+          data:
+            date: "190901"
+            fees_mean: 0.00013123
+            fees_mean_usd: 0.11
+            fees_total: 11.21331723
+            fees_total_usd: 3010.23
+            fees_percent: 0.012
+
+FeesTransaction:
+  description: fees_transaction_mean, fees_transaction_mean_usd, fees_transaction_median, fees_transaction_median_usd
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/FeesTransactionResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          period: "190901"
+          data:
+            date: "190901"
+            fees_transaction_mean: 0.00001321
+            fees_transaction_mean_usd: 0.000312
+            fees_transaction_median: 0.00001221
+            fees_transaction_median_usd: 0.000289
+
+BlockReward:
+  description: The sum of block reward for all blocks in a given window. We also provide this value in usd.
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/BlockRewardResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "block"
+          period: "555555-555557"
+          data:
+            - blockheight: 555555
+              blockreward: 26.62
+              blockreward_usd: 240771.37
+            - blockheight: 555556
+              blockreward: 23.61
+              blockreward_usd: 210351.12
+            - blockheight: 555557
+              blockreward: 29.32
+              blockreward_usd: 278263.04
+Difficulty:
+  description: The mean difficulty of meeting the conditions to create a new BTC block in a given period.
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/DifficultyResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          period: "190901-190903"
+          data:
+            - date: "190901"
+              difficulty: 12759819404408.99
+            - date: "190902"
+              difficulty: 11425323412355.53
+            - date: "190903"
+              difficulty: 17234123523452.25
+
+Hashrate:
+  description: The mean speed at which hash problems are being solved across all miners in the network in the given window. It is the number of hashes that miners calculates per second.
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/HashrateResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "block"
+          period: "300000-300001"
+          data:
+            - blockheight: "300000"
+              hashrate: 8561054
+            - blockheight: "300001"
+              hashrate: 9242532
+
+Supply:
+  description: supply_total, suppply_new
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/SupplyResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "block"
+          period: "500000-500001"
+          data:
+            - blockheight: "500000"
+              supply_total: 15924414.7953033
+              suppply_new: 12.5
+            - blockheight: "500001"
+              supply_total: 15924414.7953033
+              suppply_new: 12.5
+
+TransactionsCount:
+  description: transactions_count_total, transactions_count_mean
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/TransactionsCountResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          period: "190901"
+          data:
+            - date: "190901"
+              transactions_count_total: 78912
+              transactions_count_mean: 1248
+
+
+TokensTransferred:
+  description: tokens_transferred_total, tokens_transferred_mean, tokens_transferred_median
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/TokensTransferredResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          period: "190901"
+          data:
+            - date: "190901"
+              tokens_transferred_total: 78912.12373645
+              tokens_transferred_mean: 1248.47276264
+              tokens_transferred_median: 1321.53121331
+
+Velocity:
+  description: Estimated transaction volume in the trailing 1 year devided by current total supply.
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/VelocityResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          period: "190901"
+          data:
+            - date: "190901"
+              velocity_total_supply: 7.3124
+
+AddressesCount:
+  description: addresses_count_active, addresses_count_sender, addresses_count_receiver, addresses_count_new
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/AddressesCountResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          period: "190901"
+          data:
+            - date: "190901"
+              addresses_count_active: 102832
+              addresses_count_sender: 60123
+              addresses_count_receiver: 51231
+              addresses_count_new: 1231
+
+Inflation:
+  description: Daily inflation rate, which is calculated by dividing the newly issued token on that day by the total supply.
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/InflationResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "block"
+          period: "500000-500001"
+          data:
+            - blockheight: "500000"
+              inflation_daily: 15924414.7953033
+            - blockheight: "500001"
+              inflation_daily: 15924439.7953033

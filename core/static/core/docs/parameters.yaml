@@ -1,0 +1,172 @@
+window:
+  description: Currently we support `day` and `block`.
+  explode: false
+  in: query
+  name: window
+  required: true
+  schema:
+    type: string
+    default: day
+  style: form
+  example: day
+
+window_mdb:
+  description: Currently we support `min`, `day` or `block`.
+  explode: false
+  in: query
+  name: window
+  required: true
+  schema:
+    type: string
+    default: day
+  style: form
+  example: min
+
+window_d:
+  description: Currently, we only support `day`.
+  explode: false
+  in: query
+  name: window
+  required: true
+  schema:
+    type: string
+    default: day
+  style: form
+  example: day
+
+isrange:
+  description: true or false.
+  explode: false
+  in: query
+  name: isrange
+  required: true
+  schema:
+    type: boolean
+    default: true
+  style: form
+  example: true
+
+period:
+  description: The specific period of your interest. It can be YYMMDD or YYMMDD-YYMMDD if window=day is used. if window=block is used, specify the block height or the range of block heights. You should check if isrange=true is used when you want to specify the range.
+  explode: false
+  in: query
+  name: period
+  required: false
+  schema:
+    YYMMDD:
+      type: string
+    YYMMDD-YYMMDD:
+      type: array
+  style: form
+  example: "190123-190601"
+
+from:
+  description: This defines the starting time for which data will be gathered. If window=day is used, it can be formatted as YYYYMMDDTHHMMSS (indicating YYYY-MM-DDTHH:MM:SS, UTC time). If window=block is used, you can either specify the block height (e.g. 510000), or the datetime formatted as YYYYMMDDTHHMMSS (UTC time). If not specified, response will include data from the earliest time.
+  explode: false
+  in: query
+  name: from
+  required: false
+  schema:
+    YYYYMMDDTHHMMSS:
+      type: string
+  style: form
+  example: "20191001T100000"
+
+to:
+  description: This defines the ending time for which data will be gathered. If window=day is used, it can be formatted as YYYYMMDDTHHMMSS (indicating YYYY-MM-DDTHH:MM:SS, UTC time). If window=block is used, you can either specify the block height (e.g. 510000), or the datetime formatted as YYYYMMDDTHHMMSS (UTC time). If not specified, response will include data from the earliest time.
+  explode: false
+  in: query
+  name: to
+  required: false
+  schema:
+    YYYYMMDDTHHMMSS:
+      type: string
+  style: form
+  example: "20191001T103025"
+
+limit:
+  description: The maximum number of entries to return before the latest data point. If not specified, up to 100,000 entries will be returned.
+  explode: false
+  in: query
+  name: limit
+  required: false
+  schema:
+    type: integer
+    default: 10
+    minimum: 1
+    maximum: 100000
+  style: form
+  example: 100
+
+exchange:
+  description: An exchange from the table that we support. [See here](#tag/BTC-Exchange-Flows).
+  explode: false
+  in: query
+  name: exchange
+  required: true
+  schema:
+    type: string
+    default: all
+  style: form
+  example: binance
+miner:
+  description: A mining pool from the table that we support. [See here](#tag/BTC-Miner-Flows).
+  explode: false
+  in: query
+  name: miner
+  required: true
+  schema:
+    type: string
+    default: all
+  style: form
+  example: antpool
+from_entity_ex:
+  description:  An exchange from the table that we support.[See here](#tag/BTC-Inter-Entity-Flows)
+  explode: false
+  in: query
+  name: from_entity
+  required: true
+  schema:
+    type: string
+  style: form
+  example: binance
+from_entity_mp:
+  description: A mining pool from the table that we support.[See here](#tag/BTC-Inter-Entity-Flows)
+  explode: false
+  in: query
+  name: from_entity
+  required: true
+  schema:
+    type: string
+  style: form
+  example: antpool
+to_entity_ex:
+  description:  An exchange from the table that we support.[See here](#tag/BTC-Inter-Entity-Flows)
+  explode: false
+  in: query
+  name: to_entity
+  required: true
+  schema:
+    type: string
+  style: form
+  example: binance
+to_entity_mp:
+  description: A mining pool from the table that we support.[See here](#tag/BTC-Inter-Entity-Flows)
+  explode: false
+  in: query
+  name: to_entity
+  required: true
+  schema:
+    type: string
+  style: form
+  example: antpool
+token:
+  description: A token from the table that we support.[See here](#tag/Stablecoin-Network-Data)
+  explode: false
+  in: query
+  name: token
+  required: true
+  schema:
+    type: string
+  style: form
+  example: usdt_erc20

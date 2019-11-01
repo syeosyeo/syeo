@@ -1,0 +1,60 @@
+/stablecoin/network-data/supply:
+    get:
+      tags:
+        - Stablecoin Network Data
+      summary: Supply (Stablecoin)
+      description: This end point returns metrics related to token supply, i.e. the amount of token in existence. We currently provide six metrics. `supply_total` is the total amount of tokens in existence, and `supply_circulating` is the approximation of the amount of tokens that are circulating in the market(e.g. excluding tokens owned by issuing company's treasury address). `supply_minted` and `supply_burned` represents how much tokens were added/subtracted from `supply_total`. `supply_issued` and `supply_redeemed` represents how much tokens were added/subtracted from `supply_circulating`. For some tokens, mint and issue(or redeem and burn) occurs simultaneously, and others are not. For further information, please refer to the section Stablecoin Issuing Mechanism.
+      operationId: getSupplySC
+      parameters:
+        - $ref: './../parameters.yaml#/token'
+        - $ref: './../parameters.yaml#/window'
+        - $ref: './../parameters.yaml#/from'
+        - $ref: './../parameters.yaml#/to'
+        - $ref: './../parameters.yaml#/limit'
+/stablecoin/network-data/transactions-count:
+    get:
+      tags:
+        - Stablecoin Network Data
+      summary: Transactions Count (Stablecoin)
+      description: This endpoint returns metrics related to the number of transactions in that window. We provide several metrics. `transactions_count_total` is the total number of transactions in that window `transactions_count_mean`, the mean number of transactions per block in that window. `transactions_count_mint`, `transactions_count_issue`, `transactions_count_burn` and `transactions_count_redeem` are metrics that represent the number of transactions related to each actions (mint, issue, burn, redeem). For further information about the actions, please refer to the section Stablecoin Issuing Mechanism.
+      operationId: getTransactionsCountSC
+      parameters:
+        - $ref: './../parameters.yaml#/token'
+        - $ref: './../parameters.yaml#/window'
+        - $ref: './../parameters.yaml#/from'
+        - $ref: './../parameters.yaml#/to'
+        - $ref: './../parameters.yaml#/limit'
+/stablecoin/network-data/tokens-transferred:
+    get:
+      tags:
+        - Stablecoin Network Data
+      summary: Tokens Transferred (Stablecoin)
+      description: This endpoint returns metrics related to number of tokens transferred, i.e transaction volume. We provide several metrics, `tokens_transferred_total`, the total number of transferred tokens in that window, and `tokens_transferred_mean`, the mean number of transferred tokens per transaction in that window.
+      operationId: getTokensTransferredSC
+      parameters:
+        - $ref: './../parameters.yaml#/token'
+        - $ref: './../parameters.yaml#/window'
+        - $ref: './../parameters.yaml#/from'
+        - $ref: './../parameters.yaml#/to'
+        - $ref: './../parameters.yaml#/limit'
+/stablecoin/network-data/addresses-count:
+    get:
+      tags:
+        - Stablecoin Network Data
+      summary: Addresses Count (Stablecoin)
+      description: This endpoint returns metrics relating to the number of used addresses to transfer the token. We provide several metrics, `addresses_count_active`, the total number of unique addresses that were active (either sender or receiver) on the blockchain in a given window, `addresses_count_sender`, the number of addresses that were active as a sender, `addresses_count_receiver`, the number of addresses that were active as a receiver.
+      operationId: getAddressesCountSC
+      parameters:
+        - $ref: './../parameters.yaml#/token'
+        - $ref: './../parameters.yaml#/window'
+        - $ref: './../parameters.yaml#/from'
+        - $ref: './../parameters.yaml#/to'
+        - $ref: './../parameters.yaml#/limit'
+
+
+
+responses:
+
+
+
+schemas:
