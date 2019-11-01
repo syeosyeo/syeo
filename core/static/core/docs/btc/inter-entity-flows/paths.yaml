@@ -12,6 +12,42 @@ exchange-to-exchange:
         - $ref: './../../parameters.yaml#/from'
         - $ref: './../../parameters.yaml#/to'
         - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/inter-entity-flows/exchange-to-exchange?window=day&start=191001&limit=2"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/inter-entity-flows/exchange-to-exchange?window=day&start=191001&limit=2")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/inter-entity-flows/exchange-to-exchange?window=day&start=191001&limit=2")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/inter-entity-flows/exchange-to-exchange?window=day&start=191001&limit=2")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/inter-entity-flows/exchange-to-exchange?window=day&start=191001&limit=2"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/Exchange-to-exchange'
+    security:
+      - Bearer Access Token: []
 
 miner-to-exchange:
     get:
@@ -27,7 +63,44 @@ miner-to-exchange:
         - $ref: './../../parameters.yaml#/from'
         - $ref: './../../parameters.yaml#/to'
         - $ref: './../../parameters.yaml#/limit'
-exchnage-to-miner:
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/inter-entity-flows/miner-to-exchange?window=day&start=191001&limit=2"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/inter-entity-flows/miner-to-exchange?window=day&start=191001&limit=2")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/inter-entity-flows/miner-to-exchange?window=day&start=191001&limit=2")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/inter-entity-flows/miner-to-exchange?window=day&start=191001&limit=2")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/inter-entity-flows/miner-to-exchange?window=day&start=191001&limit=2"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/Miner-to-exchange'
+    security:
+      - Bearer Access Token: []
+
+exchange-to-miner:
     get:
       tags:
         - BTC Inter Entity Flows
@@ -41,3 +114,39 @@ exchnage-to-miner:
         - $ref: './../../parameters.yaml#/from'
         - $ref: './../../parameters.yaml#/to'
         - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/inter-entity-flows/exchange-to-miner?window=day&start=191001&limit=2"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/inter-entity-flows/exchange-to-miner?window=day&start=191001&limit=2")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/inter-entity-flows/exchange-to-miner?window=day&start=191001&limit=2")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/inter-entity-flows/exchange-to-miner?window=day&start=191001&limit=2")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/inter-entity-flows/exchange-to-miner?window=day&start=191001&limit=2"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/Exchange-to-miner'
+    security:
+      - Bearer Access Token: []

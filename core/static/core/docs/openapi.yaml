@@ -51,11 +51,18 @@ tags:
   - name: BTC Miner Flows
     description: |-
       This namespace contains endpoints to retrieve data related to Bitcoin miners(i.e. mining pools). We provide metrics related to miner reserves, inflows, outflows, hashrate, revenue, workers, etc.
-      ### Supported miners
-      | Name           |   Symbol   |   Status    |
-      |----------------|------------|-------------|
+      ### Supported Miners
+      | Name           |   Symbol     |   Status    |
+      |----------------|--------------|-------------|
       | All Miners     |   `all`      |             |
-      | Miner1        |   `miner1`  | Validated   |
+      | btc.com        |   `btc-com`  | Validated   |
+      | btc.top        |   `btc-top`  | Validated   |
+      | f2pool         |   `f2pool`   | Validated   |
+      | huobi          |   `huobi`    | Validated   |
+      | poolin         |   `poolin `  | Validated   |
+      | slush          |   `slush`    | Validated   |
+      | viabtc         |   `viabtc`   | Validated   |
+      | antpool        |   `antpool`  | Validated   |
   - name: BTC Inter Entity Flows
   - name: ETH Network Data
   - name: ETH Market Data
@@ -63,26 +70,29 @@ tags:
     description: |-
       This namespace contains endpoint to retrieve on-chain network data of stablecoins, including token transfers, issuance, addresses, etc.
       ### Supported stablecoins
-      | Name           |   Symbol   |
-      |----------------|------------|
-      | All tokens     |   `all`      |
-      | Tether USD(ERC20)   |   `usdt_erc20`  |
-      | Tether USD(Omni)    |   `usdt_omni` |
-      | Paxos Standard      |   `paxos`   |
-      | USD Coin       |   `usdc` |
-      | True USD       |   `tusd` |
-      | Dai        |   `dai`  |
+      | Name                |   Symbol       |
+      |---------------------|----------------|
+      | All tokens          |   `all`        |
+      | Tether USD(ERC20)   |   `usdt_erc20` |
+      | Tether USD(Omni)    |   `usdt_omni`  |
+      | Paxos Standard      |   `paxos`      |
+      | USD Coin            |   `usdc`       |
+      | True USD            |   `tusd`       |
+      | Dai                 |   `dai`        |
 
       ### Stablecoin Issuing Mechanism
       Each individual Stablecoin is created by an issuing company and each of these companies operates with a different issue mechanism.
       here are many of these but the two most common are as follows.
 
+
+
+
       #### Example 1
-      `Image Should Be Here`
+      ![Ussuing Methodology 1](/static/core/docs/images/stable1.png)
       Before providing clients with the granting address, the issuing company holds a treasury address. Through the contract, the tokens are minted and held in the treasury address. Once the client sends fiat currency, the clients tokens are moved from the treasury address to the client address and the tokens are listed as being issued.
       Conversely, when redeeming tokens for fiat, the tokens are sent to the treasury address and redeemed. This won't be reflected in the supply unless these tokens are burned using a contract by the issuing company. The circulating supply is calculated as tokens that have been issued to clients, ignoring the supply held in the issuing company wallets.
       #### Example 2
-      `Image Should Be Here`
+      ![Ussuing Methodology 2](/static/core/docs/images/stable2.png)
       In this method, there is no separate treasury address. After confirming the deposit of fiat, tokens are minted from the contract address and delivered directly to the client address. Minting and issuance occur simultaneously. When clients redeem tokens, the burn and redemption also are simultaneous.
       This means that with this method, total supply and circulating supply will be the same. There are various methods for Stablecoin issuance, and we calculated supply and locate significant transactions.  based upon these types of factors. In the future, mint/issue/burn/redeem will be added to our available metrics and will be defined as listed below.
 

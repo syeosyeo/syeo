@@ -1,4 +1,4 @@
-price-usd:
+price-usd-sc:
     get:
       tags:
         - Stablecoin Market Data
@@ -15,23 +15,23 @@ price-usd:
       - lang: Shell
         source: >-
           curl
-          "https://datapack.cryptoquant.com/v1/stablecoin/market-data/price-usd?window=day&start=191001&limit=2"
+          "https://datapack.cryptoquant.com/v1/stablecoin/market-data/price-usd-sc?window=day&start=191001&limit=2"
       - lang: JavaScript
         source: >-
-          fetch("https://datapack.cryptoquant.com/v1/stablecoin/market-data/price-usd?window=day&start=191001&limit=2")
+          fetch("https://datapack.cryptoquant.com/v1/stablecoin/market-data/price-usd-sc?window=day&start=191001&limit=2")
             .then(response => response.json())
             .then(data => console.log(data))
       - lang: NodeJS
         source: |-
           require('axios')
-            .get("https://datapack.cryptoquant.com/v1/stablecoin/market-data/price-usd?window=day&start=191001&limit=2")
+            .get("https://datapack.cryptoquant.com/v1/stablecoin/market-data/price-usd-sc?window=day&start=191001&limit=2")
             .then(response => console.log(response))
       - lang: Ruby
         source: >-
           require 'net/http'
 
           uri =
-          URI("https://datapack.cryptoquant.com/v1/stablecoin/market-data/price-usd?window=day&start=191001&limit=2")
+          URI("https://datapack.cryptoquant.com/v1/stablecoin/market-data/price-usd-sc?window=day&start=191001&limit=2")
 
           puts Net::HTTP.get(uri)
       - lang: Python
@@ -39,7 +39,7 @@ price-usd:
           import urllib.request
 
           url =
-          "https://datapack.cryptoquant.com/v1/stablecoin/market-data/price-usd?window=day&start=191001&limit=2"
+          "https://datapack.cryptoquant.com/v1/stablecoin/market-data/price-usd-sc?window=day&start=191001&limit=2"
 
           print(urllib.request.urlopen(url).read())
     responses:
@@ -49,13 +49,13 @@ price-usd:
       - Bearer Access Token: []
 
 
-capitalization:
+capitalization-sc:
   get:
     tags:
       - Stablecoin Market Data
     summary: Capitalization (Stablecoin)
     description: This endpoint returns metrics related to market capitalization. We currently provide market_cap, which is total market capitalization of the token, calculated by multiplying the circulating supply with its USD price(circulating_supply * price_usd_close).
-    operationId: getCapitalization
+    operationId: getCapitalizationSC
     parameters:
         - $ref: './../../parameters.yaml#/token'
         - $ref: './../../parameters.yaml#/window'
@@ -66,23 +66,23 @@ capitalization:
       - lang: Shell
         source: >-
           curl
-          "https://datapack.cryptoquant.com/v1/stablecoin/market-data/capitalization?window=day&start=191001&limit=2"
+          "https://datapack.cryptoquant.com/v1/stablecoin/market-data/capitalization-sc?window=day&start=191001&limit=2"
       - lang: JavaScript
         source: >-
-          fetch("https://datapack.cryptoquant.com/v1/stablecoin/market-data/capitalization?window=day&start=191001&limit=2")
+          fetch("https://datapack.cryptoquant.com/v1/stablecoin/market-data/capitalization-sc?window=day&start=191001&limit=2")
             .then(response => response.json())
             .then(data => console.log(data))
       - lang: NodeJS
         source: |-
           require('axios')
-            .get("https://datapack.cryptoquant.com/v1/stablecoin/market-data/capitalization?window=day&start=191001&limit=2")
+            .get("https://datapack.cryptoquant.com/v1/stablecoin/market-data/capitalization-sc?window=day&start=191001&limit=2")
             .then(response => console.log(response))
       - lang: Ruby
         source: >-
           require 'net/http'
 
           uri =
-          URI("https://datapack.cryptoquant.com/v1/stablecoin/market-data/capitalization?window=day&start=191001&limit=2")
+          URI("https://datapack.cryptoquant.com/v1/stablecoin/market-data/capitalization-sc?window=day&start=191001&limit=2")
 
           puts Net::HTTP.get(uri)
       - lang: Python
@@ -90,7 +90,7 @@ capitalization:
           import urllib.request
 
           url =
-          "https://datapack.cryptoquant.com/v1/stablecoin/market-data/capitalization?window=day&start=191001&limit=2"
+          "https://datapack.cryptoquant.com/v1/stablecoin/market-data/capitalization-sc?window=day&start=191001&limit=2"
 
           print(urllib.request.urlopen(url).read())
     responses:

@@ -11,6 +11,42 @@ supply:
         - $ref: './../../parameters.yaml#/from'
         - $ref: './../../parameters.yaml#/to'
         - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/stablecoin/network-data/supply?window=day&isrange=true&period=190901-190903"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/stablecoin/network-data/supply?window=day&isrange=true&period=190901-190903")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/stablecoin/network-data/supply?window=day&isrange=true&period=190901-190903")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/stablecoin/network-data/supply?window=day&isrange=true&period=190901-190903")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/stablecoin/network-data/supply?window=day&isrange=true&period=190901-190903"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/Supply'
+    security:
+      - Bearer Access Token: []
 
 transactions-count:
     get:
@@ -25,6 +61,42 @@ transactions-count:
         - $ref: './../../parameters.yaml#/from'
         - $ref: './../../parameters.yaml#/to'
         - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/stablecoin/network-data/transactions-count?window=day&isrange=true&period=190901-190903"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/stablecoin/network-data/transactions-count?window=day&isrange=true&period=190901-190903")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/stablecoin/network-data/transactions-count?window=day&isrange=true&period=190901-190903")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/stablecoin/network-data/transactions-count?window=day&isrange=true&period=190901-190903")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/stablecoin/network-data/transactions-count?window=day&isrange=true&period=190901-190903"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/TransactionsCount'
+    security:
+      - Bearer Access Token: []
 
 tokens-transferred:
     get:
@@ -39,6 +111,42 @@ tokens-transferred:
         - $ref: './../../parameters.yaml#/from'
         - $ref: './../../parameters.yaml#/to'
         - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/stablecoin/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/stablecoin/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/stablecoin/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/stablecoin/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/stablecoin/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/TokensTransferred'
+    security:
+      - Bearer Access Token: []
 
 addresses-count:
     get:
@@ -53,3 +161,39 @@ addresses-count:
         - $ref: './../../parameters.yaml#/from'
         - $ref: './../../parameters.yaml#/to'
         - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/stablecoin/network-data/addresses-count?window=day&isrange=true&period=190901-190903"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/stablecoin/network-data/addresses-count?window=day&isrange=true&period=190901-190903")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/stablecoin/network-data/addresses-count?window=day&isrange=true&period=190901-190903")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/stablecoin/network-data/addresses-count?window=day&isrange=true&period=190901-190903")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/stablecoin/network-data/addresses-count?window=day&isrange=true&period=190901-190903"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/AddressesCount'
+    security:
+      - Bearer Access Token: []

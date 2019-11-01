@@ -1,0 +1,69 @@
+Exchange-to-exchange:
+  description: from_exchange, to_exchange, flow
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/Exchange-to-exchangeResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          data:
+            - datetime: "2019-10-01T00:00:00"
+              from_exchange:
+              to_exchange:
+              flow:
+
+            - datetime: "2019-10-02T00:00:00"
+              from_exchange:
+              to_exchange:
+              flow:
+
+Miner-to-exchange:
+  description: from_miner, to_exchange, flow
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/Miner-to-exchangeResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          data:
+            - datetime: "2019-10-01T00:00:00"
+              from_miner:
+              to_exchange:
+              flow:
+
+            - datetime: "2019-10-02T00:00:00"
+              from_miner:
+              to_exchange:
+              flow:
+
+
+Exchange-to-miner:
+  description: from_exchange, to_miner, flow
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/Exchange-to-minerResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          data:
+            - datetime: "2019-10-01T00:00:00"
+              from_exchange:
+              to_miner:
+              flow:
+
+            - datetime: "2019-10-02T00:00:00"
+              from_exchange:
+              to_miner:
+              flow:

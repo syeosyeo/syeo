@@ -1,0 +1,116 @@
+Exchange-to-exchangeResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - from_exchange
+              - to_exchange
+              - flow
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
+              from_exchange:
+                type: string
+                description: The name of the source exchange.
+              to_exchange:
+                type: string
+                description: The name of the destination exchange.
+              flow:
+                type: decimal
+                description: The amount of BTC moved on this window.
+
+Miner-to-exchangeResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - from_miner
+              - to_exchange
+              - flow
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
+              from_miner:
+                type: string
+                description: The name of the source miner.
+              to_exchange:
+                type: string
+                description: The name of the destination exchange.
+              flow:
+                type: decimal
+                description: The amount of BTC moved on this window.
+
+Exchange-to-minerResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - from_exchange
+              - to_miner
+              - flow
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
+              from_exchange:
+                type: string
+                description: The name of the source exchange.
+              to_miner:
+                type: string
+                description: The name of the destination miner.
+              flow:
+                type: decimal
+                description: The amount of BTC moved on this window.

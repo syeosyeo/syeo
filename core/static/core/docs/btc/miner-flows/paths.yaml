@@ -12,6 +12,43 @@ reserve:
       - $ref: './../../parameters.yaml#/from'
       - $ref: './../../parameters.yaml#/to'
       - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/miner-flows/reserve?window=day&start=191001&limit=2"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/miner-flows/reserve?window=day&start=191001&limit=2")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/miner-flows/reserve?window=day&start=191001&limit=2")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/miner-flows/reserve?window=day&start=191001&limit=2")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/miner-flows/reserve?window=day&start=191001&limit=2"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/Reserve'
+    security:
+      - Bearer Access Token: []
+
 transactions-count:
   get:
     tags:
@@ -25,6 +62,43 @@ transactions-count:
       - $ref: './../../parameters.yaml#/from'
       - $ref: './../../parameters.yaml#/to'
       - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/miner-flows/transactions-count/reserve?window=day&start=191001&limit=2"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/miner-flows/transactions-count/reserve?window=day&start=191001&limit=2")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/miner-flows/transactions-count?window=day&start=191001&limit=2")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/miner-flows/transactions-count?window=day&start=191001&limit=2")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/miner-flows/transactions-count?window=day&start=191001&limit=2"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/TransactionsCountMF'
+    security:
+      - Bearer Access Token: []
+
 inflow:
   get:
     tags:
@@ -38,6 +112,44 @@ inflow:
       - $ref: './../../parameters.yaml#/from'
       - $ref: './../../parameters.yaml#/to'
       - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/miner-flows/inflow?window=day&start=191001&limit=2"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/miner-flows/inflow?window=day&start=191001&limit=2")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/miner-flows/inflow?window=day&start=191001&limit=2")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/miner-flows/inflow?window=day&start=191001&limit=2")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/miner-flows/inflow?window=day&start=191001&limit=2"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/Inflow'
+    security:
+      - Bearer Access Token: []
+
+
 outflow:
   get:
     tags:
@@ -51,6 +163,43 @@ outflow:
       - $ref: './../../parameters.yaml#/from'
       - $ref: './../../parameters.yaml#/to'
       - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/miner-flows/outflow?window=day&start=191001&limit=2"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/miner-flows/outflow?window=day&start=191001&limit=2")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/miner-flows/outflow?window=day&start=191001&limit=2")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/miner-flows/outflow?window=day&start=191001&limit=2")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/miner-flows/outflow?window=day&start=191001&limit=2"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/Outflow'
+    security:
+      - Bearer Access Token: []
+
 addresses-count:
   get:
     tags:
@@ -64,6 +213,43 @@ addresses-count:
       - $ref: './../../parameters.yaml#/from'
       - $ref: './../../parameters.yaml#/to'
       - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/miner-flows/addresses-count?window=day&start=191001&limit=2"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/miner-flows/addresses-count?window=day&start=191001&limit=2")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/miner-flows/addresses-count?window=day&start=191001&limit=2")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/miner-flows/addresses-count?window=day&start=191001&limit=2")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/miner-flows/addresses-count?window=day&start=191001&limit=2"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/AddressesCountMF'
+    security:
+      - Bearer Access Token: []
+
 hashrate:
   get:
     tags:
@@ -77,6 +263,43 @@ hashrate:
       - $ref: './../../parameters.yaml#/from'
       - $ref: './../../parameters.yaml#/to'
       - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/miner-flows/hashrate?window=day&start=191001&limit=2"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/miner-flows/hashrate?window=day&start=191001&limit=2")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/miner-flows/hashrate?window=day&start=191001&limit=2")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/miner-flows/hashrate?window=day&start=191001&limit=2")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/miner-flows/hashrate?window=day&start=191001&limit=2"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/Hashrate'
+    security:
+      - Bearer Access Token: []
+
 revenue:
     get:
       tags:
@@ -90,3 +313,39 @@ revenue:
         - $ref: './../../parameters.yaml#/from'
         - $ref: './../../parameters.yaml#/to'
         - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/miner-flows/revenue?window=day&start=191001&limit=2"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/miner-flows/revenue?window=day&start=191001&limit=2")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/miner-flows/revenue?window=day&start=191001&limit=2")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/miner-flows/revenue?window=day&start=191001&limit=2")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/miner-flows/revenue?window=day&start=191001&limit=2"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/Revenue'
+    security:
+      - Bearer Access Token: []

@@ -1,0 +1,151 @@
+
+Reserve:
+  description: The amount of BTC on the given miner on this window.
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/ReserveResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          data:
+            - datetime: "2019-10-01T00:00:00"
+              reserve:
+              reserve_usd:
+
+            - datetime: "2019-10-02T00:00:00"
+              reserve:
+              reserve_usd:
+
+TransactionsCountMF:
+  description: transactions_count_inflow, transactions_count_outflow
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/TransactionsCountMFResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          data:
+            - datetime: "2019-10-01T00:00:00"
+              transactions_count_inflow:
+              transactions_count_outflow:
+
+            - datetime: "2019-10-02T00:00:00"
+              transactions_count_inflow:
+              transactions_count_outflow:
+
+Inflow:
+  description: inflow_total, inflow_mean, inflow_top10
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/InflowResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          data:
+            - datetime: "2019-10-01T00:00:00"
+              inflow_total:
+              inflow_mean:
+              inflow_top10:
+
+            - datetime: "2019-10-02T00:00:00"
+              inflow_total:
+              inflow_mean:
+              inflow_top10:
+
+Outflow:
+  description: outflow_total
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/OutflowResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          data:
+            - datetime: "2019-10-01T00:00:00"
+              outflow_total:
+
+
+            - datetime: "2019-10-02T00:00:00"
+              outflow_total:
+              outflow_mean:
+              outflow_top10:
+
+
+AddressesCountMF:
+  description: The number of addresses evoking inflow/outflow transactions to miner wallets
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/AddressesCountMFResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          data:
+            - datetime: "2019-10-01T00:00:00"
+              addresses_count_inflow:
+              addresses_count_outflow:
+
+            - datetime: "2019-10-02T00:00:00"
+              addresses_count_inflow:
+              addresses_count_outflow:
+
+Hashrate:
+  description: The mean speed at which hash problems are being solved by a mining pool. It is inferred by the percent of blocks mined by a mining pool during a given period multiplied by the total hashrate.
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/HashrateResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          data:
+            - datetime: "2019-10-01T00:00:00"
+              hashrate:
+              hashrate_percent:
+              miner_block_count:
+
+            - datetime: "2019-10-02T00:00:00"
+              hashrate:
+              hashrate_percent:
+              miner_block_count:
+
+Revenue:
+  description: The amount of Bitcoins earned by a mining pool through blockreward(i.e. coinbase + transaction fee) during a given period.
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/RevenueResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          data:
+            - datetime: "2019-10-01T00:00:00"
+              revenue:
+
+            - datetime: "2019-10-02T00:00:00"
+              revenue:

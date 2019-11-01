@@ -1,0 +1,92 @@
+
+Supply:
+  description: supply_total, supply_minted, supply_burned, supply_circulating, supply_issued, supply_redeemed
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/SupplyResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "block"
+          period: "500000-500001"
+          data:
+            - blockheight: "500000"
+              supply_total:
+              supply_minted:
+              supply_burned:
+              supply_circulating:
+              supply_issued:
+              supply_redeemed:
+            - blockheight: "500001"
+              supply_total:
+              supply_minted:
+              supply_burned:
+              supply_circulating:
+              supply_issued:
+              supply_redeemed:
+
+TransactionsCount:
+  description: total, mean, transfer, mint, issue, burn, redeem
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/TransactionsCountResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          period: "190901"
+          data:
+            - date: "190901"
+              transactions_count_total:
+              transactions_count_mean:
+              transactions_count_transfer:
+              transactions_count_mint:
+              transactions_count_issue:
+              transactions_count_burn:
+              transactions_count_redeem:
+
+
+TokensTransferred:
+  description: tokens_transferred_total, tokens_transferred_mean
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/TokensTransferredResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          period: "190901"
+          data:
+            - date: "190901"
+              tokens_transferred_total: 78912.12373645
+              tokens_transferred_mean: 1248.47276264
+
+
+
+AddressesCount:
+  description: addresses_count_active, addresses_count_sender, addresses_count_receiver
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/AddressesCountResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          period: "190901"
+          data:
+            - date: "190901"
+              addresses_count_active: 102832
+              addresses_count_sender: 60123
+              addresses_count_receiver: 51231

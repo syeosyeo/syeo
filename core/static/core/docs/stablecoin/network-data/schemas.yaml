@@ -1,0 +1,198 @@
+
+SupplyResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - period
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        period:
+          $ref: './../../basic_schemas.yaml#/Period'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - supply_total
+              - supply_minted
+              - supply_burned
+              - supply_circulating
+              - supply_issued
+              - supply_redeemed
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
+              supply_total:
+                type: decimal
+                description: The total amount of BTC in existence.
+              supply_minted:
+                type: decimal
+                description: The amount of tokens minted (increase in total supply).
+              supply_burned:
+                type: decimal
+                description: The amount of tokens burned (decrease in total supply).
+              supply_circulating:
+                type: decimal
+                description: The approximation of the amount of tokens that are circulating in the market.
+              supply_issued:
+                type: decimal
+                description: The amount of tokens issued (increase in circulating supply).
+              supply_redeemed:
+                type: decimal
+                description: The amount of tokens redeemed (decrease in circulating supply).
+
+
+TransactionsCountResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - period
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        period:
+          $ref: './../../basic_schemas.yaml#/Period'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - transactions_count_total
+              - transactions_count_mean
+              - transactions_count_transfer
+              - transactions_count_mint
+              - transactions_count_issue
+              - transactions_count_burn
+              - transactions_count_redeem
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
+              transactions_count_total:
+                type: decimal
+                description: Total number of transactions whether they execute or not, and whether they result in the transfer of tokens or not.
+              transactions_count_mean:
+                type: decimal
+                description: The mean number of transactions per block. For window=block, this value will be same as transactions_count_total.
+              transactions_count_transfer:
+                type: decimal
+                description: The number of transactions that invokes transfer of positive(non-zero) amount of tokens.
+              transactions_count_mint:
+                type: decimal
+                description: The number of transactions to mint(i.e. create) tokens, which results in a increased total supply.
+              transactions_count_issue:
+                type: decimal
+                description: The number of transactions to issue tokens, which delivered tokens to the clients and increased circulating supply.
+              transactions_count_burn:
+                type: decimal
+                description: The number of transactions to burn(i.e. revoke) tokens that results in a decreased supply.
+              transactions_count_redeem:
+                type: decimal
+                description: The number of transactions to redeem tokens that results in a decrease in the circulating supply.
+
+TokensTransferredResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - period
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        period:
+          $ref: './../../basic_schemas.yaml#/Period'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - tokens_transferred_total
+              - tokens_transferred_mean
+              - tokens_transferred_median
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
+              tokens_transferred_total:
+                type: decimal
+                description: Total number of tokens transferred in that window.
+              tokens_transferred_mean:
+                type: decimal
+                description: The mean number of transferred token per transaction.
+              tokens_transferred_median:
+                type: decimal
+                description: The median number of transferred token per transaction.
+
+
+AddressesCountResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - period
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        period:
+          $ref: './../../basic_schemas.yaml#/Period'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - addresses_count_active
+              - addresses_count_sender
+              - addresses_count_receiver
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
+              addresses_count_active:
+                type: decimal
+                description: The total number of unique addresses that were active (either sender or receiver) on the blockchain in a given window.
+              addresses_count_sender:
+                type: decimal
+                description: The number of addresses that were active as a sender.
+              addresses_count_receiver:
+                type: decimal
+                description: The number of addresses that were active as a receiver.

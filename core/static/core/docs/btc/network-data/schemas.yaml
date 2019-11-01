@@ -525,7 +525,7 @@ AddressesCountResponse:
               addresses_count_sender:
                 type: decimal
                 description: The number of addresses that were active as a sender.
-              tokens_transferred_mean:
+              addresses_count_receiver:
                 type: decimal
                 description: The number of addresses that were active as a receiver.
               addresses_count_new:

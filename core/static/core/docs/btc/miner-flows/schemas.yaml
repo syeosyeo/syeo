@@ -1,0 +1,255 @@
+ReserveResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - reserve
+              - reserve_usd
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
+              reserve:
+                type: decimal
+                description: The amount of BTC on the given miner on this window.
+              reserve_usd:
+                type: decimal
+                description: The USD value of the amount of BTC on the given miner on this window.
+
+TransactionsCountMFResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - transactions_count_inflow
+              - transactions_count_outflow
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
+              transactions_count_inflow:
+                type: decimal
+                description: The number of transactions going to the miner on this window.
+              transactions_count_outflow:
+                type: decimal
+                description: The number of transactions going out of the miner on this window.
+
+InflowResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - inflow_total
+              - inflow_mean
+              - inflow_top10
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
+              inflow_total:
+                type: decimal
+                description: The total amount of BTC that flowed into the entity on this window.
+              inflow_mean:
+                type: decimal
+                description: The mean amount of tokens per transactions sent to miner wallets.
+              inflow_top10:
+                type: decimal
+                description: The total BTC amount of top 10 transactions (in terms of total BTC sent) flowing out of miner wallets for every day that the miner wallets we track have been live on the blockchain.
+
+OutflowResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - outflow_total
+              - outflow_mean
+              - outflow_top10
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
+              outflow_total:
+                type: decimal
+                description: The total amount of BTC that flowed out of the entity on this window.
+              outflow_mean:
+                type: decimal
+                description: The mean amount of tokens per transactions sent from miner wallets
+              outflow_top10:
+                type: decimal
+                description: The total BTC amount of top 10 transactions (in terms of total BTC sent) flowing out of miner wallets for every day that the miner wallets we track have been live on the blockchain.
+
+
+AddressesCountMFResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - addresses_count_inflow
+              - addresses_count_outflow
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
+              addresses_count_inflow:
+                type: decimal
+                description: The number of addresses evoking inflow transactions to mining pool wallets
+              addresses_count_outflow:
+                type: decimal
+                description: The number of addresses evoking outflow transactions from mining pool wallets
+
+HashrateResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - hashrate
+              - hashrate_percent
+              - miner_block_count
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
+              hashrate:
+                type: decimal
+                description: The mean speed at which hash problems are being solved by this mining pool on that window.
+              hashrate_percent:
+                type: decimal
+                description: miner_block_count divided by the total number of blocks mined in the same interval.
+              miner_block_count:
+                type: decimal
+                description: The number of blocks mined by this pool.
+
+
+
+RevenueResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - revenue
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
+              revenue:
+                type: decimal
+                description: The amount of mining pool revenue denominated in BTC.
