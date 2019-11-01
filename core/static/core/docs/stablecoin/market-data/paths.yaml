@@ -1,0 +1,100 @@
+price-usd:
+    get:
+      tags:
+        - Stablecoin Market Data
+      summary: Price USD (Stablecoin)
+      description: This endpoint returns metrics related to the US Dollar(USD) price of the token. We provide four metrics, price_usd_open, USD opening price at the beginning of the window, price_usd_close, USD closing price at the end of the window, price_usd_high, the highest USD price in a given window, and price_usd_low, the lowest USD price in a given window.
+      operationId: getPriceUSDSC
+      parameters:
+        - $ref: './../../parameters.yaml#/token'
+        - $ref: './../../parameters.yaml#/window_mdb'
+        - $ref: './../../parameters.yaml#/from'
+        - $ref: './../../parameters.yaml#/to'
+        - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/stablecoin/market-data/price-usd?window=day&start=191001&limit=2"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/stablecoin/market-data/price-usd?window=day&start=191001&limit=2")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/stablecoin/market-data/price-usd?window=day&start=191001&limit=2")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/stablecoin/market-data/price-usd?window=day&start=191001&limit=2")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/stablecoin/market-data/price-usd?window=day&start=191001&limit=2"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/PriceUSDSC'
+    security:
+      - Bearer Access Token: []
+
+
+capitalization:
+  get:
+    tags:
+      - Stablecoin Market Data
+    summary: Capitalization (Stablecoin)
+    description: This endpoint returns metrics related to market capitalization. We currently provide market_cap, which is total market capitalization of the token, calculated by multiplying the circulating supply with its USD price(circulating_supply * price_usd_close).
+    operationId: getCapitalization
+    parameters:
+        - $ref: './../../parameters.yaml#/token'
+        - $ref: './../../parameters.yaml#/window'
+        - $ref: './../../parameters.yaml#/from'
+        - $ref: './../../parameters.yaml#/to'
+        - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/stablecoin/market-data/capitalization?window=day&start=191001&limit=2"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/stablecoin/market-data/capitalization?window=day&start=191001&limit=2")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/stablecoin/market-data/capitalization?window=day&start=191001&limit=2")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/stablecoin/market-data/capitalization?window=day&start=191001&limit=2")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/stablecoin/market-data/capitalization?window=day&start=191001&limit=2"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/CapitalizationSC'
+    security:
+      - Bearer Access Token: []

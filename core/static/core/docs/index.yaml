@@ -1,0 +1,89 @@
+# +--------------- BTC NETWORK DATA ---------------+
+/btc/network-data/block-bytes:
+  $ref: './btc/network-data/paths.yaml#/block-bytes'
+/btc/network-data/block-count:
+  $ref: './btc/network-data/paths.yaml#/block-count'
+/btc/network-data/block-interval:
+  $ref: './btc/network-data/paths.yaml#/block-interval'
+/btc/network-data/utxo-count:
+  $ref: './btc/network-data/paths.yaml#/utxo-count'
+/btc/network-data/fees:
+  $ref: './btc/network-data/paths.yaml#/fees'
+/btc/network-data/fees-transaction:
+  $ref: './btc/network-data/paths.yaml#/fees-transaction'
+/btc/network-data/blockreward:
+  $ref: './btc/network-data/paths.yaml#/blockreward'
+/btc/network-data/difficulty:
+  $ref: './btc/network-data/paths.yaml#/difficulty'
+/btc/network-data/hashrate:
+  $ref: './btc/network-data/paths.yaml#/hashrate'
+/btc/network-data/supply:
+  $ref: './btc/network-data/paths.yaml#/supply'
+/btc/network-data/transactions-count:
+  $ref: './btc/network-data/paths.yaml#/transactions-count'
+/btc/network-data/tokens-transferred:
+  $ref: './btc/network-data/paths.yaml#/tokens-transferred'
+/btc/network-data/velocity:
+  $ref: './btc/network-data/paths.yaml#/velocity'
+/btc/network-data/addresses-count:
+  $ref: './btc/network-data/paths.yaml#/addresses-count'
+# /btc/network-data/inflation:
+#   $ref: './btc/network-data/paths.yaml#/inflation'
+
+# +--------------- BTC MARKET DATA ---------------+
+/btc/market-data/price-usd:
+  $ref: './btc/market-data/paths.yaml#/price-usd'
+/btc/market-data/capitalization:
+  $ref: './btc/market-data/paths.yaml#/capitalization'
+/btc/market-data/nvt:
+  $ref: './btc/market-data/paths.yaml#/nvt'
+
+
+# +--------------- BTC EXCHANGE FLOWS ---------------+
+/btc/exchange-flows/reserve:
+  $ref: './btc/exchange-flows/paths.yaml#/reserve'
+/btc/exchange-flows/transactions-count:
+  $ref: './btc/exchange-flows/paths.yaml#/transactions-count'
+/btc/exchange-flows/inflow:
+  $ref: './btc/exchange-flows/paths.yaml#/inflow'
+/btc/exchange-flows/outflow:
+  $ref: './btc/exchange-flows/paths.yaml#/outflow'
+/btc/exchange-flows/addresses-count:
+  $ref: './btc/exchange-flows/paths.yaml#/addresses-count'
+
+# +--------------- BTC MINER FLOWS ---------------+
+/btc/miner-flows/reserve:
+  $ref: './btc/miner-flows/paths.yaml#/reserve'
+/btc/miner-flows/transactions-count:
+  $ref: './btc/miner-flows/paths.yaml#/transactions-count'
+/btc/miner-flows/inflow:
+  $ref: './btc/miner-flows/paths.yaml#/inflow'
+/btc/miner-flows/outflow:
+  $ref: './btc/miner-flows/paths.yaml#/outflow'
+/btc/miner-flows/addresses-count:
+  $ref: './btc/miner-flows/paths.yaml#/addresses-count'
+
+
+# +--------------- BTC INTER ENTITY FLOWS ---------------+
+/btc/inter-entity-flows/exchange-to-exchange:
+  $ref: './btc/inter-entity-flows/paths.yaml#/exchange-to-exchange'
+/btc/inter-entity-flows/miner-to-exchange:
+  $ref: './btc/inter-entity-flows/paths.yaml#/miner-to-exchange'
+/btc/inter-entity-flows/exchnage-to-miner:
+  $ref: './btc/inter-entity-flows/paths.yaml#/exchnage-to-miner'
+
+# +--------------- STABLECOIN NETWORK DATA ---------------+
+/stablecoin/network-data/supply:
+  $ref: './stablecoin/network-data/paths.yaml#/supply'
+/stablecoin/network-data/transactions-count:
+  $ref: './stablecoin/network-data/paths.yaml#/transactions-count'
+/stablecoin/network-data/tokens-transferred:
+  $ref: './stablecoin/network-data/paths.yaml#/tokens-transferred'
+/stablecoin/network-data/addresses-count:
+  $ref: './stablecoin/network-data/paths.yaml#/addresses-count'
+
+# +--------------- STABLECOIN MARKET DATA ---------------+
+/stablecoin/market-data/price-usd:
+  $ref: './stablecoin/market-data/paths.yaml#/price-usd'
+/stablecoin/market-data/capitalization:
+  $ref: './stablecoin/market-data/paths.yaml#/capitalization'

@@ -1,0 +1,121 @@
+
+PriceUSDResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - price_usd_open
+              - price_usd_high
+              - price_usd_low
+              - price_usd_close
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
+              price_usd_open:
+                type: decimal
+                description: USD opening price at the beginning of the window.
+              price_usd_high:
+                type: decimal
+                description: USD opening price at the end of the window.
+              price_usd_low:
+                type: decimal
+                description: The highest USD price in a given window.
+              price_usd_close:
+                type: decimal
+                description: The lowest USD price in a given window.
+
+CapitalizationResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - market_cap
+              - realized_cap
+              - averge_cap
+              - delta_cap
+              - mvrv
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
+              market_cap:
+                type: decimal
+                description: Market capitalization of BTC, calculated by total_supply * price_usd_close.
+              realized_cap:
+                type: decimal
+                description: The sum of all UTXOs multiplied at the price they last moved.
+              averge_cap:
+                type: decimal
+                description: Forever moving average, calculated by dividing the cumulated sum of daily market cap with the age of market.
+              delta_cap:
+                type: decimal
+                description: realized_cap minus average_cap.
+              mvrv:
+                type: decimal
+                description: market_cap/realized_cap
+
+NVTResponse:
+  type: object
+  required:
+    - status
+    - result
+  properties:
+    status:
+      $ref: './../../basic_schemas.yaml#/Status'
+    result:
+      type: object
+      required:
+        - window
+        - data
+      properties:
+        window:
+          $ref: './../../basic_schemas.yaml#/Window'
+        data:
+          type: array
+          items:
+            type: object
+            required:
+              - nvt
+            properties:
+              blockheight:
+                $ref: './../../basic_schemas.yaml#/Blockheight'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
+              nvt:
+                type: decimal
+                description: NVT(Network Value to Transaction) ratio is the network value(supply_total) divided by tokens_transferred_total.

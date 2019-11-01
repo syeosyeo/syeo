@@ -1,0 +1,66 @@
+PriceUSD:
+  description: Price OHLC Data in USD
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/PriceUSDResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          data:
+            - datetime: "2019-10-01T00:00:00"
+              price_usd_open:
+              price_usd_high:
+              price_usd_low:
+              price_usd_close:
+            - datetime: "2019-10-02T00:00:00"
+              price_usd_open:
+              price_usd_high:
+              price_usd_low:
+              price_usd_close:
+
+Capitalization:
+  description: market_cap, realized_cap, averge_cap, delta_cap, mvrv
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/CapitalizationResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          data:
+            - datetime: "2019-10-01T00:00:00"
+              market_cap:
+              realized_cap:
+              averge_cap:
+              delta_cap:
+              mvrv:
+            - datetime: "2019-10-02T00:00:00"
+              market_cap:
+              realized_cap:
+              averge_cap:
+              delta_cap:
+              mvrv:
+NVT:
+  description: NVT(Network Value to Transaction) ratio
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/NVTResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          data:
+            - datetime: "2019-10-01T00:00:00"
+              nvt:
+            - datetime: "2019-10-02T00:00:00"
+              nvt:

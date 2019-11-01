@@ -111,9 +111,7 @@ x-tagGroups:
       - Stablecoin Market Data
 
 paths:
-  $ref: './btc/exchange-flows.yaml'
-    # - './btc/market-data.yaml'
-    # - './btc/network-data/paths.yaml'
+  $ref: './index.yaml'
 
 components:
   parameters:

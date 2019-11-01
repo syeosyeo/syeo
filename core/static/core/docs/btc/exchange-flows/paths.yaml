@@ -1,0 +1,251 @@
+reserve:
+  get:
+    tags:
+      - BTC Exchange Flows
+    summary: Reserve (Exchange)
+    description: This endpoint returns the full historical on-chain balance of Bitcoin exchanges.
+    operationId: getReserve
+    parameters:
+      - $ref: './../../parameters.yaml#/exchange'
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/exchange-flows/reserve?window=day&start=191001&limit=2"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/exchange-flows/reserve?window=day&start=191001&limit=2")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/exchange-flows/reserve?window=day&start=191001&limit=2")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/exchange-flows/reserve?window=day&start=191001&limit=2")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/exchange-flows/reserve?window=day&start=191001&limit=2"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/Reserve'
+    security:
+      - Bearer Access Token: []
+
+
+
+transactions-count:
+  get:
+    tags:
+      - BTC Exchange Flows
+    summary: Transactions Count (Exchange)
+    description: This endpoint returns the number of transactions flowing in/out of Bitcoin exchanges.
+    operationId: getTransactionsCountEF
+    parameters:
+      - $ref: './../../parameters.yaml#/exchange'
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/exchange-flows/transactions-count/reserve?window=day&start=191001&limit=2"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/exchange-flows/transactions-count/reserve?window=day&start=191001&limit=2")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/exchange-flows/transactions-count?window=day&start=191001&limit=2")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/exchange-flows/transactions-count?window=day&start=191001&limit=2")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/exchange-flows/transactions-count?window=day&start=191001&limit=2"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/TransactionsCountEF'
+    security:
+      - Bearer Access Token: []
+
+inflow:
+  get:
+    tags:
+      - BTC Exchange Flows
+    summary: Inflow (Exchange)
+    description: This endpoint returns the inflow of BTC into exchange wallets for as far back as we track. The average inflow is the average transaction value for transactions flowing into exchange wallets on a given day.
+    operationId: getInflow
+    parameters:
+      - $ref: './../../parameters.yaml#/exchange'
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/exchange-flows/inflow?window=day&start=191001&limit=2"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/exchange-flows/inflow?window=day&start=191001&limit=2")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/exchange-flows/inflow?window=day&start=191001&limit=2")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/exchange-flows/inflow?window=day&start=191001&limit=2")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/exchange-flows/inflow?window=day&start=191001&limit=2"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/Inflow'
+    security:
+      - Bearer Access Token: []
+
+outflow:
+  get:
+    tags:
+      - BTC Exchange Flows
+    summary: Outflow (Exchange)
+    description: This endpoint returns the outflow of BTC into exchange wallets for as far back as we track. The average outflow is the average transaction value for transactions flowing into exchange wallets on a given day.
+    operationId: getOutflow
+    parameters:
+      - $ref: './../../parameters.yaml#/exchange'
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/exchange-flows/outflow?window=day&start=191001&limit=2"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/exchange-flows/outflow?window=day&start=191001&limit=2")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/exchange-flows/outflow?window=day&start=191001&limit=2")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/exchange-flows/outflow?window=day&start=191001&limit=2")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/exchange-flows/outflow?window=day&start=191001&limit=2"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/Outflow'
+    security:
+      - Bearer Access Token: []
+
+addresses-count:
+  get:
+    tags:
+      - BTC Exchange Flows
+    summary: Addresses Count (Exchange)
+    description: This endpoint returns the number of addresses involved in inflow/outflow transactions.
+    operationId: getAddressesCountEF
+    parameters:
+      - $ref: './../../parameters.yaml#/exchange'
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/exchange-flows/addresses-count?window=day&start=191001&limit=2"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/exchange-flows/addresses-count?window=day&start=191001&limit=2")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/exchange-flows/addresses-count?window=day&start=191001&limit=2")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/exchange-flows/addresses-count?window=day&start=191001&limit=2")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/exchange-flows/addresses-count?window=day&start=191001&limit=2"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/AddressesCountEF'
+    security:
+      - Bearer Access Token: []

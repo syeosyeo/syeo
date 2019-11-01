@@ -1,4 +1,4 @@
-/btc/market-data/price-usd:
+price-usd:
   get:
     tags:
       - BTC Market Data
@@ -6,10 +6,10 @@
     description: This endpoint returns metrics related to the US Dollar(USD) price of BTC. At this endpoint, metrics are calculated by Minute, Day, and Block. We provide four metrics, `price_usd_open`, USD opening price at the beginning of the window, `price_usd_close`, USD closing price at the end of the window, `price_usd_high`, the highest USD price in a given window, and `price_usd_low`, the lowest USD price in a given window. (블록단위 가격은 초를 버린 값이다. Days는 day와 datetime 모두를 받을 수 있는데 현재는 date만 받는다. min이나 hour)
     operationId: getPriceUSD
     parameters:
-      - $ref: './../parameters.yaml#/window_mdb'
-      - $ref: './../parameters.yaml#/from'
-      - $ref: './../parameters.yaml#/to'
-      - $ref: './../parameters.yaml#/limit'
+      - $ref: './../../parameters.yaml#/window_mdb'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
     x-code-samples:
       - lang: Shell
         source: >-
@@ -43,11 +43,11 @@
           print(urllib.request.urlopen(url).read())
     responses:
       200:
-        $ref: '#/responses/PriceUSD'
+        $ref: './responses.yaml#/PriceUSD'
     security:
       - Bearer Access Token: []
 
-/btc/market-data/capitalization:
+capitalization:
   get:
     tags:
       - BTC Market Data
@@ -55,10 +55,10 @@
     description: This endpoint returns metrics related to market capitalization. First, we provide `market_cap`, which is total market capitalization of BTC, calculated by multiplying the total supply with its USD price. Moreover, we provide several adjusted capitalization metrics which are used for proper BTC valuation. `realized_cap` is the sum of each UTXO * last movement price. Since cryptocurrencies are vulnerable of being lost, unclaimed, or unreachable through various bugs, `realized_cap` is introduced to discount those coins which have unmoved for a long period. It indicates whether Bitcoin is overvalued or not. This can be described as an on-chain version of volume weighted average price(VWAP). `average_cap` is forever moving average, calculated by dividing the cumulated sum of daily market cap with the age of market. Instead of using fixed time for calculating the moving average (e.g. 50 days, 100days ...), this serves as the true mean.  Both `realized_cap` and `average_cap` are used to calculate `delta_cap` (`realized_cap`-`average_cap`). `delta_cap` is capable of spotting market bottoms. Moreover, by analyzing the movement of `delta_cap` which oscillates between `realized_cap` and `average_cap`, we could notice that market tops are reached when `delta_cap` is near `realized_cap`(in a log scaled chart). `mvrv`(Market-Value-to-Realized-Value) is a ratio, `market_cap` divided by `realized_cap`. It can be interpreted as the relationship between short-term and long-term investors (i.e. speculators vs hodlers). When this value is too high, BTC price may be overvalued, and if it is too low, there is a possibility that the price is undervalued.
     operationId: getCapitalization
     parameters:
-      - $ref: './../parameters.yaml#/window'
-      - $ref: './../parameters.yaml#/from'
-      - $ref: './../parameters.yaml#/to'
-      - $ref: './../parameters.yaml#/limit'
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
     x-code-samples:
       - lang: Shell
         source: >-
@@ -92,12 +92,12 @@
           print(urllib.request.urlopen(url).read())
     responses:
       200:
-        $ref: '#/responses/Capitalization'
+        $ref: './responses.yaml#/Capitalization'
     security:
       - Bearer Access Token: []
 
 
-/btc/market-data/nvt:
+nvt:
   get:
     tags:
       - BTC Market Data
@@ -105,10 +105,10 @@
     description: NVT(Network Value to Transaction) ratio is the network value(`supply_total`) divided by `tokens_transferred_total`. `nvt` is a metric often used to determine whether Bitcoin price is overvalued or not. The theory behind this indicator is that the value of the token depends on how actively transactions take place on the network.
     operationId: getNVT
     parameters:
-      - $ref: './../parameters.yaml#/window'
-      - $ref: './../parameters.yaml#/from'
-      - $ref: './../parameters.yaml#/to'
-      - $ref: './../parameters.yaml#/limit'
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/from'
+      - $ref: './../../parameters.yaml#/to'
+      - $ref: './../../parameters.yaml#/limit'
     x-code-samples:
       - lang: Shell
         source: >-
@@ -142,200 +142,6 @@
           print(urllib.request.urlopen(url).read())
     responses:
       200:
-        $ref: '#/responses/NVT'
+        $ref: './responses.yaml#/NVT'
     security:
       - Bearer Access Token: []
-
-responses:
-
-  PriceUSD:
-    description: Price OHLC Data in USD
-    content:
-      application/json:
-        schema:
-          $ref: '#/schemas/PriceUSDResponse'
-        example:
-          status:
-            code: 200
-            message: "success"
-          result:
-            window: "day"
-            data:
-              - datetime: "2019-10-01T00:00:00"
-                price_usd_open:
-                price_usd_high:
-                price_usd_low:
-                price_usd_close:
-              - datetime: "2019-10-02T00:00:00"
-                price_usd_open:
-                price_usd_high:
-                price_usd_low:
-                price_usd_close:
-
-  Capitalization:
-    description: market_cap, realized_cap, averge_cap, delta_cap, mvrv
-    content:
-      application/json:
-        schema:
-          $ref: '#/schemas/CapitalizationResponse'
-        example:
-          status:
-            code: 200
-            message: "success"
-          result:
-            window: "day"
-            data:
-              - datetime: "2019-10-01T00:00:00"
-                market_cap:
-                realized_cap:
-                averge_cap:
-                delta_cap:
-                mvrv:
-              - datetime: "2019-10-02T00:00:00"
-                market_cap:
-                realized_cap:
-                averge_cap:
-                delta_cap:
-                mvrv:
-  NVT:
-    description: NVT(Network Value to Transaction) ratio
-    content:
-      application/json:
-        schema:
-          $ref: '#/schemas/NVTResponse'
-        example:
-          status:
-            code: 200
-            message: "success"
-          result:
-            window: "day"
-            data:
-              - datetime: "2019-10-01T00:00:00"
-                nvt:
-              - datetime: "2019-10-02T00:00:00"
-                nvt:
-
-
-
-schemas:
-
-  PriceUSDResponse:
-    type: object
-    required:
-      - status
-      - result
-    properties:
-      status:
-        $ref: './../basic_schemas.yaml#/Status'
-      result:
-        type: object
-        required:
-          - window
-          - data
-        properties:
-          window:
-            $ref: './../basic_schemas.yaml#/Window'
-          data:
-            type: array
-            items:
-              type: object
-              required:
-                - price_usd_open
-                - price_usd_high
-                - price_usd_low
-                - price_usd_close
-              properties:
-                blockheight:
-                  $ref: './../basic_schemas.yaml#/Blockheight'
-                datetime:
-                  $ref: './../basic_schemas.yaml#/Datetime'
-                price_usd_open:
-                  type: decimal
-                  description: USD opening price at the beginning of the window.
-                price_usd_high:
-                  type: decimal
-                  description: USD opening price at the end of the window.
-                price_usd_low:
-                  type: decimal
-                  description: The highest USD price in a given window.
-                price_usd_close:
-                  type: decimal
-                  description: The lowest USD price in a given window.
-
-  CapitalizationResponse:
-    type: object
-    required:
-      - status
-      - result
-    properties:
-      status:
-        $ref: './../basic_schemas.yaml#/Status'
-      result:
-        type: object
-        required:
-          - window
-          - data
-        properties:
-          window:
-            $ref: './../basic_schemas.yaml#/Window'
-          data:
-            type: array
-            items:
-              type: object
-              required:
-                - market_cap
-                - realized_cap
-                - averge_cap
-                - delta_cap
-                - mvrv
-              properties:
-                blockheight:
-                  $ref: './../basic_schemas.yaml#/Blockheight'
-                datetime:
-                  $ref: './../basic_schemas.yaml#/Datetime'
-                market_cap:
-                  type: decimal
-                  description: Market capitalization of BTC, calculated by total_supply * price_usd_close.
-                realized_cap:
-                  type: decimal
-                  description: The sum of all UTXOs multiplied at the price they last moved.
-                averge_cap:
-                  type: decimal
-                  description: Forever moving average, calculated by dividing the cumulated sum of daily market cap with the age of market.
-                delta_cap:
-                  type: decimal
-                  description: realized_cap minus average_cap.
-                mvrv:
-                  type: decimal
-                  description: market_cap/realized_cap
-
-  NVTResponse:
-    type: object
-    required:
-      - status
-      - result
-    properties:
-      status:
-        $ref: './../basic_schemas.yaml#/Status'
-      result:
-        type: object
-        required:
-          - window
-          - data
-        properties:
-          window:
-            $ref: './../basic_schemas.yaml#/Window'
-          data:
-            type: array
-            items:
-              type: object
-              required:
-                - nvt
-              properties:
-                blockheight:
-                  $ref: './../basic_schemas.yaml#/Blockheight'
-                datetime:
-                  $ref: './../basic_schemas.yaml#/Datetime'
-                nvt:
-                  type: decimal
-                  description: NVT(Network Value to Transaction) ratio is the network value(supply_total) divided by tokens_transferred_total.

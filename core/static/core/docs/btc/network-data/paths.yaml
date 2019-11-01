@@ -1,4 +1,5 @@
-/btc/network-data/block-bytes:
+
+block-bytes:
   get:
     tags:
       - BTC Network Data
@@ -46,7 +47,8 @@
         $ref: './responses.yaml#/BlockBytes'
     security:
       - Bearer Access Token: []
-/btc/network-data/block-count:
+
+block-count:
   get:
     tags:
       - BTC Network Data
@@ -95,7 +97,7 @@
     security:
       - Bearer Access Token: []
 
-/btc/network-data/block-interval:
+block-interval:
   get:
     tags:
       - BTC Network Data
@@ -145,7 +147,7 @@
       - Bearer Access Token: []
 
 
-/btc/network-data/utxo-count:
+utxo-count:
   get:
     tags:
       - BTC Network Data
@@ -194,7 +196,7 @@
     security:
       - Bearer Access Token: []
 
-/btc/network-data/fees:
+fees:
   get:
     tags:
       - BTC Network Data
@@ -243,7 +245,7 @@
     security:
       - Bearer Access Token: []
 
-/btc/network-data/fees-transaction:
+fees-transaction:
   get:
     tags:
       - BTC Network Data
@@ -291,7 +293,7 @@
     security:
       - Bearer Access Token: []
 
-/btc/network-data/blockreward:
+blockreward:
   get:
     tags:
       - BTC Network Data
@@ -340,7 +342,7 @@
     security:
       - Bearer Access Token: []
 
-/btc/network-data/difficulty:
+difficulty:
   get:
     tags:
       - BTC Network Data
@@ -389,7 +391,7 @@
     security:
       - Bearer Access Token: []
 
-/btc/network-data/hashrate:
+hashrate:
   get:
     tags:
       - BTC Network Data
@@ -438,7 +440,7 @@
     security:
       - Bearer Access Token: []
 
-/btc/network-data/supply:
+supply:
   get:
     tags:
       - BTC Network Data
@@ -487,7 +489,7 @@
     security:
       - Bearer Access Token: []
 
-/btc/network-data/transactions-count:
+transactions-count:
   get:
     tags:
       - BTC Network Data
@@ -536,7 +538,7 @@
     security:
       - Bearer Access Token: []
 
-/btc/network-data/tokens-transferred:
+tokens-transferred:
   get:
     tags:
       - BTC Network Data
@@ -585,7 +587,7 @@
     security:
       - Bearer Access Token: []
 
-/btc/network-data/velocity:
+velocity:
   get:
     tags:
       - BTC Network Data
@@ -634,7 +636,7 @@
     security:
       - Bearer Access Token: []
 
-/btc/network-data/addresses-count:
+addresses-count:
   get:
     tags:
       - BTC Network Data
@@ -683,50 +685,50 @@
     security:
       - Bearer Access Token: []
 
-# /btc/network-data/inflation:
-#   get:
-#     tags:
-#       - BTC Network Data
-#     summary: Inflation
-#     description: This end point returns metrics relating to the bitcoin inflation rate. We provide `inflation_daily`, which is daily inflation rate calculated by dividing the number of newly issued tokens on that day by the total supply.
-#     operationId: getInflation
-#     parameters:
-#       - $ref: './../../parameters.yaml#/window'
-#       - $ref: './../../parameters.yaml#/isrange'
-#       - $ref: './../../parameters.yaml#/period'
-#     x-code-samples:
-#       - lang: Shell
-#         source: >-
-#           curl
-#           "https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903"
-#       - lang: JavaScript
-#         source: >-
-#           fetch("https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903")
-#             .then(response => response.json())
-#             .then(data => console.log(data))
-#       - lang: NodeJS
-#         source: |-
-#           require('axios')
-#             .get("https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903")
-#             .then(response => console.log(response))
-#       - lang: Ruby
-#         source: >-
-#           require 'net/http'
-#
-#           uri =
-#           URI("https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903")
-#
-#           puts Net::HTTP.get(uri)
-#       - lang: Python
-#         source: >-
-#           import urllib.request
-#
-#           url =
-#           "https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903"
-#
-#           print(urllib.request.urlopen(url).read())
-#     responses:
-#       200:
-#         $ref: './responses.yaml#/Inflation'
-#     security:
-#       - Bearer Access Token: []
+inflation:
+  get:
+    tags:
+      - BTC Network Data
+    summary: Inflation
+    description: This end point returns metrics relating to the bitcoin inflation rate. We provide `inflation_daily`, which is daily inflation rate calculated by dividing the number of newly issued tokens on that day by the total supply.
+    operationId: getInflation
+    parameters:
+      - $ref: './../../parameters.yaml#/window'
+      - $ref: './../../parameters.yaml#/isrange'
+      - $ref: './../../parameters.yaml#/period'
+    x-code-samples:
+      - lang: Shell
+        source: >-
+          curl
+          "https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903"
+      - lang: JavaScript
+        source: >-
+          fetch("https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903")
+            .then(response => response.json())
+            .then(data => console.log(data))
+      - lang: NodeJS
+        source: |-
+          require('axios')
+            .get("https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903")
+            .then(response => console.log(response))
+      - lang: Ruby
+        source: >-
+          require 'net/http'
+
+          uri =
+          URI("https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903")
+
+          puts Net::HTTP.get(uri)
+      - lang: Python
+        source: >-
+          import urllib.request
+
+          url =
+          "https://datapack.cryptoquant.com/v1/btc/network-data/inflation?window=day&isrange=true&period=190901-190903"
+
+          print(urllib.request.urlopen(url).read())
+    responses:
+      200:
+        $ref: './responses.yaml#/Inflation'
+    security:
+      - Bearer Access Token: []

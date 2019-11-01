@@ -1,0 +1,110 @@
+
+Reserve:
+  description: The amount of BTC on a given exchange on this window.
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/ReserveResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          data:
+            - datetime: "2019-10-01T00:00:00"
+              reserve:
+              reserve_usd:
+
+            - datetime: "2019-10-02T00:00:00"
+              reserve:
+              reserve_usd:
+
+TransactionsCountEF:
+  description: transactions_count_inflow, transactions_count_outflow
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/TransactionsCountEFResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          data:
+            - datetime: "2019-10-01T00:00:00"
+              transactions_count_inflow:
+              transactions_count_outflow:
+
+            - datetime: "2019-10-02T00:00:00"
+              transactions_count_inflow:
+              transactions_count_outflow:
+
+Inflow:
+  description: inflow_total, inflow_mean, inflow_top10
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/InflowResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          data:
+            - datetime: "2019-10-01T00:00:00"
+              inflow_total:
+              inflow_mean:
+              inflow_top10:
+
+            - datetime: "2019-10-02T00:00:00"
+              inflow_total:
+              inflow_mean:
+              inflow_top10:
+
+Outflow:
+  description: outflow_total, outflow_mean, outflow_top10
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/OutflowResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          data:
+            - datetime: "2019-10-01T00:00:00"
+              outflow_total:
+              outflow_mean:
+              outflow_top10:
+
+            - datetime: "2019-10-02T00:00:00"
+              outflow_total:
+              outflow_mean:
+              outflow_top10:
+
+
+AddressesCountEF:
+  description: The number of addresses evoking inflow/outflow transactions to exchange wallets
+  content:
+    application/json:
+      schema:
+        $ref: './schemas.yaml#/AddressesCountEFResponse'
+      example:
+        status:
+          code: 200
+          message: "success"
+        result:
+          window: "day"
+          data:
+            - datetime: "2019-10-01T00:00:00"
+              addresses_count_inflow:
+              addresses_count_outflow:
+
+            - datetime: "2019-10-02T00:00:00"
+              addresses_count_inflow:
+              addresses_count_outflow:

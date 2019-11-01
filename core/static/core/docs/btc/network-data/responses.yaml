@@ -1,4 +1,3 @@
-
 BlockBytes:
   description: The mean size(in bytes) of all blocks generated at a given window.
   content:

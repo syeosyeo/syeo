@@ -1,0 +1,74 @@
+
+  PriceUSDSCResponse:
+    type: object
+    required:
+      - status
+      - result
+    properties:
+      status:
+        $ref: './../../basic_schemas.yaml#/Status'
+      result:
+        type: object
+        required:
+          - window
+          - data
+        properties:
+          window:
+            $ref: './../../basic_schemas.yaml#/Window'
+          data:
+            type: array
+            items:
+              type: object
+              required:
+                - price_usd_open
+                - price_usd_high
+                - price_usd_low
+                - price_usd_close
+              properties:
+                blockheight:
+                  $ref: './../../basic_schemas.yaml#/Blockheight'
+                datetime:
+                  $ref: './../../basic_schemas.yaml#/Datetime'
+                price_usd_open:
+                  type: decimal
+                  description: USD opening price at the beginning of the window.
+                price_usd_high:
+                  type: decimal
+                  description: USD opening price at the end of the window.
+                price_usd_low:
+                  type: decimal
+                  description: The highest USD price in a given window.
+                price_usd_close:
+                  type: decimal
+                  description: The lowest USD price in a given window.
+
+  CapitalizationSCResponse:
+    type: object
+    required:
+      - status
+      - result
+    properties:
+      status:
+        $ref: './../../basic_schemas.yaml#/Status'
+      result:
+        type: object
+        required:
+          - window
+          - data
+        properties:
+          window:
+            $ref: './../../basic_schemas.yaml#/Window'
+          data:
+            type: array
+            items:
+              type: object
+              required:
+                - market_cap
+              properties:
+                blockheight:
+                  $ref: './../../basic_schemas.yaml#/Blockheight'
+                datetime:
+                  $ref: './../../basic_schemas.yaml#/Datetime'
+                market_cap:
+                  type: decimal
+                  description: Market capitalization of the stable coin, calculated by total_supply * price_usd_close.
