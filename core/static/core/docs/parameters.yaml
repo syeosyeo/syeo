@@ -3,7 +3,6 @@ window:
   explode: false
   in: query
   name: window
-  required: true
   schema:
     type: string
     default: day
@@ -15,7 +14,6 @@ window_mdb:
   explode: false
   in: query
   name: window
-  required: true
   schema:
     type: string
     default: day
@@ -27,7 +25,6 @@ window_d:
   explode: false
   in: query
   name: window
-  required: true
   schema:
     type: string
     default: day
