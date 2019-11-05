@@ -93,7 +93,7 @@
       "url": URL,
       "method": "GET",
       "headers": {
-        "Authorization": access_token
+        "Authorization": "Bearer " + access_token
       }
     }
 
@@ -111,7 +111,7 @@
     });
 
     xhr.open("GET", URL);
-    xhr.setRequestHeader("Authorization", access_token);
+    xhr.setRequestHeader("Authorization", "Bearer " + access_token);
     xhr.send(null);
     ```
 
