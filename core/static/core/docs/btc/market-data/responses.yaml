@@ -11,12 +11,12 @@ PriceUSD:
         result:
           window: "day"
           data:
-            - datetime: "2019-10-01T00:00:00"
+            - date: "191001"
               price_usd_open:
               price_usd_high:
               price_usd_low:
               price_usd_close:
-            - datetime: "2019-10-02T00:00:00"
+            - date: "191002"
               price_usd_open:
               price_usd_high:
               price_usd_low:
@@ -35,13 +35,13 @@ Capitalization:
         result:
           window: "day"
           data:
-            - datetime: "2019-10-01T00:00:00"
+            - date: "191001"
               market_cap:
               realized_cap:
               averge_cap:
               delta_cap:
               mvrv:
-            - datetime: "2019-10-02T00:00:00"
+            - date: "191002"
               market_cap:
               realized_cap:
               averge_cap:
@@ -60,7 +60,7 @@ NVT:
         result:
           window: "day"
           data:
-            - datetime: "2019-10-01T00:00:00"
+            - date: "191001"
               nvt:
-            - datetime: "2019-10-02T00:00:00"
+            - date: "191002"
               nvt:

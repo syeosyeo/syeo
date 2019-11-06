@@ -12,13 +12,13 @@ PriceUSDSC:
         result:
           window: "day"
           data:
-            - datetime: "2019-10-01T00:00:00"
+            - date: "191001"
               price_usd_open:
               price_usd_high:
               price_usd_low:
               price_usd_close:
 
-            - datetime: "2019-10-02T00:00:00"
+            - date: "191002"
               price_usd_open:
               price_usd_high:
               price_usd_low:
@@ -37,8 +37,8 @@ CapitalizationSC:
         result:
           window: "day"
           data:
-            - datetime: "2019-10-01T00:00:00"
+            - date: "191001"
               market_cap:
 
-            - datetime: "2019-10-02T00:00:00"
+            - date: "191002"
               market_cap:
