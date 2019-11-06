@@ -103,7 +103,6 @@ exchange:
   required: true
   schema:
     type: string
-    default: all
   style: form
   example: binance
 miner:
@@ -114,7 +113,6 @@ miner:
   required: true
   schema:
     type: string
-    default: all
   style: form
   example: antpool
 from_entity_ex:

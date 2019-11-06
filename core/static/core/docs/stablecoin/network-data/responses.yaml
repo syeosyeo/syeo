@@ -43,7 +43,6 @@ TransactionsCount:
           period: "190901"
           data:
             - date: "190901"
-              transactions_count_total:
               transactions_count_mean:
               transactions_count_transfer:
               transactions_count_mint:
