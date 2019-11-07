@@ -3,7 +3,7 @@ price-usd:
     tags:
       - BTC Market Data
     summary: Price USD
-    description: This endpoint returns metrics related to the US Dollar(USD) price of BTC. At this endpoint, metrics are calculated by Minute, Day, and Block. We provide four metrics, `price_usd_open`, USD opening price at the beginning of the window, `price_usd_close`, USD closing price at the end of the window, `price_usd_high`, the highest USD price in a given window, and `price_usd_low`, the lowest USD price in a given window. (블록단위 가격은 초를 버린 값이다. Days는 day와 datetime 모두를 받을 수 있는데 현재는 date만 받는다. min이나 hour)
+    description: This endpoint returns metrics related to the US Dollar(USD) price of BTC. At this endpoint, metrics are calculated by Minute, Day, and Block. We provide four metrics, `price_usd_open`, USD opening price at the beginning of the window, `price_usd_close`, USD closing price at the end of the window, `price_usd_high`, the highest USD price in a given window, and `price_usd_low`, the lowest USD price in a given window.
     operationId: getPriceUSD
     parameters:
       - $ref: './../../parameters.yaml#/window_mdb'
