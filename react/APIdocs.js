@@ -56,6 +56,7 @@ class APIDocs extends React.Component {
             scrollYOffset: yoffset,
             hideDownloadButton: true,
             expandResponses:'all' ,
+            jsonSampleExpandLevel: 'all',
             theme: {
               typography: {
                 fontFamily: 'Roboto',
