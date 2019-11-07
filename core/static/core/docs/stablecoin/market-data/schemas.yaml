@@ -34,13 +34,13 @@
                   description: USD opening price at the beginning of the window.
                 price_usd_high:
                   type: decimal
-                  description: USD opening price at the end of the window.
+                  description: The highest USD price in a given window.
                 price_usd_low:
                   type: decimal
-                  description: The highest USD price in a given window.
+                  description: The lowest USD price in a given window.
                 price_usd_close:
                   type: decimal
-                  description: The lowest USD price in a given window.
+                  description: USD closing price at the end of the window.
 
   CapitalizationSCResponse:
     type: object
