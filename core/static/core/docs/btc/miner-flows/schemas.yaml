@@ -105,7 +105,7 @@ InflowResponse:
                 description: The mean amount of tokens per transactions sent to miner wallets.
               inflow_top10:
                 type: decimal
-                description: The total BTC amount of top 10 transactions (in terms of total BTC sent) flowing out of miner wallets for every day that the miner wallets we track have been live on the blockchain.
+                description: The total BTC amount of top 10 transactions (in terms of total BTC sent) flowing into miner wallets for every day that the miner wallets we track have been live on the blockchain.
 
 OutflowResponse:
   type: object

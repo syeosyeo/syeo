@@ -70,7 +70,7 @@ from:
   example: "20191001T100000"
 
 to:
-  description: This defines the ending time for which data will be gathered, formatted as YYYYMMDDTHHMMSS (indicating YYYY-MM-DDTHH:MM:SS, UTC time). If window=day is used, it can also be formatted as YYYYMMDD (date). If window=block is used, you can also specify the exact block height (e.g. 510000). If this field is notspecified, response will include data from the earliest time.
+  description: This defines the ending time for which data will be gathered, formatted as YYYYMMDDTHHMMSS (indicating YYYY-MM-DDTHH:MM:SS, UTC time). If window=day is used, it can also be formatted as YYYYMMDD (date). If window=block is used, you can also specify the exact block height (e.g. 510000). If this field is not specified, response will include data from the earliest time.
   explode: false
   in: query
   name: to
@@ -82,16 +82,14 @@ to:
   example: "20191001T103025"
 
 limit:
-  description: The maximum number of entries to return before the latest data point. If not specified, up to 100,000 entries will be returned.
+  description: The maximum number of entries to return before the latest data point. If this value is zero (default), all data elements for the specified interval [from, to] will be returned.
   explode: false
   in: query
   name: limit
   required: false
   schema:
     type: integer
-    default: 10
-    minimum: 1
-    maximum: 100000
+    default: 0
   style: form
   example: 100
 
