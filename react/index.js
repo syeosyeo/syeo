@@ -146,4 +146,5 @@ if(docs) {
       <APIDocs language={lang}/>
     </MuiThemeProvider>
   , docs);
+  
 }

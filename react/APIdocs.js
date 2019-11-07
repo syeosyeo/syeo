@@ -22,6 +22,7 @@ class APIDocs extends React.Component {
     this.state = {
       yoffset: 0
     };
+    
   }
 
   componentDidMount() {
@@ -30,6 +31,7 @@ class APIDocs extends React.Component {
     if (this.state.yoffset !== yoffset) {
       this.setState({yoffset});
     }
+    
   }
 
   componentDidUpdate() {
@@ -39,6 +41,7 @@ class APIDocs extends React.Component {
       this.setState({yoffset});
     }
   }
+  
 
   render() {
     const {classes, language} = this.props;
@@ -52,6 +55,7 @@ class APIDocs extends React.Component {
         <RedocStandalone specUrl="/static/core/docs/openapi.yaml" options={{
             scrollYOffset: yoffset,
             hideDownloadButton: true,
+            expandResponses:'all' ,
             theme: {
               typography: {
                 fontFamily: 'Roboto',
