@@ -11,12 +11,12 @@ Exchange-to-exchange:
         result:
           window: "day"
           data:
-            - datetime: "2019-10-01T00:00:00"
+            - date: "191001"
               from_exchange:
               to_exchange:
               flow:
 
-            - datetime: "2019-10-02T00:00:00"
+            - date: "191002"
               from_exchange:
               to_exchange:
               flow:
@@ -34,12 +34,12 @@ Miner-to-exchange:
         result:
           window: "day"
           data:
-            - datetime: "2019-10-01T00:00:00"
+            - date: "191001"
               from_miner:
               to_exchange:
               flow:
 
-            - datetime: "2019-10-02T00:00:00"
+            - date: "191002"
               from_miner:
               to_exchange:
               flow:
@@ -58,12 +58,12 @@ Exchange-to-miner:
         result:
           window: "day"
           data:
-            - datetime: "2019-10-01T00:00:00"
+            - date: "191001"
               from_exchange:
               to_miner:
               flow:
 
-            - datetime: "2019-10-02T00:00:00"
+            - date: "191002"
               from_exchange:
               to_miner:
               flow:

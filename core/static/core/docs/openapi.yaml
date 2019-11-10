@@ -95,8 +95,8 @@ tags:
 
       #### Terminology
 
-      | Term          |   Definition   |
-      |----------------|------------|
+      | Term           |   Definition  |
+      |----------------|---------------|
       | Mint    |  Mint is a creation of new tokens that add to the supply. When tokens are minted, the total supply will increase.      |
       | Issue   |Issue is when tokens are delivered to clients after deposit of fiat has been confirmed. When tokens are issued, the circulating supply will increase. |
       | Burn   |Burn is a revocation of currently existing tokens that results in a decreased supply. The opposite of Mint.|
