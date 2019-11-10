@@ -9,7 +9,7 @@ Exchange-to-exchangeResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -50,7 +50,7 @@ Miner-to-exchangeResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -91,7 +91,7 @@ Exchange-to-minerResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:

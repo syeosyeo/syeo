@@ -9,7 +9,7 @@ ReserveResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -46,7 +46,7 @@ TransactionsCountEFResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -83,7 +83,7 @@ InflowResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -124,7 +124,7 @@ OutflowResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -166,7 +166,7 @@ AddressesCountEFResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:

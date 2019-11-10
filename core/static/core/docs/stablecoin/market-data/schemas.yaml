@@ -10,7 +10,7 @@
       result:
         type: object
         required:
-          - window
+
           - data
         properties:
           window:
@@ -55,7 +55,7 @@
       result:
         type: object
         required:
-          - window
+
           - data
         properties:
           window:

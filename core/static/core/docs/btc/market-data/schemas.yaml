@@ -10,7 +10,7 @@ PriceUSDResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -55,7 +55,7 @@ CapitalizationResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -104,7 +104,7 @@ NVTResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:

@@ -9,7 +9,6 @@ BlockBytesResponse:
     result:
       type: object
       required:
-        - window
         - data
       properties:
         window:
@@ -42,7 +41,6 @@ BlockCountResponse:
     result:
       type: object
       required:
-        - window
         - data
       properties:
         window:
@@ -75,7 +73,7 @@ BlockIntervalResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -109,7 +107,6 @@ UTXOCountResponse:
     result:
       type: object
       required:
-        - window
         - data
       properties:
         window:
@@ -143,7 +140,7 @@ FeesResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -230,7 +227,7 @@ BlockRewardResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -268,7 +265,7 @@ DifficultyResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -302,7 +299,7 @@ HashrateResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -336,7 +333,7 @@ SupplyResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -374,7 +371,7 @@ TransactionsCountResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -411,7 +408,7 @@ TokensTransferredResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -453,7 +450,7 @@ VelocityResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -487,7 +484,7 @@ AddressesCountResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -532,7 +529,6 @@ InflationResponse:
     result:
       type: object
       required:
-        - window
         - data
       properties:
         window:

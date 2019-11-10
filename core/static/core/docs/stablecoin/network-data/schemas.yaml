@@ -10,7 +10,7 @@ SupplyResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -64,7 +64,7 @@ TransactionsCountResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -117,7 +117,7 @@ TokensTransferredResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
@@ -159,7 +159,7 @@ AddressesCountResponse:
     result:
       type: object
       required:
-        - window
+
         - data
       properties:
         window:
