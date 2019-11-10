@@ -107,11 +107,11 @@ tags:
 x-tagGroups:
   - name: Bitcoin
     tags:
-      - BTC Network Data
-      - BTC Market Data
       - BTC Exchange Flows
       - BTC Miner Flows
       - BTC Inter Entity Flows
+      - BTC Network Data
+      - BTC Market Data
   - name: Stablecoin
     tags:
       - Stablecoin Network Data

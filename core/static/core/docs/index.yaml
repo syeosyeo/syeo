@@ -1,3 +1,35 @@
+# +--------------- BTC EXCHANGE FLOWS ---------------+
+/btc/exchange-flows/reserve:
+  $ref: './btc/exchange-flows/paths.yaml#/reserve'
+/btc/exchange-flows/transactions-count:
+  $ref: './btc/exchange-flows/paths.yaml#/transactions-count'
+/btc/exchange-flows/inflow:
+  $ref: './btc/exchange-flows/paths.yaml#/inflow'
+/btc/exchange-flows/outflow:
+  $ref: './btc/exchange-flows/paths.yaml#/outflow'
+/btc/exchange-flows/addresses-count:
+  $ref: './btc/exchange-flows/paths.yaml#/addresses-count'
+
+# +--------------- BTC MINER FLOWS ---------------+
+/btc/miner-flows/reserve:
+  $ref: './btc/miner-flows/paths.yaml#/reserve'
+/btc/miner-flows/transactions-count:
+  $ref: './btc/miner-flows/paths.yaml#/transactions-count'
+/btc/miner-flows/inflow:
+  $ref: './btc/miner-flows/paths.yaml#/inflow'
+/btc/miner-flows/outflow:
+  $ref: './btc/miner-flows/paths.yaml#/outflow'
+/btc/miner-flows/addresses-count:
+  $ref: './btc/miner-flows/paths.yaml#/addresses-count'
+
+# +--------------- BTC INTER ENTITY FLOWS ---------------+
+/btc/inter-entity-flows/exchange-to-exchange:
+  $ref: './btc/inter-entity-flows/paths.yaml#/exchange-to-exchange'
+/btc/inter-entity-flows/miner-to-exchange:
+  $ref: './btc/inter-entity-flows/paths.yaml#/miner-to-exchange'
+/btc/inter-entity-flows/exchange-to-miner:
+  $ref: './btc/inter-entity-flows/paths.yaml#/exchange-to-miner'
+
 # +--------------- BTC NETWORK DATA ---------------+
 /btc/network-data/block-bytes:
   $ref: './btc/network-data/paths.yaml#/block-bytes'
@@ -39,38 +71,6 @@
   $ref: './btc/market-data/paths.yaml#/nvt'
 
 
-# +--------------- BTC EXCHANGE FLOWS ---------------+
-/btc/exchange-flows/reserve:
-  $ref: './btc/exchange-flows/paths.yaml#/reserve'
-/btc/exchange-flows/transactions-count:
-  $ref: './btc/exchange-flows/paths.yaml#/transactions-count'
-/btc/exchange-flows/inflow:
-  $ref: './btc/exchange-flows/paths.yaml#/inflow'
-/btc/exchange-flows/outflow:
-  $ref: './btc/exchange-flows/paths.yaml#/outflow'
-/btc/exchange-flows/addresses-count:
-  $ref: './btc/exchange-flows/paths.yaml#/addresses-count'
-
-# +--------------- BTC MINER FLOWS ---------------+
-/btc/miner-flows/reserve:
-  $ref: './btc/miner-flows/paths.yaml#/reserve'
-/btc/miner-flows/transactions-count:
-  $ref: './btc/miner-flows/paths.yaml#/transactions-count'
-/btc/miner-flows/inflow:
-  $ref: './btc/miner-flows/paths.yaml#/inflow'
-/btc/miner-flows/outflow:
-  $ref: './btc/miner-flows/paths.yaml#/outflow'
-/btc/miner-flows/addresses-count:
-  $ref: './btc/miner-flows/paths.yaml#/addresses-count'
-
-
-# +--------------- BTC INTER ENTITY FLOWS ---------------+
-/btc/inter-entity-flows/exchange-to-exchange:
-  $ref: './btc/inter-entity-flows/paths.yaml#/exchange-to-exchange'
-/btc/inter-entity-flows/miner-to-exchange:
-  $ref: './btc/inter-entity-flows/paths.yaml#/miner-to-exchange'
-/btc/inter-entity-flows/exchange-to-miner:
-  $ref: './btc/inter-entity-flows/paths.yaml#/exchange-to-miner'
 
 # +--------------- STABLECOIN NETWORK DATA ---------------+
 /stablecoin/network-data/supply:
