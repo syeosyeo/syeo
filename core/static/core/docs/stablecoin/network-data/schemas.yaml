@@ -11,13 +11,10 @@ SupplyResponse:
       type: object
       required:
         - window
-        - period
         - data
       properties:
         window:
           $ref: './../../basic_schemas.yaml#/Window'
-        period:
-          $ref: './../../basic_schemas.yaml#/Period'
         data:
           type: array
           items:
@@ -66,13 +63,10 @@ TransactionsCountResponse:
       type: object
       required:
         - window
-        - period
         - data
       properties:
         window:
           $ref: './../../basic_schemas.yaml#/Window'
-        period:
-          $ref: './../../basic_schemas.yaml#/Period'
         data:
           type: array
           items:
@@ -120,13 +114,10 @@ TokensTransferredResponse:
       type: object
       required:
         - window
-        - period
         - data
       properties:
         window:
           $ref: './../../basic_schemas.yaml#/Window'
-        period:
-          $ref: './../../basic_schemas.yaml#/Period'
         data:
           type: array
           items:
@@ -163,13 +154,10 @@ AddressesCountResponse:
       type: object
       required:
         - window
-        - period
         - data
       properties:
         window:
           $ref: './../../basic_schemas.yaml#/Window'
-        period:
-          $ref: './../../basic_schemas.yaml#/Period'
         data:
           type: array
           items:

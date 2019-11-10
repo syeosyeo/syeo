@@ -27,6 +27,8 @@ PriceUSDResponse:
             properties:
               blockheight:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
               datetime:
                 $ref: './../../basic_schemas.yaml#/Datetime'
               price_usd_open:
@@ -71,6 +73,8 @@ CapitalizationResponse:
             properties:
               blockheight:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
               datetime:
                 $ref: './../../basic_schemas.yaml#/Datetime'
               market_cap:
@@ -114,6 +118,8 @@ NVTResponse:
             properties:
               blockheight:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
               datetime:
                 $ref: './../../basic_schemas.yaml#/Datetime'
               nvt:

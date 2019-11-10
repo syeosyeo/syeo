@@ -15,23 +15,23 @@ supply:
         - lang: Shell
           source: >-
             curl
-            "https://datapack.cryptoquant.com/v1/stablecoin/network-data/supply?window=day&isrange=true&period=190901-190903"
+            "https://datapack.cryptoquant.com/v1/stablecoin/network-data/supply?window=day"
         - lang: JavaScript
           source: >-
-            fetch("https://datapack.cryptoquant.com/v1/stablecoin/network-data/supply?window=day&isrange=true&period=190901-190903")
+            fetch("https://datapack.cryptoquant.com/v1/stablecoin/network-data/supply?window=day")
               .then(response => response.json())
               .then(data => console.log(data))
         - lang: NodeJS
           source: |-
             require('axios')
-              .get("https://datapack.cryptoquant.com/v1/stablecoin/network-data/supply?window=day&isrange=true&period=190901-190903")
+              .get("https://datapack.cryptoquant.com/v1/stablecoin/network-data/supply?window=day")
               .then(response => console.log(response))
         - lang: Ruby
           source: >-
             require 'net/http'
 
             uri =
-            URI("https://datapack.cryptoquant.com/v1/stablecoin/network-data/supply?window=day&isrange=true&period=190901-190903")
+            URI("https://datapack.cryptoquant.com/v1/stablecoin/network-data/supply?window=day")
 
             puts Net::HTTP.get(uri)
         - lang: Python
@@ -39,7 +39,7 @@ supply:
             import urllib.request
 
             url =
-            "https://datapack.cryptoquant.com/v1/stablecoin/network-data/supply?window=day&isrange=true&period=190901-190903"
+            "https://datapack.cryptoquant.com/v1/stablecoin/network-data/supply?window=day"
 
             print(urllib.request.urlopen(url).read())
       responses:
@@ -65,23 +65,23 @@ transactions-count:
         - lang: Shell
           source: >-
             curl
-            "https://datapack.cryptoquant.com/v1/stablecoin/network-data/transactions-count?window=day&isrange=true&period=190901-190903"
+            "https://datapack.cryptoquant.com/v1/stablecoin/network-data/transactions-count?window=day"
         - lang: JavaScript
           source: >-
-            fetch("https://datapack.cryptoquant.com/v1/stablecoin/network-data/transactions-count?window=day&isrange=true&period=190901-190903")
+            fetch("https://datapack.cryptoquant.com/v1/stablecoin/network-data/transactions-count?window=day")
               .then(response => response.json())
               .then(data => console.log(data))
         - lang: NodeJS
           source: |-
             require('axios')
-              .get("https://datapack.cryptoquant.com/v1/stablecoin/network-data/transactions-count?window=day&isrange=true&period=190901-190903")
+              .get("https://datapack.cryptoquant.com/v1/stablecoin/network-data/transactions-count?window=day")
               .then(response => console.log(response))
         - lang: Ruby
           source: >-
             require 'net/http'
 
             uri =
-            URI("https://datapack.cryptoquant.com/v1/stablecoin/network-data/transactions-count?window=day&isrange=true&period=190901-190903")
+            URI("https://datapack.cryptoquant.com/v1/stablecoin/network-data/transactions-count?window=day")
 
             puts Net::HTTP.get(uri)
         - lang: Python
@@ -89,7 +89,7 @@ transactions-count:
             import urllib.request
 
             url =
-            "https://datapack.cryptoquant.com/v1/stablecoin/network-data/transactions-count?window=day&isrange=true&period=190901-190903"
+            "https://datapack.cryptoquant.com/v1/stablecoin/network-data/transactions-count?window=day"
 
             print(urllib.request.urlopen(url).read())
       responses:
@@ -115,23 +115,23 @@ tokens-transferred:
         - lang: Shell
           source: >-
             curl
-            "https://datapack.cryptoquant.com/v1/stablecoin/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903"
+            "https://datapack.cryptoquant.com/v1/stablecoin/network-data/tokens-transferred?window=day"
         - lang: JavaScript
           source: >-
-            fetch("https://datapack.cryptoquant.com/v1/stablecoin/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903")
+            fetch("https://datapack.cryptoquant.com/v1/stablecoin/network-data/tokens-transferred?window=day")
               .then(response => response.json())
               .then(data => console.log(data))
         - lang: NodeJS
           source: |-
             require('axios')
-              .get("https://datapack.cryptoquant.com/v1/stablecoin/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903")
+              .get("https://datapack.cryptoquant.com/v1/stablecoin/network-data/tokens-transferred?window=day")
               .then(response => console.log(response))
         - lang: Ruby
           source: >-
             require 'net/http'
 
             uri =
-            URI("https://datapack.cryptoquant.com/v1/stablecoin/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903")
+            URI("https://datapack.cryptoquant.com/v1/stablecoin/network-data/tokens-transferred?window=day")
 
             puts Net::HTTP.get(uri)
         - lang: Python
@@ -139,7 +139,7 @@ tokens-transferred:
             import urllib.request
 
             url =
-            "https://datapack.cryptoquant.com/v1/stablecoin/network-data/tokens-transferred?window=day&isrange=true&period=190901-190903"
+            "https://datapack.cryptoquant.com/v1/stablecoin/network-data/tokens-transferred?window=day"
 
             print(urllib.request.urlopen(url).read())
       responses:
@@ -165,23 +165,23 @@ addresses-count:
         - lang: Shell
           source: >-
             curl
-            "https://datapack.cryptoquant.com/v1/stablecoin/network-data/addresses-count?window=day&isrange=true&period=190901-190903"
+            "https://datapack.cryptoquant.com/v1/stablecoin/network-data/addresses-count?window=day"
         - lang: JavaScript
           source: >-
-            fetch("https://datapack.cryptoquant.com/v1/stablecoin/network-data/addresses-count?window=day&isrange=true&period=190901-190903")
+            fetch("https://datapack.cryptoquant.com/v1/stablecoin/network-data/addresses-count?window=day")
               .then(response => response.json())
               .then(data => console.log(data))
         - lang: NodeJS
           source: |-
             require('axios')
-              .get("https://datapack.cryptoquant.com/v1/stablecoin/network-data/addresses-count?window=day&isrange=true&period=190901-190903")
+              .get("https://datapack.cryptoquant.com/v1/stablecoin/network-data/addresses-count?window=day")
               .then(response => console.log(response))
         - lang: Ruby
           source: >-
             require 'net/http'
 
             uri =
-            URI("https://datapack.cryptoquant.com/v1/stablecoin/network-data/addresses-count?window=day&isrange=true&period=190901-190903")
+            URI("https://datapack.cryptoquant.com/v1/stablecoin/network-data/addresses-count?window=day")
 
             puts Net::HTTP.get(uri)
         - lang: Python
@@ -189,7 +189,7 @@ addresses-count:
             import urllib.request
 
             url =
-            "https://datapack.cryptoquant.com/v1/stablecoin/network-data/addresses-count?window=day&isrange=true&period=190901-190903"
+            "https://datapack.cryptoquant.com/v1/stablecoin/network-data/addresses-count?window=day"
 
             print(urllib.request.urlopen(url).read())
       responses:

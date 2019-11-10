@@ -11,7 +11,6 @@ Supply:
           message: "success"
         result:
           window: "block"
-          period: "500000-500001"
           data:
             - blockheight: "500000"
               supply_total:
@@ -40,7 +39,6 @@ TransactionsCount:
           message: "success"
         result:
           window: "day"
-          period: "190901"
           data:
             - date: "190901"
               transactions_count_mean:
@@ -63,7 +61,6 @@ TokensTransferred:
           message: "success"
         result:
           window: "day"
-          period: "190901"
           data:
             - date: "190901"
               tokens_transferred_total: 78912.12373645
@@ -83,7 +80,6 @@ AddressesCount:
           message: "success"
         result:
           window: "day"
-          period: "190901"
           data:
             - date: "190901"
               addresses_count_active: 102832

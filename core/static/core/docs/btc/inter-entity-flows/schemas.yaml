@@ -25,6 +25,8 @@ Exchange-to-exchangeResponse:
             properties:
               blockheight:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
               datetime:
                 $ref: './../../basic_schemas.yaml#/Datetime'
               from_exchange:
@@ -64,6 +66,8 @@ Miner-to-exchangeResponse:
             properties:
               blockheight:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
               datetime:
                 $ref: './../../basic_schemas.yaml#/Datetime'
               from_miner:
@@ -103,6 +107,8 @@ Exchange-to-minerResponse:
             properties:
               blockheight:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
               datetime:
                 $ref: './../../basic_schemas.yaml#/Datetime'
               from_exchange:

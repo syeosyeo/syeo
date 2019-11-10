@@ -24,6 +24,8 @@ ReserveResponse:
             properties:
               blockheight:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
               datetime:
                 $ref: './../../basic_schemas.yaml#/Datetime'
               reserve:
@@ -59,6 +61,8 @@ TransactionsCountEFResponse:
             properties:
               blockheight:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
               datetime:
                 $ref: './../../basic_schemas.yaml#/Datetime'
               transactions_count_inflow:
@@ -95,6 +99,8 @@ InflowResponse:
             properties:
               blockheight:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
               datetime:
                 $ref: './../../basic_schemas.yaml#/Datetime'
               inflow_total:
@@ -134,6 +140,8 @@ OutflowResponse:
             properties:
               blockheight:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
               datetime:
                 $ref: './../../basic_schemas.yaml#/Datetime'
               outflow_total:
@@ -173,6 +181,8 @@ AddressesCountEFResponse:
             properties:
               blockheight:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
               datetime:
                 $ref: './../../basic_schemas.yaml#/Datetime'
               addresses_count_inflow:

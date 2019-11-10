@@ -10,13 +10,10 @@ BlockBytesResponse:
       type: object
       required:
         - window
-        - period
         - data
       properties:
         window:
           $ref: './../../basic_schemas.yaml#/Window'
-        period:
-          $ref: './../../basic_schemas.yaml#/Period'
         data:
           type: array
           items:
@@ -44,13 +41,10 @@ BlockCountResponse:
       type: object
       required:
         - window
-        - period
         - data
       properties:
         window:
           $ref: './../../basic_schemas.yaml#/Window'
-        period:
-          $ref: './../../basic_schemas.yaml#/Period'
         data:
           type: array
           items:
@@ -78,13 +72,10 @@ BlockIntervalResponse:
       type: object
       required:
         - window
-        - period
         - data
       properties:
         window:
           $ref: './../../basic_schemas.yaml#/Window'
-        period:
-          $ref: './../../basic_schemas.yaml#/Period'
         data:
           type: array
           items:
@@ -113,13 +104,10 @@ UTXOCountResponse:
       type: object
       required:
         - window
-        - period
         - data
       properties:
         window:
           $ref: './../../basic_schemas.yaml#/Window'
-        period:
-          $ref: './../../basic_schemas.yaml#/Period'
         data:
           type: array
           items:
@@ -148,13 +136,10 @@ FeesResponse:
       type: object
       required:
         - window
-        - period
         - data
       properties:
         window:
           $ref: './../../basic_schemas.yaml#/Window'
-        period:
-          $ref: './../../basic_schemas.yaml#/Period'
         data:
           type: array
           items:
@@ -234,13 +219,10 @@ BlockRewardResponse:
       type: object
       required:
         - window
-        - period
         - data
       properties:
         window:
           $ref: './../../basic_schemas.yaml#/Window'
-        period:
-          $ref: './../../basic_schemas.yaml#/Period'
         data:
           type: array
           items:
@@ -273,13 +255,10 @@ DifficultyResponse:
       type: object
       required:
         - window
-        - period
         - data
       properties:
         window:
           $ref: './../../basic_schemas.yaml#/Window'
-        period:
-          $ref: './../../basic_schemas.yaml#/Period'
         data:
           type: array
           items:
@@ -308,13 +287,10 @@ HashrateResponse:
       type: object
       required:
         - window
-        - period
         - data
       properties:
         window:
           $ref: './../../basic_schemas.yaml#/Window'
-        period:
-          $ref: './../../basic_schemas.yaml#/Period'
         data:
           type: array
           items:
@@ -343,13 +319,10 @@ SupplyResponse:
       type: object
       required:
         - window
-        - period
         - data
       properties:
         window:
           $ref: './../../basic_schemas.yaml#/Window'
-        period:
-          $ref: './../../basic_schemas.yaml#/Period'
         data:
           type: array
           items:
@@ -382,13 +355,10 @@ TransactionsCountResponse:
       type: object
       required:
         - window
-        - period
         - data
       properties:
         window:
           $ref: './../../basic_schemas.yaml#/Window'
-        period:
-          $ref: './../../basic_schemas.yaml#/Period'
         data:
           type: array
           items:
@@ -420,13 +390,10 @@ TokensTransferredResponse:
       type: object
       required:
         - window
-        - period
         - data
       properties:
         window:
           $ref: './../../basic_schemas.yaml#/Window'
-        period:
-          $ref: './../../basic_schemas.yaml#/Period'
         data:
           type: array
           items:
@@ -463,13 +430,10 @@ VelocityResponse:
       type: object
       required:
         - window
-        - period
         - data
       properties:
         window:
           $ref: './../../basic_schemas.yaml#/Window'
-        period:
-          $ref: './../../basic_schemas.yaml#/Period'
         data:
           type: array
           items:
@@ -498,13 +462,10 @@ AddressesCountResponse:
       type: object
       required:
         - window
-        - period
         - data
       properties:
         window:
           $ref: './../../basic_schemas.yaml#/Window'
-        period:
-          $ref: './../../basic_schemas.yaml#/Period'
         data:
           type: array
           items:
@@ -544,13 +505,10 @@ InflationResponse:
       type: object
       required:
         - window
-        - period
         - data
       properties:
         window:
           $ref: './../../basic_schemas.yaml#/Window'
-        period:
-          $ref: './../../basic_schemas.yaml#/Period'
         data:
           type: array
           items:

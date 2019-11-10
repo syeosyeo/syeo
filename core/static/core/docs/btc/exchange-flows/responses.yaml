@@ -12,11 +12,11 @@ Reserve:
         result:
           window: "day"
           data:
-            - datetime: "2019-10-01T00:00:00"
+            - date: "191001"
               reserve:
               reserve_usd:
 
-            - datetime: "2019-10-02T00:00:00"
+            - date: "191002"
               reserve:
               reserve_usd:
 
@@ -33,11 +33,11 @@ TransactionsCountEF:
         result:
           window: "day"
           data:
-            - datetime: "2019-10-01T00:00:00"
+            - date: "191001"
               transactions_count_inflow:
               transactions_count_outflow:
 
-            - datetime: "2019-10-02T00:00:00"
+            - date: "191002"
               transactions_count_inflow:
               transactions_count_outflow:
 
@@ -54,12 +54,12 @@ Inflow:
         result:
           window: "day"
           data:
-            - datetime: "2019-10-01T00:00:00"
+            - date: "191001"
               inflow_total:
               inflow_mean:
               inflow_top10:
 
-            - datetime: "2019-10-02T00:00:00"
+            - date: "191002"
               inflow_total:
               inflow_mean:
               inflow_top10:
@@ -77,12 +77,12 @@ Outflow:
         result:
           window: "day"
           data:
-            - datetime: "2019-10-01T00:00:00"
+            - date: "191001"
               outflow_total:
               outflow_mean:
               outflow_top10:
 
-            - datetime: "2019-10-02T00:00:00"
+            - date: "191002"
               outflow_total:
               outflow_mean:
               outflow_top10:
@@ -101,10 +101,10 @@ AddressesCountEF:
         result:
           window: "day"
           data:
-            - datetime: "2019-10-01T00:00:00"
+            - date: "191001"
               addresses_count_inflow:
               addresses_count_outflow:
 
-            - datetime: "2019-10-02T00:00:00"
+            - date: "191002"
               addresses_count_inflow:
               addresses_count_outflow:
