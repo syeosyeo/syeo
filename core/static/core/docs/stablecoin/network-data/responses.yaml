@@ -13,6 +13,7 @@ Supply:
           window: "block"
           data:
             - blockheight: "500000"
+              datetime: "2019-01-01T00:00:00"
               supply_total:
               supply_minted:
               supply_burned:
@@ -20,6 +21,7 @@ Supply:
               supply_issued:
               supply_redeemed:
             - blockheight: "500001"
+              datetime: "2019-01-01T00:10:00"
               supply_total:
               supply_minted:
               supply_burned:

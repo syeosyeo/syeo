@@ -35,4 +35,4 @@ Blockheight:
 
 Datetime:
   type: string
-  description: The date and time formatted as YYYY-MM-DDTHH:MM:SS (UTC time).
+  description: The date and time formatted as YYYY-MM-DDTHH:MM:SS (UTC time). This field only appears when window=block is used.

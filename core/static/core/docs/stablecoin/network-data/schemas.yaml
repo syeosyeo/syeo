@@ -27,6 +27,8 @@ SupplyResponse:
               - supply_issued
               - supply_redeemed
             properties:
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
               blockheight:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
               date:
@@ -79,6 +81,8 @@ TransactionsCountResponse:
               - transactions_count_burn
               - transactions_count_redeem
             properties:
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
               blockheight:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
               date:
@@ -127,6 +131,8 @@ TokensTransferredResponse:
               - tokens_transferred_mean
               - tokens_transferred_median
             properties:
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
               blockheight:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
               date:
@@ -167,6 +173,8 @@ AddressesCountResponse:
               - addresses_count_sender
               - addresses_count_receiver
             properties:
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
               blockheight:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
               date:

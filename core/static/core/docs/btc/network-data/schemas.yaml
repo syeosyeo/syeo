@@ -21,10 +21,12 @@ BlockBytesResponse:
             required:
               - block_bytes
             properties:
-              date:
-                $ref: './../../basic_schemas.yaml#/Date'
               blockheight:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
+              date:
+                $ref: './../../basic_schemas.yaml#/Date'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
               block_bytes:
                 type: integer
                 description: The mean size(in bytes) of all blocks generated in a given period.
@@ -56,6 +58,8 @@ BlockCountResponse:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
               date:
                 $ref: './../../basic_schemas.yaml#/Date'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
               block_count:
                 type: integer
                 description: The number of blocks generated in a given window.
@@ -87,6 +91,8 @@ BlockIntervalResponse:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
               date:
                 $ref: './../../basic_schemas.yaml#/Date'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
               block_interval:
                 type: integer
                 description: The average time between all the blocks generated during a given window in seconds.
@@ -119,6 +125,8 @@ UTXOCountResponse:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
               date:
                 $ref: './../../basic_schemas.yaml#/Date'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
               utxo-count:
                 type: integer
                 description: Number of unspent transaction outputs.
@@ -155,6 +163,8 @@ FeesResponse:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
               date:
                 $ref: './../../basic_schemas.yaml#/Date'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
               fees_mean:
                 type: decimal
                 description: The average fee per block in that window.
@@ -193,6 +203,8 @@ FeesTransactionResponse:
           $ref: './../../basic_schemas.yaml#/Blockheight'
         date:
           $ref: './../../basic_schemas.yaml#/Date'
+        datetime:
+          $ref: './../../basic_schemas.yaml#/Datetime'
         fees_transaction_mean:
           type: decimal
           description: The average fee per transaction in a given window.
@@ -235,6 +247,8 @@ BlockRewardResponse:
               $ref: './../../basic_schemas.yaml#/Blockheight'
             date:
               $ref: './../../basic_schemas.yaml#/Date'
+            datetime:
+              $ref: './../../basic_schemas.yaml#/Datetime'
             blockreward:
               type: decimal
               description: The sum of block reward for all blocks in a given window.
@@ -270,6 +284,8 @@ DifficultyResponse:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
               date:
                 $ref: './../../basic_schemas.yaml#/Date'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
               difficulty:
                 type: decimal
                 description: The mean difficulty of meeting the conditions to create a new BTC block in a given period.
@@ -302,6 +318,8 @@ HashrateResponse:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
               date:
                 $ref: './../../basic_schemas.yaml#/Date'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
               block_count:
                 type: decimal
                 description: The mean number of hashes that miners calculates per second across all miners in the network. (GB)
@@ -335,6 +353,8 @@ SupplyResponse:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
               date:
                 $ref: './../../basic_schemas.yaml#/Date'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
               supply_total:
                 type: decimal
                 description: The total amount of BTC in existence.
@@ -371,6 +391,8 @@ TransactionsCountResponse:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
               date:
                 $ref: './../../basic_schemas.yaml#/Date'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
               transactions_count_total:
                 type: decimal
                 description: Total number of transactions whether they execute or not, and whether they result in the transfer of tokens or not.
@@ -407,6 +429,8 @@ TokensTransferredResponse:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
               date:
                 $ref: './../../basic_schemas.yaml#/Date'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
               tokens_transferred_total:
                 type: decimal
                 description: Total number of tokens transferred in that window.
@@ -445,6 +469,8 @@ VelocityResponse:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
               date:
                 $ref: './../../basic_schemas.yaml#/Date'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
               velocity_total_supply:
                 type: decimal
                 description: Estimated transaction volume in the trailing 1 year devided by current total supply.
@@ -480,6 +506,8 @@ AddressesCountResponse:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
               date:
                 $ref: './../../basic_schemas.yaml#/Date'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
               addresses_count_active:
                 type: decimal
                 description: The total number of unique addresses that were active (either sender or receiver) on the blockchain in a given window.
@@ -520,6 +548,8 @@ InflationResponse:
                 $ref: './../../basic_schemas.yaml#/Blockheight'
               date:
                 $ref: './../../basic_schemas.yaml#/Date'
+              datetime:
+                $ref: './../../basic_schemas.yaml#/Datetime'
               inflation_daily:
                 type: decimal
                 description: Daily inflation rate, which is calculated by dividing the newly issued token on that day by the total supply.

@@ -25,6 +25,8 @@
                 - price_usd_low
                 - price_usd_close
               properties:
+                date:
+                  $ref: './../../basic_schemas.yaml#/Date'
                 blockheight:
                   $ref: './../../basic_schemas.yaml#/Blockheight'
                 datetime:
@@ -65,6 +67,8 @@
               required:
                 - market_cap
               properties:
+                date:
+                  $ref: './../../basic_schemas.yaml#/Date'
                 blockheight:
                   $ref: './../../basic_schemas.yaml#/Blockheight'
                 datetime:

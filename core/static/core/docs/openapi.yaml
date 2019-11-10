@@ -32,8 +32,8 @@ tags:
       This endpoint returns the flows of BTC into exchange wallets for as far back as we track.
       ### Supported exchanges
 
-      | Name           |   Symbol   |   Status    |
-      |----------------|------------|-------------|
+      | Name           |   Symbol     |   Status    |
+      |----------------|--------------|-------------|
       | Binance        |   `binance`  | Validated   |
       | Bitfinex       |   `bitfinex` | Validated   |
       | Bitmex         |   `bitmex`   | Validated   |

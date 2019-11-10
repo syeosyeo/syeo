@@ -71,9 +71,11 @@ UTXOCount:
         result:
           window: "block"
           data:
-            - blockheight: 300000,
+            - blockheight: 300000
+              datetime: "2019-01-01T00:00:00"
               utxo_count: 2931
-            - blockheight: 300001,
+            - blockheight: 300001
+              datetime: "2019-01-01T00:10:00"
               utxo_count: 3142
 
 Fees:
@@ -129,12 +131,15 @@ BlockReward:
           window: "block"
           data:
             - blockheight: 555555
+              datetime: "2019-01-01T00:00:00"
               blockreward: 26.62
               blockreward_usd: 240771.37
             - blockheight: 555556
+              datetime: "2019-01-01T00:10:00"
               blockreward: 23.61
               blockreward_usd: 210351.12
             - blockheight: 555557
+              datetime: "2019-01-01T00:20:00"
               blockreward: 29.32
               blockreward_usd: 278263.04
 Difficulty:
@@ -171,8 +176,10 @@ Hashrate:
           window: "block"
           data:
             - blockheight: "300000"
+              datetime: "2019-01-01T00:10:00"
               hashrate: 8561054
             - blockheight: "300001"
+              datetime: "2019-01-01T00:20:00"
               hashrate: 9242532
 
 Supply:
@@ -189,9 +196,11 @@ Supply:
           window: "block"
           data:
             - blockheight: "500000"
+              datetime: "2019-01-01T00:00:00"
               supply_total: 15924414.7953033
               suppply_new: 12.5
             - blockheight: "500001"
+              datetime: "2019-01-01T00:10:00"
               supply_total: 15924414.7953033
               suppply_new: 12.5
 
@@ -280,6 +289,8 @@ Inflation:
           window: "block"
           data:
             - blockheight: "500000"
+              datetime: "2019-01-01T00:00:00"
               inflation_daily: 15924414.7953033
             - blockheight: "500001"
+              datetime: "2019-01-01T00:10:00"
               inflation_daily: 15924439.7953033
