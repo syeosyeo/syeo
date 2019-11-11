@@ -3,6 +3,8 @@ from django.conf.urls import include
 from django.views.generic import RedirectView
 from . import views
 from rest_framework.routers import DefaultRouter
+from django.views.decorators.csrf import ensure_csrf_cookie
+from django.contrib.auth import views as auth_views
 
 
 
@@ -22,4 +24,6 @@ urlpatterns = [
 	path('docs/', views.docs, name='docs/'),
 	path('sitemap.xml/',views.sitemap, name='sitemap.xml/'),
 	path('v1/', views.api, name='v1/'),
+	path('login/', ensure_csrf_cookie(views.signin), name='login'),
+	path('logout/', ensure_csrf_cookie(auth_views.LogoutView.as_view(template_name="core/logout.html")), name='logout')
 ]

@@ -115,6 +115,14 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+## Authentication Backend
+
+AUTHENTICATION_BACKENDS = [
+    'sto.custom_remote_user_backend.UserBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
