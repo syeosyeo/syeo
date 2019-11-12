@@ -9,7 +9,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import ArrowRightAlt from '@material-ui/icons/ArrowRightAlt'
 import {withStyles} from '@material-ui/core/styles';
-import ProjectTable from './ProjectTable';
 import Subscribe from './Subscribe';
 import IconButton from '@material-ui/core/IconButton';
 import Hidden from '@material-ui/core/Hidden';

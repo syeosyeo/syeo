@@ -8,9 +8,6 @@ import Footer from './Footer';
 import Header from './Header';
 import PrivacyPolicy from './PrivacyPolicy';
 import TermsOfService from './TermsOfService';
-import StoRadar from './StoRadar';
-import Research from './Research';
-import Tech from './Tech';
 import APIDocs from './APIdocs';
 
 var home = document.getElementById("home");
@@ -19,9 +16,6 @@ var footer = document.getElementById("footer");
 var header = document.getElementById("header");
 var privacy_policy = document.getElementById("privacy_policy");
 var terms_of_service = document.getElementById("terms_of_service");
-var stoRadar = document.getElementById("stoRadar");
-var research = document.getElementById("research");
-var tech = document.getElementById("tech");
 var docs = document.getElementById("docs");
 
 
@@ -114,30 +108,6 @@ if(terms_of_service) {
       <TermsOfService language={lang}/>
     </MuiThemeProvider>
   , terms_of_service);
-}
-
-if(stoRadar){
-  ReactDOM.render(
-    <MuiThemeProvider theme={STO_theme}>
-      <StoRadar language={lang}/>
-    </MuiThemeProvider>
-  , stoRadar);
-}
-
-if(research){
-  ReactDOM.render(
-    <MuiThemeProvider theme={STO_theme}>
-      <Research language={lang}/>
-    </MuiThemeProvider>
-  , research);
-}
-
-if(tech) {
-  ReactDOM.render(
-    <MuiThemeProvider theme={STO_theme}>
-      <Tech language={lang}/>
-    </MuiThemeProvider>
-  , tech);
 }
 
 if(docs) {
