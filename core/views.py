@@ -10,8 +10,10 @@ from .serializers import *
 from time import sleep
 from .forms import LoginForm
 from django.contrib.auth import authenticate, login, logout, get_user_model
+from django.contrib.auth.decorators import login_required
 import requests
 import json
+
 
 # Create your views here.
 def home(request):
@@ -81,3 +83,20 @@ def signin(request):
       return render(request, 'core/login.html', {'form': form})
     else:
       return HttpResponse('Already logined as %s.' % logined_user)
+
+
+@login_required
+def profile(request):
+  user = request.user
+  profile_url = "http://localhost:5000/api/user/" + str(user)
+  access_token = request.session.get('access_token', False)
+  headers = {'Authorization': 'Bearer ' + access_token}
+  res = requests.get(profile_url, headers=headers)
+
+  # Server error or access token is expired.
+  if res.status_code != 200:
+    return HttpResponse("Server Error. Please try again.")
+
+  data = res.json()
+
+  return render(request, 'core/profile.html', {'data': data})

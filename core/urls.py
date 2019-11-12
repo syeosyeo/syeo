@@ -19,6 +19,7 @@ urlpatterns = [
 	path('privacy_policy/', views.privacypolicy, name='privacypolicy/'),
 	path('docs/', views.docs, name='docs/'),
 	path('sitemap.xml/',views.sitemap, name='sitemap.xml/'),
-	path('login/', ensure_csrf_cookie(views.signin), name='login'),
-	path('logout/', ensure_csrf_cookie(auth_views.LogoutView.as_view(template_name="core/logout.html")), name='logout')
+	path('login/', ensure_csrf_cookie(views.signin), name='login/'),
+	path('logout/', ensure_csrf_cookie(auth_views.LogoutView.as_view(template_name="core/logout.html")), name='logout/'),
+	path('profile/', views.profile, name='profile/'),
 ]
