@@ -1,4 +1,4 @@
-django==2.1.5
+django==2.2.24
 django-webpack-loader==0.6.0
 djangorestframework==3.9.0
 markdown==3.0.1
